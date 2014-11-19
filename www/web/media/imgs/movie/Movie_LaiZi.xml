@@ -1,0 +1,30 @@
+<body>
+  <png>
+    <pngName>Movie_LaiZi_Bg</pngName>
+    <pngPosX>0</pngPosX>
+    <pngPosY>0</pngPosY>
+    <pngWidth>718</pngWidth>
+    <pngHeight>381</pngHeight>
+  </png>
+  <png>
+    <pngName>Movie_LaiZi_Star</pngName>
+    <pngPosX>718</pngPosX>
+    <pngPosY>0</pngPosY>
+    <pngWidth>398</pngWidth>
+    <pngHeight>489</pngHeight>
+  </png>
+  <png>
+    <pngName>Movie_LaiZi_Shadow0</pngName>
+    <pngPosX>1116</pngPosX>
+    <pngPosY>0</pngPosY>
+    <pngWidth>206</pngWidth>
+    <pngHeight>26</pngHeight>
+  </png>
+  <png>
+    <pngName>Movie_LaiZi_Shadow1</pngName>
+    <pngPosX>1322</pngPosX>
+    <pngPosY>0</pngPosY>
+    <pngWidth>101</pngWidth>
+    <pngHeight>41</pngHeight>
+  </png>
+</body>

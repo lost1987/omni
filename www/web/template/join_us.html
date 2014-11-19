@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block seo %}
+<title>武汉麻将-关于我们</title>
+<meta name="keywords" content="武汉麻将-关于我们" />
+<meta name="description" content="武汉麻将-关于我们" />
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ constant('STATIC_HOST') }}/css/foundation.css">
+<link rel="stylesheet" href="{{ constant('STATIC_HOST') }}/css/styles.css">
+<link rel="stylesheet" href="{{ constant('STATIC_HOST') }}/css/join.css">
+<link href="{{ constant('STATIC_HOST') }}/img/secondary_Style.css" rel="stylesheet" type="text/css" />
+<style>
+    a.join_temp_btn{width:77px; height:77px; padding:18px 0 0 0; display:inline-block; text-indent:-99999px}
+</style>
+<script>
+function show_page(name){
+    $('iframe').attr('src',"{{ constant('BASE_HOST') }}/aboutus/"+name);
+}
+</script>
+{% endblock %}
+
+
+{% block content%}
+<!--content-->
+<div id="m_content_2" style="padding-top:0">
+    <div id="how-1" class="how hero" style="height:290px; width:989px; margin:0 auto">
+        <div class="row" style="height:290px;background:url({{ constant('STATIC_HOST') }}/img/img/joinus.jpg) -30px 0 no-repeat;">
+            <div style="height:290px; position:relative">
+                <a href="javascript:;" target="join" class="join_temp_btn" onclick="show_page('infous')" style="position:absolute; left:100px; bottom:19px">关于我们</a>
+                <a href="javascript:;" target="join" class="join_temp_btn" onclick="show_page('infous_1')" style="position:absolute; right:138px; bottom:19px">招聘岗位</a>
+            </div>
+        </div>
+    </div>
+
+    <div style="display:block; visibility:visible; height:1250px; padding:0;" class="white how" id="how-gray-2">
+        <div style="height:1230px;" class="row">
+            <iframe width="100%" height="100%" frameborder="0" scrolling="no" src="{{ constant('BASE_HOST') }}/aboutus/infous" name="join"></iframe>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

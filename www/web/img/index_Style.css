@@ -1,0 +1,140 @@
+﻿.map { width:615px; height:535px; float:left; margin:10px 0 0 140px; _margin:10px 0 0 70px}
+.index_rt { width:282px; float:right; margin:30px 176px 0 0; _margin:20px 88px 0 0; position:relative;}
+.login_box,.login_box a { color:#ffc000}
+.login_box a { display:inline-block; margin-right:15px}
+.f12 { font-size:12px}
+.bold { font-weight:bold}
+.login_box .input_box { width:155px; height:27px; background:#390007; border:1px solid #b41908; color:#ffaf79; text-indent:2px}
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px #390007 inset; /* Change the color to your own background color */
+    -webkit-text-fill-color: #ff8025;
+}
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: /*your box-shadow*/,0 0 0 50px white inset;
+    -webkit-text-fill-color: #ff8025;
+} 
+
+.login_box .checkbox { float:left; margin:4px 10px 0 0; _margin:1px 3px 0 0}
+
+.login_btn { margin-right:18px}
+.login_btn,.register_btn { width:98px; height:35px; background:url(btn_1.png) -99px 0  no-repeat; text-indent:-9999px; border:0; cursor:pointer; float:left}
+.login_btn:hover { background:url(btn_1.png) 0 0 no-repeat}
+.login_btn:active { background:url(btn_1.png) -198px 0 no-repeat}
+.register_btn { background-position:-99px -45px}
+.register_btn:hover { background-position:0 -45px}
+.register_btn:active { background:url(btn_1.png) -198px -45px}
+.pd_lf_1 { padding-left:25px}
+.login_2 { text-align:center; padding:0 10px; font-size:12px; color:#ffc000}
+.login_2 img { vertical-align:-2px; margin-left:8px}
+.user_info_index a.ljcz { line-height:1.2; font-size:12px}
+a.ljcz { width:55px; height:19px; display:inline-block; background:url(ljcz.png) no-repeat; text-indent:-9999999px; vertical-align:2px; vertical-align:3px\0; _vertical-align:-1px; margin-left:10px}
+a.ljcz:hover { background:url(ljcz.png) 0 -20px no-repeat}
+a.ljcz:active { background:url(ljcz.png) 0 -40px no-repeat}
+
+.playgame,.download { width:225px; height:60px; border:0; background:url(btn_1.png) 0 -90px no-repeat; cursor:pointer; text-indent:-9999px; margin:8px 0 0 28px; _margin:6px 0 0 30px; display:block; clear:both}
+.playgame:hover { background:url(btn_1.png) 0 -151px no-repeat}
+.playgame:active { background:url(btn_1.png) 0 -352px no-repeat}
+.download { background-position:0 -221px}
+.download:hover { background-position:0 -282px}
+.download:active { background:url(btn_1.png) 0 -413px}
+
+.news_box { width:225px; height:170px; margin:10px auto; background:url(news_bg.png) 0 0 no-repeat; position:relative; font-size:12px}
+.news_box h3 { display:none}
+.news_box .more,.news_box table { position:absolute}
+.news_box .more { right:3px; top:7px; color:#ffc000}
+.news_box .more:hover { color:#fff}
+.news_box table { top:50px; left:15px}
+
+.user_info_index { width:206px; height:165px; margin:0 auto 15px; _margin:24px auto 15px; padding:10px 10px 0; color:#ffeda6; font-size:12px; background:url(user_info_bg.png) no-repeat; position:relative}
+.user_info_index h4,.user_info_index a { font-size:14px; color:#ffc000;}
+.user_info_index h4 { padding-bottom:10px}
+.user_info_index a { text-decoration:underline; line-height:2.2}
+.user_info_index a.fl_rt { float:right}
+.user_info_index a:hover { color:#fff}
+.user_info_index td { line-height:1.8}
+
+.message { position:absolute; right:5px; top:3px; width:36px; height:28px;  background:url(massage.png) left bottom no-repeat; display:block}
+.message.empty { position:absolute; right:10px; top:5px; width:36px; height:28px;  background:url(massage2.png) left bottom no-repeat; display:block}
+.message b { float:right; padding-right:6px; margin-top:-2px; _margin-top:-3px; font-weight:bold}
+.hot2 { width:18px; height:18px; background:url(hotbg.png) no-repeat; display:inline-block; position:absolute; right:378px; top:-6px; color:#fff; font-weight:bold; font-size:12px; line-height:18px; text-align:center; font-family:arial}
+
+.start_btn_box { width:226px; height:118px; margin:0 auto -7px; clear:both}
+.start_btn_box a { display:block}
+.start_btn_box a.y_btn,.start_btn_box a.y_btn2 { width:107px; height:73px; background:url(gang.png) no-repeat #d49519; text-indent:-99999px; float:left; margin-bottom:6px}
+.start_btn_box a.y_btn2 { background:url(gang.png) -108px 0 no-repeat; margin-left:12px}
+.start_btn_box a.y_btn:hover { background:url(gang.png) 0 -74px no-repeat #d49519}
+.start_btn_box a.y_btn:active { background:url(gang.png) 0 0 no-repeat #d49519}
+.start_btn_box a.y_btn2:hover { background:url(gang.png) -108px -74px no-repeat #d49519}
+.start_btn_box a.y_btn2:active { background:url(gang.png) -108px 0 no-repeat #d49519}
+.start_btn_box a.g_btn { width:225px; height:35px; margin-bottom:6px; background:url(btn_2.png) 0 -36px no-repeat #f4da12; color:#9b3402; text-decoration:none; color:#204000; clear:both; text-indent:-99999px;}
+.start_btn_box a.g_btn:hover { background:url(btn_2.png) 0 0 no-repeat #a3bb03}
+.start_btn_box a.g_btn:active { background:url(btn_2.png) -162px 0 no-repeat #a3bb03}
+
+/**弹出框样式**/
+.pop-up-box { width:100%; position:absolute; z-index:1; background:#000; height:880px; float:left; opacity:0.7; filter:alpha(opacity=70)}
+.tck { position:absolute; left:30%; top:150px; z-index:9; width:550px; background:#a40000}
+.tck_top { height:75px; background:url(tck3_top_bg.png) no-repeat; position:relative}
+.tck_top h3 { text-align:center; padding-top:20px; color:#795000; font-size:22px}
+.tck_top h3.congratulation { display:block; padding-top:19px; background:url(cj/zj_title.png) no-repeat; width:289px; height:60px; text-indent:-99999px; position:absolute; top:10px; left:129px}
+.tck_mid { background:#fff8ca; border-left:1px solid #a37300; border-right:1px solid #a37300; padding-top:20px}
+.tck_btm { background:#fff8ca; border:1px solid #a37300; border-top:0; height:20px}
+.tck_mid table { margin:0 auto}
+.tck_mid table td { padding:4px 0; color:#000}
+.tck_mid table td span { font-size:12px}
+.tck_mid p { color:#000; text-align:center; padding:8px 0; font-size:15px}
+.tck_mid p.jp { font-size:28px; color:#000; font-family:arial, "微软雅黑"; font-weight:bold; background:url(cj/zj_bg.png) 5px -10px no-repeat; height:80px; line-height:80px}
+.tck_mid p a { color:red; display:inline-block; padding:0 5px; text-decoration:underline}
+.tck_mid p a:hover { color:orange}
+.tck_top span.close { position:absolute; right:8px; top:8px; background:url(note_ico.png) 0 -34px no-repeat; width:25px; height:22px; display:block; cursor:pointer; text-indent:-999999px}
+.tck_top span.close:hover { background:url(note_ico.png) 0 -57px no-repeat; }
+.tck_top span.close:active { background:url(note_ico.png) -28px -57px no-repeat; }
+.modify_head_btn { text-align:center; padding-top:10px}
+.modify_head_btn input { margin:10px}
+.tck_mid .ipt { border:1px solid #ccc; padding:5px; font-family:arial, "微软雅黑"; width:155px}
+.tck_mid span { color:red}
+.modify_head_btn p.note2 { display:block; padding:5px 0 15px; text-align:center; color:#845f05; font-size:12px; font-family:arial,"宋体"}
+
+.cjbf_box { width:79px; height:21px; overflow:hidden; float:left}
+.cjbf_box .cjbf { width:41px; height:21px; line-height:21px; text-align:center; background:url(cjbf_btn.png) 0 -44px no-repeat #c92d20; border:0; padding:0; margin:0; float:left; color:#fff; font-weight:bold; font-family:Arial;}
+.cjbf_lf,.cjbf_rt,.cjbf_lf_gray,.cjbf_rt_gray { width:19px; height:21px; background:url(cjbf_btn.png) no-repeat; margin:0; padding:0; border:0; float:left; cursor:pointer; outline:none}
+.cjbf_lf { background-position:0 0}
+.cjbf_rt { background-position:-22px 0}
+.cjbf_lf:hover { background-position:0 -22px}
+.cjbf_lf:active {background:url(cjbf_btn.png) 0 -88px}
+.cjbf_rt:hover { background-position:-22px -22px}
+.cjbf_rt:active {background:url(cjbf_btn.png) -22px -88px}
+.cjbf_lf_gray { background-position:0 -66px}
+.cjbf_rt_gray { background-position:-22px -66px}
+.tck_mid .t { float:left; padding-left:10px; height:21px; line-height:21px; display:inline-block}
+
+.tck_mid table td span { display:inline-block; padding-right:6px}
+.tck_mid table td input { margin-right:3px}
+.tck_mid table td a.ljcz { color:#fff; font-weight:bold; display:inline-block; padding-left:15px; text-decoration:underline}
+.tck_mid table td a.ljcz:hover { text-decoration:none}
+.y_btn2,.y_btn3,.y_btn4 { color:#000; text-align:center; font-weight:bold; font-size:14px; border:0; width:91px; height:37px; line-height:34px; background:url(btn_5.png) 0 0 no-repeat; cursor:pointer}
+.y_btn2:hover { background:url(btn_5.png) 0 -38px no-repeat}
+.y_btn2:active { background:url(btn_5_2.png) 0 0 no-repeat}
+.y_btn3 { background:url(btn_5.png) 0 -76px no-repeat}
+.y_btn3:hover { background:url(btn_5.png) 0 -114px no-repeat}
+.y_btn3:active { background:url(btn_5_2.png) 0 -38px no-repeat}
+.y_btn4 { background:url(btn_5.png) 0 -190px no-repeat; color:#333}
+.y_font { color:#ffc000}
+
+#errorAlert { display:none}
+#errorAlert.errorAlert-show { width:157px; height:29px; line-height:29px;  text-align:center; color:#f57901; background:url(error_bg.png) no-repeat; position:absolute; left:90px; top:75px; font-size:12px; display:block}
+
+.create_error { color:#ff5a00}
+
+.notice { position:absolute; width:630px; overflow:hidden; height:28px; line-height:24px; left:150px; top:-2px; z-index:5}
+.notice_bg { position:absolute; height:28px; width:630px}
+.notice_bg .bg1,.notice_bg .bg2,.notice_bg .bg3 { opacity:0.3; filter:alpha(opacity=30); margin:0 auto}
+.notice_bg .bg1,.notice_bg .bg2 { height:1px; font-size:0; line-height:1px; width:626px}
+.notice_bg .bg2 { width:628px}
+.notice_bg .bg3 { height:24px}
+.notice_conent { position:absolute; padding:0 10px}
+
+.code_download { width:100px; height:260px; position:fixed; _position:absolute; top:158px; right:43px; z-index:90}
+.code_download h5 { height:19px; width:100px; margin-bottom:2px; display:block; text-indent:-99999px}
+.code_download h5.dl { background:url(code_download_title.png) no-repeat}
+.code_download h5.wx { background:url(code_weixin_title.png) no-repeat}
+.code_download img { width:100px; height:100px; margin-bottom:10px}

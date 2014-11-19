@@ -1,0 +1,223 @@
+{% extends 'base.html' %}
+
+{% block seo %}
+<title>武汉麻将-道具商城</title>
+<meta name="keywords" content="武汉麻将-道具商城" />
+<meta name="description" content="武汉麻将-道具商城" />
+{% endblock %}
+
+{% block head %}
+<script>
+    var token = "{{token}}";
+    var  is_login = {{is_login}},
+           is_set_purchase = {{is_set_purchase}},
+            coupon={{coupon}},
+            diamond = {{diamond}},
+            coins = {{coins}},
+            ticket = {{ticket}};
+</script>
+<link href="{{ constant('STATIC_HOST') }}/img/secondary_Style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/common/jquery.ext.js"></script>
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/common/md5.min.js"></script>
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/common/mydialog.js"></script>
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/store.js"></script>
+{% endblock %}
+
+
+{%block content%}
+<!--pop-up box-->
+<div class="pop-up-box" style="display:none; height:1220px"></div>
+<div id="error_tip" class="djsc_tck" style="display:none">
+    <div class="djsc_tck_top">
+        <h3>提示</h3>
+    </div>
+    <div class="djsc_tck_btm">
+        <div class="djsc_tck_btm_inside">
+            <p style="padding-top:15px; text-align:center" id="tip_content">对不起，您尚未<a href="/">登录</a>. 请进入登录页面</p>
+            <input id="" value="关闭" type="button" onclick="closeDialog('djsc_tck')" class="btn_2" style="float:none; margin:30px 0 20px 160px" />
+        </div>
+    </div>
+</div>
+
+<!--金币兑换-->
+<div id="dialog_1" class="djsc_tck" style="display:none">
+    <div class="djsc_tck_top">
+        <h3></h3>
+    </div>
+    <div class="djsc_tck_btm">
+        <div class="djsc_tck_btm_inside">
+            <table width="350" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="90" align="right" valign="top">消费密码：</td>
+                    <td width="260"><input name="" id="dialog_password" type="password" class="djsc_input_1" />
+                        <label id="dialog_1_tip" style="display:none">密码输入有误</label></td>
+                </tr>
+                <tr>
+                    <td height="70">&nbsp;</td>
+                    <td><input id="" value="确认兑换" type="button" class="btn_1" onclick="do_exchange()"/>
+                        <input id="" value="取消" type="button" class="btn_2" onclick="closeDialog('djsc_tck')"/></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!--金币兑换-->
+<div id="dialog_5" class="djsc_tck" style="display:none">
+    <div class="djsc_tck_top">
+        <h3></h3>
+    </div>
+    <div class="djsc_tck_btm">
+        <div class="djsc_tck_btm_inside">
+            <table width="350" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="90" align="right" valign="top">消费密码：</td>
+                    <td width="260"><input name="" id="dialog_5_password" type="password" class="djsc_input_1" />
+                        <label id="dialog_5_tip" style="display:none">密码输入有误</label></td>
+                </tr>
+                <tr>
+                    <td height="70">&nbsp;</td>
+                    <td><input id="" value="确认兑换" type="button" class="btn_1" onclick="do_exchange_ticket()"/>
+                        <input id="" value="取消" type="button" class="btn_2" onclick="closeDialog('djsc_tck')"/></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="success_1" class="djsc_tck" style="display:none">
+    <div class="djsc_tck_top">
+        <h3>您正在兑换 10000金币</h3>
+    </div>
+    <div class="djsc_tck_btm">
+        <div class="djsc_tck_btm_inside">
+            <p style="padding-top:15px; text-align:center">您已成功兑换 10000金币，请 <a href="#">进入游戏</a> 查看</p>
+            <input id="" value="关闭" type="button" onclick="closeDialog('djsc_tck')" class="btn_2" style="float:none; margin:30px 0 20px 160px" />
+        </div>
+    </div>
+</div>
+
+<!--手机充值卡兑换-->
+<div id="dialog_2" class="djsc_tck" style="display:none">
+    <div class="djsc_tck_top">
+        <h3>您正在兑换 50元手机话费</h3>
+    </div>
+    <div class="djsc_tck_btm">
+        <div class="djsc_tck_btm_inside">
+            <p>您正在兑换Iphone 5S，该操作将消耗<span class="red bold">4500奖券</span>为了保证能正确为您充值，请您仔细填写以下信息。</p>
+            <table width="350" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="88" align="right" valign="top">姓名：</td>
+                    <td width="262"><input name="" id="mobile_name" type="text" class="djsc_input_1" />
+                        <label style="display:none">请输入正确的充值号码</label></td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">需充值号码：</td>
+                    <td><input name="" id="mobile_number" type="text" class="djsc_input_1" />
+                        <label style="display:none">请输入正确的充值号码</label></td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">确认号码：</td>
+                    <td><input name="" id="confirm_number" type="text" class="djsc_input_1" />
+                        <label style="display:none">请输入正确的充值号码</label></td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">消费密码：</td>
+                    <td><input name="" type="password" id="mobile_pwd" class="djsc_input_1" />
+                        <label style="display:none" >密码输入有误</label></td>
+                </tr>
+                <tr>
+                    <td height="70">&nbsp;</td>
+                    <td><input id="" value="确认兑换" type="button" onclick="do_exchange_mobile()" class="btn_1" />
+                        <input id="" value="取消" type="button" onclick="closeDialog('djsc_tck')" class="btn_2" /></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--产品实物兑换-->
+<div id="dialog_3"  class="djsc_tck" style="display:none">
+    <div class="djsc_tck_top">
+        <h3>您正在兑换 Iphone 5S</h3>
+    </div>
+    <div class="djsc_tck_btm">
+        <div class="djsc_tck_btm_inside">
+            <p>您正在兑换Iphone 5S，该操作将消耗<span class="red bold">4500奖券</span>。为了保证您能尽快收到兑换的物品，请详细填写以下信息。</p>
+            <table width="350" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="77" align="right" valign="top">姓名：</td>
+                    <td width="258"><input name="" id="product_name" type="text" class="djsc_input_1" /><label>请输入正确的电话号码</label></td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">手机：</td>
+                    <td><input name="" type="text" id="product_mobile" class="djsc_input_1" />
+                        <label>请输入正确的电话号码</label></td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">确认手机：</td>
+                    <td><input name="" type="text" id="product_mobile_confirm" class="djsc_input_1" />
+                        <label>请输入正确的电话号码</label></td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">消费密码：</td>
+                    <td><input name="" type="password" id="product_password" class="djsc_input_1" />
+                        <label>密码输入有误</label></td>
+                </tr>
+                <tr>
+                    <td align="right" valign="top">地址：</td>
+                    <td><textarea cols="25" rows="5" class="djsc_input_2" id="product_address"></textarea><label>请输入正确的电话号码</label></td>
+                </tr>
+                <tr>
+                    <td height="70">&nbsp;</td>
+                    <td><input id="" value="确认兑换" type="button" class="btn_1"  onclick="do_exchange_product()"/>
+                        <input id="" value="取消" type="button" class="btn_2" onclick="closeDialog('djsc_tck')"/></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!--content-->
+<div id="m_content_2">
+    <h3 style="width:964px"><a href="/"><em></em></a><b class="tgxx">道具商城</b></h3>
+    <div class="djsc_box">
+        <div class="djsc_top"></div>
+        <div class="djsc_m_lf">
+            <ul>
+                {% for item in categories%}
+                <a href="/store/category/{{item.id}}"><li  class="{{item.class}}" rel="{{item.id}}">{{item.name}}</li></a>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="djsc_m_rt">
+            <div class="djsc_content">
+                <ul>
+                    {% if products|length == 0%}
+                         <img src="{{ constant('STATIC_HOST') }}/img/jqqd.jpg"  />
+                    {% else%}
+                        {% for item in products %}
+                             <li>
+                                 <img src="{{item.image}}" class="sp" /> <span>{{item.price_name}}</span> <a href="javascript:;" onclick="exchange({{item.id}},'{{item.name}}',{{item.category_id}},'{{item.price_type_name}}','{{item.price_name}}','{{item.price_type_column}}')">兑换</a>
+                                 {% if item.is_top %}
+                                 <b class="hot"></b>
+                                 {% endif %}
+                                 {% if item.is_promote%}
+                                 <b class="new"></b>
+                                 {% endif %}
+                             </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                <div style="clear:both"></div>
+            </div>
+            <div class="pagination">
+                <ul>
+                  <!--  <li class="active"><a>1</a></li>
+                    <li><a href="?page=2">2</a></li>
+                    <li><a class="next" href="?page=2">下一页</a></li>-->
+                    {{pagination|raw}}
+                </ul>
+            </div>
+        </div>
+        <div class="djsc_btm"></div>
+    </div>
+</div>
+{% endblock %}

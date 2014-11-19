@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block seo %}
+<title>武汉麻将-用户注册</title>
+<meta name="keywords" content="武汉麻将-用户注册" />
+<meta name="description" content="武汉麻将-用户注册" />
+{% endblock %}
+
+{% block head %}
+<script>
+var token = '{{csrf_token}}';
+</script>
+<link href="{{ constant('STATIC_HOST') }}/img/secondary_Style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/common/jquery.ext.js" ></script>
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/common/md5.min.js" ></script>
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/signup.js" ></script>
+{% endblock %}
+
+
+{% block content %}
+<div id="m_content_2">
+    <h3><a href="/"><em></em></a><b class="zhzc">帐号注册</b></h3>
+    <form action="/user/register" method="post" id="register_form">
+    <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
+    <table width="790" border="0" cellspacing="10" cellpadding="0" class="table">
+        <tr>
+            <td width="220" align="right">* 用户名：</td>
+            <td width="570">
+                <input type="text" name="login_name" id="login_name" class="input" />
+                <label class="exsit">账号包含敏感词或已存在，请直接<a href="/" style="font-weight:bold;float:none">登录</a>或更换</label>
+                <label class="tip">用于游戏登陆时使用，请务必牢记（4-16位字母、下划线或数字）</label>
+                <label class="error">请输入4-16位的英文字母、英文符号、数字</label>
+                <label class="valid" style="display:none">可以注册</label>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">* 昵称：</td>
+            <td><input type="text" name="nickname" id="nickname" class="input" />
+                <a href="javascript:;" id="rdname" class="brown_btn">随机</a>
+                <label class="exsit">昵称包含敏感词或已存在，请更换</label>
+                <label class="tip">用于游戏中显示， 好友找到你时也需要哦</label>
+                <label class="error">请输入3-8位的英文字母、下划线、数字、中文</label>
+                <label class="valid" style="display:none">有效</label></td>
+        </tr>
+        <tr>
+            <td align="right">* 密码：</td>
+            <td>
+                <input type="password" name="password" id="password" class="input" />
+                <label class="tip">上点心吧， 你的身家就靠这个了（6-16位字母、符号或数字）</label>
+                <label class="error">请输入6-16位的英文字母、英文符号、数字</label>
+                <label class="valid" style="display:none">有效</label></td>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">* 确认密码：</td>
+            <td>
+                <input type="password" name="re_password" id="re_password" class="input" />
+                <label class="tip">请重复输入密码</label>
+                <label class="error">确认密码错误</label>
+                <label class="valid" style="display:none">有效</label></td>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">* 邮箱：</td>
+            <td style="position:relative">
+                <input type="text" name="email" id="email" class="input" />
+                <label class="tip">用于找回密码</label>
+                <label class="error">请输入正确的邮件格式</label>
+                <label class="valid" style="display:none">有效</label>
+                <label class="exsit">邮箱地址已被注册</label>
+                <table id="autoShow" style="display: none;">
+                    <tbody>
+                    <tr style="background-image: none; background-repeat: repeat; background-attachment: scroll; background-position: 0% 0%; background-clip: border-box; background-origin: padding-box; background-size: auto auto;">
+                        <td rel="0">www@qq.com</td>
+                    </tr>
+                    <tr style="">
+                        <td rel="1">www@163.com</td>
+                    </tr>
+                    <tr style="">
+                        <td rel="2">www@sina.com</td>
+                    </tr>
+                    <tr style="">
+                        <td rel="3">ww@126.com</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">手机号：</td>
+            <td><input type="text" name="mobile" id="mobile" class="input" /></td>
+        </tr>
+        <tr>
+            <td align="right">性别：</td>
+            <td>
+                <select name="gender" id="gender" class="select">
+                    <option value="0">男</option>
+                    <option value="1">女</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">我在：</td>
+            <td>
+                <select name="area" id="area" class="select">
+                    {% for item in areas %}
+                        <option value="{{loop.index0}}">{{item}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="checkbox" name="checkbox" id="checkbox" style="float:left; margin-top:4px; _margin-top:0" checked="checked"/><em><a href="/user/agreement" target="_blank">我已阅读《用户服务协议》</a></em></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" id="" class="submit_2" value="立即注册"  onclick="doSubmit()"/></td>
+        </tr>
+    </table>
+    </form>
+</div>
+{% endblock %}

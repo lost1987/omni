@@ -1,0 +1,34 @@
+.bg1 { width:596px; float:left; margin:25px 0 0 170px; _margin-left:85px}
+.lf_bg { float:left; width:15px; height:500px;}
+.rt_bg { float:right; width:15px; height:500px;}
+.cj { background:#4c0a04; color:#c88901; font-size:12px; float:left; width:566px; overflow:hidden}
+.jp_list div { text-indent:-999999px; height:122px}
+.jp_1,.jp_3,.jp_4,.jp_5,.jp_7,.jp_8 { width:154px}
+.jp_2,.jp_6,.btn_cj { width:242px}
+.jp_1 { background:url(cj/500coin.png) no-repeat}
+.jp_2 { background:url(cj/ipadmini.png) no-repeat}
+.jp_3 { background:url(cj/20yuan.png) no-repeat}
+.jp_4 { background:url(cj/100diamond.png) no-repeat}
+.jp_5 { background:url(cj/2000coin.png) no-repeat}
+.jp_6 { background:url(cj/rice.png) no-repeat}
+.jp_7 { background:url(cj/10yuan.png) no-repeat}
+.jp_8 { background:url(cj/10diamond.png) no-repeat}
+.jp_list .on { background-position:0 -123px}
+.sycs { position:absolute; top:75px; left:100px; font-size:14px; color:#fff; font-family:arial,"微软雅黑"}
+.btn_cj,.lock { background:url(cj/button.png) no-repeat; display:block; height:122px; text-indent:-999999px}
+a.btn_cj:hover { background:url(cj/button.png) 0 -123px no-repeat}
+a.btn_cj:active { background:url(cj/button.png) 0 -246px no-repeat}
+a.lock { background:url(cj/button.png) 0 -369px no-repeat; cursor:default}
+a.lock:hover { background:url(cj/button.png) 0 -369px no-repeat}
+a.lock:active { background:url(cj/button.png) 0 -369px no-repeat}
+.btmbox { margin:0 4px; border-top:1px dashed #884038; height:121px}
+.btmbox div { height:113px; margin-top:4px}
+.lf { float:left; width:194px; background:url(cj/btmlfbg.png) no-repeat}
+.lf p { margin:20px; line-height:1.8; font-size:14px}
+.lf p a { padding:0 6px; display:inline-block; color:#ffc000; text-decoration:underline}
+.lf p a:hover,.lf p a:visited { color:#ffc000}
+.lf p a:hover { color:yellow}
+.lf p a:active { color:#ffc000}
+.rt { width:361px; background:url(cj/btmrtbg.png) no-repeat; float:right}
+.rt ul { margin:14px 20px 14px 38px; _margin-right:10px; width:300px; height:90px; overflow:hidden}
+.rt ul li { height:22px}

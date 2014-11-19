@@ -1,0 +1,82 @@
+{% extends 'base.html'%}
+
+
+{% block title%}
+php运行环境
+{% endblock %}
+
+{% block css%}
+<link rel="stylesheet" type="text/css" href="/media/css/select2_metro.css"/>
+<link rel="stylesheet" href="/media/css/DT_bootstrap.css"/>
+{% endblock %}
+
+{% block content%}
+<!-- BEGIN PAGE HEADER-->
+
+
+<div class="row-fluid">
+    <div class="span12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            php运行环境
+            <small></small>
+        </h3>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+
+<!-- END PAGE HEADER-->
+
+
+<!-- BEGIN PAGE CONTENT-->
+
+<div class="row-fluid">
+    <div class="span12">
+        <!-- BEGIN SAMPLE TABLE PORTLET-->
+        <div class="portlet">
+            <div class="portlet-title">
+                <div class="caption"></div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                </div>
+            </div>
+
+
+            <div class="portlet-body">
+                {{ attribute(obj,'twig_info')}}
+            </div>
+        </div>
+        <!-- END SAMPLE TABLE PORTLET-->
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
+</div>
+<!-- END PAGE CONTAINER-->
+</div>
+{% endblock %}
+
+
+{% block javascript_plugins %}
+{% endblock %}
+
+{% block javascript_custom%}
+<script>
+    var cssText ='table {border-collapse: collapse;}';
+    cssText +='.center {text-align: center;}';
+    cssText +='.center table { margin-left: auto; margin-right: auto; text-align: left;}';
+    cssText +='.center th { text-align: center !important; }';
+    cssText +='td, th { border: 1px solid #000000; font-size: 75%; vertical-align: baseline;}';
+    cssText +='h1 {font-size: 150%;}';
+    cssText +='h2 {font-size: 125%;}';
+    cssText +='.p {text-align: left;}';
+    cssText += '.e {background-color: #ccccff; font-weight: bold; color: #000000;}';
+    cssText +='.h {background-color: #9999cc; font-weight: bold; color: #000000;}';
+    cssText +='.v {background-color: #cccccc; color: #000000;}';
+    cssText +='.vr {background-color: #cccccc; text-align: right; color: #000000;}';
+    cssText +='img {float: right; border: 0px;}';
+    cssText +='hr {width: 600px; background-color: #cccccc; border: 0px; height: 1px; color: #000000;}';
+
+    $("style").html(cssText);
+</script>
+{%endblock%}

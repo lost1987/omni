@@ -1,0 +1,1 @@
+$(function(){var a=$(".fsb_m_rt").children();a.hide();a.eq(0).show();$(".fsb_m_lf").find("li").each(function(b){$(this).click(function(){$(".fsb_m_lf").find("li").removeClass("on");a.hide();$(this).addClass("on");$("#show_"+$(this).attr("ref")).show()})})});

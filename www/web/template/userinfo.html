@@ -1,0 +1,399 @@
+{% extends 'base.html' %}
+
+{% block seo %}
+<title>武汉麻将-个人中心</title>
+<meta name="keywords" content="武汉麻将-个人中心" />
+<meta name="description" content="武汉麻将-个人中心" />
+{% endblock %}
+
+{% block head %}
+<script>
+    var token = "{{csrf_token}}",
+          is_set_purchase = {{is_set_purchase}};
+
+</script>
+<link href="{{ constant('STATIC_HOST') }}/img/secondary_Style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/common/jquery.ext.js" ></script>
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/common/md5.min.js" ></script>
+<link type="text/css" rel="stylesheet" href="{{ constant('STATIC_HOST') }}/img/index_Style.css">
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/common/mydialog.js" ></script>
+<script type="text/javascript" src="{{ constant('STATIC_HOST') }}/js/userinfo.js" ></script>
+{% endblock %}
+
+
+{% block content %}
+<div class="pop-up-box" style="display:none; height:1150px;" ></div>
+<!--content-->
+<div id="m_content_2">
+    <h3><a href="/"><em></em></a><b class="zhxx">基本信息</b></h3>
+    <div class="zhxx_box">
+        <div class="zhxx_lf">
+            <img src="{{user.avatar_path}}" class="user_pic" />
+          <!--  <img src="{{ constant('STATIC_HOST') }}/img/vip.png" class="vip" /> -->
+            <a href="javascript:_showDialog('avatar_dialog')" class="edit_pic">修改头像</a>
+        </div>
+        <div class="zhxx_mid">
+            <table width="400" border="0" cellspacing="9" cellpadding="0">
+                <tr>
+                    <td width="81" align="right" class="bold">用户名：</td>
+                    <td width="289">{{user.login_name}}</td>
+                </tr>
+                <tr>
+                    <td width="81" align="right" class="bold">昵称：</td>
+                    <td width="289">{{user.nickname}}</td>
+                </tr>
+                <tr>
+                    <td align="right" class="bold">注册邮箱：</td>
+                    {% if user.email == '' %}
+                    <td><span id="show_email">（空）</span><a href="javascript:_showDialog('email_dialog')" class="edit_note">设置</a></td>
+                    {% else %}
+                    <td><span id="show_email">{{user.email}}</span><a href="javascript:_showDialog('email_dialog')" class="edit_note">修改</a></td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td align="right" class="bold">性别：</td>
+                    <td><span>{{user.gender}}</span></td>
+                </tr>
+                <tr>
+                    <td align="right" class="bold">所在地：</td>
+                    <td><span id="show_area">{{user.area_name}}</span><a href="javascript:_showDialog('area_dialog')" class="edit_note">修改</a></td>
+                </tr>
+                <tr>
+                    <td align="right" class="bold">手机号：</td>
+                    <td id="show_mobile">
+                        {% if user.mobile != 0 %}
+                            <span style="display:inline-block">{{user.mobile}}</span><a href="javascript:_showDialog('mobile_dialog')" class="edit_note">修改手机号</a>
+                        {% else %}
+                            <span>未设置<a href="javascript:_showDialog('mobile_dialog')" class="edit_note">绑定手机号</a><i>绑定后立即获得500金币</i></span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td align="right" class="bold">密码：</td>
+                    <td><span>********</span><a href="javascript:_showDialog('password_dialog')" class="edit_note">修改</a></td>
+                </tr>
+                <tr>
+                    <td align="right" class="bold">消费密码：</td>
+                    <td>
+                        {% if is_set_purchase == 1 %}
+                            <span id="show_purcharse"> ******* </span><!--第一次设置新密码-->
+                             <a href="javascript:_showDialog('purchase_dialog')" class="edit_note">修改</a>
+                        {% else %}
+                            <span id="show_purcharse">（空）</span>
+                            <a href="javascript:_showDialog('purchase_dialog')" class="edit_note">设置</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="zhxx_rt">
+            <div class="pa_box">
+                {% for item in user_messages%}
+                    <p>{{item.content}}</p>
+                {% endfor %}
+                <p><a href="/user/messages" class="a">查看更多>></a></p>
+            </div>
+        </div>
+    </div>
+    <h3 class="zhxx_title_rebg"><b class="wdmjrs_on" onclick="tab('wdmjrs',this)">我的麻将人生</b><b class="wddd" onclick="tab('wddd',this)">我的订单</b></h3>
+    <div class="wdmjrs_box">
+        <table width="790" border="0" cellspacing="0" cellpadding="0" class="wdmjrs_table" >
+            <tr>
+                <td width="222" class="lf">排名</td>
+                <td width="568" class="rt">{{myrank}}</td>
+            </tr>
+            <tr>
+                <td class="lf">金币</td>
+                <td class="rt" id="mygold">{{coins}}</td>
+            </tr>
+            <tr>
+                <td class="lf">胜率</td>
+                <td class="rt">{{ratio}}</td>
+            </tr>
+            <tr>
+                <td class="lf">金钻</td>
+                <td class="rt">{{diamond}}</td>
+            </tr>
+            <tr>
+                <td class="lf">胡牌次数</td>
+                <td class="rt">{{wins}}</td>
+            </tr>
+            <tr>
+                <td class="lf">金顶次数</td>
+                <td class="rt">{{jinding}}</td>
+            </tr>
+            <tr>
+                <td class="lf">清一色</td>
+                <td class="rt">{{qingyise}}</td>
+            </tr>
+            <tr>
+                <td class="lf">风一色</td>
+                <td class="rt">{{fengyise}}</td>
+            </tr>
+            <tr>
+                <td class="lf">碰碰胡</td>
+                <td class="rt">{{pengpenghu}}</td>
+            </tr>
+        </table>
+        <table cellpadding="0" cellspacing="0" border="0" width="790" style="display:none" class="wddd_table">
+            <tr class="table_head_bg">
+                <td width="135">订单号</td>
+                <td width="297">商品信息</td>
+                <td width="145">时间</td>
+                <td width="120">订单状态</td>
+                <td width="93">操作</td>
+            </tr>
+              {% for item in orderlist %}
+                    {% if loop.index%2 == 0%}
+                        <tr class="table_light_bg">
+                    {% else %}
+                        <tr class="table_dark_bg">
+                    {% endif %}
+                            <td>{{item.id}}</td>
+                            <td>{{item.name}}</td>
+                            <td>{{item.create_at}}</td>
+                            <td>{{item.status}}</td>
+                        <td><a href="javascript:showDetail( {{item.id}} )">详情</a></td>
+                    </tr>
+              {% endfor %}
+        </table>
+    </div>
+</div>
+
+<!-- popup start --->
+<!--订单详情-->
+<div class="note" style="display:none" id="order_dialog">
+        <div class="note_top">
+            <span class="note_ico_3"></span><span>订单详情</span><span class="close" onclick="closeDialog('note')"></span>
+        </div>
+        <div class="note_content" >
+            <table border="0" align="center" cellpadding="0" cellspacing="0" class="dingdan_content">
+                <tbody>
+                <tr>
+                    <td width="78" height="24" align="right">订单编号：</td>
+                    <td width="111" id="detail_order_id"></td>
+                    <td width="76" align="right">订单时间：</td>
+                    <td width="95" id="detail_create"></td>
+                </tr>
+                <tr>
+                    <td align="right" class="bg_2">商品名称：</td>
+                    <td class="bg_2" id="detail_product_name"></td>
+                    <td align="right" class="bg_2">订单状态：</td>
+                    <td class="bg_2" id="detail_status"></td>
+                </tr>
+                <tr>
+                    <td align="right" id="detail_cost_name"></td>
+                    <td id="detail_cost"></td>
+                    <td align="right"></td>
+                    <td></td>
+                </tr>
+                <!--   <tr>
+                       <td align="right" class="bg_2"><strong>收货信息</strong>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                       <td colspan="3" class="bg_2"></td>
+                   </tr>
+                   <tr>
+                       <td align="right">姓名：</td>
+                       <td>张三</td>
+                       <td align="right">电话：</td>
+                       <td>18621209864</td>
+                   </tr>
+                   <tr>
+                       <td align="right" class="bg_2">地址：</td>
+                       <td colspan="3" class="bg_2">武汉市徐东二路创意园1栋526</td>
+                   </tr>-->
+                <tr>
+                    <td colspan="4" align="center" style="padding:10px 0"><input type="button" value="关闭" class="p_btn_2" onclick="closeDialog('note')"/></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note_btm"></div>
+</div>
+<!--订单 end-->
+
+<!--change password-->
+<form class="note" id="password_dialog" style="display:none" >
+        <div class="note_top">
+            <span class="note_ico_3"></span><span>修改密码</span><span class="close" onclick="closeDialog('note')"></span>
+        </div>
+        <div class="note_content">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" class="edit_pin">
+                <tbody>
+                <tr>
+                    <td width="93" height="50" align="right" valign="top" class="title">旧密码：</td>
+                    <td width="232" valign="top">
+                        <input type="password" class="pin_box" name="old_pass">
+                        <label></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="50" align="right" valign="top" class="title">新密码：</td>
+                    <td valign="top">
+                        <input type="password" class="pin_box" name="new_pass">
+                        <label></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="50" align="right" valign="top" class="title">确认密码：</td>
+                    <td valign="top">
+                        <input type="password" class="pin_box" name="new_pass1">
+                        <label></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" onclick="changePassword()" value="确定" class="p_btn_1" style="margin-left:72px" /> <input type="button" onclick="closeDialog('note')" value="取消" class="p_btn_2" /></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note_btm"></div>
+</form>
+
+<!--change email-->
+<form class="note" id="email_dialog" style="display:none" >
+        <div class="note_top">
+            <span class="note_ico_3"></span><span>修改邮箱</span><span class="close" onclick="closeDialog('note')"></span>
+        </div>
+        <div class="note_content">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" class="edit_pin">
+                <tbody>
+                <tr>
+                    <td height="50" align="right" valign="top" class="title">新邮箱：</td>
+                    <td valign="top">
+                        <input type="text" class="pin_box" name="email" >
+                        <label></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" value="确定" onclick="changeEmail()" class="p_btn_1" style="margin-left:72px" /> <input type="button" onclick="closeDialog('note')" value="取消" class="p_btn_2" /></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note_btm"></div>
+</form>
+
+<!--area dialog-->
+<form class="note" id="area_dialog" style="display:none" >
+        <div class="note_top">
+            <span class="note_ico_3"></span><span>修改地区</span><span class="close" onclick="closeDialog('note')"></span>
+        </div>
+        <div class="note_content">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" class="edit_pin">
+                <tbody>
+                <tr>
+                    <td height="50" align="right" valign="top" class="title">我在：</td>
+                    <td valign="top">
+                        <select name="area" id='area_chg'>
+                            {% for item in areas %}
+                            {% if loop.index0 == user.area %}
+                            <option value="{{loop.index0}}" selected="selected">{{item}}</option>
+                            {% else %}
+                            <option value="{{loop.index0}}" >{{item}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" value="确定" onclick="changeArea()" class="p_btn_1" style="margin-left:72px" /> <input type="button" onclick="closeDialog('note')" value="取消" class="p_btn_2" /></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note_btm"></div>
+</form>
+
+
+<!--mobile dialog-->
+<form class="note" id="mobile_dialog" style="display:none" >
+        <div class="note_top">
+            <span class="note_ico_3"></span><span>修改手机号</span><span class="close" onclick="closeDialog('note')"></span>
+        </div>
+        <div class="note_content">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" class="edit_pin">
+                <tbody>
+                <tr>
+                    <td height="50" align="right" valign="top" class="title">新手机号：</td>
+                    <td valign="top">
+                        <input type="text" class="pin_box" name="mobile">
+                        <label></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" value="确定" onclick="changeMobile()" class="p_btn_1" style="margin-left:72px" /> <input type="button" onclick="closeDialog('note')" value="取消" class="p_btn_2" /></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note_btm"></div>
+</form>
+
+<form class="note" id="purchase_dialog" style="display:none" >
+        <div class="note_top">
+            <span class="note_ico_3"></span><span>修改消费密码:</span><span class="close" onclick="closeDialog('note')"></span>
+        </div>
+        <div class="note_content">
+            <table border="0" align="center" cellpadding="0" cellspacing="0" class="edit_pin">
+                <tbody>
+                {% if is_set_purchase == 1 %}
+                <tr rel="old_purchase_tr">
+                    {% else %}
+                <tr rel="old_purchase_tr"  style="display: none">
+                    {% endif %}
+                    <td height="50" align="right" valign="top" class="title">旧消费密码：</td>
+                    <td valign="top">
+                        <input type="password" class="pin_box" name="p_old">
+                        <label></label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td height="50" align="right" valign="top" class="title">新消费密码：</td>
+                    <td valign="top">
+                        <input type="password" class="pin_box" name="p_new">
+                        <label></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="50" align="right" valign="top" class="title">确认消费密码：</td>
+                    <td valign="top">
+                        <input type="password" class="pin_box" name="p_new1">
+                        <label></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="button" value="确定" onclick="changePurcharse()" class="p_btn_1" style="margin-left:72px" /> <input type="button" onclick="closeDialog('note')" value="取消" class="p_btn_2" /></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="note_btm"></div>
+</form>
+
+
+<div class="tck note" style="display:none" id="avatar_dialog" >
+        <div class="tck_top"><h3 class="xztx">选择头像</h3><span class="close" onclick="closeDialog('note')"></span>
+        </div>
+        <div style="height:252px; padding:0 30px 0 32px" class="tck_mid">
+            <div class="modify_head">
+                <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        {% for i in 0..2 %}
+                        {% if i == user.avatar %}
+                        <td><img id="{{i}}" src="{{constant('STATIC_HOST')}}/img/tx/{{avatar_name}}{{i+1}}.jpg" class="candidate on"/></td>
+                        {% else %}
+                        <td><img id="{{i}}" src="{{constant('STATIC_HOST')}}/img/tx/{{avatar_name}}{{i+1}}.jpg" class="candidate"/></td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                </table>
+            </div>
+            <div class="modify_head_btn"><input type="button" class="y_btn2" onclick="changeAvatar()" value="确认" id=""><input type="button" class="y_btn3" onclick="closeDialog('note')" value="取消" id=""></div>
+        </div>
+        <div class="tck_btm"></div>
+</div>
+{% endblock %}
+
+

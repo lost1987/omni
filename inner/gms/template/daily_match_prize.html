@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+
+{% block title%}
+{{action_name}}积分赛-奖励设置
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/media/css/select2_metro.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/chosen.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/addtional.css" />
+{% endblock %}
+
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            游戏管理
+            <small>
+                {{action_name}}积分赛-奖励设置
+                <a href="javascript:;" class="popovers red" data-trigger="hover" data-content="点我添加一个排名" data-original-title="说明" onclick="match_form.create_form()"><i class="icon-plus" ></i></a>
+            </small>
+        </h3>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<form id="prize_form" action="{{action}}" method="post">
+<input type="hidden" name="match_prize_info" id="match_prize_info" />
+<input type="hidden" name="match_id" value="{{match_id}}" />
+<div class="form-actions">
+    <button type="button" class="btn red" onclick="save()">保存</button>
+    <button type="reset" class="btn">重置</button>
+</div>
+</form>
+{% endblock %}
+
+{% block javascript_plugins%}
+<script type="text/javascript" src="/media/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/media/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="/media/js/select2.min.js"></script>
+<script type="text/javascript" src="/media/js/chosen.jquery.min.js"></script>
+{% endblock  %}
+
+{% block javascript_custom %}
+<script src="/media/js/private/daily_match_prize.js"></script>
+<script>
+   $(function(){
+       var options = {
+           'prize_types' : {{prize_types|raw}},
+           'forms' : {{list|default('{}')|raw}}
+       };
+        match_form.init(options);
+   })
+</script>
+{% endblock %}
+

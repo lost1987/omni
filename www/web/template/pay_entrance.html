@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block seo %}
+<title>武汉麻将-游戏充值</title>
+<meta name="keywords" content="武汉麻将-游戏充值" />
+<meta name="description" content="武汉麻将-游戏充值" />
+{% endblock %}
+{% block head %}
+<link href="{{constant('STATIC_HOST')}}/img/common_Style.css" rel="stylesheet" type="text/css" />
+<link href="{{constant('STATIC_HOST')}}/img/secondary_Style.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<!--content-->
+<div id="m_content_2">
+    <h3><a href="/"><em></em></a><b class="tgxx">充值</b><i>充值流程： 1-选择充值方式  -->  2-根据要求填写信息  -->  3-充值成功，进入</i></h3>
+    <div class="cz_box">
+        <ul>
+            <li>
+                <img src="{{constant('STATIC_HOST')}}/img/yinlian.png" class="yinlian" /><p>如果您开通了网上银行支付业务，使用银行卡支付，快捷方便。</p><a href="/payment/prepare/0">立即充值</a>
+            </li>
+            <li>
+                <img src="{{constant('STATIC_HOST')}}/img/zhifubao.png" class="zhifubao" /><p>您可以使用您的支付宝账户余额或网上银行进行支付，快捷方便。</p><a href="/payment/prepare/1">立即充值</a>
+            </li>
+            <li style="margin:0">
+                <img src="{{constant('STATIC_HOST')}}/img/shoujizhifu.png" class="shoujizhifu" /><p>支持移动、联通、电信充值卡充值。大众话的充值方式，快捷方便。</p><a href="/payment/prepare/2">立即充值</a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

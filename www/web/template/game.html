@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+	<meta name="description" content="" />
+	<title>武汉麻将</title>
+    <script src="{{constant('STATIC_HOST')}}/js/common/jquery.min.js?{{ version }}"></script>
+    <script src="{{constant('STATIC_HOST')}}/js/common/swfobject.js?{{ version }}"></script>
+	<!--<script src="{{ STATIC_URL }}js/check_browser_close.js"></script>-->
+    <style type="text/css" media="screen">
+                        body { margin:0; text-align:center; background-color:black;}
+                        div#altContent { text-align:left; }
+                        object#altContent { display:block; margin:0 auto;}
+    </style>
+	<style>
+		#gamepage_foot { minwidth:1024px; height:60px; padding-top:15px; border-top:5px solid #000000; background:#000000}
+		#gamepage_foot p { margin:0; padding-bottom:5px}
+		#gamepage_foot p,#gamepage_foot p a { text-align:center; color:#999; font-size:13px; text-decoration:none; font-family:"微软雅黑","宋体","arial"}
+		#gamepage_foot p a,#gamepage_foot p span { display:inline-block;color:#ccc; padding:0 15px}
+		#gamepage_foot p a:hover { text-decoration:underline; color:#fff}
+		#gamepage_foot p span { padding-left:10px}
+		#gamepage_foot p a.addqq { vertical-align:-3px; padding:0 5px 0 15px; outline:none}
+		.rt_ad { position:absolute; top:12px; right:12px; width:230px; height:638px; }
+	</style>
+	<script>
+       // force = false;
+       // $( window ).on('beforeunload', function(e) {
+       //     if (!!force){
+       //         return;
+       //     }
+       //     return '豪礼送不停！加入武汉麻将，每天赢取豪华大奖\n\n天赛——每天报名，时时开赛，赢取充值卡\n\n周赛——每周一次，激动人心，赢取豪华礼包\n\n月赛——众星闪耀，全城瞩目，争夺武汉牌王';
+       // });
+		var flashvars = {
+            //loginstyle:  loginstyle|default:'0' ,
+            //gamestyle:  gamestyle|default:'0' ,
+            //roomid:  roomid|default:'0' ,
+            //roompassword: ' roompassword '
+		};
+		var params = {
+			menu: "false",
+			allowFullscreen: "true",
+			allowScriptAccess: "always",
+			bgcolor: '#000000',
+            wmode: 'direct'
+		};
+		var attributes = {
+			id:"game",
+            align:"middle"
+		};
+		swfobject.embedSWF(
+        "/media/bin/Portal.swf?version={{ version }}",
+			"altContent", "1280", "650", "10.0.0", 
+			"expressInstall.swf", 
+			flashvars, params, attributes);
+        function resize() {
+            if (window.innerHeight > 650) {
+                $('#wrapper').css('padding-top', (window.innerHeight - 650)/2)
+                }
+            }
+        change = function() {
+            swfobject.embedSWF(
+            "/media/bin/Portal.swf?version={{ version }}",
+                "altContent", "1280", "650", "10.0.0", 
+                "expressInstall.swf", 
+                flashvars, params, attributes);
+            }
+	</script>
+    <script>
+        window.location.hash="no-back-button";
+        window.location.hash="Again-no-back-button";//for google chrome
+        window.onhashchange=function(){window.location.hash="no-back-button";}
+    </script> 
+<style>@-moz-keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}@-webkit-keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}@-o-keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}@keyframes nodeInserted{from{opacity:0.99;}to{opacity:1;}}embed,object{animation-duration:.001s;-ms-animation-duration:.001s;-moz-animation-duration:.001s;-webkit-animation-duration:.001s;-o-animation-duration:.001s;animation-name:nodeInserted;-ms-animation-name:nodeInserted;-moz-animation-name:nodeInserted;-webkit-animation-name:nodeInserted;-o-animation-name:nodeInserted;}</style>
+</head>
+<body onload="resize();" onresize="resize();">
+    <div id="wrapper">
+	<div id="altContent">
+		<h1>武汉麻将</h1>
+		<p><a href="http://www.adobe.com/go/getflashplayer">Get Adobe Flash player</a></p>
+	</div>
+	</div>
+    <!--<div class="rt_ad"><img src="/static/img/mj_ad.jpg" /></div>-->
+    <div id="gamepage_foot">
+        <p><span>武汉麻将班子群：129166897</span><a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=cccb0ff5e146f7ad2f26d700d1b1fa3a24bc82bdb115c6833bcb47bba52de14f" class="addqq"><img src="{{constant('STATIC_HOST')}}/img/addqq.png" border="0" alt="武汉麻将班子" title="武汉麻将班子" /></a>|<a href="/payment/entrance/" target="_blank">充值</a>|<a href="/introduce/" target="_blank">游戏规则</a>|<a href="#">比赛规则</a>|<a href="/user_info/" target="_blank">帐户信息</a>|<a href="http://weibo.com/u/5076807387" target="_blank">微博</a></p>
+        <p>版权所有 武汉新蜂乐众网络技术有限公司<img align="absmiddle" style="vertical-align: -1px; margin-left: 5px" src="{{constant('STATIC_HOST')}}/img/logo_small.png"><a target="_blank" href="http://www.miitbeian.gov.cn/">ICP：鄂ICP备14001438号</a><img width="30" style="vertical-align: -7px; margin-right:-5px" src="{{constant('STATIC_HOST')}}/img/gameRFID.png"><a target="_blank" href="http://182.131.21.137/ccnt-apply/admin/business/preview/business-preview!lookUrlRFID.action?main_id=36415BBF7D7B4CBB9D6DEE27E3152CA5">鄂网文【2014】1195-014</a></p>
+    </div>
+</body>
+</html>
