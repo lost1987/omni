@@ -33,7 +33,7 @@ class Module extends AdminController{
         AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_MODULE_LIST);
 
         $page = empty($this->args[1]) ? 1 : $this->args[1];
-        $count = 12;
+        $count = 10;
         $start = ($page-1) * $count;
 
         //获取查询条件

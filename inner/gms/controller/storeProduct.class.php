@@ -22,6 +22,11 @@ use utils\Page;
 use utils\Tools;
 use utils\Upload;
 
+/**
+ * 商品管理
+ * Class StoreProduct
+ * @package gms\controller
+ */
 class StoreProduct extends AdminController {
 
     function product_info(){
@@ -35,7 +40,7 @@ class StoreProduct extends AdminController {
     function lists(){
         AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_STORE_PRODUCTS_LIST);
         $page = empty($this->args[1]) ? 1 : $this->args[1];
-        $count = 12;
+        $count = 7;
         $start = ($page-1) * $count;
 
         //获取查询条件

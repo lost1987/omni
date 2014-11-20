@@ -181,4 +181,23 @@ class ModuleDictionary {
      * 比赛相关审核
      */
     const MODULE_GAME_MATCH_VERIFY = 36;
+
+
+    /**
+     * 最新活动
+     */
+    const ROOT_MODULE_ACTIVITY = 37;
+
+
+    /**
+     * 最新活动 列表
+     */
+    const MODULE_ACTIVITY_LIST = 38;
+
+
+    /**
+     * 最新活动 添加/编辑
+     */
+    const MODULE_ACTIVITY_ADD = 39;
+
 } 

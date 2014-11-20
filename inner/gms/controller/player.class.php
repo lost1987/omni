@@ -36,7 +36,7 @@ class Player extends AdminController{
         AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_GAME_PLAYERS);
 
         $page = empty($this->args[1]) ? 1 : $this->args[1];
-        $count = 12;
+        $count = 10;
         $start = ($page-1) * $count;
 
         //获取查询条件

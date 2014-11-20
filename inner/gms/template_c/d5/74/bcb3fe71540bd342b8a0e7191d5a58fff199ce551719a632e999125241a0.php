@@ -78,7 +78,7 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
 <div class=\"row-fluid\">
 <div class=\"span12\">
     <!--表格查询区-->
-    <form class=\"form-actions\" action=\"/storeProduct/lists/19\" method=\"get\" id=\"search_form\">
+    <form class=\"form-actions\" action=\"/storeProduct/lists/28\" method=\"get\" id=\"search_form\">
         <div class=\"control-group search_form_wrap span4\">
             <label class=\"control-label span2\"><b class=\"midnight\">商品名称</b>&nbsp;&nbsp;</label>
             <div class=\"controls chzn-controls search_form\">

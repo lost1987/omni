@@ -31,6 +31,11 @@ use gms\model\TipOff_M;
 use utils\Page;
 use utils\Tools;
 
+/**
+ * 客服管理
+ * Class Services
+ * @package gms\controller
+ */
 class Services extends AdminController{
 
     /**
@@ -40,7 +45,7 @@ class Services extends AdminController{
         AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_SERVICES_FEEDBACK);
 
         $page = empty($this->args[1]) ? 1 : $this->args[1];
-        $count = 12;
+        $count = 7;
         $start = ($page-1) * $count;
 
         //获取查询条件
@@ -95,7 +100,7 @@ class Services extends AdminController{
         AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_SERVICES_TIPOFF);
 
         $page = empty($this->args[1]) ? 1 : $this->args[1];
-        $count = 12;
+        $count = 7;
         $start = ($page-1) * $count;
 
         //获取查询条件
@@ -149,7 +154,7 @@ class Services extends AdminController{
         AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_SERVICES_SUSPEND);
 
         $page = empty($this->args[1]) ? 1 : $this->args[1];
-        $count = 12;
+        $count = 7;
         $start = ($page-1) * $count;
 
         //获取查询条件
@@ -203,7 +208,7 @@ class Services extends AdminController{
         AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_SERVICES_EXCHANGE);
 
         $page = empty($this->args[1]) ? 1 : $this->args[1];
-        $count = 12;
+        $count = 7;
         $start = ($page-1) * $count;
 
         //获取查询条件
@@ -284,7 +289,7 @@ class Services extends AdminController{
         AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_SERVICES_LOTTERY);
 
         $page = empty($this->args[1]) ? 1 : $this->args[1];
-        $count = 12;
+        $count = 7;
         $start = ($page-1) * $count;
 
         //获取查询条件

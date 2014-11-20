@@ -26,6 +26,11 @@ use gms\model\MatchPrize_M;
 use gms\model\Verify_M;
 use utils\Tools;
 
+/**
+ * 淘汰赛
+ * Class KnockoutMatch
+ * @package gms\controller
+ */
 class KnockoutMatch extends AdminController{
 
     function lists(){
