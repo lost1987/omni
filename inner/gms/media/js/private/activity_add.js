@@ -2,8 +2,6 @@
  * Created by shameless on 14/10/31.
  */
 var FormValidation = function () {
-
-
     return {
         //main function to initiate the module
         init: function () {
@@ -12,7 +10,7 @@ var FormValidation = function () {
             var error2 = $('.alert-error', form2);
             var success2 = $('.alert-success', form2);
 
-            form2.validate({
+             form2.validate({
                 errorElement: 'span', //default input error message container
                 errorClass: 'help-inline', // default input error message class
                 focusInvalid: false, // do not focus the last invalid input
@@ -22,24 +20,16 @@ var FormValidation = function () {
                         minlength: 2,
                         required: true
                     },
-                    product_type:{
-                        required:true
-                    },
-                    category_id: {
+                    in_game_show: {
                         required: true
                     },
-                    price: {
-                        required: true,
-                        number:true
+                    web_image: {
+                       required:true
                     },
-                    price_type: {
-                        required: true
+                    game_image: {
+                       required: true
                     },
-                    tool: {
-                        required: true,
-                        number:true
-                    },
-                    tool_type: {
+                    content: {
                         required: true
                     }
                 },
@@ -49,25 +39,17 @@ var FormValidation = function () {
                         minlength:"至少输入2个字",
                         required: "这是必填项"
                     },
-                    product_type:{
+                    in_game_show: {
                         required: "这是必填项"
                     },
-                    category_id: {
+                    content: {
                         required: "这是必填项"
                     },
-                    price: {
-                        required: "这是必填项",
-                        number:'只能输入数字'
+                    web_image: {
+                        required:"请上传图片"
                     },
-                    price_type: {
-                        required: "这是必填项"
-                    },
-                    tool: {
-                        required: "这是必填项",
-                        number:"只能输入数字"
-                    },
-                    tool_type: {
-                        required: "这是必填项"
+                    game_image: {
+                        required: "请上传图片"
                     }
                 },
 
@@ -116,14 +98,6 @@ var FormValidation = function () {
                 submitHandler: function (form) {
                     success2.show();
                     error2.hide();
-                    var image = $("#image").val();
-                    if(action_name == '添加'){
-                        if(image == ''){
-                            success2.hide();
-                            error2.show();
-                            return;
-                        }
-                    }
                     form.submit();
                 }
 
@@ -150,7 +124,7 @@ var FormValidation = function () {
 var handleDatetimePicker = function () {
 
     $(".form_datetime").datetimepicker({
-        format: "yyyy-mm-dd hh:ii:ss",
+        format: "yyyy-mm-dd hh:ii",
         pickerPosition: (App.isRTL() ? "bottom-right" : "bottom-left"),
         language:'zh-CN',
         autoclose: true,
@@ -159,7 +133,7 @@ var handleDatetimePicker = function () {
     });
 
     $(".form_advance_datetime").datetimepicker({
-        format: "yyyy-mm-dd hh:ii:ss",
+        format: "yyyy-mm-dd hh:ii",
         autoclose: true,
         todayBtn: true,
         startDate: "2013-02-14 10:00",
@@ -168,7 +142,7 @@ var handleDatetimePicker = function () {
     });
 
     $(".form_meridian_datetime").datetimepicker({
-        format: "yyyy-mm-dd hh:ii:ss",
+        format: "yyyy-mm-dd hh:ii",
         showMeridian: true,
         autoclose: true,
         pickerPosition: (App.isRTL() ? "bottom-right" : "bottom-left"),

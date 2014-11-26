@@ -74,7 +74,7 @@ class __TwigTemplate_e00b1cf7c88951c7700b0fa67cb92679ada49f231629303c80fa0445060
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["activity"]) ? $context["activity"] : null), "web_image_url", array()), "html", null, true);
         echo "\" class=\"zxhd_pic\" style=\"display:\" />
     </div>
-    <div class=\"hdgz\">
+    <div class=\"hdgz\" style=\"height:auto\">
         ";
         // line 22
         echo $this->getAttribute((isset($context["activity"]) ? $context["activity"] : null), "content", array());

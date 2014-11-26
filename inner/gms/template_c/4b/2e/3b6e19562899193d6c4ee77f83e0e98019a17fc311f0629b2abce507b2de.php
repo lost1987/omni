@@ -233,7 +233,7 @@ class __TwigTemplate_4b2e3b6e19562899193d6c4ee77f83e0e98019a17fc311f0629b2abce50
                 // line 120
                 echo "                        <a href=\"/module/add/7/edit/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
-                echo "\" class=\"btn mini black\" ><i class=\"icon-edit\"></i> 编辑</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 编辑</a>
                         ";
             }
             // line 122

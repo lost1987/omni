@@ -85,9 +85,9 @@ class VerifyUtil {
 
     /**
      * 增加一条审核数据
-     * @param $abstract_id  抽象ID
-     * @param $json_content 数据类容 json|array
-     * @param $verify_type  审核类型
+     * @param int $abstract_id  抽象ID
+     * @param json|array $json_content 数据类容
+     * @param int $verify_type  审核类型
      */
     function add_verify($abstract_id,$json_content,$verify_type){
         if(is_array($json_content))

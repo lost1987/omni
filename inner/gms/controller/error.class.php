@@ -10,6 +10,8 @@ namespace gms\controller;
 
 
 use core\AdminController;
+use core\ReflectClass;
+use core\ReflectProperty;
 
 /**
  * 错误页面处理
@@ -21,7 +23,22 @@ class Error extends AdminController{
     function code(){
         $this->init_navigator();
         $this->output_data['error_code'] = $this->args[0];
+        $this->output_data['error_name'] = \gms\libs\Error::transfer($this->args[0]);
         $this->render('error.html');
+    }
+
+    function showErrorCodes(){
+         $e = new \gms\libs\Error();
+         $reflect  =  new ReflectClass($e);
+         $codes = $reflect->getConstants();
+         $errors = array();
+         foreach($codes as $k => $code){
+                $temp = array();
+                $temp['code']= $code;
+                $temp['name'] = \gms\libs\Error::transfer($code);
+                $errors[] = $temp;
+         }
+         $this->response($errors);
     }
 
 } 

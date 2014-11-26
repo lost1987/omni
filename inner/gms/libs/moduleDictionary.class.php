@@ -158,8 +158,8 @@ class ModuleDictionary {
     const MODULE_STORE_PRODUCTS_DEL = 31;
 
     /**
- * 积分赛列表
- */
+    * 积分赛列表
+    */
     const MODULE_GAME_DAILY_MATCH_LIST = 32;
 
     /**
@@ -199,5 +199,31 @@ class ModuleDictionary {
      * 最新活动 添加/编辑
      */
     const MODULE_ACTIVITY_ADD = 39;
+
+
+    /**
+     * 最新活动 删除
+     */
+    const MODULE_ACTIVITY_DEL = 40;
+
+    /**
+     * 比赛历史
+     */
+    const MODULE_GAME_MATCH_HISTORY_LIST = 41;
+
+    /**
+     * 商品栏目列表
+     */
+    const MODULE_STORE_CATEGORY_LIST = 42;
+
+    /**
+     * 商品栏目添加
+     */
+    const MODULE_STORE_CATEGORY_ADD = 43;
+
+    /**
+     * 商品栏目删除
+     */
+    const MODULE_STORE_CATEGORY_DEL = 44;
 
 } 

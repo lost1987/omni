@@ -34,6 +34,14 @@ class KnockoutMatch_M extends AdminModel{
     }
 
     function update($fields,$match_id){
+        $this->initRedis();
+        $knockout_keys = $this->_redis->getKeys('knockout*');
+        if(false != $knockout_keys){
+            foreach($knockout_keys as $key){
+                $this->_redis->del($key);
+            }
+        }
+        $this->_redis->close();
         return $this->_game_server->update($fields,'knockout_match'," WHERE match_id = $match_id");
     }
 } 

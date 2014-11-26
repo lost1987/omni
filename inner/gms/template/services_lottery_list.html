@@ -127,8 +127,8 @@
                     </thead>
                     <tbody>
                     {% for item in list%}
-                    <tr rel="{{item.id}}" rel_c="{{item.product_id}}">
-                        <td><input type="checkbox" class="checkboxes" value="{{item.handler_id}}#{{item.user_id}}" /></td>
+                    <tr rel="{{item.id}}" rel_c="{{item.product_id}}#{{item.id}}">
+                        <td><input type="checkbox" class="checkboxes" value="{{item.id}}#{{item.user_id}}" /></td>
                         <td class="hidden-phone">
                             <a href="javascript:;">{{item.reporter_name}}</a>
                         </td>
@@ -150,17 +150,17 @@
                         <td style="text-align: center">
                             {% if item.product_type == 0 %}
                             {% if btn_fahuo_permission == 1 and item.result != 4 and item.result != 2%}
-                                <a href="javascript:;" onclick="consignment(this)" class="btn mini yellow" ><i class="icon-edit"></i> 发货</a>
+                                <a href="javascript:;" onclick="consignment(this)" class="btn mini grey" ><i class="icon-edit"></i> 发货</a>
                                 <input type="hidden" name="params"  value="{{item.address}}#{{item.user_id}}#{{item.reporter_name}}#{{item.id}}#{{item.product_id}}"/>
                             {% elseif btn_handle_permission == 1 and item.result != 2 and item.result == 4 %}
-                             <a href="javascript:;" onclick="handle(this)" class="btn mini black" ><i class="icon-edit"></i> 处理</a>
+                             <a href="javascript:;" onclick="handle(this)" class="btn mini grey" ><i class="icon-edit"></i> 处理</a>
                             <input type="hidden" name="params"  value="{{item.id}}#{{item.product_id}}"/>
                             {% else %}
                             /
                             {% endif %}
                             {% elseif item.product_type == 1%}
                             {% if btn_fahuo_permission == 1 and item.result != 2%}
-                                <a href="javascript:;" onclick="mobilement(this)" class="btn mini yellow" ><i class="icon-edit"></i> 充值</a>
+                                <a href="javascript:;" onclick="mobilement(this)" class="btn mini grey" ><i class="icon-edit"></i> 充值</a>
                                 <input type="hidden" name="params"  value="{{item.mobile}}#{{item.user_id}}#{{item.reporter_name}}#{{item.id}}#{{item.product_id}}"/>
                             {%else%}
                             /

@@ -19,8 +19,8 @@ switch(PROJECT_MODE){
 //        define('BASE_HOST','http://test.gms.com');
 //        define('WWW_HOST','http://test.newbee.com');
          /****sndu服务器配置****/
-//        define('BASE_HOST','http://gms.sndu.com');
-//        define('WWW_HOST','http://www2.sndu.com');
+//        define('BASE_HOST','http://gms.sndu.cn');
+//        define('WWW_HOST','http://www2.sndu.cn');
         define('XHPROF_ENABLE',0);
         error_reporting(E_ERROR | E_WARNING | E_PARSE );
         ini_set('display_errors','on');

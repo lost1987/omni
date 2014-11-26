@@ -71,14 +71,12 @@ class __TwigTemplate_7c81b8faeb2972c2cdc6f44ac1d5b83e54e665b8fa2ff265f9f97961e58
 
                 <div class=\" details\">
 
-                    <h3>请记住错误代码,联系管理员.</h3>
+                    <h3>";
+        // line 39
+        echo twig_escape_filter($this->env, (isset($context["error_name"]) ? $context["error_name"] : null), "html", null, true);
+        echo "</h3>
 
                     <p>
-
-                        We are fixing it!<br />
-
-                        Please come back in a while.<br /><br />
-
                     </p>
 
                 </div>
@@ -102,6 +100,6 @@ class __TwigTemplate_7c81b8faeb2972c2cdc6f44ac1d5b83e54e665b8fa2ff265f9f97961e58
 
     public function getDebugInfo()
     {
-        return array (  67 => 33,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
+        return array (  76 => 39,  67 => 33,  40 => 8,  37 => 7,  32 => 4,  29 => 3,);
     }
 }

@@ -34,10 +34,11 @@ class AdminController extends Base{
     function csrf_token_validation($update_after_validation = true,$_token = null){
         $config = Configure::instance();
         $cookie = Cookie::instance();
+        $csrf_token_name = $config->gms['csrf']['token_name'];
         if(!empty($_token))
             $token = $_token;
         else
-            $token = $this->input->get_post($config->gms['csrf']['token_name']);
+            $token = $this->input->get_post($csrf_token_name);
 
         $csrf_cookie = $cookie->get_csrf_cookie();
 
@@ -51,7 +52,7 @@ class AdminController extends Base{
         if($update_after_validation)
             $cookie->csrf_update_cookie();
 
-        unset($_POST['csrf_token']);
+        unset($_POST[$csrf_token_name]);
     }
 
     /**
@@ -164,7 +165,7 @@ class AdminController extends Base{
 
     /**
      * 将错误代码显示 并跳入错误页面
-     * @param $error_code  Error::XXXX
+     * @param int $error_code  Error::XXXX
      */
     protected  function set_error($error_code){
           Redirect::instance()->forward('/error/code/'.$error_code);

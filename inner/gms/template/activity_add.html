@@ -43,7 +43,7 @@
 
 <div class="portlet-body form">
 <!-- BEGIN FORM-->
-<form action="{{action}}" id="form_sample_2" class="form-inline" method="post">
+<form action="{{action}}" id="form_sample_2" class="form-horizontal" method="post" enctype="multipart/form-data">
 <input type="hidden" name="csrf_token" value="{{token}}" />
 <div class="alert alert-error hide">
     <button class="close" data-dismiss="alert"></button>
@@ -59,13 +59,13 @@
 <div class="control-group">
     <label class="control-label"><b class="midnight">名称</b><span class="required">*</span></label>
     <div class="controls">
-        <input type="text" name="name" data-required="1" class="span3 m-wrap" value="{{item.nickname}}"/>
+        <input type="text" name="name" data-required="1" class="span3 m-wrap" value="{{item.name}}"/>
     </div>
 </div>
 
 
 <div class="control-group">
-    <label class="control-label"><b class="midnight">过期时间</b><span class="required">*</span></label>
+    <label class="control-label"><b class="midnight">过期时间</b><span class="required"></span></label>
     <div class="controls">
         <div class="input-append date form_datetime">
             <input size="16" type="text" value="{{item.expire_time}}" name="expire_time" readonly class="m-wrap">
@@ -97,13 +97,13 @@
             <div class="controls">
                 <div class="fileupload fileupload-new" data-provides="fileupload">
                     <div class="fileupload-new thumbnail" style="width: 200px;">
-                        <img src="{{item.image}}" />
+                        <img src="http://{{item.web_image_url}}" rel="web_image-upload" />
                     </div>
                     <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px;  line-height: 20px;"></div>
                     <div>
                                                 <span class="btn btn-file"><span class="fileupload-new">浏览</span>
                                                 <span class="fileupload-exists">重选</span>
-                                                <input type="file" class="default" name="web_image" id="web_image" accept="image/gif,image/jpeg,image/png" />
+                                                <input type="file" class="default" name="web_image" id="web_image" accept="image/gif,image/jpeg,image/png"  />
                                                 </span>
                         <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
                     </div>
@@ -123,7 +123,7 @@
             <div class="controls">
                 <div class="fileupload fileupload-new" data-provides="fileupload">
                     <div class="fileupload-new thumbnail" style="width: 200px;">
-                        <img src="{{item.image}}" />
+                        <img src="http://{{item.in_game_image_url}}" rel="game_image-upload" />
                     </div>
                     <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px;  line-height: 20px;"></div>
                     <div>
@@ -141,7 +141,7 @@
 <div class="control-group">
     <label class="control-label"><b class="midnight">内容</b><span class="required">*</span></label>
     <div class="controls">
-        <textarea class="ckeditor" name="content"></textarea>
+        <textarea class="ckeditor" name="content">{{item.content}}</textarea>
     </div>
 </div>
 
@@ -179,7 +179,14 @@
        FormValidation.init();
         if(success == 1)
             $('.alert-success').show();
+
+       {% if action_name == '编辑'%}
+           //编辑时 删除图片验证规则
+           $("#web_image").rules('remove');
+           $("#game_image").rules('remove');
+       {% endif %}
    })
+
 </script>
 {% endblock %}
 

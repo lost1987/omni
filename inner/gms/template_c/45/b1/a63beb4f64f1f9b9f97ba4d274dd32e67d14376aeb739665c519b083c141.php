@@ -231,10 +231,12 @@ class __TwigTemplate_45b1a63beb4f64f1f9b9f97ba4d274dd32e67d14376aeb739665c519b08
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
             echo "\" rel_c=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "product_id", array()), "html", null, true);
+            echo "#";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
             echo "\">
                         <td><input type=\"checkbox\" class=\"checkboxes\" value=\"";
             // line 131
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "handler_id", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
             echo "#";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "user_id", array()), "html", null, true);
             echo "\" /></td>
@@ -282,7 +284,7 @@ class __TwigTemplate_45b1a63beb4f64f1f9b9f97ba4d274dd32e67d14376aeb739665c519b08
                 echo "                            ";
                 if (((((isset($context["btn_fahuo_permission"]) ? $context["btn_fahuo_permission"] : null) == 1) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result", array()) != 4)) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result", array()) != 2))) {
                     // line 153
-                    echo "                                <a href=\"javascript:;\" onclick=\"consignment(this)\" class=\"btn mini yellow\" ><i class=\"icon-edit\"></i> 发货</a>
+                    echo "                                <a href=\"javascript:;\" onclick=\"consignment(this)\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 发货</a>
                                 <input type=\"hidden\" name=\"params\"  value=\"";
                     // line 154
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "address", array()), "html", null, true);
@@ -298,7 +300,7 @@ class __TwigTemplate_45b1a63beb4f64f1f9b9f97ba4d274dd32e67d14376aeb739665c519b08
                             ";
                 } elseif (((((isset($context["btn_handle_permission"]) ? $context["btn_handle_permission"] : null) == 1) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result", array()) != 2)) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result", array()) == 4))) {
                     // line 156
-                    echo "                             <a href=\"javascript:;\" onclick=\"handle(this)\" class=\"btn mini black\" ><i class=\"icon-edit\"></i> 处理</a>
+                    echo "                             <a href=\"javascript:;\" onclick=\"handle(this)\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 处理</a>
                             <input type=\"hidden\" name=\"params\"  value=\"";
                     // line 157
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
@@ -318,7 +320,7 @@ class __TwigTemplate_45b1a63beb4f64f1f9b9f97ba4d274dd32e67d14376aeb739665c519b08
                 echo "                            ";
                 if ((((isset($context["btn_fahuo_permission"]) ? $context["btn_fahuo_permission"] : null) == 1) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result", array()) != 2))) {
                     // line 163
-                    echo "                                <a href=\"javascript:;\" onclick=\"mobilement(this)\" class=\"btn mini yellow\" ><i class=\"icon-edit\"></i> 充值</a>
+                    echo "                                <a href=\"javascript:;\" onclick=\"mobilement(this)\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 充值</a>
                                 <input type=\"hidden\" name=\"params\"  value=\"";
                     // line 164
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "mobile", array()), "html", null, true);
@@ -575,6 +577,6 @@ class __TwigTemplate_45b1a63beb4f64f1f9b9f97ba4d274dd32e67d14376aeb739665c519b08
 
     public function getDebugInfo()
     {
-        return array (  558 => 363,  555 => 362,  544 => 353,  541 => 352,  386 => 199,  365 => 181,  357 => 175,  348 => 171,  344 => 169,  341 => 168,  337 => 166,  324 => 164,  321 => 163,  318 => 162,  315 => 161,  311 => 159,  304 => 157,  301 => 156,  288 => 154,  285 => 153,  282 => 152,  280 => 151,  274 => 148,  268 => 145,  262 => 142,  256 => 139,  250 => 136,  244 => 133,  237 => 131,  230 => 130,  226 => 129,  191 => 96,  185 => 95,  177 => 93,  169 => 91,  166 => 90,  162 => 89,  149 => 79,  137 => 70,  128 => 63,  122 => 62,  114 => 60,  106 => 58,  103 => 57,  99 => 56,  88 => 48,  55 => 17,  52 => 16,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
+        return array (  560 => 363,  557 => 362,  546 => 353,  543 => 352,  388 => 199,  367 => 181,  359 => 175,  350 => 171,  346 => 169,  343 => 168,  339 => 166,  326 => 164,  323 => 163,  320 => 162,  317 => 161,  313 => 159,  306 => 157,  303 => 156,  290 => 154,  287 => 153,  284 => 152,  282 => 151,  276 => 148,  270 => 145,  264 => 142,  258 => 139,  252 => 136,  246 => 133,  239 => 131,  230 => 130,  226 => 129,  191 => 96,  185 => 95,  177 => 93,  169 => 91,  166 => 90,  162 => 89,  149 => 79,  137 => 70,  128 => 63,  122 => 62,  114 => 60,  106 => 58,  103 => 57,  99 => 56,  88 => 48,  55 => 17,  52 => 16,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
     }
 }

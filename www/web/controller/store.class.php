@@ -13,10 +13,8 @@ use core\Controller;
 use core\Cookie;
 use core\Encoder;
 use utils\Page;
-use utils\Tools;
 use web\libs\Error;
 use web\libs\exchange\FactoryExchange;
-use web\libs\exchange\IExchange;
 use web\libs\Helper;
 use web\libs\UserUtil;
 use web\model\ProfileModel;
@@ -154,7 +152,6 @@ class Store extends Controller{
                 $class = 'CardExchange';
         else if($category_id == 3)//实物兑换
                 $class = 'RealExchange';
-
 
         FactoryExchange::invoke($class)->doExchange($product, $user, $response);
     }

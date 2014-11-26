@@ -56,10 +56,7 @@ class __TwigTemplate_218357c0e21747baa454511ac662e8fbc57c7631e0c9692d34dbd8e9b0a
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class=\"page-title\">
             用户管理
-            <small>";
-        // line 20
-        echo twig_escape_filter($this->env, (isset($context["action_name"]) ? $context["action_name"] : null), "html", null, true);
-        echo "用户</small>
+            <small></small>
         </h3>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -71,7 +68,10 @@ class __TwigTemplate_218357c0e21747baa454511ac662e8fbc57c7631e0c9692d34dbd8e9b0a
 <div class=\"portlet box\">
 
 <div class=\"portlet-title\">
-    <div class=\"caption\"><i class=\"icon-reorder\"></i></div>
+    <div class=\"caption\"><i class=\"icon-reorder\">";
+        // line 32
+        echo twig_escape_filter($this->env, (isset($context["action_name"]) ? $context["action_name"] : null), "html", null, true);
+        echo "用户</i></div>
     <div class=\"tools\">
         <a href=\"javascript:;\" class=\"collapse\"></a>
         <a href=\"#portlet-config\" data-toggle=\"modal\" class=\"config\"></a>
@@ -238,6 +238,6 @@ class __TwigTemplate_218357c0e21747baa454511ac662e8fbc57c7631e0c9692d34dbd8e9b0a
 
     public function getDebugInfo()
     {
-        return array (  218 => 131,  213 => 128,  210 => 127,  202 => 121,  199 => 120,  179 => 102,  174 => 99,  169 => 96,  167 => 95,  160 => 90,  153 => 86,  142 => 78,  137 => 75,  135 => 74,  128 => 70,  122 => 66,  115 => 62,  110 => 59,  108 => 58,  92 => 45,  88 => 44,  61 => 20,  54 => 15,  51 => 14,  44 => 8,  41 => 7,  35 => 4,  32 => 3,);
+        return array (  218 => 131,  213 => 128,  210 => 127,  202 => 121,  199 => 120,  179 => 102,  174 => 99,  169 => 96,  167 => 95,  160 => 90,  153 => 86,  142 => 78,  137 => 75,  135 => 74,  128 => 70,  122 => 66,  115 => 62,  110 => 59,  108 => 58,  92 => 45,  88 => 44,  73 => 32,  54 => 15,  51 => 14,  44 => 8,  41 => 7,  35 => 4,  32 => 3,);
     }
 }

@@ -88,7 +88,7 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
 <form action=\"";
         // line 46
         echo twig_escape_filter($this->env, (isset($context["action"]) ? $context["action"] : null), "html", null, true);
-        echo "\" id=\"form_sample_2\" class=\"form-inline\" method=\"post\">
+        echo "\" id=\"form_sample_2\" class=\"form-horizontal\" method=\"post\" enctype=\"multipart/form-data\">
 <input type=\"hidden\" name=\"csrf_token\" value=\"";
         // line 47
         echo twig_escape_filter($this->env, (isset($context["token"]) ? $context["token"] : null), "html", null, true);
@@ -107,16 +107,16 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
 <div class=\"control-group\">
     <label class=\"control-label\"><b class=\"midnight\">名称</b><span class=\"required\">*</span></label>
     <div class=\"controls\">
-        <input type=\"text\" name=\"nickname\" data-required=\"1\" class=\"span3 m-wrap\" value=\"";
+        <input type=\"text\" name=\"name\" data-required=\"1\" class=\"span3 m-wrap\" value=\"";
         // line 62
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "nickname", array()), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "name", array()), "html", null, true);
         echo "\"/>
     </div>
 </div>
 
 
 <div class=\"control-group\">
-    <label class=\"control-label\"><b class=\"midnight\">过期时间</b><span class=\"required\">*</span></label>
+    <label class=\"control-label\"><b class=\"midnight\">过期时间</b><span class=\"required\"></span></label>
     <div class=\"controls\">
         <div class=\"input-append date form_datetime\">
             <input size=\"16\" type=\"text\" value=\"";
@@ -132,9 +132,19 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
     <label class=\"control-label\"><b class=\"midnight\">游戏中是否显示</b><span class=\"required\">*</span></label>
     <div class=\"controls\">
        <select class=\"span1\" name=\"in_game_show\" >
-            <option>是</option>
-           <option>否</option>
-       </select>
+           ";
+        // line 81
+        if (($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "in_game_show", array()) == 1)) {
+            // line 82
+            echo "            <option selected=\"selected\" value=\"1\">是</option> <option value=\"0\">否</option>
+           ";
+        } else {
+            // line 84
+            echo "           <option value=\"1\">是</option> <option selected=\"selected\" value=\"0\">否</option>
+           ";
+        }
+        // line 86
+        echo "       </select>
     </div>
 </div>
 
@@ -148,16 +158,16 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
             <div class=\"controls\">
                 <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\">
                     <div class=\"fileupload-new thumbnail\" style=\"width: 200px;\">
-                        <img src=\"";
-        // line 97
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "image", array()), "html", null, true);
-        echo "\" />
+                        <img src=\"http://";
+        // line 100
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "web_image_url", array()), "html", null, true);
+        echo "\" rel=\"web_image-upload\" />
                     </div>
                     <div class=\"fileupload-preview fileupload-exists thumbnail\" style=\"max-width: 200px;  line-height: 20px;\"></div>
                     <div>
                                                 <span class=\"btn btn-file\"><span class=\"fileupload-new\">浏览</span>
                                                 <span class=\"fileupload-exists\">重选</span>
-                                                <input type=\"file\" class=\"default\" name=\"web_image\" id=\"web_image\" accept=\"image/gif,image/jpeg,image/png\" />
+                                                <input type=\"file\" class=\"default\" name=\"web_image\" id=\"web_image\" accept=\"image/gif,image/jpeg,image/png\"  />
                                                 </span>
                         <a href=\"#\" class=\"btn fileupload-exists\" data-dismiss=\"fileupload\">删除</a>
                     </div>
@@ -177,10 +187,10 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
             <div class=\"controls\">
                 <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\">
                     <div class=\"fileupload-new thumbnail\" style=\"width: 200px;\">
-                        <img src=\"";
-        // line 123
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "image", array()), "html", null, true);
-        echo "\" />
+                        <img src=\"http://";
+        // line 126
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "in_game_image_url", array()), "html", null, true);
+        echo "\" rel=\"game_image-upload\" />
                     </div>
                     <div class=\"fileupload-preview fileupload-exists thumbnail\" style=\"max-width: 200px;  line-height: 20px;\"></div>
                     <div>
@@ -198,7 +208,10 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
 <div class=\"control-group\">
     <label class=\"control-label\"><b class=\"midnight\">内容</b><span class=\"required\">*</span></label>
     <div class=\"controls\">
-        <textarea class=\"ckeditor\" name=\"editor1\"></textarea>
+        <textarea class=\"ckeditor\" name=\"content\">";
+        // line 144
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "content", array()), "html", null, true);
+        echo "</textarea>
     </div>
 </div>
 
@@ -218,10 +231,10 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
 ";
     }
 
-    // line 160
+    // line 163
     public function block_javascript_plugins($context, array $blocks = array())
     {
-        // line 161
+        // line 164
         echo "<script type=\"text/javascript\" src=\"/media/js/jquery.validate.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/additional-methods.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/select2.min.js\"></script>
@@ -233,21 +246,33 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
 ";
     }
 
-    // line 171
+    // line 174
     public function block_javascript_custom($context, array $blocks = array())
     {
-        // line 172
+        // line 175
         echo "<script src=\"/media/js/private/activity_add.js\"></script>
 <script>
     var success = ";
-        // line 174
+        // line 177
         echo twig_escape_filter($this->env, (isset($context["success"]) ? $context["success"] : null), "html", null, true);
         echo ";
    \$(function(){
        FormValidation.init();
         if(success == 1)
             \$('.alert-success').show();
-   })
+
+       ";
+        // line 183
+        if (((isset($context["action_name"]) ? $context["action_name"] : null) == "编辑")) {
+            // line 184
+            echo "           //编辑时 删除图片验证规则
+           \$(\"#web_image\").rules('remove');
+           \$(\"#game_image\").rules('remove');
+       ";
+        }
+        // line 188
+        echo "   })
+
 </script>
 ";
     }
@@ -264,6 +289,6 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
 
     public function getDebugInfo()
     {
-        return array (  244 => 174,  240 => 172,  237 => 171,  225 => 161,  222 => 160,  182 => 123,  153 => 97,  124 => 71,  112 => 62,  94 => 47,  90 => 46,  75 => 34,  56 => 17,  53 => 16,  44 => 8,  41 => 7,  35 => 4,  32 => 3,);
+        return array (  274 => 188,  268 => 184,  266 => 183,  257 => 177,  253 => 175,  250 => 174,  238 => 164,  235 => 163,  213 => 144,  192 => 126,  163 => 100,  147 => 86,  143 => 84,  139 => 82,  137 => 81,  124 => 71,  112 => 62,  94 => 47,  90 => 46,  75 => 34,  56 => 17,  53 => 16,  44 => 8,  41 => 7,  35 => 4,  32 => 3,);
     }
 }

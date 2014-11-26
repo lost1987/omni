@@ -9,18 +9,32 @@ var TableAdvanced = function () {
         function fnFormatDetails ( oTable, nTr ,id)
         {
             var sOut ;
+            var product_id = id.split("#")[0];
+            var handler_id = id.split("#")[1];
+
             $.ajax({
-                url: '/storeProduct/product_info/' + id,
+                url: '/storeProduct/product_info/' + product_id +'/'+handler_id,
                 method:'post',
                 async : false,
                 success: function (data) {
                     var response = eval('(' + data + ')');
                     if (response.error == 0) {
                         response = response.data;
-                        console.log(response);
                         sOut = '<table style="width:80%">';
                         sOut += '<tr><th>名称:</th><td>' + response.name + '</td><th>产品ID:</th><td>' + response.id + '</td></tr>';
                         sOut += '<tr><th>消耗:</th><td>' + response.price+response.price_name + '</td><th>获得:</th><td>' + response.tool + response.tool_name+ '</td></tr>';
+                       if(response.info != undefined){
+                                switch(response.product_type){
+                                    case 0:
+                                        sOut +=  '<tr><th>快递公司:</th><td>' + response.info.express_name + '</td><th>快递单号:</th><td>' + response.info.express_no + '</td></tr>';
+                                        sOut +=  '<tr><th>送货地址:</th><td>' + response.info.address + '</td><th>备注:</th><td>' + response.info.desp + '</td></tr>';
+                                        break;
+                                    case 1:
+                                        sOut +=  '<tr><th>充值号码:</th><td>' + response.info.mobile + '</td><th>充值单号/卡号:</th><td>' + response.info.order_num + '</td></tr>';
+                                        sOut +=  '<tr><th>备注:</th><td>' + response.info.desp + '</td></tr>';
+                                        break;
+                                }
+                       }
                         sOut += '<tr><th>产品图片:</th><td><img src="' + response.image + '" width="200" /></tr>';
                         sOut += '</table>';
                     } else

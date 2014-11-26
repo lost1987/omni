@@ -11,11 +11,14 @@ namespace gms\controller;
 
 use core\AdminController;
 use core\Cookie;
+use core\Encoder;
 use core\Permission;
 use core\Redirect;
 use gms\libs\AdminUtil;
 use gms\libs\Error;
 use gms\libs\ModuleDictionary;
+use gms\model\MobileProductLog_M;
+use gms\model\RealProductLog_M;
 use gms\model\StoreCategory_M;
 use gms\model\StoreProducts_M;
 use utils\Page;
@@ -31,9 +34,25 @@ class StoreProduct extends AdminController {
 
     function product_info(){
             $id = $this->args[0];
+            $handler_id = $this->args[1];
+            $server = AdminUtil::instance()->selected_server();
+            $sid = $server['id'];
             $product = StoreProducts_M::instance()->read($id);
             $product['price_name'] = $this->config->gms['price_type'][ $product['price_type'] ];
             $product['tool_name'] = $this->config->gms['tool_type'][ $product['tool_type'] ];
+            $product = Tools::std_array_format($product);
+            switch($product['product_type']){
+                case 0://实物
+                            $info = RealProductLog_M::instance()->getLogByHandlerId($handler_id,$sid);
+                            if(false != $info)
+                            $product['info'] = Tools::std_array_format($info);
+                            break;
+                case 1://充值卡
+                            $info = MobileProductLog_M::instance()->getLogByHandlerId($handler_id,$sid);
+                            if(false != $info)
+                            $product['info'] = Tools::std_array_format($info);
+                            break;
+            }
             $this->response($product);
     }
 
@@ -177,6 +196,8 @@ class StoreProduct extends AdminController {
             if(file_exists(BASE_PATH.'/'.BASE_PROJECT.$product['image']))
                 @unlink(BASE_PATH.'/'.BASE_PROJECT.$product['image']);
             unset($product);
+        }else{
+            unset($post['image']);
         }
         $post['modify_at'] = date('Y-m-d H:i:s');
         if(empty($post['top_timestamp']))

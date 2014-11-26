@@ -98,7 +98,6 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
             <div class=\"caption\"></div>
         </div>
 
-
         <div class=\"portlet-body\">
             <table class=\"table table-striped table-bordered table-hover table-full-width\" id=\"sample_1\">
                 <thead>
@@ -115,69 +114,115 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
                 </thead>
                 <tbody>
                 ";
-        // line 76
+        // line 75
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["list"]) ? $context["list"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 77
+            // line 76
             echo "                <tr rel=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "uid", array()), "html", null, true);
             echo "\">
                     <td class=\"highlight\">
                         ";
-            // line 79
+            // line 78
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "uid", array()), "html", null, true);
             echo "
                     </td>
                     <td class=\"hidden-phone\">
                         <a href=\"javascript:;\">";
-            // line 82
+            // line 81
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "login_name", array()), "html", null, true);
             echo "</a>
                     </td>
                     <td class=\"hidden-phone\">
                         <a href=\"javascript:;\">";
-            // line 85
+            // line 84
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "nickname", array()), "html", null, true);
             echo "</a>
                     </td>
                     <td>
                         ";
-            // line 88
+            // line 87
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "user_number", array()), "html", null, true);
             echo "
                     </td>
                     <td>
                         ";
-            // line 91
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "forbidden", array()), "html", null, true);
-            echo "
-                    </td>
+            // line 90
+            if (($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "forbidden", array()) == 1)) {
+                // line 91
+                echo "                                封停
+                        ";
+            } else {
+                // line 93
+                echo "                                正常
+                        ";
+            }
+            // line 95
+            echo "                    </td>
                     <td>
                         ";
-            // line 94
+            // line 97
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "mobile", array()), "html", null, true);
             echo "
                     </td>
                     <td>
                         ";
-            // line 97
+            // line 100
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "email", array()), "html", null, true);
             echo "
                     </td>
                     <td style=\"text-align: center\">
                         ";
-            // line 100
+            // line 103
             if (((isset($context["btn_edit_permission"]) ? $context["btn_edit_permission"] : null) == 1)) {
-                // line 101
-                echo "                             <a href=\"/player/add/19/edit/";
+                // line 104
+                echo "                                <a href=\"/player/add/19/edit/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "uid", array()), "html", null, true);
                 echo "/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "login_name", array()), "html", null, true);
-                echo "\" class=\"btn mini black\" ><i class=\"icon-edit\"></i> 编辑</a>
+                echo "\" class=\"btn mini grey\" style=\"width:80px;text-align:left\"><i class=\"icon-edit\"></i>编辑</a><br/>
+                                ";
+                // line 105
+                if (($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "forbidden", array()) == 0)) {
+                    // line 106
+                    echo "                                    <a href=\"javascript:forbidden(";
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "uid", array()), "html", null, true);
+                    echo ",'";
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "login_name", array()), "html", null, true);
+                    echo "')\" class=\"btn mini grey\" style=\"width:80px;text-align:left\"><i class=\" icon-ban-circle\"></i>封停</a><br/>
+                                    <a href=\"javascript:;\" class=\"btn mini grey\" style=\"width:80px;text-align:left\" disabled=\"disabled\"><i class=\"icon-ok-circle\"></i>解封</a><br/>
+                               ";
+                } else {
+                    // line 109
+                    echo "                                    <a href=\"javascript:;\" class=\"btn mini grey\" style=\"width:80px;text-align:left\" disabled=\"disabled\"><i class=\" icon-ban-circle\"></i>封停</a><br/>
+                                    <a href=\"javascript:unforbidden(";
+                    // line 110
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "uid", array()), "html", null, true);
+                    echo ",'";
+                    echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "login_name", array()), "html", null, true);
+                    echo "')\" class=\"btn mini grey\" style=\"width:80px;text-align:left\" ><i class=\"icon-ok-circle\"></i>解封</a><br/>
+                                ";
+                }
+                // line 112
+                echo "                                 <a href=\"javascript:reset_password(";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "uid", array()), "html", null, true);
+                echo ",";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "user_number", array()), "html", null, true);
+                echo ",'";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "login_name", array()), "html", null, true);
+                echo "')\" class=\"btn mini grey\" style=\"width:80px;text-align:left\"><i class=\"icon-lock\"></i>重置登陆密码</a><br/>
+                                 <a href=\"javascript:reset_purchase_password(";
+                // line 113
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "uid", array()), "html", null, true);
+                echo ",";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "user_number", array()), "html", null, true);
+                echo ",'";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "login_name", array()), "html", null, true);
+                echo "')\" class=\"btn mini grey\" style=\"width:80px;text-align:left\"><i class=\"icon-lock\"></i>重置消费密码</a><br/>
                         ";
             }
-            // line 103
+            // line 115
             echo "                    </td>
                 </tr>
                 ";
@@ -185,7 +230,7 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 106
+        // line 118
         echo "                </tbody>
             </table>
         </div>
@@ -193,28 +238,15 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
     <div class=\"row-fluid\">
         <div class=\"span6\">
             <div class=\"dataTables_info\" id=\"sample_2_info\" style=\"padding-top:0\">共";
-        // line 112
+        // line 124
         echo twig_escape_filter($this->env, ((array_key_exists("total", $context)) ? (_twig_default_filter((isset($context["total"]) ? $context["total"] : null), 0)) : (0)), "html", null, true);
         echo "条数据</div>
         </div>
         <div class=\"span6\">
             <div class=\"dataTables_paginate paging_bootstrap pagination\">
-               <!-- <ul>
-                    <li class=\"prev disabled\"><a href=\"#\">← <span class=\"hidden-480\">上一页</span></a></li>
-                    <li class=\"active\"><a href=\"#\">1</a></li>
-                    <li><a href=\"#\">2</a></li>
-                    <li><a href=\"#\">3</a></li>
-                    <li><a href=\"#\">4</a></li>
-                    <li><a href=\"#\">5</a></li>
-                    <li class=\"next\">
-                        <a href=\"#\">
-                        <span class=\"hidden-480\">下一页</span> →
-                        </a>
-                    </li>
-                </ul>-->
                 <ul>
                  ";
-        // line 130
+        // line 129
         echo (isset($context["pagiation"]) ? $context["pagiation"] : null);
         echo "
                 </ul>
@@ -261,10 +293,10 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
 ";
     }
 
-    // line 175
+    // line 174
     public function block_javascript_plugins($context, array $blocks = array())
     {
-        // line 176
+        // line 175
         echo "<script type=\"text/javascript\" src=\"/media/js/select2.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/jquery.dataTables.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/DT_bootstrap.js\"></script>
@@ -272,10 +304,10 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
 ";
     }
 
-    // line 182
+    // line 181
     public function block_javascript_custom($context, array $blocks = array())
     {
-        // line 183
+        // line 182
         echo "<script>
     jQuery(document).ready(function() {
         TableAdvanced.init();
@@ -296,6 +328,6 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
 
     public function getDebugInfo()
     {
-        return array (  279 => 183,  276 => 182,  268 => 176,  265 => 175,  218 => 130,  197 => 112,  189 => 106,  181 => 103,  173 => 101,  171 => 100,  165 => 97,  159 => 94,  153 => 91,  147 => 88,  141 => 85,  135 => 82,  129 => 79,  123 => 77,  119 => 76,  87 => 47,  54 => 16,  51 => 15,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
+        return array (  311 => 182,  308 => 181,  300 => 175,  297 => 174,  250 => 129,  242 => 124,  234 => 118,  226 => 115,  217 => 113,  208 => 112,  201 => 110,  198 => 109,  189 => 106,  187 => 105,  180 => 104,  178 => 103,  172 => 100,  166 => 97,  162 => 95,  158 => 93,  154 => 91,  152 => 90,  146 => 87,  140 => 84,  134 => 81,  128 => 78,  122 => 76,  118 => 75,  87 => 47,  54 => 16,  51 => 15,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
     }
 }

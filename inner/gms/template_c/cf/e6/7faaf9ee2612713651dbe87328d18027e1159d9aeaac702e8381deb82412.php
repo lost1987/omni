@@ -416,7 +416,7 @@ class __TwigTemplate_cfe67faaf9ee2612713651dbe87328d18027e1159d9aeaac702e8381deb
                                           <img src=\"";
         // line 239
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "image", array()), "html", null, true);
-        echo "\" />
+        echo "\" rel=\"image-upload\" />
                                       </div>
                                       <div class=\"fileupload-preview fileupload-exists thumbnail\" style=\"max-width: 200px;  line-height: 20px;\"></div>
                                       <div>
@@ -466,14 +466,13 @@ class __TwigTemplate_cfe67faaf9ee2612713651dbe87328d18027e1159d9aeaac702e8381deb
     {
         // line 280
         echo "<script type=\"text/javascript\" src=\"/media/js/private/store_products_add.js\"></script>
-<script src=\"/media/js/md5.min.js\"></script>
 <script>
     var action_name = '";
-        // line 283
+        // line 282
         echo twig_escape_filter($this->env, (isset($context["action_name"]) ? $context["action_name"] : null), "html", null, true);
         echo "';
     var success = ";
-        // line 284
+        // line 283
         echo twig_escape_filter($this->env, (isset($context["success"]) ? $context["success"] : null), "html", null, true);
         echo ";
     \$(function(){
@@ -481,7 +480,17 @@ class __TwigTemplate_cfe67faaf9ee2612713651dbe87328d18027e1159d9aeaac702e8381deb
         handleDatetimePicker();
         if(success == 1)
             \$('.alert-success').show();
-    })
+
+        ";
+        // line 290
+        if (((isset($context["action_name"]) ? $context["action_name"] : null) == "编辑")) {
+            // line 291
+            echo "            //编辑时 删除图片验证规则
+            \$(\"#image\").rules('remove');
+            ";
+        }
+        // line 294
+        echo "    })
 </script>
 ";
     }
@@ -498,6 +507,6 @@ class __TwigTemplate_cfe67faaf9ee2612713651dbe87328d18027e1159d9aeaac702e8381deb
 
     public function getDebugInfo()
     {
-        return array (  477 => 284,  473 => 283,  468 => 280,  465 => 279,  454 => 270,  451 => 269,  418 => 239,  398 => 222,  386 => 212,  381 => 209,  376 => 206,  374 => 205,  360 => 193,  355 => 190,  350 => 187,  348 => 186,  336 => 176,  331 => 173,  326 => 170,  324 => 169,  309 => 156,  303 => 155,  295 => 153,  287 => 151,  284 => 150,  280 => 149,  267 => 139,  254 => 128,  248 => 127,  240 => 125,  232 => 123,  229 => 122,  225 => 121,  212 => 111,  199 => 100,  193 => 99,  185 => 97,  177 => 95,  174 => 94,  170 => 93,  156 => 81,  150 => 80,  142 => 78,  134 => 76,  131 => 75,  127 => 74,  114 => 64,  94 => 47,  90 => 46,  75 => 34,  56 => 17,  53 => 16,  44 => 8,  41 => 7,  35 => 4,  32 => 3,);
+        return array (  493 => 294,  488 => 291,  486 => 290,  476 => 283,  472 => 282,  468 => 280,  465 => 279,  454 => 270,  451 => 269,  418 => 239,  398 => 222,  386 => 212,  381 => 209,  376 => 206,  374 => 205,  360 => 193,  355 => 190,  350 => 187,  348 => 186,  336 => 176,  331 => 173,  326 => 170,  324 => 169,  309 => 156,  303 => 155,  295 => 153,  287 => 151,  284 => 150,  280 => 149,  267 => 139,  254 => 128,  248 => 127,  240 => 125,  232 => 123,  229 => 122,  225 => 121,  212 => 111,  199 => 100,  193 => 99,  185 => 97,  177 => 95,  174 => 94,  170 => 93,  156 => 81,  150 => 80,  142 => 78,  134 => 76,  131 => 75,  127 => 74,  114 => 64,  94 => 47,  90 => 46,  75 => 34,  56 => 17,  53 => 16,  44 => 8,  41 => 7,  35 => 4,  32 => 3,);
     }
 }

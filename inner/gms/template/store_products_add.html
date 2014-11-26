@@ -236,7 +236,7 @@
                               <div class="controls">
                                   <div class="fileupload fileupload-new" data-provides="fileupload">
                                       <div class="fileupload-new thumbnail" style="width: 200px;">
-                                          <img src="{{item.image}}" />
+                                          <img src="{{item.image}}" rel="image-upload" />
                                       </div>
                                       <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px;  line-height: 20px;"></div>
                                       <div>
@@ -278,7 +278,6 @@
 
 {% block javascript_custom %}
 <script type="text/javascript" src="/media/js/private/store_products_add.js"></script>
-<script src="/media/js/md5.min.js"></script>
 <script>
     var action_name = '{{action_name}}';
     var success = {{success}};
@@ -287,6 +286,11 @@
         handleDatetimePicker();
         if(success == 1)
             $('.alert-success').show();
+
+        {% if action_name == '编辑'%}
+            //编辑时 删除图片验证规则
+            $("#image").rules('remove');
+            {% endif %}
     })
 </script>
 {% endblock %}

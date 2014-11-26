@@ -41,7 +41,7 @@ class AdminUtil {
 
     /**
      * 检查用户的权限
-     * @param  子模块ID  $module_id
+     * @param int 子模块ID  $module_id
      */
     function check_permission($module_id){
             if(Cookie::instance()->userdata('is_administrator'))

@@ -157,7 +157,7 @@ class __TwigTemplate_b3f62f3c96db9a36474787a2970d93b63dfae137c9f31dfd53972085a9a
                 // line 93
                 echo "                             <a href=\"/admin/add/2/edit/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
-                echo "\" class=\"btn mini black\" ><i class=\"icon-edit\"></i> 编辑</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 编辑</a>
                         ";
             }
             // line 95
@@ -166,14 +166,14 @@ class __TwigTemplate_b3f62f3c96db9a36474787a2970d93b63dfae137c9f31dfd53972085a9a
                 // line 96
                 echo "                            <a href=\"/admin/permission/2/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
-                echo "\" class=\"btn mini black\" ><i class=\"icon-edit\"></i> 权限</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 权限</a>
                         ";
             }
             // line 98
             echo "                        ";
             if ((((isset($context["btn_del_permission"]) ? $context["btn_del_permission"] : null) == 1) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()) != 1))) {
                 // line 99
-                echo "                            <a href=\"javascript:;\" class=\"btn mini red\" onclick=\"confirm_del(";
+                echo "                            <a href=\"javascript:;\" class=\"btn mini grey\" onclick=\"confirm_del(";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
                 echo ")\"><i class=\"icon-trash\"></i> 删除</a>
                         ";

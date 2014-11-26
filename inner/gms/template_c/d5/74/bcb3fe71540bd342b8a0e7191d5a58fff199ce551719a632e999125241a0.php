@@ -312,7 +312,7 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
                 // line 184
                 echo "                        <a href=\"/storeProduct/add/28/edit/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
-                echo "\" class=\"btn mini black\" ><i class=\"icon-edit\"></i> 编辑</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 编辑</a>
                         ";
             }
             // line 186
@@ -321,7 +321,7 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
                 // line 187
                 echo "                        <a href=\"javascript:confirm_del(";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
-                echo ")\" class=\"btn mini red\" ><i class=\"icon-trash\"></i> 删除</a>
+                echo ")\" class=\"btn mini grey\" ><i class=\"icon-trash\"></i> 删除</a>
                         ";
             }
             // line 189

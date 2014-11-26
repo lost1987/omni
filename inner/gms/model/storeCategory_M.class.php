@@ -10,6 +10,7 @@ namespace gms\model;
 
 
 use core\AdminModel;
+use gms\libs\Error;
 
 class StoreCategory_M extends AdminModel{
 
@@ -22,6 +23,33 @@ class StoreCategory_M extends AdminModel{
             self::$_instance = new self;
         return self::$_instance;
     }
+
+    function read($product_id){
+        $sql = "SELECT * FROM store_category WHERE id = ?";
+        $this->_game_server->execute($sql,array($product_id));
+        return $this->_game_server->fetch();
+    }
+
+    function save($fields){
+        return $this->_game_server->save($fields,'store_category');
+    }
+
+    function del($id){
+        //先判断商品表里 是否有关联数据
+        $sql = "SELECT COUNT(*)  as  num FROM store_products WHERE category_id = $id";
+        $this->_game_server->execute($sql);
+        $result = $this->_game_server->fetch()['num'];
+        if($result > 0)
+            throw new \Exception(Error::DATA_REFERENCE);
+
+        $sql  = "DELETE FROM store_category  WHERE id = ?";
+        return $this->_game_server->execute($sql,array($id));
+    }
+
+    function update($fields,$id){
+        return $this->_game_server->update($fields,'store_category'," WHERE id=$id");
+    }
+
 
     function lists($start=null,$count=null){
         $limit = '';
@@ -38,6 +66,14 @@ class StoreCategory_M extends AdminModel{
         }
         unset($result_array);
         return $array;
+    }
+
+
+    function num_rows(){
+        $sql = "SELECT COUNT(*) as num FROM  store_category  {$this->_condition}";
+        $this->_game_server->execute($sql);
+        $this->_condition = '';
+        return $this->_game_server->fetch()['num'];
     }
 
 } 

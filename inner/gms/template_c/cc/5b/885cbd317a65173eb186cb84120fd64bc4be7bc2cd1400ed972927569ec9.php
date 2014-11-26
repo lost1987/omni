@@ -169,11 +169,11 @@ class __TwigTemplate_cc5b885cbd317a65173eb186cb84120fd64bc4be7bc2cd1400ed9729275
                 // line 94
                 echo "                             <a href=\"/dailyMatch/add/19/edit/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "match_id", array()), "html", null, true);
-                echo "\" class=\"btn mini black\" ><i class=\"icon-edit\"></i> 编辑</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 编辑</a>
                              <a href=\"/dailyMatch/editPrize/19/";
                 // line 95
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "match_id", array()), "html", null, true);
-                echo "\" class=\"btn mini yellow\" ><i class=\"icon-edit\"></i> 编辑奖励</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 编辑奖励</a>
                         ";
             }
             // line 97
@@ -182,7 +182,7 @@ class __TwigTemplate_cc5b885cbd317a65173eb186cb84120fd64bc4be7bc2cd1400ed9729275
                 // line 98
                 echo "                            <a href=\"/dailyMatch/verifyList/19/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "match_id", array()), "html", null, true);
-                echo "\" class=\"btn mini red\" ><i class=\"icon-edit\"></i> 审核比赛</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 审核比赛</a>
                         ";
             }
             // line 100
@@ -191,7 +191,7 @@ class __TwigTemplate_cc5b885cbd317a65173eb186cb84120fd64bc4be7bc2cd1400ed9729275
                 // line 101
                 echo "                            <a href=\"/dailyMatch/verifyPrizeList/19/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "match_id", array()), "html", null, true);
-                echo "\" class=\"btn mini red\" ><i class=\"icon-edit\"></i> 审核奖励</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 审核奖励</a>
                         ";
             }
             // line 103

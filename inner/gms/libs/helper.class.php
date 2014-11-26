@@ -21,8 +21,8 @@ class Helper {
 
     /**
      * 拼接redis中存储比赛奖励的key
-     * @param $match_type  比赛类型 参照gms.inc中的设置
-     * @param $match_id   比赛ID
+     * @param int $match_type  比赛类型 参照gms.inc中的设置
+     * @param int  $match_id   比赛ID
      * @throws \Exception
      */
     function get_match_prize_key($match_type,$match_id){

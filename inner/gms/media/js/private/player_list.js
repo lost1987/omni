@@ -131,3 +131,57 @@ var TableAdvanced = function () {
     };
 }();
 
+
+function forbidden(user_id,login_name){
+        if(confirm("确定要封停账号 "+login_name+' ?')){
+            $.post('/player/forbidden/'+user_id+'/'+login_name,'',function(data){
+                        var response = eval( '('  +data+ ')');
+                        if(response.error == 0){
+                            alert('操作成功');
+                            window.location.reload();
+                            return;
+                        }
+                        alert(response.error);
+            });
+        }
+}
+
+function unforbidden(user_id,login_name){
+    if(confirm("确定要解封账号 "+login_name+' ?')){
+        $.post('/player/unforbidden/'+user_id+'/'+login_name,'',function(data){
+            var response = eval( '('  +data+ ')');
+            if(response.error == 0){
+                alert('操作成功');
+                window.location.reload();
+                return;
+            }
+            alert(response.error);
+        });
+    }
+}
+
+function reset_password(user_id,user_number,login_name){
+    if(confirm("确定要重置账号 "+login_name+' 的登陆密码?')){
+        $.post('/player/reset_password/'+user_id+'/'+user_number+'/'+login_name,'',function(data){
+            var response = eval( '('  +data+ ')');
+            if(response.error == 0){
+                alert('操作成功,重置后的登陆密码为: '+response.data);
+                return;
+            }
+            alert(response.error);
+        });
+    }
+}
+
+function reset_purchase_password(user_id,user_number,login_name){
+    if(confirm("确定要重置账号 "+login_name+' 的消费密码?')){
+        $.post('/player/reset_purchase_password/'+user_id+'/'+user_number+'/'+login_name,'',function(data){
+            var response = eval( '('  +data+ ')');
+            if(response.error == 0){
+                alert('操作成功,重置后的消费密码为: '+response.data);
+                return;
+            }
+            alert(response.error);
+        });
+    }
+}

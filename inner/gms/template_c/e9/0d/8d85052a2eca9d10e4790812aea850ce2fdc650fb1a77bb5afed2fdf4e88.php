@@ -171,8 +171,7 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
             <div class=\"portlet-title\">
                 <div class=\"caption\"></div>
                 <div class=\"actions\">
-                    <a href=\"javascript:handle_multi(3)\" class=\"btn yellow\"><i class=\"icon-ok\"></i> 设为已回复</a>
-                    <a href=\"javascript:handle_multi(2)\" class=\"btn yellow\"><i class=\"icon-ok\"></i> 设为已处理</a>
+                    <a href=\"javascript:handle_multi(3)\" class=\"btn grey\"><i class=\"icon-ok\"></i> 回复</a>
                 </div>
             </div>
 
@@ -193,65 +192,65 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
                     </thead>
                     <tbody>
                     ";
-        // line 124
+        // line 123
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["list"]) ? $context["list"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 125
+            // line 124
             echo "                    <tr rel=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
             echo "\">
                         <td><input type=\"checkbox\" class=\"checkboxes\" value=\"";
-            // line 126
+            // line 125
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "handler_id", array()), "html", null, true);
             echo "#";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "user_id", array()), "html", null, true);
             echo "\" /></td>
                         <td class=\"highlight\">
                             ";
-            // line 128
+            // line 127
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "user_id", array()), "html", null, true);
             echo "
                         </td>
                         <td class=\"hidden-phone\">
                             <a href=\"javascript:;\">";
-            // line 131
+            // line 130
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "reporter_name", array()), "html", null, true);
             echo "</a>
                         </td>
                         <td>
                             ";
-            // line 134
+            // line 133
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "type_name", array()), "html", null, true);
             echo "
                         </td>
                         <td class=\"hidden-phone\">
                             <a href=\"javascript:;\">";
-            // line 137
+            // line 136
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "ip", array()), "html", null, true);
             echo "</a>
                         </td>
                         <td>
                             ";
-            // line 140
+            // line 139
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "create_at", array()), "html", null, true);
             echo "
                         </td>
                         <td>
                             ";
-            // line 143
+            // line 142
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "assign_to", array()), "html", null, true);
             echo "
                         </td>
                         <td>
                             ";
-            // line 146
+            // line 145
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "handle_time", array()), "html", null, true);
             echo "
                         </td>
                         <td>
                             ";
-            // line 149
+            // line 148
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result_name", array()), "html", null, true);
             echo "
                         </td>
@@ -261,7 +260,7 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 153
+        // line 152
         echo "                    </tbody>
                 </table>
             </div>
@@ -269,7 +268,7 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
         <div class=\"row-fluid\">
             <div class=\"span6\">
                 <div class=\"dataTables_info\" id=\"sample_2_info\" style=\"padding-top:0\">共";
-        // line 159
+        // line 158
         echo twig_escape_filter($this->env, ((array_key_exists("total", $context)) ? (_twig_default_filter((isset($context["total"]) ? $context["total"] : null), 0)) : (0)), "html", null, true);
         echo "条数据</div>
             </div>
@@ -290,7 +289,7 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
                      </ul>-->
                     <ul>
                         ";
-        // line 177
+        // line 176
         echo (isset($context["pagiation"]) ? $context["pagiation"] : null);
         echo "
                     </ul>
@@ -337,10 +336,10 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
 ";
     }
 
-    // line 222
+    // line 221
     public function block_javascript_plugins($context, array $blocks = array())
     {
-        // line 223
+        // line 222
         echo "<script type=\"text/javascript\" src=\"/media/js/select2.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/jquery.dataTables.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/DT_bootstrap.js\"></script>
@@ -350,10 +349,10 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
 ";
     }
 
-    // line 231
+    // line 230
     public function block_javascript_custom($context, array $blocks = array())
     {
-        // line 232
+        // line 231
         echo "<script>
     jQuery(document).ready(function() {
         TableAdvanced.init();
@@ -374,6 +373,6 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
 
     public function getDebugInfo()
     {
-        return array (  357 => 232,  354 => 231,  344 => 223,  341 => 222,  294 => 177,  273 => 159,  265 => 153,  255 => 149,  249 => 146,  243 => 143,  237 => 140,  231 => 137,  225 => 134,  219 => 131,  213 => 128,  206 => 126,  201 => 125,  197 => 124,  154 => 84,  142 => 75,  128 => 63,  122 => 62,  114 => 60,  106 => 58,  103 => 57,  99 => 56,  88 => 48,  55 => 17,  52 => 16,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
+        return array (  356 => 231,  353 => 230,  343 => 222,  340 => 221,  293 => 176,  272 => 158,  264 => 152,  254 => 148,  248 => 145,  242 => 142,  236 => 139,  230 => 136,  224 => 133,  218 => 130,  212 => 127,  205 => 125,  200 => 124,  196 => 123,  154 => 84,  142 => 75,  128 => 63,  122 => 62,  114 => 60,  106 => 58,  103 => 57,  99 => 56,  88 => 48,  55 => 17,  52 => 16,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
     }
 }

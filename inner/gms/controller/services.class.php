@@ -28,6 +28,7 @@ use gms\model\StoreCategory_M;
 use gms\model\StoreProducts_M;
 use gms\model\Suspend_M;
 use gms\model\TipOff_M;
+use utils\IpAddress;
 use utils\Page;
 use utils\Tools;
 
@@ -86,6 +87,7 @@ class Services extends AdminController{
             $item['result_name'] = $this->config->gms['order_status'][$item['result']];
             $assign_to = Admin_M::instance()->read($item['assign_to']);
             $item['assign_to'] = $assign_to['account'];
+            $item['ip'] = $item['ip'].'('.IpAddress::instance()->QQwry($item['ip'])->full_address().')';
         }
 
         $this->output_data['list'] = $list;
@@ -140,6 +142,7 @@ class Services extends AdminController{
             $item['result_name'] = $this->config->gms['order_status'][$item['result']];
             $assign_to = Admin_M::instance()->read($item['assign_to']);
             $item['assign_to'] = $assign_to['account'];
+            $item['ip'] = $item['ip'].'('.IpAddress::instance()->QQwry($item['ip'])->full_address().')';
         }
 
         $this->output_data['list'] = $list;
@@ -194,6 +197,7 @@ class Services extends AdminController{
             $item['result_name'] = $this->config->gms['order_status'][$item['result']];
             $assign_to = Admin_M::instance()->read($item['assign_to']);
             $item['assign_to'] = $assign_to['account'];
+            $item['ip'] = $item['ip'].'('.IpAddress::instance()->QQwry($item['ip'])->full_address().')';
         }
 
         $this->output_data['list'] = $list;
@@ -275,6 +279,7 @@ class Services extends AdminController{
             $item['assign_to'] = $assign_to['account'];
             $item['result_name'] = $this->config->gms['order_status'][$item['result']];
             $item['category_name'] = $this->output_data['categories'][$item['category_id']]['name'];
+            $item['ip'] = $item['ip'].'('.IpAddress::instance()->QQwry($item['ip'])->full_address().')';
         }
 
         $this->output_data['list'] = $list;
@@ -355,6 +360,7 @@ class Services extends AdminController{
             $assign_to = Admin_M::instance()->read($item['assign_to']);
             $item['assign_to'] = $assign_to['account'];
             $item['result_name'] = $this->config->gms['order_status'][$item['result']];
+            $item['ip'] = $item['ip'].'('.IpAddress::instance()->QQwry($item['ip'])->full_address().')';
         }
 
         $this->output_data['list'] = $list;
@@ -436,7 +442,7 @@ class Services extends AdminController{
         $post['sid'] = $server['id'];
         $handler_id = $post['handler_id'];
         $product_id = $post['product_id'];
-        unset($admin,$server,$post['handler_id'],$post['module_id']);
+        unset($admin,$server,$post['module_id']);
 
         $gamedb =  $this->getGameDB();
         try{
@@ -485,7 +491,7 @@ class Services extends AdminController{
         $post['sid'] = $server['id'];
         $handler_id = $post['handler_id'];
         $product_id = $post['product_id'];
-        unset($admin,$server,$post['handler_id'],$post['module_id']);
+        unset($admin,$server,$post['module_id']);
 
         $gamedb =  $this->getGameDB();
         try{

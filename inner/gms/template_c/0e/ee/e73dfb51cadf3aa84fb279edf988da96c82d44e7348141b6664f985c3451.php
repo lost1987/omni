@@ -164,6 +164,10 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                 清理缓存
             </a>
 
+            <a href=\"javascript:showErrorCodes()\">
+                错误代码
+            </a>
+
         </li>
     </ul>
 
@@ -454,7 +458,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <img alt=\"\" src=\"/media/image/avatar1_small.jpg\" />
 
         <span class=\"username\">";
-        // line 420
+        // line 424
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["session"]) ? $context["session"] : null), "nickname", array()), "html", null, true);
         echo "</span>
 
@@ -466,15 +470,9 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 
         <li><a href=\"javascript:;\"><i class=\"icon-user\"></i>我的资料</a></li>
 
-        <li><a href=\"javascript:;\"><i class=\"icon-calendar\"></i> 我的历程</a></li>
-
-        <li><a href=\"javascript:;\"><i class=\"icon-envelope\"></i> 我的消息</a></li>
-
-        <li><a href=\"javascript:;\"><i class=\"icon-tasks\"></i> 我的任务</a></li>
+        <li><a href=\"/admin/to_reset_password/2\"><i class=\"icon-lock\"></i> 修改密码</a></li>
 
         <li class=\"divider\"></li>
-
-        <li><a href=\"javascript:;\"><i class=\"icon-lock\"></i> 锁屏</a></li>
 
         <li><a href=\"/login/logout\"><i class=\"icon-key\"></i>注销</a></li>
 
@@ -542,35 +540,35 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 
     <!--BEGIN NAVIGATOR-->
     ";
-        // line 505
+        // line 503
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["modules_root"]) ? $context["modules_root"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["root"]) {
-            // line 506
+            // line 504
             echo "    ";
             if (($this->getAttribute((isset($context["root"]) ? $context["root"] : null), "visible", array()) == 1)) {
-                // line 507
+                // line 505
                 echo "                ";
                 if (((isset($context["module_root_sel_id"]) ? $context["module_root_sel_id"] : null) == $this->getAttribute((isset($context["root"]) ? $context["root"] : null), "id", array()))) {
-                    // line 508
+                    // line 506
                     echo "                         <li class=\"active\">
                 ";
                 } else {
-                    // line 510
+                    // line 508
                     echo "                        <li class=\"\">
                 ";
                 }
-                // line 512
+                // line 510
                 echo "
                     <a href=\"javascript:;\">
 
                         <i class=\"";
-                // line 515
+                // line 513
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["root"]) ? $context["root"] : null), "icon", array()), "html", null, true);
                 echo "\"></i>
 
                         <span class=\"title\">";
-                // line 517
+                // line 515
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["root"]) ? $context["root"] : null), "module_name", array()), "html", null, true);
                 echo "</span>
 
@@ -579,50 +577,50 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                     </a>
                     <ul class=\"sub-menu\">
                         ";
-                // line 523
+                // line 521
                 $context['_parent'] = (array) $context;
                 $context['_seq'] = twig_ensure_traversable((isset($context["modules_child"]) ? $context["modules_child"] : null));
                 foreach ($context['_seq'] as $context["_key"] => $context["child"]) {
-                    // line 524
+                    // line 522
                     echo "                            ";
                     if ((($this->getAttribute((isset($context["child"]) ? $context["child"] : null), "pid", array()) == $this->getAttribute((isset($context["root"]) ? $context["root"] : null), "id", array())) && ($this->getAttribute((isset($context["child"]) ? $context["child"] : null), "visible", array()) == 1))) {
-                        // line 525
+                        // line 523
                         echo "                                    <li >
 
                                         <a href=\"";
-                        // line 527
+                        // line 525
                         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["child"]) ? $context["child"] : null), "module_url", array()), "html", null, true);
                         echo "/";
                         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["root"]) ? $context["root"] : null), "id", array()), "html", null, true);
                         echo "\">
 
                                             ";
-                        // line 529
+                        // line 527
                         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["child"]) ? $context["child"] : null), "module_name", array()), "html", null, true);
                         echo "</a>
 
                                     </li>
                             ";
                     }
-                    // line 533
+                    // line 531
                     echo "                        ";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['child'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 534
+                // line 532
                 echo "                    </ul>
                 </li>
             </li>
     ";
             }
-            // line 538
+            // line 536
             echo "    ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['root'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 539
+        // line 537
         echo "</ul>
 
 <!-- END SIDEBAR MENU -->
@@ -661,9 +659,9 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 
     <div class=\"container-fluid\">
         ";
-        // line 576
+        // line 574
         $this->displayBlock('content', $context, $blocks);
-        // line 578
+        // line 576
         echo "    </div>
 
     <!-- END PAGE CONTAINER-->
@@ -675,6 +673,27 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 </div>
 
 <!-- END CONTAINER -->
+
+<!-- 模态框（Modal）错误代码 -->
+<div class=\"modal fade\" id=\"errorCodeModal\" tabindex=\"-1\" role=\"dialog\" style=\"display:none\"
+     aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
+    <div class=\"modal-dialog\">
+        <div class=\"modal-content\">
+            <div class=\"modal-header\">
+                <button type=\"button\" class=\"close\" data-dismiss=\"modal\"
+                        aria-hidden=\"true\">×
+                </button>
+                <h4 class=\"modal-title\" id=\"sendModalLabel\">
+                    错误代码
+                </h4>
+            </div>
+            <div class=\"modal-body\">
+            <table class=\"table\" id=\"error_code_table\">
+            </table>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!-- BEGIN FOOTER -->
 
@@ -736,17 +755,17 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <script src=\"/media/js/date.js\" type=\"text/javascript\"></script>
 <script src=\"/media/js/daterangepicker.js\" type=\"text/javascript\"></script>
 ";
-        // line 649
+        // line 668
         $this->displayBlock('javascript_plugins', $context, $blocks);
-        // line 651
+        // line 670
         echo "<!-- END PAGE LEVEL PLUGINS -->
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src=\"/media/js/app.js\" type=\"text/javascript\"></script>
 ";
-        // line 655
+        // line 674
         $this->displayBlock('javascript_custom', $context, $blocks);
-        // line 657
+        // line 676
         echo "<!-- END PAGE LEVEL SCRIPTS -->
 
 <script>
@@ -756,6 +775,20 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         App.init(); // initlayout and core plugins
 
     });
+
+    function showErrorCodes(){
+        \$.post('/error/showErrorCodes','',function(data){
+            var response = eval('('+data+')');
+            if(response.error == 0){
+                var trs = '<tr> <th>代码</th><th>内容</th></tr>';
+                \$.each(response.data,function(i,item){
+                    trs += '<tr><td>'+item.code+'</td><td>'+item.name+'</td></tr>';
+                });
+                \$(\"#error_code_table\").html(trs);
+                \$(\"#errorCodeModal\").modal();
+            }
+        });
+    }
 
 </script>
 <!-- END JAVASCRIPTS -->
@@ -784,19 +817,19 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         echo "    ";
     }
 
-    // line 576
+    // line 574
     public function block_content($context, array $blocks = array())
     {
-        // line 577
+        // line 575
         echo "        ";
     }
 
-    // line 649
+    // line 668
     public function block_javascript_plugins($context, array $blocks = array())
     {
     }
 
-    // line 655
+    // line 674
     public function block_javascript_custom($context, array $blocks = array())
     {
     }
@@ -813,6 +846,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 
     public function getDebugInfo()
     {
-        return array (  800 => 655,  795 => 649,  791 => 577,  788 => 576,  784 => 59,  781 => 58,  776 => 35,  771 => 33,  766 => 29,  750 => 657,  748 => 655,  742 => 651,  740 => 649,  667 => 578,  665 => 576,  626 => 539,  620 => 538,  614 => 534,  608 => 533,  601 => 529,  594 => 527,  590 => 525,  587 => 524,  583 => 523,  574 => 517,  569 => 515,  564 => 512,  560 => 510,  556 => 508,  553 => 507,  550 => 506,  546 => 505,  458 => 420,  96 => 60,  94 => 58,  68 => 35,  63 => 33,  56 => 29,  26 => 1,  255 => 136,  252 => 135,  244 => 129,  241 => 128,  226 => 114,  218 => 111,  210 => 109,  207 => 108,  201 => 106,  198 => 105,  191 => 103,  186 => 102,  184 => 101,  178 => 98,  172 => 95,  166 => 92,  160 => 89,  154 => 86,  148 => 83,  142 => 80,  136 => 77,  132 => 75,  128 => 73,  124 => 71,  122 => 70,  116 => 67,  108 => 65,  104 => 64,  54 => 16,  51 => 15,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
+        return array (  833 => 674,  828 => 668,  824 => 575,  821 => 574,  817 => 59,  814 => 58,  809 => 35,  804 => 33,  799 => 29,  769 => 676,  767 => 674,  761 => 670,  759 => 668,  665 => 576,  663 => 574,  624 => 537,  618 => 536,  612 => 532,  606 => 531,  599 => 527,  592 => 525,  588 => 523,  585 => 522,  581 => 521,  572 => 515,  567 => 513,  562 => 510,  558 => 508,  554 => 506,  551 => 505,  548 => 504,  544 => 503,  462 => 424,  96 => 60,  94 => 58,  68 => 35,  63 => 33,  56 => 29,  26 => 1,);
     }
 }

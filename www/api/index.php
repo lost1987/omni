@@ -13,11 +13,11 @@ define('PROJECT_MODE','develop');
 switch(PROJECT_MODE){
     case 'develop' :
         /**本地服务器配置*/
-        define('BASE_HOST','http://api.newbee.com');
-        define('WWW_HOST','http://dev.newbee.com');//API host地址
-        /**局域网服务器配置*/
 //        define('BASE_HOST','http://api.newbee.com');
-//        define('WWW_HOST','http://test.newbee.com');//API host地址
+//        define('WWW_HOST','http://dev.newbee.com');//API host地址
+        /**局域网服务器配置*/
+        define('BASE_HOST','http://api.newbee.com');
+        define('WWW_HOST','http://test.newbee.com');//API host地址
         /**sndu 服务器配置*/
 //        define('BASE_HOST','http://api.sndu.cn');
 //        define('WWW_HOST','http://www2.sndu.com');//API host地址

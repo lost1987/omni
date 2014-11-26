@@ -232,10 +232,12 @@ class __TwigTemplate_4e839a7fa637ebc5b213935ef318e75c7a00032aedd131d1efc2d6283a3
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
             echo "\" rel_c=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "product_id", array()), "html", null, true);
+            echo "#";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
             echo "\">
                         <td><input type=\"checkbox\" class=\"checkboxes\" value=\"";
             // line 132
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "handler_id", array()), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
             echo "#";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "user_id", array()), "html", null, true);
             echo "\" /></td>
@@ -289,7 +291,7 @@ class __TwigTemplate_4e839a7fa637ebc5b213935ef318e75c7a00032aedd131d1efc2d6283a3
                 echo "                                    ";
                 if (((((isset($context["btn_fahuo_permission"]) ? $context["btn_fahuo_permission"] : null) == 1) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result", array()) != 4)) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result", array()) != 2))) {
                     // line 157
-                    echo "                                        <a href=\"javascript:;\" onclick=\"consignment(this)\" class=\"btn mini yellow\" ><i class=\"icon-edit\"></i> 发货</a>
+                    echo "                                        <a href=\"javascript:;\" onclick=\"consignment(this)\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 发货</a>
                                         <input type=\"hidden\" name=\"params\"  value=\"";
                     // line 158
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "address", array()), "html", null, true);
@@ -305,7 +307,7 @@ class __TwigTemplate_4e839a7fa637ebc5b213935ef318e75c7a00032aedd131d1efc2d6283a3
                                     ";
                 } elseif (((((isset($context["btn_handle_permission"]) ? $context["btn_handle_permission"] : null) == 1) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result", array()) != 2)) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result", array()) == 4))) {
                     // line 160
-                    echo "                                         <a href=\"/services/handle_exchange\" class=\"btn mini black\" ><i class=\"icon-edit\"></i> 处理</a>
+                    echo "                                         <a href=\"javascript:;\" onclick=\"handle(this)\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 处理</a>
                                         <input type=\"hidden\" name=\"params\"  value=\"";
                     // line 161
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
@@ -325,7 +327,7 @@ class __TwigTemplate_4e839a7fa637ebc5b213935ef318e75c7a00032aedd131d1efc2d6283a3
                 echo "                                    ";
                 if ((((isset($context["btn_fahuo_permission"]) ? $context["btn_fahuo_permission"] : null) == 1) && ($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "result", array()) != 2))) {
                     // line 167
-                    echo "                                        <a href=\"javascript:;\" onclick=\"mobilement(this)\" class=\"btn mini yellow\" ><i class=\"icon-edit\"></i> 充值</a>
+                    echo "                                        <a href=\"javascript:;\" onclick=\"mobilement(this)\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 充值</a>
                                         <input type=\"hidden\" name=\"params\"  value=\"";
                     // line 168
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "mobile", array()), "html", null, true);
@@ -373,22 +375,9 @@ class __TwigTemplate_4e839a7fa637ebc5b213935ef318e75c7a00032aedd131d1efc2d6283a3
             </div>
             <div class=\"span6\">
                 <div class=\"dataTables_paginate paging_bootstrap pagination\">
-                    <!-- <ul>
-                         <li class=\"prev disabled\"><a href=\"#\">← <span class=\"hidden-480\">上一页</span></a></li>
-                         <li class=\"active\"><a href=\"#\">1</a></li>
-                         <li><a href=\"#\">2</a></li>
-                         <li><a href=\"#\">3</a></li>
-                         <li><a href=\"#\">4</a></li>
-                         <li><a href=\"#\">5</a></li>
-                         <li class=\"next\">
-                             <a href=\"#\">
-                             <span class=\"hidden-480\">下一页</span> →
-                             </a>
-                         </li>
-                     </ul>-->
                     <ul>
                         ";
-        // line 202
+        // line 189
         echo (isset($context["pagiation"]) ? $context["pagiation"] : null);
         echo "
                     </ul>
@@ -541,10 +530,10 @@ class __TwigTemplate_4e839a7fa637ebc5b213935ef318e75c7a00032aedd131d1efc2d6283a3
 ";
     }
 
-    // line 353
+    // line 340
     public function block_javascript_plugins($context, array $blocks = array())
     {
-        // line 354
+        // line 341
         echo "<script type=\"text/javascript\" src=\"/media/js/jquery.validate.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/select2.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/jquery.dataTables.min.js\"></script>
@@ -555,10 +544,10 @@ class __TwigTemplate_4e839a7fa637ebc5b213935ef318e75c7a00032aedd131d1efc2d6283a3
 ";
     }
 
-    // line 363
+    // line 350
     public function block_javascript_custom($context, array $blocks = array())
     {
-        // line 364
+        // line 351
         echo "<script>
     jQuery(document).ready(function() {
         TableAdvanced.init();
@@ -579,6 +568,6 @@ class __TwigTemplate_4e839a7fa637ebc5b213935ef318e75c7a00032aedd131d1efc2d6283a3
 
     public function getDebugInfo()
     {
-        return array (  562 => 364,  559 => 363,  548 => 354,  545 => 353,  392 => 202,  371 => 184,  363 => 178,  355 => 175,  351 => 173,  348 => 172,  344 => 170,  331 => 168,  328 => 167,  325 => 166,  322 => 165,  318 => 163,  311 => 161,  308 => 160,  295 => 158,  292 => 157,  289 => 156,  287 => 155,  281 => 152,  275 => 149,  269 => 146,  263 => 143,  257 => 140,  251 => 137,  245 => 134,  238 => 132,  231 => 131,  227 => 130,  191 => 96,  185 => 95,  177 => 93,  169 => 91,  166 => 90,  162 => 89,  149 => 79,  137 => 70,  128 => 63,  122 => 62,  114 => 60,  106 => 58,  103 => 57,  99 => 56,  88 => 48,  55 => 17,  52 => 16,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
+        return array (  551 => 351,  548 => 350,  537 => 341,  534 => 340,  381 => 189,  373 => 184,  365 => 178,  357 => 175,  353 => 173,  350 => 172,  346 => 170,  333 => 168,  330 => 167,  327 => 166,  324 => 165,  320 => 163,  313 => 161,  310 => 160,  297 => 158,  294 => 157,  291 => 156,  289 => 155,  283 => 152,  277 => 149,  271 => 146,  265 => 143,  259 => 140,  253 => 137,  247 => 134,  240 => 132,  231 => 131,  227 => 130,  191 => 96,  185 => 95,  177 => 93,  169 => 91,  166 => 90,  162 => 89,  149 => 79,  137 => 70,  128 => 63,  122 => 62,  114 => 60,  106 => 58,  103 => 57,  99 => 56,  88 => 48,  55 => 17,  52 => 16,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
     }
 }

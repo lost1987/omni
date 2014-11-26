@@ -26,4 +26,10 @@ class MobileProductLog_M extends  Model{
     function save($fields){
         return $this->db->save($fields,'gms_mobile_product_log');
     }
+
+    function getLogByHandlerId($handler_id,$sid){
+        $sql = "SELECT mobile,order_num,money FROM gms_mobile_product_log WHERE handler_id = ? and sid = ?";
+        $this->db->execute($sql,array($handler_id,$sid));
+        return $this->db->fetch();
+    }
 } 

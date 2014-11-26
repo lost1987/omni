@@ -41,6 +41,9 @@ var FormValidation = function () {
                     },
                     tool_type: {
                         required: true
+                    },
+                    image:{
+                        required:true
                     }
                 },
 
@@ -68,6 +71,9 @@ var FormValidation = function () {
                     },
                     tool_type: {
                         required: "这是必填项"
+                    },
+                    image:{
+                        required:"请上传图片"
                     }
                 },
 

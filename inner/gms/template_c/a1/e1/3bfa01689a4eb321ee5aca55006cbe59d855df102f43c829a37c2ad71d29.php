@@ -56,10 +56,7 @@ class __TwigTemplate_a1e13bfa01689a4eb321ee5aca55006cbe59d855df102f43c829a37c2ad
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class=\"page-title\">
             游戏管理
-            <small>";
-        // line 20
-        echo twig_escape_filter($this->env, (isset($context["action_name"]) ? $context["action_name"] : null), "html", null, true);
-        echo "玩家</small>
+            <small></small>
         </h3>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -71,8 +68,10 @@ class __TwigTemplate_a1e13bfa01689a4eb321ee5aca55006cbe59d855df102f43c829a37c2ad
         <div class=\"portlet box\">
 
             <div class=\"portlet-title\">
-                <div class=\"caption\"><i class=\"icon-reorder\">您正在修改玩家[<b class=\"red\">";
+                <div class=\"caption\"><i class=\"icon-reorder\">";
         // line 32
+        echo twig_escape_filter($this->env, (isset($context["action_name"]) ? $context["action_name"] : null), "html", null, true);
+        echo "玩家,您正在修改玩家[<b class=\"red\">";
         echo twig_escape_filter($this->env, (isset($context["login_name"]) ? $context["login_name"] : null), "html", null, true);
         echo "</b>]的资源</i></div>
                 <div class=\"tools\">
@@ -202,6 +201,6 @@ class __TwigTemplate_a1e13bfa01689a4eb321ee5aca55006cbe59d855df102f43c829a37c2ad
 
     public function getDebugInfo()
     {
-        return array (  184 => 110,  181 => 109,  173 => 103,  170 => 102,  149 => 84,  138 => 76,  127 => 68,  117 => 61,  99 => 46,  95 => 45,  91 => 44,  76 => 32,  61 => 20,  54 => 15,  51 => 14,  44 => 8,  41 => 7,  35 => 4,  32 => 3,);
+        return array (  183 => 110,  180 => 109,  172 => 103,  169 => 102,  148 => 84,  137 => 76,  126 => 68,  116 => 61,  98 => 46,  94 => 45,  90 => 44,  73 => 32,  54 => 15,  51 => 14,  44 => 8,  41 => 7,  35 => 4,  32 => 3,);
     }
 }

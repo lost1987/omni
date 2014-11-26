@@ -1549,6 +1549,10 @@
     <soundName>2</soundName>
     <soundURL>sound/02.mp3</soundURL>
   </sound>
+    <sound>
+    <soundName>HallMusic</soundName>
+    <soundURL>sound/HallMusic.mp3</soundURL>
+  </sound>
 
   <!--打牌音效-->
   <sound>

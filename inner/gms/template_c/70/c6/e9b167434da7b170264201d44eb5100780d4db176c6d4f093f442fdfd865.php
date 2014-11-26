@@ -56,10 +56,7 @@ class __TwigTemplate_70c6e9b167434da7b170264201d44eb5100780d4db176c6d4f093f442fd
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class=\"page-title\">
             模块管理
-            <small>";
-        // line 20
-        echo twig_escape_filter($this->env, (isset($context["action_name"]) ? $context["action_name"] : null), "html", null, true);
-        echo "模块</small>
+            <small></small>
         </h3>
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
@@ -71,7 +68,10 @@ class __TwigTemplate_70c6e9b167434da7b170264201d44eb5100780d4db176c6d4f093f442fd
 <div class=\"portlet box\">
 
 <div class=\"portlet-title\">
-    <div class=\"caption\"><i class=\"icon-reorder\"></i></div>
+    <div class=\"caption\"><i class=\"icon-reorder\">";
+        // line 32
+        echo twig_escape_filter($this->env, (isset($context["action_name"]) ? $context["action_name"] : null), "html", null, true);
+        echo "模块</i></div>
     <div class=\"tools\">
         <a href=\"javascript:;\" class=\"collapse\"></a>
         <a href=\"#portlet-config\" data-toggle=\"modal\" class=\"config\"></a>
@@ -284,6 +284,6 @@ class __TwigTemplate_70c6e9b167434da7b170264201d44eb5100780d4db176c6d4f093f442fd
 
     public function getDebugInfo()
     {
-        return array (  264 => 157,  260 => 155,  257 => 154,  249 => 148,  246 => 147,  225 => 129,  214 => 121,  205 => 114,  200 => 111,  195 => 108,  193 => 107,  183 => 99,  177 => 98,  169 => 96,  161 => 94,  158 => 93,  154 => 92,  142 => 83,  131 => 75,  120 => 67,  110 => 60,  92 => 45,  88 => 44,  61 => 20,  54 => 15,  51 => 14,  44 => 8,  41 => 7,  35 => 4,  32 => 3,);
+        return array (  264 => 157,  260 => 155,  257 => 154,  249 => 148,  246 => 147,  225 => 129,  214 => 121,  205 => 114,  200 => 111,  195 => 108,  193 => 107,  183 => 99,  177 => 98,  169 => 96,  161 => 94,  158 => 93,  154 => 92,  142 => 83,  131 => 75,  120 => 67,  110 => 60,  92 => 45,  88 => 44,  73 => 32,  54 => 15,  51 => 14,  44 => 8,  41 => 7,  35 => 4,  32 => 3,);
     }
 }

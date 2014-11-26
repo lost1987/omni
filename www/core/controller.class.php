@@ -27,10 +27,11 @@ class Controller extends Base{
     function csrf_token_validation($update_after_validation = true,$_token = null){
         $config = Configure::instance();
         $cookie = Cookie::instance();
+        $csrf_token_name = $config->web['csrf']['token_name'];
         if(!empty($_token))
             $token = $_token;
         else
-        $token = $this->input->get_post($config->web['csrf']['token_name']);
+        $token = $this->input->get_post($csrf_token_name);
 
         $csrf_cookie = $cookie->get_csrf_cookie();
 

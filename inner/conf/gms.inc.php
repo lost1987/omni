@@ -229,10 +229,10 @@ return array(
     ),
 
     'prize_types' => array(
-       1 => array('type' => 1,'name'=>'门票'),
-       2 => array('type' => 2,'name' => '奖券'),
-       3 => array('type' => 3, 'name' => '金币'),
-       4 => array('type' => 4, 'name' => '钻石')
+        0 => array('type' => 0, 'name' => '金币'),
+        1 => array('type' => 1,'name'=>'门票'),
+        2 => array('type' => 2,'name' => '奖券'),
+        3 => array('type' => 3, 'name' => '钻石')
     ),
 
     'verify_types' => array(

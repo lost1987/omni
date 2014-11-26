@@ -32,7 +32,7 @@ class Permission
         }
         $value = 0;
         foreach ($permissions as $k => $v) {
-            $value |= $v;
+            $value |= intval($v);
         }
         return $value;
     }
@@ -46,6 +46,9 @@ class Permission
      */
     public function hasPermission($user_permission, $module_permission)
     {
+        $user_permission = intval($user_permission);
+        $module_permission = intval($module_permission);
+
         if (!empty($user_permission)
             && !empty($module_permission)
             && $user_permission != 0

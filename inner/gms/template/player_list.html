@@ -57,7 +57,6 @@
             <div class="caption"></div>
         </div>
 
-
         <div class="portlet-body">
             <table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
                 <thead>
@@ -88,7 +87,11 @@
                         {{item.user_number}}
                     </td>
                     <td>
-                        {{item.forbidden}}
+                        {% if item.forbidden == 1%}
+                                封停
+                        {% else %}
+                                正常
+                        {% endif %}
                     </td>
                     <td>
                         {{item.mobile}}
@@ -98,7 +101,16 @@
                     </td>
                     <td style="text-align: center">
                         {% if btn_edit_permission == 1 %}
-                             <a href="/player/add/19/edit/{{item.uid}}/{{item.login_name}}" class="btn mini black" ><i class="icon-edit"></i> 编辑</a>
+                                <a href="/player/add/19/edit/{{item.uid}}/{{item.login_name}}" class="btn mini grey" style="width:80px;text-align:left"><i class="icon-edit"></i>编辑</a><br/>
+                                {% if item.forbidden == 0 %}
+                                    <a href="javascript:forbidden({{item.uid}},'{{item.login_name}}')" class="btn mini grey" style="width:80px;text-align:left"><i class=" icon-ban-circle"></i>封停</a><br/>
+                                    <a href="javascript:;" class="btn mini grey" style="width:80px;text-align:left" disabled="disabled"><i class="icon-ok-circle"></i>解封</a><br/>
+                               {% else %}
+                                    <a href="javascript:;" class="btn mini grey" style="width:80px;text-align:left" disabled="disabled"><i class=" icon-ban-circle"></i>封停</a><br/>
+                                    <a href="javascript:unforbidden({{item.uid}},'{{item.login_name}}')" class="btn mini grey" style="width:80px;text-align:left" ><i class="icon-ok-circle"></i>解封</a><br/>
+                                {% endif %}
+                                 <a href="javascript:reset_password({{item.uid}},{{item.user_number}},'{{item.login_name}}')" class="btn mini grey" style="width:80px;text-align:left"><i class="icon-lock"></i>重置登陆密码</a><br/>
+                                 <a href="javascript:reset_purchase_password({{item.uid}},{{item.user_number}},'{{item.login_name}}')" class="btn mini grey" style="width:80px;text-align:left"><i class="icon-lock"></i>重置消费密码</a><br/>
                         {% endif %}
                     </td>
                 </tr>
@@ -113,19 +125,6 @@
         </div>
         <div class="span6">
             <div class="dataTables_paginate paging_bootstrap pagination">
-               <!-- <ul>
-                    <li class="prev disabled"><a href="#">← <span class="hidden-480">上一页</span></a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li class="next">
-                        <a href="#">
-                        <span class="hidden-480">下一页</span> →
-                        </a>
-                    </li>
-                </ul>-->
                 <ul>
                  {{pagiation|raw}}
                 </ul>

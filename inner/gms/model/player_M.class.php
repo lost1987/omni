@@ -33,7 +33,7 @@ class Player_M extends AdminModel{
     }
 
     function update($fields,$id){
-        return $this->_game_server->update($fields,'users',"WHERE id = $id");
+        return $this->_game_server->update($fields,'users',"WHERE uid = $id");
     }
 
     function del($id){

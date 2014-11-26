@@ -41,8 +41,8 @@ class SystemLog
 
     /**
      * 记录日志
-     * @param $module_id 请根据ModuleDictionary定义的值传入
-     * @param string $desp
+     * @param  int $module_id 请根据ModuleDictionary定义的值传入
+     * @param  string $desp
      * @return mixed
      */
     function save($module_id, $desp = '')

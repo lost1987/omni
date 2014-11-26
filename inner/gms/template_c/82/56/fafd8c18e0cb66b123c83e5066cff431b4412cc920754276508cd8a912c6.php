@@ -185,13 +185,13 @@ class __TwigTemplate_8256fafd8c18e0cb66b123c83e5066cff431b4412cc920754276508cd8a
                 // line 102
                 echo "                             <a href=\"/knockoutMatch/add/19/edit/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "match_id", array()), "html", null, true);
-                echo "\" class=\"btn mini black\"><i class=\"icon-edit\"></i> 编辑</a>
+                echo "\" class=\"btn mini grey\"><i class=\"icon-edit\"></i> 编辑</a>
                              <a href=\"/knockoutMatch/editPrize/19/";
                 // line 103
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "match_id", array()), "html", null, true);
                 echo "/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "match_type", array()), "html", null, true);
-                echo "\" class=\"btn mini yellow\" ><i class=\"icon-edit\"></i> 编辑奖励</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 编辑奖励</a>
                         ";
             }
             // line 105
@@ -200,7 +200,7 @@ class __TwigTemplate_8256fafd8c18e0cb66b123c83e5066cff431b4412cc920754276508cd8a
                 // line 106
                 echo "                        <a href=\"/knockoutMatch/verifyList/19/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "match_id", array()), "html", null, true);
-                echo "\" class=\"btn mini red\" ><i class=\"icon-edit\"></i> 审核比赛</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 审核比赛</a>
                         ";
             }
             // line 108
@@ -211,7 +211,7 @@ class __TwigTemplate_8256fafd8c18e0cb66b123c83e5066cff431b4412cc920754276508cd8a
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "match_id", array()), "html", null, true);
                 echo "/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "match_type", array()), "html", null, true);
-                echo "\" class=\"btn mini red\" ><i class=\"icon-edit\"></i> 审核奖励</a>
+                echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 审核奖励</a>
                         ";
             }
             // line 111

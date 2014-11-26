@@ -99,14 +99,14 @@
                     </td>
                     <td style="text-align: center">
                         {% if btn_edit_permission == 1 and item.verify_match == 1 and item.verify_match_prize %}
-                             <a href="/knockoutMatch/add/19/edit/{{item.match_id}}" class="btn mini black"><i class="icon-edit"></i> 编辑</a>
-                             <a href="/knockoutMatch/editPrize/19/{{item.match_id}}/{{item.match_type}}" class="btn mini yellow" ><i class="icon-edit"></i> 编辑奖励</a>
+                             <a href="/knockoutMatch/add/19/edit/{{item.match_id}}" class="btn mini grey"><i class="icon-edit"></i> 编辑</a>
+                             <a href="/knockoutMatch/editPrize/19/{{item.match_id}}/{{item.match_type}}" class="btn mini grey" ><i class="icon-edit"></i> 编辑奖励</a>
                         {% endif %}
                         {%if btn_verify_permission == 1 and item.verify_match == 0%}
-                        <a href="/knockoutMatch/verifyList/19/{{item.match_id}}" class="btn mini red" ><i class="icon-edit"></i> 审核比赛</a>
+                        <a href="/knockoutMatch/verifyList/19/{{item.match_id}}" class="btn mini grey" ><i class="icon-edit"></i> 审核比赛</a>
                         {% endif %}
                         {%if btn_verify_permission == 1 and item.verify_match_prize == 0%}
-                        <a href="/knockoutMatch/verifyPrizeList/19/{{item.match_id}}/{{item.match_type}}" class="btn mini red" ><i class="icon-edit"></i> 审核奖励</a>
+                        <a href="/knockoutMatch/verifyPrizeList/19/{{item.match_id}}/{{item.match_type}}" class="btn mini grey" ><i class="icon-edit"></i> 审核奖励</a>
                         {% endif %}
                     </td>
                 </tr>

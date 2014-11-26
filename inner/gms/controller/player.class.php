@@ -18,6 +18,7 @@ use gms\libs\AdminUtil;
 use gms\libs\Error;
 use gms\libs\GameServer;
 use gms\libs\ModuleDictionary;
+use gms\libs\PlayerUtil;
 use gms\libs\SystemLog;
 use gms\model\GameSummary_M;
 use gms\model\Player_M;
@@ -112,7 +113,7 @@ class Player extends AdminController{
 
         if(!Profile_M::instance()->update($fields,$uid))
              $this->set_error(Error::DATA_WRITE);
-        SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_PLAYERS_ADD,'编辑玩家#'.$uid.'的资源属性');
+        SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_PLAYERS_ADD,'编辑玩家#uid:'.$uid.'的资源属性');
         Redirect::instance()->forward('/player/lists/19');
     }
 
@@ -132,6 +133,70 @@ class Player extends AdminController{
                 $data = array_merge($profile, $gamesummary);
             }
             $this->response($data,0);
+    }
+
+    /**
+     * 封停
+     */
+    function forbidden(){
+            AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_GAME_PLAYERS_ADD);
+            $player_id = $this->args[0];
+            $login_name = $this->args[1];
+
+            if(!PlayerUtil::instance()->forbidden(PlayerUtil::FORBBIDEN,$player_id))
+                      $this->response(null,Error::DATA_WRITE);
+
+            SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_PLAYERS,"封停玩家 $login_name ");
+            $this->response(null);
+    }
+
+    /**
+     * 解封
+     */
+    function unforbidden(){
+        AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_GAME_PLAYERS_ADD);
+        $player_id = $this->args[0];
+        $login_name = $this->args[1];
+
+        if(!PlayerUtil::instance()->forbidden(PlayerUtil::UNFORBBIDEN,$player_id))
+            $this->response(null,Error::DATA_WRITE);
+
+        SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_PLAYERS,"解封玩家 $login_name ");
+        $this->response(null);
+    }
+
+
+    /**
+     * 重置密码
+     */
+    function reset_password(){
+        AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_GAME_PLAYERS_ADD);
+        $player_id = $this->args[0];
+        $user_number = $this->args[1];
+        $login_name = $this->args[2];
+
+        if( !$newpassword = PlayerUtil::instance()->reset_password($player_id,$user_number))
+            $this->response(null,Error::DATA_WRITE);
+
+        SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_PLAYERS,"重置玩家 $login_name 的登陆密码为:$newpassword");
+        $this->response($newpassword);
+    }
+
+
+    /**
+     * 重置消费密码
+     */
+    function reset_purchase_password(){
+        AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_GAME_PLAYERS_ADD);
+        $player_id = $this->args[0];
+        $user_number = $this->args[1];
+        $login_name = $this->args[2];
+
+        if(!$newpassword = PlayerUtil::instance()->reset_purchase_password($player_id,$user_number))
+            $this->response(null,Error::DATA_WRITE);
+
+        SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_PLAYERS,"重置玩家 $login_name 的消费密码为:$newpassword");
+        $this->response($newpassword);
     }
 
 } 

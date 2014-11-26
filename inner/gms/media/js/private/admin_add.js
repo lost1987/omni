@@ -19,7 +19,7 @@ var FormValidation = function () {
                 ignore: "",
                 rules: {
                     account: {
-                        minlength: 2,
+                        minlength: 5,
                         required: true,
                         remote: {
                             url: '/login/check_account_toggle',
@@ -36,6 +36,7 @@ var FormValidation = function () {
                         required:true
                     },
                     password: {
+                        minlength:5,
                         required: true
                     },
                     re_password: {
@@ -55,6 +56,7 @@ var FormValidation = function () {
                         required:"这是必填项"
                     },
                     password: {
+                        minlength:"密码长度最少5位",
                         required:"这是必填项"
                     },
                     re_password: {

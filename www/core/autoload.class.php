@@ -8,7 +8,6 @@
 class Autoload {
 
     static function load($class_path){
-
                 /*单独判断模板的加载**/
                 if(strtolower(substr($class_path,0,4)) == 'twig'){
                         require_once BASE_PATH.'/libs/'.str_replace('_','/',$class_path).'.php';
