@@ -115,6 +115,7 @@ class StoreProduct extends AdminController {
 
         //商品类型
         $this->output_data['product_types'] = $this->config->gms['product_type'];
+        $this->output_data['categories'] = StoreCategory_M::instance()->lists();
 
         $categories = StoreCategory_M::instance()->lists();
         foreach($list as &$item){

@@ -50,6 +50,7 @@ class Userinfo extends  Controller{
         }else{//女
             $user['gender'] = '女';
             $user['avatar_path'] = STATIC_HOST.'/img/tx/female'.($user['avatar']+1).'.jpg';
+            $avatar_name= 'female';
         }
         $user['area_name'] = $areas[$user['area']];
         $user['mobile'] = Tools::entry_phone($user['mobile']);
@@ -268,7 +269,7 @@ class Userinfo extends  Controller{
         $purchaseModel = PurchaseProfileModel::instance();
         $purchase = $purchaseModel->read($uid);
 
-        if(!UserUtil::instance()->is_purchase_password_valid($purchase['purchase_password'],$old_pass,$user['user_number'])){
+        if(!UserUtil::instance()->is_purchase_password_valid($old_pass,$purchase['purchase_password'],$user['user_number'])){
             $data['error'] = Error::ERROR_PURCHASE_PWD;
             die(Encoder::instance()->encode($data));
         }

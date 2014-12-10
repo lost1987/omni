@@ -9,7 +9,6 @@
  */
 session_start();
 define('PROJECT_MODE','develop');
-
 switch(PROJECT_MODE){
     case 'develop' :
          /***本地配置****/
@@ -26,7 +25,7 @@ switch(PROJECT_MODE){
         ini_set('display_errors','on');
         break;
     case  'product':
-        define('BASE_HOST','http://gms.16youxi.com');
+        define('BASE_HOST','http://gms.sndu.cn');
         define('WWW_HOST','http://www.16youxi.com');
         define('XHPROF_ENABLE',0);
         error_reporting(E_ERROR | E_WARNING | E_PARSE );

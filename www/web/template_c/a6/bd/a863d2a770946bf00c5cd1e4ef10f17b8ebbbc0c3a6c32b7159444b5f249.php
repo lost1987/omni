@@ -96,7 +96,7 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
 <div class=\"code_download\"><h5 class=\"dl\">武汉麻将二维码客户端下载</h5><img src=\"";
         // line 25
         echo twig_escape_filter($this->env, twig_constant("STATIC_HOST"), "html", null, true);
-        echo "/img/code_download.png\" /><h5 class=\"wx\">武汉麻将二维码微信扫一扫</h5><img src=\"";
+        echo "/img/code_download.jpg\" /><h5 class=\"wx\">武汉麻将二维码微信扫一扫</h5><img src=\"";
         echo twig_escape_filter($this->env, twig_constant("STATIC_HOST"), "html", null, true);
         echo "/img/code_weixin.png\" /></div>
 
@@ -236,7 +236,7 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
         // line 134
         if (((isset($context["is_login"]) ? $context["is_login"] : null) == 0)) {
             // line 135
-            echo "        <form action=\"user/login\" method=\"post\" id=\"loginform\">
+            echo "        <form action=\"user/login\" method=\"post\" id=\"loginform\" >
             <input type=\"hidden\" name=\"csrf_token\" value=\"";
             // line 136
             echo twig_escape_filter($this->env, (isset($context["csrf_token"]) ? $context["csrf_token"] : null), "html", null, true);
@@ -248,7 +248,8 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
                 </tr>
                 <tr>
                     <td class=\"bold\" align=\"right\">密码</td>
-                    <td><input type=\"password\" name=\"password\" id=\"password\" class=\"input_box\" /></td>
+                    <td><input type=\"password\" name=\"valid_password\" id=\"valid_password\" class=\"input_box\" /></td>
+                   <input type=\"hidden\" name=\"password\" id=\"password\" class=\"input_box\" />
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
@@ -261,7 +262,7 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
             <div id=\"errorAlert\">* 用户名或密码错误</div>
         </form>
         <div class=\"login_2\">使用合作网站帐号直接登录<a href=\"/weibo/sina/login\"><img src=\"";
-            // line 156
+            // line 157
             echo twig_escape_filter($this->env, twig_constant("STATIC_HOST"), "html", null, true);
             echo "/img/weibo.png\" width=\"19\" height=\"16\" /></a></div>
         <a href=\"/game\" class=\"playgame\">进入试玩</a>
@@ -269,30 +270,30 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
         <!--未登录 end-->
         ";
         }
-        // line 161
+        // line 162
         echo "
         ";
-        // line 162
+        // line 163
         if (((isset($context["is_login"]) ? $context["is_login"] : null) == 1)) {
-            // line 163
+            // line 164
             echo "        <!--已登录 begin-->
         <div class=\"user_info_index\">
             <h4>您好，";
-            // line 165
+            // line 166
             echo twig_escape_filter($this->env, (isset($context["nickname"]) ? $context["nickname"] : null), "html", null, true);
             echo "！</h4>
             <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
                 <tr>
                     <td width=\"19%\">金币：</td>
                     <td colspan=\"3\"><i>";
-            // line 169
+            // line 170
             echo twig_escape_filter($this->env, (isset($context["coins"]) ? $context["coins"] : null), "html", null, true);
             echo "</i><a href=\"/payment/entrance\" class=\"ljcz\">立即充值</a></td>
                 </tr>
                 <tr>
                     <td>钻石：</td>
                     <td width=\"32%\" id=\"my_diamond\">";
-            // line 173
+            // line 174
             echo twig_escape_filter($this->env, (isset($context["diamond"]) ? $context["diamond"] : null), "html", null, true);
             echo "</td>
                     <td width=\"19%\" align=\"center\">&nbsp;</td>
@@ -301,19 +302,19 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
                 <tr>
                     <td>门票：</td>
                     <td>";
-            // line 179
+            // line 180
             echo twig_escape_filter($this->env, (isset($context["ticket"]) ? $context["ticket"] : null), "html", null, true);
             echo "</td>
                     <td align=\"center\">奖券：</td>
                     <td>";
-            // line 181
+            // line 182
             echo twig_escape_filter($this->env, (isset($context["coupon"]) ? $context["coupon"] : null), "html", null, true);
             echo "</td>
                 </tr>
                 <tr>
                     <td>胜率：</td>
                     <td>";
-            // line 185
+            // line 186
             echo twig_escape_filter($this->env, (isset($context["ratio"]) ? $context["ratio"] : null), "html", null, true);
             echo "</td>
                     <td align=\"center\">等级：</td>
@@ -324,7 +325,7 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
                 <tr>
                     <td width=\"19%\">金币：</td>
                     <td cospan=\"3\"><i>";
-            // line 193
+            // line 194
             echo twig_escape_filter($this->env, (isset($context["coins"]) ? $context["coins"] : null), "html", null, true);
             echo "</i><a href=\"/payment/entrance\" class=\"ljcz\">立即充值</a></td>
                 </tr>
@@ -343,7 +344,7 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
                 <tr>
                     <td>胜率：</td>
                     <td>";
-            // line 209
+            // line 210
             echo twig_escape_filter($this->env, (isset($context["ratio"]) ? $context["ratio"] : null), "html", null, true);
             echo "</td>
                     <td align=\"center\">等级：</td>
@@ -353,19 +354,19 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
             <a href=\"/userinfo\" style=\"float:left\">个人中心</a><a href=\"/user/logout\" class=\"fl_rt\">退出登录</a>
 
                     ";
-            // line 216
+            // line 217
             if (((isset($context["unread_messages"]) ? $context["unread_messages"] : null) > 0)) {
-                // line 217
+                // line 218
                 echo "                          <span class=\"message\"> <b>";
                 echo twig_escape_filter($this->env, (isset($context["unread_messages"]) ? $context["unread_messages"] : null), "html", null, true);
                 echo "</b> </span>
                     ";
             } else {
-                // line 219
+                // line 220
                 echo "                         <span class=\"message empty\"> <b></b> </span>
                     ";
             }
-            // line 221
+            // line 222
             echo "
         </div>
         <div class=\"start_btn_box\" style=\"display:none\">
@@ -376,26 +377,26 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
         <!--已登录 end-->
         ";
         }
-        // line 230
+        // line 231
         echo "
         <div class=\"news_box\">
             <h3>最新公告</h3><a href=\"/activity/lists\" class=\"more\">查看更多>></a>
             <table width=\"200\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
                 ";
-        // line 234
+        // line 235
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["activity"]) ? $context["activity"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 235
+            // line 236
             echo "                <tr>
                     <td width=\"165\"><a href=\"/activity/detail/";
-            // line 236
+            // line 237
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
             echo "\" target=\"_blank\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "name", array()), "html", null, true);
             echo "</a></td>
                     <td width=\"35\">";
-            // line 237
+            // line 238
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "publish_time", array()), "html", null, true);
             echo "</td>
                 </tr>
@@ -404,7 +405,7 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 240
+        // line 241
         echo "            </table>
         </div>
     </div>
@@ -424,6 +425,6 @@ class __TwigTemplate_a6bda863d2a770946bf00c5cd1e4ef10f17b8ebbbc0c3a6c32b7159444b
 
     public function getDebugInfo()
     {
-        return array (  408 => 240,  399 => 237,  393 => 236,  390 => 235,  386 => 234,  380 => 230,  369 => 221,  365 => 219,  359 => 217,  357 => 216,  347 => 209,  328 => 193,  317 => 185,  310 => 181,  305 => 179,  296 => 173,  289 => 169,  282 => 165,  278 => 163,  276 => 162,  273 => 161,  265 => 156,  242 => 136,  239 => 135,  237 => 134,  229 => 129,  208 => 111,  194 => 100,  188 => 96,  179 => 94,  175 => 93,  110 => 30,  107 => 29,  98 => 25,  95 => 24,  92 => 23,  86 => 20,  82 => 19,  78 => 18,  74 => 17,  70 => 16,  66 => 15,  62 => 14,  58 => 13,  47 => 11,  44 => 10,  41 => 9,  34 => 4,  31 => 3,);
+        return array (  409 => 241,  400 => 238,  394 => 237,  391 => 236,  387 => 235,  381 => 231,  370 => 222,  366 => 220,  360 => 218,  358 => 217,  348 => 210,  329 => 194,  318 => 186,  311 => 182,  306 => 180,  297 => 174,  290 => 170,  283 => 166,  279 => 164,  277 => 163,  274 => 162,  266 => 157,  242 => 136,  239 => 135,  237 => 134,  229 => 129,  208 => 111,  194 => 100,  188 => 96,  179 => 94,  175 => 93,  110 => 30,  107 => 29,  98 => 25,  95 => 24,  92 => 23,  86 => 20,  82 => 19,  78 => 18,  74 => 17,  70 => 16,  66 => 15,  62 => 14,  58 => 13,  47 => 11,  44 => 10,  41 => 9,  34 => 4,  31 => 3,);
     }
 }

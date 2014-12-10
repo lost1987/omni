@@ -154,7 +154,7 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
         <div class=\"control-group\">
             <label class=\"control-label\"><b class=\"midnight\">web端图片</b><span class=\"required\">*</span></label>
             &nbsp;&nbsp;&nbsp; &nbsp;
-            <b class=\"midnight\">(190px * 130px)并且文件大小小于500KB</b>
+            <b class=\"midnight\">(700px * 350px)并且文件大小小于500KB</b>
             <div class=\"controls\">
                 <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\">
                     <div class=\"fileupload-new thumbnail\" style=\"width: 200px;\">
@@ -183,7 +183,7 @@ class __TwigTemplate_cc720d9994b781053e3f2833779b34ba5fd6764c5e087ef388a4860a783
         <div class=\"control-group\">
             <label class=\"control-label\"><b class=\"midnight\">游戏端图片</b><span class=\"required\">*</span></label>
             &nbsp;&nbsp;&nbsp; &nbsp;
-            <b class=\"midnight\">(190px * 130px)并且文件大小小于200KB</b>
+            <b class=\"midnight\">(220px * 87px)并且文件大小小于200KB</b>
             <div class=\"controls\">
                 <div class=\"fileupload fileupload-new\" data-provides=\"fileupload\">
                     <div class=\"fileupload-new thumbnail\" style=\"width: 200px;\">

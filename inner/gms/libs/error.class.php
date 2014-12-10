@@ -44,6 +44,8 @@
 
         const ADMIN_PASSWORD_VALIDATE_FAILED = 1009;//管理员密码验证错误
 
+        const OUT_OF_IP_WHITE_LIST = 1010;//不在IP白名单之内
+
         /**
          * 输出错误代码的含义
          * @param int $code
@@ -94,6 +96,9 @@
                     break;
                 case 1009:
                     $str = '管理员密码验证错误';
+                    break;
+                case 1010:
+                    $str = '不在IP白名单之内';
                     break;
             }
 

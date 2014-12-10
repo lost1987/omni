@@ -15,6 +15,7 @@ use core\Controller;
 use core\Cookie;
 use core\Encoder;
 use core\Redirect;
+use utils\Das;
 use utils\Email;
 use utils\Page;
 use utils\StreamImage;
@@ -74,6 +75,7 @@ class User extends Controller
             }
 
             if (UserUtil::instance()->is_password_valid($password, $user['password'], $user['user_number'])) {
+                Das::instance(Das::PLATFORM_WEB,10001,$user['uid'])->send(array('login'=>1),Das::LOGIN_COUNT | Das::LOGIN_NUM);
                 /*处理COOKIE**/
                 $cookie = Cookie::instance();
                 if ($auto_login == 1)
@@ -314,6 +316,7 @@ class User extends Controller
                 throw new \Exception(Error::ERROR_DATA_WRITE);
 
             $this->db->commit();
+            Das::instance(Das::PLATFORM_WEB,10001,$uid)->send(array('register'=>1),Das::REGISTER_NUM);
 
             $gamesummary['wins'] = 0;
             $gamesummary['total'] = 0;
@@ -516,12 +519,12 @@ class User extends Controller
      */
     function newlottery(){
         $this->csrf_token_validation(false);
-        $productOrders = ProductOrderModel::instance()->lists(0,4);
+        $productOrders = ProductOrderModel::instance()->lists_lottery(0,4);
         $userModel = UserModel::instance();
         $productModel = StoreProductsModel::instance();
         foreach($productOrders as &$order){
             $user = $userModel->getUserByUid($order['user_id']);
-            $order['login_name'] = $user['login_name'];
+            $order['login_name'] = $user['nickname'].' ';
             $product = $productModel->read($order['product_id']);
             $order['product_name'] = $product['name'];
             unset($order['user_id'],$order['id'],$order['product_id']);

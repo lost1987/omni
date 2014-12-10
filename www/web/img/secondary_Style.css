@@ -133,7 +133,7 @@ td input.p_btn_2:active,.btn_2:active { background:url(btn_5.png) -101px -38px; 
 .djsc_content ul li .sp,.djsc_content ul li span,.djsc_content ul li a,.djsc_content ul li b { position:absolute}
 .djsc_content ul li .sp { left:7px; top:7px; width:190px; height:130px}
 .djsc_content ul li span { left:7px; bottom:8px; line-height:1.3}
-.djsc_content ul li a { display:block; width:55px; height:23px; background:url(btn_6.png) no-repeat; color:#fff; font-weight:bold; right:7px; bottom:14px; text-align:center; font-size:12px}
+.djsc_content ul li a { display:block; width:55px; height:23px; background:url(btn_6.png) no-repeat; color:#fff; font-weight:bold; right:7px; bottom:6px; text-align:center; font-size:12px}
 .djsc_content ul li a:hover { background:url(btn_6.png) 0 -24px no-repeat; text-decoration:none}
 .djsc_content ul li a:active { background:url(btn_6.png) 0 -48px no-repeat}
 .djsc_content ul li b { right:-1px; top:-1px; width:48px; height:48px; background:url(hot.png) no-repeat}
@@ -343,6 +343,6 @@ a.ljcy_btn:active { background:url(zxhd/ljcj_btn.png) 0 -122px no-repeat}
 h4.zxhd_rule { font-size:26px; line-height:26px; font-weight:normal; color:#fc0; background:none; text-indent:0; width:200px; display:block}
 
 .jqqd { margin-left:85px}
-.hot2 { width:18px; height:18px; background:url(hotbg.png) no-repeat; display:inline-block; position:absolute; right:378px; top:-6px; color:#fff; font-weight:bold; font-size:12px; line-height:18px; text-align:center; font-family:arial}
+.hot2 { width:18px; height:18px; background:url(hotbg.png) no-repeat; display:inline-block; position:absolute; right:458px; top:-6px; color:#fff; font-weight:bold; font-size:12px; line-height:18px; text-align:center; font-family:arial}
 
 

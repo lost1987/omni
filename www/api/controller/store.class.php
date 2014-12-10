@@ -41,7 +41,7 @@ class Store extends Baseapi{
                 $product['is_promote'] = $product['is_promote'] ? true : false;
                 $product['is_top'] = $product['is_top'] ? true : false;
                 $product['top_timestamp'] = empty($product['top_timestamp']) ? 0 : $product['top_timestamp'];
-                $product['image'] = WWW_HOST.'/img/'.$product['image'];
+                $product['image'] = WWW_HOST.$product['image'];
                 unset($product['price_type']);
         }
 

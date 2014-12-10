@@ -171,7 +171,7 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
             <div class=\"portlet-title\">
                 <div class=\"caption\"></div>
                 <div class=\"actions\">
-                    <a href=\"javascript:handle_multi(3)\" class=\"btn grey\"><i class=\"icon-ok\"></i> 回复</a>
+                    <a href=\"javascript:handle_multi()\" class=\"btn grey\"><i class=\"icon-ok\"></i> 回复</a>
                 </div>
             </div>
 
@@ -307,7 +307,7 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
 
 <!-- END PAGE -->
 <!-- 模态框（Modal） -->
-<div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\"
+<div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\"  style=\"display:none\"
      aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
     <div class=\"modal-dialog\">
         <div class=\"modal-content\">
@@ -316,19 +316,81 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
                         aria-hidden=\"true\">×
                 </button>
                 <h4 class=\"modal-title\" id=\"myModalLabel\">
-                    请确认
+                    请选择要回复的内容
                 </h4>
             </div>
-            <div class=\"modal-body\">
-                确认要删除该项目吗?
-            </div>
-            <div class=\"modal-footer\">
-                <button type=\"button\" class=\"btn btn-default\" onclick=\"del()\"
-                        data-dismiss=\"modal\">确认
-                </button>
-                <button type=\"button\" class=\"btn btn-primary\" onclick=\"cancel_del()\">
-                    取消
-                </button>
+                <form action=\"\" id=\"\" class=\"form-inline\" >
+                    <div class=\"modal-body\" style=\"max-height:800px;\">
+                        <div class=\"control-group\">
+                            ";
+        // line 207
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["service_reply"]) ? $context["service_reply"] : null));
+        $context['loop'] = array(
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        );
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
+        foreach ($context['_seq'] as $context["_key"] => $context["reply"]) {
+            // line 208
+            echo "                            <div class=\"controls\">
+                                ";
+            // line 209
+            if (($this->getAttribute((isset($context["loop"]) ? $context["loop"] : null), "index", array()) == 1)) {
+                // line 210
+                echo "                                    <label><input type=\"radio\" name=\"reply_radio\" value=\"";
+                echo twig_escape_filter($this->env, (isset($context["reply"]) ? $context["reply"] : null), "html", null, true);
+                echo "\" checked=\"checked\"/>";
+                echo twig_escape_filter($this->env, (isset($context["reply"]) ? $context["reply"] : null), "html", null, true);
+                echo "</label>
+                                ";
+            } else {
+                // line 212
+                echo "                                     <label><input type=\"radio\" name=\"reply_radio\" value=\"";
+                echo twig_escape_filter($this->env, (isset($context["reply"]) ? $context["reply"] : null), "html", null, true);
+                echo "\" />";
+                echo twig_escape_filter($this->env, (isset($context["reply"]) ? $context["reply"] : null), "html", null, true);
+                echo "</label>
+                                ";
+            }
+            // line 214
+            echo "                            </div>
+                            ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reply'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 216
+        echo "                        </div>
+                        <div class=\"control-group\">
+                            <label class=\"control-label\"><b class=\"midnight\">自定义</b>&nbsp;&nbsp;</label>
+                            <div class=\"controls\">
+                                <textarea rows=\"3\" cols=\"5\"  class=\"span4\" name=\"custom_reply\" id=\"custom_reply\" disabled=\"true\"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=\"modal-footer\">
+                        <div class=\"form-actions\">
+                            <button type=\"button\" class=\"btn red\" onclick=\"handle_reply(3)\">提交</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -336,23 +398,24 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
 ";
     }
 
-    // line 221
+    // line 237
     public function block_javascript_plugins($context, array $blocks = array())
     {
-        // line 222
+        // line 238
         echo "<script type=\"text/javascript\" src=\"/media/js/select2.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/jquery.dataTables.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/DT_bootstrap.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/bootstrap-datetimepicker.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/bootstrap-datetimepicker.zh-CN.js\"></script>
+<script type=\"text/javascript\" src=\"/media/js/common/service_reply.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/private/feedback.js\"></script>
 ";
     }
 
-    // line 230
+    // line 247
     public function block_javascript_custom($context, array $blocks = array())
     {
-        // line 231
+        // line 248
         echo "<script>
     jQuery(document).ready(function() {
         TableAdvanced.init();
@@ -373,6 +436,6 @@ class __TwigTemplate_e90d8d85052a2eca9d10e4790812aea850ce2fdc650fb1a77bb5afed2fd
 
     public function getDebugInfo()
     {
-        return array (  356 => 231,  353 => 230,  343 => 222,  340 => 221,  293 => 176,  272 => 158,  264 => 152,  254 => 148,  248 => 145,  242 => 142,  236 => 139,  230 => 136,  224 => 133,  218 => 130,  212 => 127,  205 => 125,  200 => 124,  196 => 123,  154 => 84,  142 => 75,  128 => 63,  122 => 62,  114 => 60,  106 => 58,  103 => 57,  99 => 56,  88 => 48,  55 => 17,  52 => 16,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
+        return array (  419 => 248,  416 => 247,  405 => 238,  402 => 237,  380 => 216,  365 => 214,  357 => 212,  349 => 210,  347 => 209,  344 => 208,  327 => 207,  293 => 176,  272 => 158,  264 => 152,  254 => 148,  248 => 145,  242 => 142,  236 => 139,  230 => 136,  224 => 133,  218 => 130,  212 => 127,  205 => 125,  200 => 124,  196 => 123,  154 => 84,  142 => 75,  128 => 63,  122 => 62,  114 => 60,  106 => 58,  103 => 57,  99 => 56,  88 => 48,  55 => 17,  52 => 16,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
     }
 }

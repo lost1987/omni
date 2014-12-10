@@ -214,6 +214,45 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
         echo "                </select>
             </div>
         </div>
+        <div class=\"control-group search_form_wrap span4\">
+            <label class=\"control-label span2\"><b class=\"midnight\">商品栏目</b></label>
+            <div class=\"controls chzn-controls\">
+                <select class=\"span2 m-wrap\" name=\"category_id\">
+                    <option value=\"-1\">全部</option>
+                    ";
+        // line 130
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) ? $context["categories"] : null));
+        foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+            // line 131
+            echo "                    ";
+            if (($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()) == (isset($context["search_category_id"]) ? $context["search_category_id"] : null))) {
+                // line 132
+                echo "                    <option value=\"";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
+                echo "\" selected=\"selected\">";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "name", array()), "html", null, true);
+                echo "</option>
+                    ";
+            } else {
+                // line 134
+                echo "                    <option value=\"";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
+                echo "\">";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "name", array()), "html", null, true);
+                echo "</option>
+                    ";
+            }
+            // line 136
+            echo "                    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 137
+        echo "                </select>
+            </div>
+        </div>
         <div class=\"dataTables_filter\">
             <a href=\"javascript:;\" class=\"btn red\" onclick=\"\$('#search_form').submit();\"><i class=\"icon-search\"></i>&nbsp;查询</a>
         </div>
@@ -243,88 +282,88 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
                 </thead>
                 <tbody>
                 ";
-        // line 153
+        // line 168
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["list"]) ? $context["list"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 154
+            // line 169
             echo "                <tr rel=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
             echo "\">
                     <td class=\"highlight\">
                         ";
-            // line 156
+            // line 171
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
             echo "
                     </td>
                     <td class=\"hidden-phone\">
                         <a href=\"javascript:;\">";
-            // line 159
+            // line 174
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "name", array()), "html", null, true);
             echo "</a>
                     </td>
                     <td class=\"hidden-phone\">
                         <a href=\"javascript:;\">";
-            // line 162
+            // line 177
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "product_type_name", array()), "html", null, true);
             echo "</a>
                     </td>
                     <td>
                         ";
-            // line 165
+            // line 180
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "category_name", array()), "html", null, true);
             echo "
                     </td>
                     <td>
                         ";
-            // line 168
+            // line 183
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "is_visible", array()), "html", null, true);
             echo "
                     </td>
                     <td>
                         ";
-            // line 171
+            // line 186
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "is_top", array()), "html", null, true);
             echo "
                     </td>
                     <td>
                         ";
-            // line 174
+            // line 189
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "is_promote", array()), "html", null, true);
             echo "
                     </td>
                     <td>
                         ";
-            // line 177
+            // line 192
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "top_timestamp", array()), "html", null, true);
             echo "
                     </td>
                     <td>
                         ";
-            // line 180
+            // line 195
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "modify_at", array()), "html", null, true);
             echo "
                     </td>
                     <td style=\"text-align: center\">
                         ";
-            // line 183
+            // line 198
             if (((isset($context["btn_edit_permission"]) ? $context["btn_edit_permission"] : null) == 1)) {
-                // line 184
+                // line 199
                 echo "                        <a href=\"/storeProduct/add/28/edit/";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
                 echo "\" class=\"btn mini grey\" ><i class=\"icon-edit\"></i> 编辑</a>
                         ";
             }
-            // line 186
+            // line 201
             echo "                        ";
             if (((isset($context["btn_del_permission"]) ? $context["btn_del_permission"] : null) == 1)) {
-                // line 187
+                // line 202
                 echo "                        <a href=\"javascript:confirm_del(";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "id", array()), "html", null, true);
                 echo ")\" class=\"btn mini grey\" ><i class=\"icon-trash\"></i> 删除</a>
                         ";
             }
-            // line 189
+            // line 204
             echo "                    </td>
                 </tr>
                 ";
@@ -332,7 +371,7 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 192
+        // line 207
         echo "                </tbody>
             </table>
         </div>
@@ -340,7 +379,7 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
     <div class=\"row-fluid\">
         <div class=\"span6\">
             <div class=\"dataTables_info\" id=\"sample_2_info\" style=\"padding-top:0\">共";
-        // line 198
+        // line 213
         echo twig_escape_filter($this->env, ((array_key_exists("total", $context)) ? (_twig_default_filter((isset($context["total"]) ? $context["total"] : null), 0)) : (0)), "html", null, true);
         echo "条数据</div>
         </div>
@@ -361,7 +400,7 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
                 </ul>-->
                 <ul>
                  ";
-        // line 216
+        // line 231
         echo (isset($context["pagiation"]) ? $context["pagiation"] : null);
         echo "
                 </ul>
@@ -408,10 +447,10 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
 ";
     }
 
-    // line 261
+    // line 276
     public function block_javascript_plugins($context, array $blocks = array())
     {
-        // line 262
+        // line 277
         echo "<script type=\"text/javascript\" src=\"/media/js/select2.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/jquery.dataTables.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/DT_bootstrap.js\"></script>
@@ -419,10 +458,10 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
 ";
     }
 
-    // line 268
+    // line 283
     public function block_javascript_custom($context, array $blocks = array())
     {
-        // line 269
+        // line 284
         echo "<script>
     jQuery(document).ready(function() {
         TableAdvanced.init();
@@ -443,6 +482,6 @@ class __TwigTemplate_d574bcb3fe71540bd342b8a0e7191d5a58fff199ce551719a632e999125
 
     public function getDebugInfo()
     {
-        return array (  426 => 269,  423 => 268,  415 => 262,  412 => 261,  365 => 216,  344 => 198,  336 => 192,  328 => 189,  322 => 187,  319 => 186,  313 => 184,  311 => 183,  305 => 180,  299 => 177,  293 => 174,  287 => 171,  281 => 168,  275 => 165,  269 => 162,  263 => 159,  257 => 156,  251 => 154,  247 => 153,  214 => 122,  208 => 118,  202 => 114,  196 => 110,  194 => 109,  185 => 102,  179 => 98,  173 => 94,  167 => 90,  165 => 89,  156 => 82,  150 => 78,  144 => 74,  138 => 70,  136 => 69,  127 => 62,  121 => 61,  113 => 59,  105 => 57,  102 => 56,  98 => 55,  87 => 47,  54 => 16,  51 => 15,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
+        return array (  465 => 284,  462 => 283,  454 => 277,  451 => 276,  404 => 231,  383 => 213,  375 => 207,  367 => 204,  361 => 202,  358 => 201,  352 => 199,  350 => 198,  344 => 195,  338 => 192,  332 => 189,  326 => 186,  320 => 183,  314 => 180,  308 => 177,  302 => 174,  296 => 171,  290 => 169,  286 => 168,  253 => 137,  247 => 136,  239 => 134,  231 => 132,  228 => 131,  224 => 130,  214 => 122,  208 => 118,  202 => 114,  196 => 110,  194 => 109,  185 => 102,  179 => 98,  173 => 94,  167 => 90,  165 => 89,  156 => 82,  150 => 78,  144 => 74,  138 => 70,  136 => 69,  127 => 62,  121 => 61,  113 => 59,  105 => 57,  102 => 56,  98 => 55,  87 => 47,  54 => 16,  51 => 15,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
     }
 }

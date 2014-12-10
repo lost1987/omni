@@ -34,8 +34,8 @@ class StoreProducts_M extends AdminModel{
     }
 
     function del($id){
-        $sql  = "DELETE FROM store_products  WHERE id = ?";
-        return $this->_game_server->execute($sql,array($id));
+        $sql  = "DELETE FROM store_productorder WHERE product_id = ? ;DELETE FROM store_products  WHERE id = ?";
+        return $this->_game_server->execute($sql,array($id,$id));
     }
 
     function update($fields,$id){
@@ -80,6 +80,9 @@ class StoreProducts_M extends AdminModel{
 
         if(intval($params['is_visible']) > -1 && $params['is_visible'] !== null)
             $this->_condition[] = " is_visible = {$params['is_visible']} ";
+
+        if(intval($params['category_id']) > -1 && $params['category_id'] !== null)
+            $this->_condition[] = " category_id = {$params['category_id']} ";
 
         if(count($this->_condition)>0) {
             $this->_condition  =  implode(' AND ',$this->_condition);

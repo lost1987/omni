@@ -20,7 +20,7 @@ return array(
      * 类文件必须放在 BASE_PROJECT/hook/beforectl 下面
      */
     'hook_breforectl' => array(
-        // array('clazz'=>'HookSample','method'=>'call1')
+         array('clazz'=>'Server','method'=>array('status'))
     ),
 
     'redis' => array(
@@ -52,7 +52,7 @@ return array(
     'areas' => array(
          0 => '江岸',
          1  => '江汉',
-         2 => '桥口',
+         2 => '硚口',
          3 => '武昌',
          4 => '青山',
          5 => '洪山',
@@ -209,24 +209,24 @@ return array(
      * 网银支付 的rmb:diamond的比例 例如 6元=60钻石
      */
     'pay_amount_ratio' => array(
-        '0.01'=> 100,
         6 => 60,
-        15 => 160,
-        30 => 330,
-        50 => 560,
-        80 => 900,
-        100 => 1200,
-        200 => 2500
+        18 => 180,
+        30 => 310,
+        50 => 530,
+        98 => 1100,
+        168 => 1900,
+        208 => 2400,
+        328 => 3800
     ),
 
     /**
      * 手机充值卡支付 rmb:diamond的比例
      */
     'pay_amount_ratio_mobile' => array(
-        20 => 215,
-        30 => 330,
-        50 => 560,
-        100 => 1200
+        20 => 200,
+        30 => 310,
+        50 => 530,
+        100 => 1000
     ),
 
     'product_type' => array(

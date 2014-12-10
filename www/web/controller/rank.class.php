@@ -90,7 +90,7 @@ class Rank extends Controller{
                 if (false != $gamesummary) {
                     foreach ($myrank as $k => $v) {
                         if (array_key_exists($k, $gamesummary)) {
-                            $myrank[$k] = $gamesummary[$k];
+                                $myrank[$k] = $gamesummary[$k];
                         }
                     }
                 } else {
@@ -101,6 +101,8 @@ class Rank extends Controller{
                 }
                 $myrank['order'] = '未取得名次';
             }
+            if(empty($myrank['win_rate']))
+                $myrank['win_rate'] = 0;
             $output_data['orderlist'][$myrank['order']] = $myrank;
         }
 
@@ -164,7 +166,7 @@ class Rank extends Controller{
                             if (false != $gamesummary) {
                                 foreach ($myrank as $k => $v) {
                                     if (array_key_exists($k, $gamesummary)) {
-                                        $myrank[$k] = $gamesummary[$k];
+                                            $myrank[$k] = $gamesummary[$k];
                                     }
                                 }
                             } else {
@@ -175,6 +177,8 @@ class Rank extends Controller{
                             }
                             $myrank['order'] = '未取得名次';
                         }
+                        if(empty($myrank['win_rate']))
+                            $myrank['win_rate'] = 0;
                         $response['data'][$myrank['order']] = $myrank;
                     }
                 }

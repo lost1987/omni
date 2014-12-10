@@ -74,9 +74,6 @@ class StoreCategory extends AdminController{
         if($pagiation->getTotalPage() > 1)
             $this->output_data['pagiation'] = $pagiation->show(1);
 
-        foreach($list as &$item){
-            $item['visible'] = empty($item['visible']) ? '否' : '是';
-        }
 
         $this->output_data['list'] = $list;
         $this->output_data['total'] = $total;

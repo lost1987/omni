@@ -21,6 +21,14 @@ return array(
     ),
 
     /**
+     * golang 统计队列ip,端口
+     */
+    'go_das_server'=>array(
+        'host' => 'tcp://127.0.0.1',
+        'port' => 5000
+    ),
+
+    /**
      * 此数组的顺序必须是按chance的从小到大来排 奖品的从大到小排
      * @var array
      */

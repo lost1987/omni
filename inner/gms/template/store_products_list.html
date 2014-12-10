@@ -122,6 +122,21 @@
                 </select>
             </div>
         </div>
+        <div class="control-group search_form_wrap span4">
+            <label class="control-label span2"><b class="midnight">商品栏目</b></label>
+            <div class="controls chzn-controls">
+                <select class="span2 m-wrap" name="category_id">
+                    <option value="-1">全部</option>
+                    {% for  item in categories%}
+                    {% if item.id == search_category_id  %}
+                    <option value="{{item.id}}" selected="selected">{{item.name}}</option>
+                    {% else %}
+                    <option value="{{item.id}}">{{item.name}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
         <div class="dataTables_filter">
             <a href="javascript:;" class="btn red" onclick="$('#search_form').submit();"><i class="icon-search"></i>&nbsp;查询</a>
         </div>

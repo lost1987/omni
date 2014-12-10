@@ -16,7 +16,7 @@ return array(
     /*cookie设置**/
     'cookie' => array(
            'secret' => 'web_newbee',
-           'timeout' => 3600*3,
+           'timeout' => 3600 * 24,
            'path'  => '/'
     ),
 
@@ -27,8 +27,8 @@ return array(
     'lottery_default' => array(
         array(//大奖
             'name' => 'iPad mini2',
-            'chance' => 1,
-            'inventory' => 1,
+            'chance' => 0,
+            'inventory' => 0,
             'index' => 2,//页面上的商品位置
             'product_id' => 15,
             'level' => 1//奖品等级
@@ -59,8 +59,10 @@ return array(
         ),
         array(
             'name' => '100钻石',
-            'chance' => 40,
-            'inventory' => 50,
+//            'chance' => 40,
+//            'inventory' => 50,
+            'chance' => 0,
+            'inventory' => 0,
             'index' => 4,
             'product_id' => 11,
             'price' => 100,
@@ -112,4 +114,9 @@ return array(
      * 玩家每玩几次 就加一次抽奖机会
      */
     'lottery_add_round' => 5,
+
+    /**
+     * 兑换,充值,购买 消耗了金币和金钻 通知服务器更新资源数的地址
+     */
+    'http_monitor' => 'http://127.0.0.1:6626'
 );

@@ -12,6 +12,7 @@ namespace gms\controller;
 use core\AdminController;
 use core\Cookie;
 use core\Encoder;
+use core\Permission;
 use core\Redirect;
 use gms\libs\AdminUtil;
 use gms\libs\Error;
@@ -96,7 +97,7 @@ class KnockoutMatch extends AdminController{
             $this->output_data['item'] =  KnockoutMatch_M::instance()->read($id);
             $this->output_data['action'] = '/knockoutMatch/cacheMatch/'.$id;
             $this->output_data['action_name'] = '编辑';
-            $this->output_data['price_types'] = $this->config->gms['price_type'];
+            $this->output_data['prize_types'] = $this->config->gms['prize_types'];
             $this->output_data['signup_price'] = KnockoutSignupPrice_M::instance()->read($id);
         }
 
@@ -134,7 +135,7 @@ class KnockoutMatch extends AdminController{
             $item['source_admin_name'] = Admin_M::instance()->read($item['source_admin_id'])['account'];
             $item['type_name'] = $this->config->gms['verify_types'][$item['type']];
             $item['match'] = Encoder::instance()->decode($item['json_content']);
-            $item['match']['price_type'] = $this->config->gms['price_type'][$item['match']['price_type']];
+            $item['match']['price_type'] = $this->config->gms['prize_types'][$item['match']['price_type']]['name'];
             $item['match']['match_type_name'] = $this->config->gms['match_types'][$item['match']['match_type']];
         }
         $this->render('knockout_match_verify.html');
@@ -181,8 +182,8 @@ class KnockoutMatch extends AdminController{
                 $this->db->rollback();
                 $this->set_error($e->getMessage());
             }
-            Redirect::instance()->forward('/knockoutMatch/lists/19');
         }
+        Redirect::instance()->forward('/knockoutMatch/lists/19');
     }
 
     function editPrize(){
@@ -330,7 +331,7 @@ class KnockoutMatch extends AdminController{
             }
         }
         $signup_price = KnockoutSignupPrice_M::instance()->read($match_id);
-        $signup_price['price_type_name'] = $this->config->gms['price_type'][$signup_price['price_type']];
+        $signup_price['price_type_name'] = $this->config->gms['prize_types'][$signup_price['price_type']]['name'];
         $data = array(
             'match_prize' => $match_prize,
             'signup_price' => $signup_price

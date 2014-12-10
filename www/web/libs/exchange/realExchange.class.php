@@ -8,18 +8,17 @@
 
 namespace web\libs\exchange;
 
-use  core\Controller;
 use  web\model\ProfileModel;
 use  web\libs\Error;
-use  core\Cookie;
 use  web\libs\UserResource;
 use  web\model\IndexHandleResultModel;
 use  web\model\ProductOrderModel;
 use core\Configure;
 use core\Encoder;
 use utils\Tools;
+use web\model\UserResourceLogModel;
 
-class RealExchange extends  Controller implements IExchange{
+class RealExchange extends  BaseExchange implements IExchange{
 
     private static $_instance = null;
 
@@ -98,6 +97,16 @@ class RealExchange extends  Controller implements IExchange{
                 throw new \Exception(Error::ERROR_DATA_WRITE);
 
             $this->db->commit();
+            $data = array(
+                'action_type' => UserResource::ACTION_EXCHANGE,//资源变动类型:玩家兑换
+                'tool_type' => $product['tool_type'],
+                'price_type' => $product['price_type'],
+                'price' => intval( $product['price'] ),
+                'tool' => intval( $product['tool'] ),
+                'uid' => $uid
+            );
+            UserResourceLogModel::instance()->save($data);
+            $this->resourceChangeNotify($uid);
             //成功
             die(Encoder::instance()->encode($response));
 

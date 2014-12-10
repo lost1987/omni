@@ -10,7 +10,9 @@ namespace api\libs\exchange;
 
 use api\libs\Error;
 use utils\Tools;
+use web\libs\UserResource;
 use web\model\StoreProductsModel;
+use web\model\UserResourceLogModel;
 
 class RealExchange extends BaseExchange implements IExchange{
 
@@ -70,10 +72,19 @@ class RealExchange extends BaseExchange implements IExchange{
             //处理商品记录
             $this->saveUserProductInfo($indexResultHandler,$productOrder);
             $this-> db -> commit();
-
+            $data = array(
+                'action_type' => UserResource::ACTION_EXCHANGE,//资源变动类型:玩家兑换
+                'tool_type' => $product['tool_type'],
+                'price_type' => $product['price_type'],
+                'price' => intval( $product['price'] ),
+                'tool' => intval( $product['tool'] ),
+                'uid' => $profile['uid']
+            );
+            UserResourceLogModel::instance()->save($data);
+            $this->resourceChangeNotify($profile['user_id']);
             $this->response(null);
 
-        }catch (Exception $e){
+        }catch (\Exception $e){
             $this->db->rollback();
             $this->response(null,$e->getMessage());
         }

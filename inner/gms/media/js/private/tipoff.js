@@ -160,6 +160,11 @@ function handle_multi(result){
         return;
     }
 
+    $("#myModal").modal();
+}
+
+function handle_reply(result){
+    var cbs = $("input:checked.checkboxes");
     var ids=[];
     $(cbs).each(function(){
         ids.push($(this).val());
@@ -167,8 +172,13 @@ function handle_multi(result){
 
     ids =ids.join(',');
     var msg = '';
-    if(result==3)
-         msg = '您反馈的问题,我们核实后会立即处理,感谢您对游戏的支持';
+
+    var reply_radio = $("input:checked[name='reply_radio']").val();
+    if(reply_radio == '自定义')
+        msg = $("#custom_reply").val();
+    else
+        msg = reply_radio;
+
     $.post('/services/handle_result','ids='+ids+'&msg='+msg+'&result='+result,function(data){
         var response = eval('('+data+')');
         if(response.error == 0){
@@ -178,4 +188,5 @@ function handle_multi(result){
         }
     });
 }
+
 

@@ -28,7 +28,7 @@ class Suspend_M extends AdminModel{
         if($start !== null && $count !== null)
             $limit = " LIMIT $start , $count";
 
-        $sql = "SELECT a.*,b.reporter_name,b.assign_to,b.result,b.handler_type,b.handle_time  FROM index_usersuspend a   LEFT JOIN index_handleresult b ON a.handler_id = b.id  {$this->_condition}  $limit";
+        $sql = "SELECT a.*,b.reporter_name,b.assign_to,b.result,b.handler_type,b.handle_time  FROM index_usersuspend a   LEFT JOIN index_handleresult b ON a.handler_id = b.id  {$this->_condition} ORDER BY a.create_at DESC $limit";
         $this->_game_server->execute($sql);
         $this->_condition = '';
         return $this->_game_server->fetch_all();

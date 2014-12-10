@@ -17,6 +17,7 @@ use web\controller\User;
 use web\model\GameSummaryModel;
 use web\model\ProfileModel;
 use web\model\SessionModel;
+use web\model\UserModel;
 
 class UserUtil
 {
@@ -175,7 +176,12 @@ class UserUtil
          if($type == 2){
              //走注册写入流程
              $password = md5(str_shuffle($login_name));
-             $nickname = $nick_name == null ? $this->randomName() : $nick_name;
+             $nickname = $this->randomName();
+             while(1){
+                 if(!UserModel::instance()->isNickNameExsit($nick_name))
+                     break;
+                 $nickname = $this->randomName();
+             }
              $forbidden = 0;
              $regist_time = date('YmdHis');
              $mobile = 0;

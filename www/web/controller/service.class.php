@@ -255,7 +255,7 @@ class Service extends Controller {
 
             $handler_id = $this->db->insert_id();
             $params = array(
-                'login_name' => Cookie::instance()->userdata('login_name'),
+                'login_name' => $login_name,
                 'suspend_time' => $time,
                 'mobile' => $mobile,
                 'desc' => $desc,

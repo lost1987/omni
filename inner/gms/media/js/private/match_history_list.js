@@ -139,15 +139,15 @@ var TableAdvanced = function () {
     return {
         //main function to initiate the module
         init: function () {
-            if (!jQuery().dataTable) {
-                return;
-            }
-            initTable1();
-            $("div.span6").each(function(){
-                var __this =  $(this);
-                if(__this.html() == '')
-                    __this.remove();
-            });
+            //if (!jQuery().dataTable) {
+            //    return;
+            //}
+            //initTable1();
+            //$("div.span6").each(function(){
+            //    var __this =  $(this);
+            //    if(__this.html() == '')
+            //        __this.remove();
+            //});
 
             handleDatetimePicker();
         }

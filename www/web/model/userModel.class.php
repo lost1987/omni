@@ -152,4 +152,19 @@ class UserModel extends Model{
         $redis->close();
         return $data;
     }
+
+    /**
+     * 判断用户今日是否登录了游戏
+     * @param $uid
+     * @return bool
+     */
+    function hasLoginToday($uid){
+        $today = date('Y-m-d');
+        $sql = "SELECT COUNT(*) as num FROM visit_history WHERE user_id = $uid and '$today' = LEFT(login_time,10)";
+        $this->db->execute($sql);
+        $num = $this->db->fetch()['num'];
+        if($num > 0)
+            return true;
+        return false;
+    }
 }

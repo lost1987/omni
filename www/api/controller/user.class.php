@@ -12,6 +12,7 @@ namespace api\controller;
 
 use core\Baseapi;
 use api\libs\Error;
+use utils\Das;
 use utils\Tools;
 use web\libs\UserUtil;
 use web\model\FeedBackModel;
@@ -45,6 +46,7 @@ class User extends Baseapi{
             if(!UserUtil::instance()->is_password_valid($third_password,$user['password'],$user['user_number']))
                 $this->response(null,Error::PASSWORD_INVALID);
 
+            Das::instance(Das::PLATFORM_MOBILE,10001,$user['uid'])->send(array('login'=>1),Das::LOGIN_COUNT | Das::LOGIN_NUM);
             $expire_time = $this->config->common['cookie']['timeout'];
             $session_key = UserUtil::instance()->createSessionId($expire_time,$user);
             $response = array(
@@ -67,6 +69,11 @@ class User extends Baseapi{
             if($quick_register == 'quick'){//快速注册
                 $login_name = 'quick'.uniqid();
                 $nickname = UserUtil::instance()->randomName();
+                while(1){
+                    if(!UserModel::instance()->isNickNameExsit($nickname))
+                        break;
+                    $nickname = UserUtil::instance()->randomName();
+                }
                 $source_password = UserUtil::instance()->makeSourcePasswordByLoginName($login_name,8);
                 $password = UserUtil::instance()->makePasswordAuto($source_password,$user_number);
                 $email = '';
@@ -185,6 +192,7 @@ class User extends Baseapi{
 
                 $this->db->commit();
 
+                Das::instance(Das::PLATFORM_MOBILE,10001,$uid)->send(array('register'=>1),Das::REGISTER_NUM);
                 $expire_time = $this->config->common['cookie']['timeout'];
                 $user = array('login_name'=>$login_name,'user_number'=>$user_number);
                 $session_key = UserUtil::instance()->createSessionId($expire_time,$user);
@@ -218,6 +226,11 @@ class User extends Baseapi{
             $third_prefix = $this->input->post('third_prefix');//第三方用户前缀标示
             $login_name  = $third_prefix.'_'.$third_account_name;
             $nick_name = UserUtil::instance()->randomName();
+            while(1){
+                if(!UserModel::instance()->isNickNameExsit($nick_name))
+                    break;
+                $nick_name = UserUtil::instance()->randomName();
+            }
             $forbidden = 0;
             $regist_time = date('YmdHis');
             $mobile = 0;
@@ -238,7 +251,6 @@ class User extends Baseapi{
                 $this->response($response);
 
             }else{
-
 
                 $user_number = $userModel->getMaxUserNumber() + 1;
                 $source_password = UserUtil::instance()->makeSourcePasswordByLoginName($login_name,8);
@@ -278,7 +290,6 @@ class User extends Baseapi{
                     'confirmation_key' => ''
                 );
 
-
                 try{
                     $this->db->begin();
                     /*写入user**/
@@ -299,7 +310,7 @@ class User extends Baseapi{
                         throw new \Exception(Error::DATA_WRITE_ERROR);
 
                     $this->db->commit();
-
+                    Das::instance(Das::PLATFORM_MOBILE,10001,$uid)->send(array('register'=>1),Das::REGISTER_NUM);
                     $expire_time = $this->config->common['cookie']['timeout'];
                     $user = array('login_name'=>$login_name,'user_number'=>$user_number);
                     $session_key = UserUtil::instance()->createSessionId($expire_time,$user);

@@ -26,6 +26,10 @@ class UserResource {
     //礼券
     const COUPON = '_coupon';
 
+    //action_type
+    const ACTION_EXCHANGE = 1;
+    const ACTION_LOTTERY = 2;
+
     private $_coins = null;
 
     private $_diamond = null;

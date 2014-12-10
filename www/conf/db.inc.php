@@ -9,7 +9,7 @@
 
 return array(
 //    'game' => array(
-//             'host' => 'localhost',
+//             'host' => '127.0.0.1',
 //             'user' => 'game',
 //             'password' => 'no.1@China!game',
 //             'port'  => 3306,

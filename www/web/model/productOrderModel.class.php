@@ -60,7 +60,16 @@ class ProductOrderModel extends Model{
         $limit = '';
         if($start !== null && $count !== null)
             $limit = " LIMIT  $start,$count";
-        $sql = "SELECT * FROM store_productorder ORDER BY create_at DESC $limit";
+        $sql = "SELECT * FROM store_productorder  ORDER BY create_at DESC $limit";
+        $this->db->execute($sql);
+        return $this->db->fetch_all();
+    }
+
+    function lists_lottery($start = null , $count = null){
+        $limit = '';
+        if($start !== null && $count !== null)
+            $limit = " LIMIT  $start,$count";
+        $sql = "SELECT * FROM store_productorder a,store_products b WHERE a.product_id = b.id AND b.category_id = 4 ORDER BY a.create_at  DESC $limit";
         $this->db->execute($sql);
         return $this->db->fetch_all();
     }

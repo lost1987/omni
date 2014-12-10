@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:de08b32c03dcd4d784024d053a22567a$ -->
+<TextureAtlas imagePath="ProgressBar.png">
+    <SubTexture name="NumberBg" x="436" y="2" width="55" height="49"/>
+    <SubTexture name="Number_0" x="493" y="59" width="10" height="17"/>
+    <SubTexture name="Number_1" x="167" y="70" width="9" height="17"/>
+    <SubTexture name="Number_10" x="428" y="53" width="13" height="17"/>
+    <SubTexture name="Number_2" x="493" y="40" width="10" height="17"/>
+    <SubTexture name="Number_3" x="493" y="21" width="10" height="17"/>
+    <SubTexture name="Number_4" x="493" y="2" width="10" height="17"/>
+    <SubTexture name="Number_5" x="456" y="53" width="11" height="17"/>
+    <SubTexture name="Number_6" x="481" y="53" width="10" height="17"/>
+    <SubTexture name="Number_7" x="156" y="70" width="9" height="17"/>
+    <SubTexture name="Number_8" x="469" y="53" width="10" height="17"/>
+    <SubTexture name="Number_9" x="443" y="53" width="11" height="17"/>
+    <SubTexture name="Progress_0" x="2" y="2" width="432" height="36"/>
+    <SubTexture name="Progress_1" x="2" y="40" width="424" height="28"/>
+    <SubTexture name="Text_0" x="2" y="70" width="152" height="21"/>
+    <SubTexture name="Text_1" x="428" y="40" width="4" height="4"/>
+</TextureAtlas>

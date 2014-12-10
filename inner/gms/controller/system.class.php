@@ -10,10 +10,13 @@ namespace gms\controller;
 
 
 use core\AdminController;
+use core\Cookie;
 use core\Redirect;
 use core\Redis;
 use gms\libs\AdminUtil;
+use gms\libs\Error;
 use gms\libs\ModuleDictionary;
+use gms\model\GameServer_M;
 
 /**
  * 系统功能控制器
@@ -45,6 +48,29 @@ class System extends AdminController{
             $this->init_navigator();
             $this->output_data['obj'] = $this;
             $this->render('php_env.html');
+    }
+
+
+    function server(){
+            AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_SYSTEM_SERVER);
+            $this->init_navigator();
+            $game_server = GameServer_M::instance()->read();
+            $this->output_data['server'] = $game_server;
+            $this->output_data['token'] = Cookie::instance()->get_csrf_cookie();
+            if($this->args[1] == 'success')
+                $this->output_data['success'] = 1;
+            $this->render('game_server.html');
+    }
+
+    function save_server(){
+            $this->csrf_token_validation();
+            AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_SYSTEM_SERVER);
+            $this->init_navigator();
+            $post = $this->input->post();
+            if(!GameServer_M::instance()->update($post))
+                $this->set_error(Error::DATA_WRITE);
+
+            Redirect::instance()->forward('/system/server/'.ModuleDictionary::ROOT_MODULE_SYSTEM_INFO.'/success');
     }
 
     function twig_info(){

@@ -129,6 +129,7 @@ class Activity extends AdminController{
             $post['publish_time'] = date('YmdHi');
             $post['handler_id'] = 1;
             $post['detail_url'] = WWW_HOST.'/activity/detail/';
+            $post['content'] = $_POST['content'];
             if(empty($post['expire_time']))
                 unset($post['expire_time']);
             else
@@ -166,7 +167,7 @@ class Activity extends AdminController{
         AdminUtil::instance()->check_permission(ModuleDictionary::MODULE_ACTIVITY_ADD);
         $post = $this->input->post();
         $file = $_FILES;
-
+        $post['detail_url'] = WWW_HOST.'/activity/detail/';
         if(empty($post['expire_time']))
             unset($post['expire_time']);
         else

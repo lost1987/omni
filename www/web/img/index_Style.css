@@ -56,14 +56,13 @@ a.ljcz:active { background:url(ljcz.png) 0 -40px no-repeat}
 .message { position:absolute; right:5px; top:3px; width:36px; height:28px;  background:url(massage.png) left bottom no-repeat; display:block}
 .message.empty { position:absolute; right:10px; top:5px; width:36px; height:28px;  background:url(massage2.png) left bottom no-repeat; display:block}
 .message b { float:right; padding-right:6px; margin-top:-2px; _margin-top:-3px; font-weight:bold}
-.hot2 { width:18px; height:18px; background:url(hotbg.png) no-repeat; display:inline-block; position:absolute; right:378px; top:-6px; color:#fff; font-weight:bold; font-size:12px; line-height:18px; text-align:center; font-family:arial}
+.hot2 { width:18px; height:18px; background:url(hotbg.png) no-repeat; display:inline-block; position:absolute; right:458px; top:-6px; color:#fff; font-weight:bold; font-size:12px; line-height:18px; text-align:center; font-family:arial}
 
 .start_btn_box { width:226px; height:118px; margin:0 auto -7px; clear:both}
 .start_btn_box a { display:block}
 .start_btn_box a.y_btn,.start_btn_box a.y_btn2 { width:107px; height:73px; background:url(gang.png) no-repeat #d49519; text-indent:-99999px; float:left; margin-bottom:6px}
 .start_btn_box a.y_btn2 { background:url(gang.png) -108px 0 no-repeat; margin-left:12px}
 .start_btn_box a.y_btn:hover { background:url(gang.png) 0 -74px no-repeat #d49519}
-.start_btn_box a.y_btn:active { background:url(gang.png) 0 0 no-repeat #d49519}
 .start_btn_box a.y_btn2:hover { background:url(gang.png) -108px -74px no-repeat #d49519}
 .start_btn_box a.y_btn2:active { background:url(gang.png) -108px 0 no-repeat #d49519}
 .start_btn_box a.g_btn { width:225px; height:35px; margin-bottom:6px; background:url(btn_2.png) 0 -36px no-repeat #f4da12; color:#9b3402; text-decoration:none; color:#204000; clear:both; text-indent:-99999px;}

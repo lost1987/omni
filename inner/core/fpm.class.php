@@ -57,7 +57,12 @@ class Fpm implements IStartup{
                 foreach($hooks as $hook){
                         $clazz = '\\'.$dir.'\hook\beforectl\\'.$hook['clazz'];
                         $hook_c = new $clazz;
-                        call_user_func(array($hook_c,$hook['method']),$omni);
+                        if(is_array($hook['method'])){
+                            foreach($hook['method'] as $method){
+                                call_user_func(array($hook_c,$method));
+                            }
+                        }else
+                            call_user_func(array($hook_c,$hook['method']));
                 }
         }
 

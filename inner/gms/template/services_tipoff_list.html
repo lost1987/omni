@@ -186,7 +186,7 @@
 
 <!-- END PAGE -->
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"  style="display:none"
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -195,22 +195,38 @@
                         aria-hidden="true">×
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    请确认
+                    请选择要回复的内容
                 </h4>
             </div>
-            <div class="modal-body">
-                确认要删除该项目吗?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" onclick="del()"
-                        data-dismiss="modal">确认
-                </button>
-                <button type="button" class="btn btn-primary" onclick="cancel_del()">
-                    取消
-                </button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+            <form action="" id="" class="form-inline" >
+                <div class="modal-body" style="max-height:800px;">
+                    <div class="control-group">
+                        {% for reply in service_reply%}
+                        <div class="controls">
+                            {% if loop.index == 1 %}
+                            <label><input type="radio" name="reply_radio" value="{{reply}}" checked="checked"/>{{reply}}</label>
+                            {% else %}
+                            <label><input type="radio" name="reply_radio" value="{{reply}}" />{{reply}}</label>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label"><b class="midnight">自定义</b>&nbsp;&nbsp;</label>
+                        <div class="controls">
+                            <textarea rows="3" cols="5"  class="span4" name="custom_reply" id="custom_reply" disabled="true"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-actions">
+                        <button type="button" class="btn red" onclick="handle_reply(3)">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 {% endblock %}
 
@@ -221,6 +237,7 @@
 <script type="text/javascript" src="/media/js/DT_bootstrap.js"></script>
 <script type="text/javascript" src="/media/js/bootstrap-datetimepicker.js"></script>
 <script type="text/javascript" src="/media/js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="/media/js/common/service_reply.js"></script>
 <script type="text/javascript" src="/media/js/private/tipoff.js"></script>
 {% endblock %}
 

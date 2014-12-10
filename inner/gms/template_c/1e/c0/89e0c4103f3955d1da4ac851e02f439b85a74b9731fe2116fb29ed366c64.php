@@ -279,7 +279,7 @@ class __TwigTemplate_1ec089e0c4103f3955d1da4ac851e02f439b85a74b9731fe2116fb29ed3
         // line 165
         echo "<script>
     jQuery(document).ready(function() {
-        //TableAdvanced.init();
+        TableAdvanced.init();
     });
 </script>
 ";

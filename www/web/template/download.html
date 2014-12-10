@@ -1,0 +1,17 @@
+<!DOCTYPE html><!--[if IE 8]><html lang="zh-CN" class="ie8"><![endif]--><!--[if IE 9]><html lang="zh-CN" class="ie9"><![endif]--><!--[if !IE]><!--><html lang="zh-CN"><!--<![endif]--><!-- BEGIN HEAD --><head><meta charset="utf-8" /><title>游戏下载</title><meta content="width=device-width, initial-scale=1.0" name="viewport" /><meta name="Keywords" content="游戏下载" /><meta name="Description" content="游戏下载" /><meta name="CopyRight" content="" /><meta name="Author" content="" /><meta name="Build" content="2014-07-25 16:16:07" />
+<link rel="start" href="http://16youxi.com" title="Home" />
+</head>
+<body>
+<!--<p id="WeiXin" style="display:;">亲，使用微信的用户，请点击右上角在浏览器中打开，就能下载了...</p>-->
+{% if is_ios %}
+<p id="ios" style="display:;">IOS客户端我们正在加紧开发中，请您不要着急，先玩玩网页版吧!&nbsp;<a href="http://www.16youxi.com" title="武汉麻将">http://www.16youxi.com</a></p>
+{% endif %}
+<script>
+{% if is_wx %}
+window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.youxi16.MjMobile";
+{% elseif is_android %}
+window.location = 'http://wuhanmj-apk.qiniudn.com/MjMobile_newbee.apk';
+{% endif %}
+</script>
+</body>
+</html>

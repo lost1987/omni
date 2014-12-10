@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:397fb79541df6c077c459f22102c45cd$ -->
+<TextureAtlas imagePath="Right.png">
+    <SubTexture name="Bench_Title" x="802" y="2" width="132" height="24"/>
+    <SubTexture name="Bid_Button_0" x="862" y="107" width="46" height="33"/>
+    <SubTexture name="Bid_Button_1" x="690" y="167" width="46" height="33"/>
+    <SubTexture name="Bid_Button_2" x="690" y="132" width="46" height="33"/>
+    <SubTexture name="Bid_Price" x="405" y="107" width="52" height="50"/>
+    <SubTexture name="Bid_Title" x="114" y="159" width="173" height="22"/>
+    <SubTexture name="Coin" x="756" y="202" width="30" height="30"/>
+    <SubTexture name="Diamond" x="312" y="219" width="30" height="30"/>
+    <SubTexture name="GirlToolTip_Bg_0" x="327" y="71" width="12" height="146"/>
+    <SubTexture name="GirlToolTip_Bg_1" x="341" y="71" width="1" height="146"/>
+    <SubTexture name="GirlToolTip_Bg_2" x="313" y="71" width="12" height="146"/>
+    <SubTexture name="GirlToolTip_Face_0" x="344" y="123" width="59" height="49"/>
+    <SubTexture name="GirlToolTip_Face_1" x="344" y="72" width="59" height="49"/>
+    <SubTexture name="GirlToolTip_Face_2" x="540" y="33" width="59" height="49"/>
+    <SubTexture name="GirlToolTip_Girl" x="2" y="2" width="110" height="183"/>
+    <SubTexture name="Lottery" x="583" y="219" width="27" height="30"/>
+    <SubTexture name="Match_Fall" x="1032" y="30" width="5" height="11"/>
+    <SubTexture name="Match_Rise" x="1025" y="30" width="5" height="11"/>
+    <SubTexture name="Right_Activity_ButtonLeft_0" x="1027" y="170" width="13" height="26"/>
+    <SubTexture name="Right_Activity_ButtonLeft_1" x="1012" y="175" width="13" height="26"/>
+    <SubTexture name="Right_Activity_ButtonLeft_2" x="1026" y="2" width="13" height="26"/>
+    <SubTexture name="Right_Activity_ButtonRight_0" x="939" y="161" width="13" height="26"/>
+    <SubTexture name="Right_Activity_ButtonRight_1" x="991" y="93" width="13" height="26"/>
+    <SubTexture name="Right_Activity_ButtonRight_2" x="988" y="65" width="13" height="26"/>
+    <SubTexture name="Right_Activity_Button_0" x="676" y="46" width="73" height="30"/>
+    <SubTexture name="Right_Activity_Button_1" x="459" y="107" width="72" height="30"/>
+    <SubTexture name="Right_Activity_Button_2" x="344" y="174" width="72" height="30"/>
+    <SubTexture name="Right_Activity_Button_3" x="601" y="46" width="73" height="30"/>
+    <SubTexture name="Right_Activity_InfoBg_0" x="291" y="183" width="19" height="57"/>
+    <SubTexture name="Right_Activity_InfoBg_1" x="921" y="48" width="1" height="57"/>
+    <SubTexture name="Right_Activity_InfoBg_2" x="899" y="48" width="17" height="57"/>
+    <SubTexture name="Right_Activity_InfoBlueBg_0" x="270" y="183" width="19" height="57"/>
+    <SubTexture name="Right_Activity_InfoBlueBg_1" x="918" y="48" width="1" height="57"/>
+    <SubTexture name="Right_Activity_InfoBlueBg_2" x="880" y="48" width="17" height="57"/>
+    <SubTexture name="Right_Activity_InfoContentBg_1" x="603" y="2" width="197" height="42"/>
+    <SubTexture name="Right_Activity_InfoContentBg_2" x="114" y="115" width="197" height="42"/>
+    <SubTexture name="Right_Activity_InfoContentBg_3" x="114" y="71" width="197" height="42"/>
+    <SubTexture name="Right_CountDownBg_0" x="910" y="107" width="10" height="35"/>
+    <SubTexture name="Right_CountDownBg_1" x="1004" y="201" width="1" height="35"/>
+    <SubTexture name="Right_CountDownBg_2" x="937" y="189" width="9" height="35"/>
+    <SubTexture name="Right_CountdownTitle" x="216" y="237" width="40" height="14"/>
+    <SubTexture name="Right_Countdown_MaoHao" x="270" y="242" width="4" height="11" frameX="0" frameY="-4" frameWidth="4" frameHeight="15"/>
+    <SubTexture name="Right_Countdown_Number_0" x="496" y="215" width="9" height="15"/>
+    <SubTexture name="Right_Countdown_Number_1" x="855" y="146" width="5" height="15"/>
+    <SubTexture name="Right_Countdown_Number_2" x="961" y="226" width="10" height="15"/>
+    <SubTexture name="Right_Countdown_Number_3" x="949" y="226" width="10" height="15"/>
+    <SubTexture name="Right_Countdown_Number_4" x="937" y="226" width="10" height="15"/>
+    <SubTexture name="Right_Countdown_Number_5" x="1029" y="215" width="9" height="15"/>
+    <SubTexture name="Right_Countdown_Number_6" x="1029" y="198" width="9" height="15"/>
+    <SubTexture name="Right_Countdown_Number_7" x="258" y="237" width="10" height="15"/>
+    <SubTexture name="Right_Countdown_Number_8" x="910" y="144" width="10" height="15"/>
+    <SubTexture name="Right_Countdown_Number_9" x="1029" y="125" width="9" height="15"/>
+    <SubTexture name="Right_JiFen" x="535" y="214" width="38" height="20"/>
+    <SubTexture name="Right_JiFenSai" x="936" y="23" width="87" height="18"/>
+    <SubTexture name="Right_JinJi" x="439" y="234" width="37" height="19"/>
+    <SubTexture name="Right_KnockMatch_1" x="2" y="226" width="87" height="19"/>
+    <SubTexture name="Right_KnockMatch_2" x="802" y="28" width="87" height="18"/>
+    <SubTexture name="Right_KnockMatch_3" x="936" y="2" width="88" height="19"/>
+    <SubTexture name="Right_Knock_Button_Last_0" x="908" y="216" width="27" height="24"/>
+    <SubTexture name="Right_Knock_Button_Last_1" x="983" y="175" width="27" height="24"/>
+    <SubTexture name="Right_Knock_Button_Last_2" x="954" y="173" width="27" height="24"/>
+    <SubTexture name="Right_Knock_Button_Last_3" x="910" y="161" width="27" height="24"/>
+    <SubTexture name="Right_Knock_Button_Next_0" x="992" y="149" width="27" height="24"/>
+    <SubTexture name="Right_Knock_Button_Next_1" x="962" y="95" width="27" height="24"/>
+    <SubTexture name="Right_Knock_Button_Next_2" x="879" y="213" width="27" height="24"/>
+    <SubTexture name="Right_Knock_Button_Next_3" x="410" y="229" width="27" height="24"/>
+    <SubTexture name="Right_Knockout_1" x="2" y="247" width="22" height="6"/>
+    <SubTexture name="Right_Knockout_2" x="612" y="235" width="22" height="18"/>
+    <SubTexture name="Right_Knockout_3" x="752" y="234" width="20" height="19"/>
+    <SubTexture name="Right_Knockout_Di" x="289" y="159" width="22" height="22"/>
+    <SubTexture name="Right_Knockout_Final_GongXiGuanJun" x="459" y="139" width="73" height="20"/>
+    <SubTexture name="Right_Knockout_Final_HuoDe" x="891" y="28" width="33" height="18"/>
+    <SubTexture name="Right_Knockout_Final_JuJinXingZhong" x="91" y="237" width="69" height="16"/>
+    <SubTexture name="Right_Knockout_Final_JueSaiDi" x="162" y="237" width="52" height="16"/>
+    <SubTexture name="Right_Knockout_Final_Number_0" x="482" y="215" width="12" height="12"/>
+    <SubTexture name="Right_Knockout_Final_Number_1" x="405" y="159" width="8" height="12" frameX="-2" frameY="0" frameWidth="12" frameHeight="12"/>
+    <SubTexture name="Right_Knockout_Final_Number_2" x="468" y="215" width="12" height="12"/>
+    <SubTexture name="Right_Knockout_Final_Number_3" x="454" y="215" width="12" height="12"/>
+    <SubTexture name="Right_Knockout_Final_Number_4" x="689" y="221" width="13" height="12"/>
+    <SubTexture name="Right_Knockout_Final_Number_5" x="987" y="228" width="12" height="12"/>
+    <SubTexture name="Right_Knockout_Final_Number_6" x="973" y="228" width="12" height="12"/>
+    <SubTexture name="Right_Knockout_Final_Number_7" x="893" y="239" width="12" height="12"/>
+    <SubTexture name="Right_Knockout_Final_Number_8" x="879" y="239" width="12" height="12"/>
+    <SubTexture name="Right_Knockout_Final_Number_9" x="865" y="236" width="12" height="12"/>
+    <SubTexture name="Right_Knockout_Lun" x="665" y="213" width="22" height="21"/>
+    <SubTexture name="Right_NiCheng" x="936" y="43" width="37" height="20"/>
+    <SubTexture name="Right_OperateBg_0" x="924" y="56" width="7" height="7"/>
+    <SubTexture name="Right_OperateBg_1" x="105" y="214" width="7" height="7"/>
+    <SubTexture name="Right_OperateBg_2" x="838" y="203" width="7" height="8"/>
+    <SubTexture name="Right_OperateBg_3" x="531" y="72" width="7" height="8"/>
+    <SubTexture name="Right_OperateBg_4" x="933" y="56" width="1" height="7"/>
+    <SubTexture name="Right_OperateBg_5" x="789" y="136" width="1" height="8"/>
+    <SubTexture name="Right_OperateBg_6" x="105" y="223" width="7" height="1"/>
+    <SubTexture name="Right_OperateBg_7" x="997" y="121" width="7" height="1"/>
+    <SubTexture name="Right_OperateBg_8" x="1001" y="228" width="1" height="1"/>
+    <SubTexture name="Right_OperateBg_Pointer" x="87" y="214" width="16" height="8"/>
+    <SubTexture name="Right_PaiMing" x="922" y="139" width="36" height="20"/>
+    <SubTexture name="Right_Room_AddFriendButton_0" x="822" y="236" width="22" height="17"/>
+    <SubTexture name="Right_Room_AddFriendButton_1" x="798" y="236" width="22" height="17"/>
+    <SubTexture name="Right_Room_AddFriendButton_2" x="774" y="236" width="22" height="17"/>
+    <SubTexture name="Right_Room_ButtonOperate_0" x="976" y="201" width="26" height="25"/>
+    <SubTexture name="Right_Room_ButtonOperate_1" x="948" y="199" width="26" height="25"/>
+    <SubTexture name="Right_Room_ButtonOperate_2" x="507" y="188" width="26" height="25"/>
+    <SubTexture name="Right_Room_ButtonText_ChongZhi" x="418" y="182" width="39" height="21"/>
+    <SubTexture name="Right_Room_ButtonText_JinYan" x="922" y="117" width="36" height="20"/>
+    <SubTexture name="Right_Room_ButtonText_JinZhiWeiGuan" x="792" y="124" width="68" height="20"/>
+    <SubTexture name="Right_Room_ButtonText_QuXiao" x="418" y="159" width="39" height="21"/>
+    <SubTexture name="Right_Room_ButtonText_QuXiaoJinYan" x="792" y="102" width="68" height="20"/>
+    <SubTexture name="Right_Room_ButtonText_QuXiaoJinZhi" x="679" y="78" width="68" height="20"/>
+    <SubTexture name="Right_Room_ButtonText_QuXiaoWeiGuan" x="531" y="84" width="68" height="20"/>
+    <SubTexture name="Right_Room_ButtonText_QueRen" x="838" y="213" width="39" height="21"/>
+    <SubTexture name="Right_Room_ButtonText_TiChu" x="960" y="121" width="35" height="20"/>
+    <SubTexture name="Right_Room_ButtonText_TuiChuBaoFang" x="344" y="206" width="76" height="21"/>
+    <SubTexture name="Right_Room_ButtonText_WeiGuan" x="478" y="234" width="35" height="19"/>
+    <SubTexture name="Right_Room_Button_0" x="455" y="33" width="83" height="37"/>
+    <SubTexture name="Right_Room_Button_1" x="370" y="33" width="83" height="37"/>
+    <SubTexture name="Right_Room_Button_2" x="2" y="187" width="83" height="37"/>
+    <SubTexture name="Right_Room_Button_JinYan_0" x="535" y="187" width="46" height="25" frameX="-14" frameY="0" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_JinYan_1" x="192" y="210" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_JinYan_2" x="670" y="236" width="32" height="17" frameX="-22" frameY="-4" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_JinZhiWeiGuan_0" x="114" y="210" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_JinZhiWeiGuan_1" x="612" y="186" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_JinZhiWeiGuan_2" x="344" y="229" width="64" height="17" frameX="-6" frameY="-4" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_PingBi_0" x="459" y="188" width="46" height="25" frameX="-15" frameY="0" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_PingBi_1" x="612" y="159" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_PingBi_2" x="636" y="236" width="32" height="17" frameX="-22" frameY="-4" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_QuXiaoJinYan_0" x="534" y="160" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_QuXiaoJinYan_1" x="802" y="75" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_QuXiaoJinYan_2" x="788" y="184" width="64" height="17" frameX="-6" frameY="-4" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_QuXiaoPingBi_0" x="192" y="183" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_QuXiaoPingBi_1" x="114" y="183" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_QuXiaoPingBi_2" x="789" y="165" width="64" height="17" frameX="-6" frameY="-4" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_QuXiaoWeiGuan_0" x="612" y="132" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_QuXiaoWeiGuan_1" x="611" y="105" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_QuXiaoWeiGuan_2" x="690" y="202" width="64" height="17" frameX="-6" frameY="-4" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_TiChu_0" x="459" y="161" width="46" height="25" frameX="-15" frameY="0" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_TiChu_1" x="534" y="133" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_TiChu_2" x="549" y="236" width="32" height="17" frameX="-22" frameY="-4" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_WeiGuan_0" x="862" y="142" width="46" height="25" frameX="-15" frameY="0" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_WeiGuan_1" x="533" y="106" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_WeiGuan_2" x="515" y="236" width="32" height="17" frameX="-22" frameY="-4" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_Button_YunXuWeiGuan_0" x="601" y="78" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_YunXuWeiGuan_1" x="802" y="48" width="76" height="25"/>
+    <SubTexture name="Right_Room_Button_YunXuWeiGuan_2" x="789" y="146" width="64" height="17" frameX="-6" frameY="-4" frameWidth="76" frameHeight="25"/>
+    <SubTexture name="Right_Room_CloseButton_0" x="908" y="187" width="27" height="27"/>
+    <SubTexture name="Right_Room_CloseButton_1" x="1013" y="72" width="27" height="27"/>
+    <SubTexture name="Right_Room_CloseButton_2" x="1013" y="43" width="27" height="27"/>
+    <SubTexture name="Right_Room_Coin" x="1021" y="149" width="19" height="19"/>
+    <SubTexture name="Right_Room_FangZhu" x="846" y="236" width="17" height="16"/>
+    <SubTexture name="Right_Room_ID" x="507" y="161" width="25" height="25"/>
+    <SubTexture name="Right_Room_InputBg" x="370" y="2" width="231" height="29"/>
+    <SubTexture name="Right_Room_JiaButton_0" x="960" y="143" width="30" height="28"/>
+    <SubTexture name="Right_Room_JiaButton_1" x="956" y="65" width="30" height="28"/>
+    <SubTexture name="Right_Room_JiaButton_2" x="924" y="65" width="30" height="28"/>
+    <SubTexture name="Right_Room_JianButton_0" x="997" y="125" width="30" height="22"/>
+    <SubTexture name="Right_Room_JianButton_1" x="1006" y="101" width="30" height="22"/>
+    <SubTexture name="Right_Room_JianButton_2" x="422" y="205" width="30" height="22"/>
+    <SubTexture name="Right_Room_NiCheng" x="788" y="203" width="48" height="31"/>
+    <SubTexture name="Right_Room_Password" x="87" y="187" width="25" height="25"/>
+    <SubTexture name="Right_Room_YaoQingButton_0" x="854" y="191" width="51" height="20"/>
+    <SubTexture name="Right_Room_YaoQingButton_1" x="855" y="169" width="51" height="20"/>
+    <SubTexture name="Right_Room_YaoQingButton_2" x="612" y="213" width="51" height="20"/>
+    <SubTexture name="Right_Room_YaoQingButton_3" x="749" y="79" width="51" height="20"/>
+    <SubTexture name="Right_Room_ZhanJi" x="689" y="100" width="47" height="30"/>
+    <SubTexture name="Right_Room_ZhuangTai" x="704" y="221" width="46" height="31"/>
+    <SubTexture name="Right_ScoreCotentTitleBg_0" x="1018" y="203" width="9" height="29"/>
+    <SubTexture name="Right_ScoreCotentTitleBg_1" x="362" y="37" width="1" height="29"/>
+    <SubTexture name="Right_ScoreCotentTitleBg_2" x="1007" y="203" width="9" height="29"/>
+    <SubTexture name="Right_TipBg" x="114" y="37" width="246" height="32"/>
+    <SubTexture name="Right_TitleBg" x="114" y="2" width="254" height="33"/>
+    <SubTexture name="Right_TitleText_BaoFang" x="738" y="169" width="48" height="31"/>
+    <SubTexture name="Right_TitleText_HuoDong" x="738" y="101" width="52" height="33"/>
+    <SubTexture name="Right_TitleText_JiFenSai" x="405" y="72" width="70" height="33"/>
+    <SubTexture name="Right_TitleText_KnockMatch_1" x="738" y="136" width="49" height="31"/>
+    <SubTexture name="Right_TitleText_KnockMatch_2" x="477" y="72" width="52" height="33"/>
+    <SubTexture name="Right_TitleText_KnockMatch_3" x="751" y="46" width="49" height="31"/>
+    <SubTexture name="Right_ZhuangTai" x="924" y="95" width="36" height="20"/>
+    <SubTexture name="Right_ZhuoHao" x="975" y="43" width="36" height="20"/>
+    <SubTexture name="Ticket" x="583" y="187" width="27" height="30"/>
+    <SubTexture name="ToolTip_0" x="1003" y="65" width="8" height="26"/>
+    <SubTexture name="ToolTip_1" x="365" y="37" width="1" height="26"/>
+    <SubTexture name="ToolTip_2" x="926" y="28" width="8" height="26"/>
+</TextureAtlas>

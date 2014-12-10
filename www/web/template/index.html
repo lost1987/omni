@@ -22,7 +22,7 @@
 
 {% block two_dimension_code %}
 <!--二维码-->
-<div class="code_download"><h5 class="dl">武汉麻将二维码客户端下载</h5><img src="{{ constant('STATIC_HOST') }}/img/code_download.png" /><h5 class="wx">武汉麻将二维码微信扫一扫</h5><img src="{{ constant('STATIC_HOST') }}/img/code_weixin.png" /></div>
+<div class="code_download"><h5 class="dl">武汉麻将二维码客户端下载</h5><img src="{{ constant('STATIC_HOST') }}/img/code_download.jpg" /><h5 class="wx">武汉麻将二维码微信扫一扫</h5><img src="{{ constant('STATIC_HOST') }}/img/code_weixin.png" /></div>
 
 {% endblock %}
 
@@ -132,7 +132,7 @@
 
         <!--未登录 begin-->
         {% if is_login == 0%}
-        <form action="user/login" method="post" id="loginform">
+        <form action="user/login" method="post" id="loginform" >
             <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
             <table width="100%" border="0" cellspacing="9" cellpadding="0" class="login_box">
                 <tr>
@@ -141,7 +141,8 @@
                 </tr>
                 <tr>
                     <td class="bold" align="right">密码</td>
-                    <td><input type="password" name="password" id="password" class="input_box" /></td>
+                    <td><input type="password" name="valid_password" id="valid_password" class="input_box" /></td>
+                   <input type="hidden" name="password" id="password" class="input_box" />
                 </tr>
                 <tr>
                     <td>&nbsp;</td>

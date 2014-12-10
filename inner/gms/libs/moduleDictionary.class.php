@@ -226,4 +226,9 @@ class ModuleDictionary {
      */
     const MODULE_STORE_CATEGORY_DEL = 44;
 
+    /**
+     * 游戏服务器设定(单服)
+     */
+    const MODULE_SYSTEM_SERVER = 45;
+
 } 

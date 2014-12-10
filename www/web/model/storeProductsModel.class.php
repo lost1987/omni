@@ -29,7 +29,7 @@ class StoreProductsModel extends Model{
         if($category_id != 0)
             $category = ' AND category_id = '.$category_id.' ';
 
-        $sql = "SELECT * FROM store_products WHERE is_visible=1 $category  $limit";
+        $sql = "SELECT * FROM store_products WHERE is_visible=1 $category ORDER BY id ASC $limit";
         $this->db->execute($sql);
         return $this->db->fetch_all();
     }

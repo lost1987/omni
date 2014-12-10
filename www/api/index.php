@@ -15,12 +15,15 @@ switch(PROJECT_MODE){
         /**本地服务器配置*/
 //        define('BASE_HOST','http://api.newbee.com');
 //        define('WWW_HOST','http://dev.newbee.com');//API host地址
+//        define('GMS_HOST','http://dev.gms.com');
         /**局域网服务器配置*/
         define('BASE_HOST','http://api.newbee.com');
         define('WWW_HOST','http://test.newbee.com');//API host地址
+        define('GMS_HOST','http://test.gms.com');
         /**sndu 服务器配置*/
 //        define('BASE_HOST','http://api.sndu.cn');
-//        define('WWW_HOST','http://www2.sndu.com');//API host地址
+//        define('WWW_HOST','http://www2.sndu.cn');//API host地址
+//        define('GMS_HOST','http://gms.sndu.cn');
 
         define('XHPROF_ENABLE',0);
         error_reporting(E_ERROR | E_WARNING | E_PARSE );
@@ -29,6 +32,7 @@ switch(PROJECT_MODE){
     case  'product':
         define('BASE_HOST','http://api.16youxi.com');
         define('WWW_HOST','http://www.16youxi.com');//API host地址
+        define('GMS_HOST','http://gms.sndu.cn');
         define('XHPROF_ENABLE',0);
         error_reporting(E_ERROR | E_WARNING | E_PARSE );
         ini_set('display_errors','off');

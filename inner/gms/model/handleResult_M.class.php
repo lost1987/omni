@@ -51,7 +51,7 @@ class HandleResult_M extends AdminModel{
             $limit = " LIMIT $start , $count";
 
         $sql = "SELECT a.id,a.handler_type,a.reporter_name,a.assign_to,a.handle_time,a.result,b.mobile,b.address,b.user_id,b.create_at,b.ip,b.product_id,c.category_id,c.product_type  FROM index_handleresult a
-                      LEFT JOIN store_productorder b ON  a.id = b.handler_id LEFT JOIN store_products c ON b.product_id=c.id  {$this->_condition} $limit ";
+                      LEFT JOIN store_productorder b ON  a.id = b.handler_id LEFT JOIN store_products c ON b.product_id=c.id  {$this->_condition} ORDER BY b.create_at DESC  $limit ";
         $this->_game_server->execute($sql);
         $this->_condition = '';
         return $this->_game_server->fetch_all();

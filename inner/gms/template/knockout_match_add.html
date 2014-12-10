@@ -81,11 +81,11 @@
     <label class="control-label"><b class="">费用类型</b><span class="required">*</span></label>
     <div class="controls">
         <select name="price_type"  class="span2">
-            {% for type,name in price_types%}
-            {% if type == signup_price.price_type %}
-            <option value="{{type}}" selected="selected">{{name}}</option>
+            {% for prize in prize_types%}
+            {% if prize.type == signup_price.price_type %}
+            <option value="{{prize.type}}" selected="selected">{{prize.name}}</option>
             {% else %}
-            <option value="{{type}}">{{name}}</option>
+            <option value="{{prize.type}}">{{prize.name}}</option>
             {% endif %}
             {% endfor %}
         </select>

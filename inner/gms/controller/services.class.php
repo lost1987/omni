@@ -90,6 +90,7 @@ class Services extends AdminController{
             $item['ip'] = $item['ip'].'('.IpAddress::instance()->QQwry($item['ip'])->full_address().')';
         }
 
+        $this->output_data['service_reply'] = $this->config->gms['service_reply'];
         $this->output_data['list'] = $list;
         $this->output_data['total'] = $total;
         $this->render('services_feedback_list.html');
@@ -145,6 +146,7 @@ class Services extends AdminController{
             $item['ip'] = $item['ip'].'('.IpAddress::instance()->QQwry($item['ip'])->full_address().')';
         }
 
+        $this->output_data['service_reply'] = $this->config->gms['service_reply'];
         $this->output_data['list'] = $list;
         $this->output_data['total'] = $total;
         $this->render('services_tipoff_list.html');

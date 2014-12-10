@@ -77,7 +77,7 @@ class Weibo extends Controller{
             $get_uid = $c->get_uid();
             $wb_uid = $get_uid['uid'];
 
-            $login_name = 'wb'.$wb_uid;
+            $login_name = 'wb_'.$wb_uid;
             $userModel = UserModel::instance();
             $user = $userModel->getUserByLoginName($login_name);
             //如果账号存在则登入 如果不存在则自动注册后再登入

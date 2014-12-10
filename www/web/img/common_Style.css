@@ -50,7 +50,7 @@ em,i { font-style:normal; font-weight:normal}
 .logo,.nav { position:absolute}
 .logo { background:url(logo.png) no-repeat; width:363px; height:84px; top:35px; left:130px; display:block; text-indent:-9999px}
 .nav { top:70px; right:130px; color:#cb6400; font-weight:bold}
-.nav a  { color:#cb6400; font-family:"微软雅黑","宋体"; font-size:14px; font-weight:bold; padding:0 8px}
+.nav a  {color:#cb6400; font-family:"微软雅黑","宋体"; font-size:14px; font-weight:bold; padding:0 8px ;display:inline-block}
 .nav a:hover { text-decoration:none; color:#ffba00}
 .nav a.on { color:#ffba00}
 

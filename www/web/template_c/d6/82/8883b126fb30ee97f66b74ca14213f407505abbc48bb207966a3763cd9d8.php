@@ -63,12 +63,12 @@ class __TwigTemplate_d6828883b126fb30ee97f66b74ca14213f407505abbc48bb207966a3763
 ";
         // line 24
         $this->displayBlock('top', $context, $blocks);
-        // line 38
+        // line 39
         echo "<!--content-->
 ";
-        // line 39
+        // line 40
         $this->displayBlock('content', $context, $blocks);
-        // line 41
+        // line 42
         echo "<!--foot-->
 <script type=\"text/javascript\">var cnzz_protocol = ((\"https:\" == document.location.protocol) ? \" https://\" : \" http://\");document.write(unescape(\"%3Cspan id='cnzz_stat_icon_1252989929'%3E%3C/span%3E%3Cscript src='\" + cnzz_protocol + \"s19.cnzz.com/z_stat.php%3Fid%3D1252989929' type='text/javascript'%3E%3C/script%3E\"));document.getElementById('cnzz_stat_icon_1252989929').style.display = 'none';</script>
 <span id=\"cnzz_stat_icon_1252989929\" style=\"display: none;\"><a href=\"http://www.cnzz.com/stat/website.php?web_id=1252989929\" target=\"_blank\" title=\"站长统计\">站长统计</a></span>
@@ -77,9 +77,9 @@ class __TwigTemplate_d6828883b126fb30ee97f66b74ca14213f407505abbc48bb207966a3763
 <div id=\"foot\">
     <p>抵制不良游戏&nbsp;拒绝盗版游戏&nbsp;注意自我保护&nbsp;谨防受骗上当&nbsp;适度游戏益脑&nbsp;沉迷游戏伤身&nbsp;合理安排时间&nbsp;享受健康生活</p>
     <p>版权所有 武汉新蜂乐众网络技术有限公司<img align=\"absmiddle\" style=\"vertical-align: -1px; margin-left: 5px\" src=\"";
-        // line 48
+        // line 49
         echo twig_escape_filter($this->env, twig_constant("STATIC_HOST"), "html", null, true);
-        echo "/img/logo_small.png\"><a target=\"_blank\" href=\"http://www.miitbeian.gov.cn/\">ICP：鄂ICP备14001438号</a><img width=\"30\" style=\"vertical-align: -7px; margin-right:-5px\" src=\"";
+        echo "/img/newbee.png\"><a target=\"_blank\" href=\"http://www.miitbeian.gov.cn/\">ICP：鄂ICP备14001438号</a><img width=\"30\" style=\"vertical-align: -7px; margin-right:-5px\" src=\"";
         echo twig_escape_filter($this->env, twig_constant("STATIC_HOST"), "html", null, true);
         echo "/img/gameRFID.png\"><a target=\"_blank\" href=\"http://182.131.21.137/ccnt-apply/admin/business/preview/business-preview!lookUrlRFID.action?main_id=36415BBF7D7B4CBB9D6DEE27E3152CA5\">鄂网文【2014】1195-014</a></p>
     <!--<p><a href=\"#\">首页</a><a href=\"#\">关于我们</a><a href=\"#\">微信XXXXX</a><a href=\"#\">新浪微博XXX</a><a href=\"#\">腾讯微博XXX</a></p>-->
@@ -125,25 +125,29 @@ class __TwigTemplate_d6828883b126fb30ee97f66b74ca14213f407505abbc48bb207966a3763
         <a href=\"";
         // line 29
         echo twig_escape_filter($this->env, twig_constant("BASE_HOST"), "html", null, true);
-        echo "/activity\">最新活动</a>|
+        echo "/match\"><span class=\"hot2\"><b>1</b></span>比赛</a>|
         <a href=\"";
         // line 30
         echo twig_escape_filter($this->env, twig_constant("BASE_HOST"), "html", null, true);
-        echo "/rank\">封神榜</a>|
+        echo "/activity\">最新活动</a>|
         <a href=\"";
         // line 31
         echo twig_escape_filter($this->env, twig_constant("BASE_HOST"), "html", null, true);
-        echo "/introduce\">游戏规则</a>|
+        echo "/rank\">封神榜</a>|
         <a href=\"";
         // line 32
         echo twig_escape_filter($this->env, twig_constant("BASE_HOST"), "html", null, true);
-        echo "/store\">道具商城</a>|
+        echo "/introduce\">游戏规则</a>|
         <a href=\"";
         // line 33
         echo twig_escape_filter($this->env, twig_constant("BASE_HOST"), "html", null, true);
-        echo "/service\">客户服务</a>|
+        echo "/store\">道具商城</a>|
         <a href=\"";
         // line 34
+        echo twig_escape_filter($this->env, twig_constant("BASE_HOST"), "html", null, true);
+        echo "/service\">客户服务</a>|
+        <a href=\"";
+        // line 35
         echo twig_escape_filter($this->env, twig_constant("BASE_HOST"), "html", null, true);
         echo "/aboutus\">关于我们</a>
     </div>
@@ -151,7 +155,7 @@ class __TwigTemplate_d6828883b126fb30ee97f66b74ca14213f407505abbc48bb207966a3763
 ";
     }
 
-    // line 39
+    // line 40
     public function block_content($context, array $blocks = array())
     {
     }
@@ -168,6 +172,6 @@ class __TwigTemplate_d6828883b126fb30ee97f66b74ca14213f407505abbc48bb207966a3763
 
     public function getDebugInfo()
     {
-        return array (  155 => 39,  147 => 34,  143 => 33,  139 => 32,  135 => 31,  131 => 30,  127 => 29,  123 => 28,  118 => 25,  115 => 24,  110 => 20,  107 => 19,  103 => 14,  100 => 13,  96 => 6,  93 => 5,  81 => 48,  72 => 41,  67 => 38,  61 => 22,  59 => 19,  53 => 15,  47 => 12,  37 => 8,  32 => 7,  24 => 1,  80 => 22,  74 => 19,  70 => 39,  65 => 24,  62 => 14,  56 => 11,  51 => 13,  48 => 9,  42 => 10,  38 => 5,  33 => 4,  30 => 5,);
+        return array (  159 => 40,  151 => 35,  147 => 34,  143 => 33,  139 => 32,  135 => 31,  131 => 30,  127 => 29,  123 => 28,  118 => 25,  115 => 24,  110 => 20,  107 => 19,  103 => 14,  100 => 13,  96 => 6,  93 => 5,  81 => 49,  72 => 42,  70 => 40,  67 => 39,  65 => 24,  61 => 22,  59 => 19,  53 => 15,  51 => 13,  47 => 12,  42 => 10,  37 => 8,  32 => 7,  30 => 5,  24 => 1,);
     }
 }

@@ -84,16 +84,18 @@ class Payment extends Baseapi{
                         throw new \Exception('订单状态修改失败');
 
                     $this->db->commit();
+                    $http_monitor = $this->config->common['http_monitor'];
+                    @file_get_contents("$http_monitor/diamonds-changed?uid=".$myorder['user_id']);
                     die('ok');
                 }catch (\Exception $e){
-                    Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,$e->getMessage());
+                    //Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,$e->getMessage());
                     $this->db->rollback();
                     die('error');
                 }
 
             }
         }else{
-            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'签名验证失败');
+            //Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'签名验证失败');
             die('error');
         }
     }
@@ -162,15 +164,17 @@ class Payment extends Baseapi{
                     throw new \Exception('订单状态修改失败');
 
                 $this->db->commit();
+                $http_monitor = $this->config->common['http_monitor'];
+                @file_get_contents("$http_monitor/diamonds-changed?uid=".$myorder['user_id']);
                 die('success');
             }catch (\Exception $e){
-                Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,$e->getMessage());
+                //Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,$e->getMessage());
                 $this->db->rollback();
                 die('fail');
             }
         }
         else{
-            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'SIGN验证失败');
+            //Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'SIGN验证失败');
             die('fail');
         }
     }

@@ -34,4 +34,12 @@ return array(
         'template_dir' => '/template',
         'cache_dir'  => '/template_c',
     ),
+
+    /**
+     * 在实例化controller之前需要运行的自定义类,方法
+     * 类文件必须放在 BASE_PROJECT/hook/beforectl 下面
+     */
+    'hook_breforectl' => array(
+        array('clazz'=>'Server','method'=>array('status','version'))
+    ),
 );

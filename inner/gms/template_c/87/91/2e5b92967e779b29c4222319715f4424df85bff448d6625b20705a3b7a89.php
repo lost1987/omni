@@ -159,24 +159,24 @@ class __TwigTemplate_87912e5b92967e779b29c4222319715f4424df85bff448d6625b20705a3
             ";
         // line 84
         $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["price_types"]) ? $context["price_types"] : null));
-        foreach ($context['_seq'] as $context["type"] => $context["name"]) {
+        $context['_seq'] = twig_ensure_traversable((isset($context["prize_types"]) ? $context["prize_types"] : null));
+        foreach ($context['_seq'] as $context["_key"] => $context["prize"]) {
             // line 85
             echo "            ";
-            if (((isset($context["type"]) ? $context["type"] : null) == $this->getAttribute((isset($context["signup_price"]) ? $context["signup_price"] : null), "price_type", array()))) {
+            if (($this->getAttribute((isset($context["prize"]) ? $context["prize"] : null), "type", array()) == $this->getAttribute((isset($context["signup_price"]) ? $context["signup_price"] : null), "price_type", array()))) {
                 // line 86
                 echo "            <option value=\"";
-                echo twig_escape_filter($this->env, (isset($context["type"]) ? $context["type"] : null), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["prize"]) ? $context["prize"] : null), "type", array()), "html", null, true);
                 echo "\" selected=\"selected\">";
-                echo twig_escape_filter($this->env, (isset($context["name"]) ? $context["name"] : null), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["prize"]) ? $context["prize"] : null), "name", array()), "html", null, true);
                 echo "</option>
             ";
             } else {
                 // line 88
                 echo "            <option value=\"";
-                echo twig_escape_filter($this->env, (isset($context["type"]) ? $context["type"] : null), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["prize"]) ? $context["prize"] : null), "type", array()), "html", null, true);
                 echo "\">";
-                echo twig_escape_filter($this->env, (isset($context["name"]) ? $context["name"] : null), "html", null, true);
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["prize"]) ? $context["prize"] : null), "name", array()), "html", null, true);
                 echo "</option>
             ";
             }
@@ -184,7 +184,7 @@ class __TwigTemplate_87912e5b92967e779b29c4222319715f4424df85bff448d6625b20705a3
             echo "            ";
         }
         $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['type'], $context['name'], $context['_parent'], $context['loop']);
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['prize'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 91
         echo "        </select>

@@ -57,7 +57,12 @@ class Error {
     const EXCHANGE_TYPE_ERROR = 2010;
     //商品不存在
     const NO_SUCH_PRODUCT = 2011;
-
+    //客户端版本过低,需强制升级
+    const CLIENT_FORCE_UPDATE = 2012;
+    //服务器正在维护
+    const SERVER_ON_UPHOLD = 2013;
+    //未检测到版本号
+    const  CLIENT_VERSION_MISS = 2014;
 
 
 }

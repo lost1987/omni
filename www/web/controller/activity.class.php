@@ -11,6 +11,7 @@ namespace web\controller;
 
 use core\Controller;
 use utils\Page;
+use utils\Tools;
 use web\libs\Helper;
 use web\model\ActivitiesModel;
 
@@ -47,8 +48,10 @@ class Activity extends Controller{
                 $item['publish_time'] = $y . '/' . $m . '/' . $d . ' ' . $h . ':' . $i;
             }
 
-            if(!empty($item['content']))
-                $item['content'] = mb_substr(strip_tags($item['content']),0,120);
+            if(!empty($item['content'])) {
+                $item['content'] =htmlspecialchars_decode(mb_substr( strip_tags( $item['content'] ) , 0 , 120 ));
+                $item['content'] = preg_replace('/&(.*)?;/','',$item['content']);
+            }
         }
 
         $output_data = array(
