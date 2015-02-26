@@ -11,26 +11,23 @@ namespace web\controller;
 use core\Controller;
 use core\Cookie;
 use core\Redirect;
+use utils\Tools;
 use web\libs\Error;
 use web\libs\UserUtil;
 use libs\payment\FactoryPay;
+use web\model\ArticlesModel;
 use web\model\UserModel;
 
 class Payment extends Controller
 {
 
-
-    function entrance()
-    {
-        UserUtil::instance()->checkLogin('/error/index/' . Error::ERROR_NO_LOGIN);
-        $this->tpl->display('pay_entrance.html');
-    }
-
-
     function prepare()
     {
-        UserUtil::instance()->checkLogin('/error/index/' . Error::ERROR_NO_LOGIN);
         $type = intval($this->args[0]);
+
+        if($this->output_data['is_login']){
+            $this->output_data['login_name'] = Cookie::instance()->userdata('login_name');
+        }
 
         if($type == 0 || $type == 1){//网银或支付宝
                 $amount_types = $this->config->web['pay_amount_ratio'];
@@ -46,7 +43,9 @@ class Payment extends Controller
             'token' => Cookie::instance()->get_csrf_cookie()
         );
 
-        $this->tpl->display('pay_prepare.html', $output_data);
+        $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+        $this->output_data = array_merge($this->output_data,$output_data);
+        $this->tpl->display('charging.html', $this->output_data);
     }
 
     /**
@@ -55,7 +54,6 @@ class Payment extends Controller
     function go()
     {
         $this->csrf_token_validation();
-        UserUtil::instance()->checkLogin('/error/index/'.Error::ERROR_NO_LOGIN);
 
         $login_name = $this->input->get('login_name');
         $amount_type = $this->input->get('amount_type');

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>http://16youxi.com</loc>
+<priority>10</priority>
+<lastmod>2015/1/23 14:34:26</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/activity/detail/2</loc>
+<priority>4</priority>
+<lastmod>2015/1/23 14:34:27</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/activity/detail/3</loc>
+<priority>4</priority>
+<lastmod>2015/1/23 14:34:27</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/activity/lists</loc>
+<priority>6</priority>
+<lastmod>2015/1/23 14:34:27</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/game</loc>
+<priority>8</priority>
+<lastmod>2015/1/23 14:34:27</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/game/</loc>
+<priority>6</priority>
+<lastmod>2015/1/23 14:34:26</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/introduce</loc>
+<priority>8</priority>
+<lastmod>2015/1/23 14:34:28</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/payment/entrance</loc>
+<priority>6</priority>
+<lastmod>2015/1/23 14:34:28</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/user/agreement</loc>
+<priority>6</priority>
+<lastmod>2015/1/23 14:34:28</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/user/password</loc>
+<priority>6</priority>
+<lastmod>2015/1/23 14:34:26</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/user/signup</loc>
+<priority>6</priority>
+<lastmod>2015/1/23 14:34:26</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/userinfo</loc>
+<priority>8</priority>
+<lastmod>2015/1/23 14:34:28</lastmod>
+<changefreq>0</changefreq>
+</url>
+<url>
+<loc>http://16youxi.com/weibo/sina/login</loc>
+<priority>4</priority>
+<lastmod>2015/1/23 14:34:27</lastmod>
+<changefreq>0</changefreq>
+</url>
+
+</urlset>

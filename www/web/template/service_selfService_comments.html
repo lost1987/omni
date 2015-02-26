@@ -1,0 +1,76 @@
+{% extends 'baseService.html' %}
+
+{% block title %}
+武汉麻将-客户服务
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-客户服务
+{% endblock %}
+
+{% block description %}
+武汉麻将-客户服务
+{% endblock %}
+
+{% block css %}
+<link href="{{ constant('STATIC_HOST') }}/css/formError.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="col-xs-7">
+    <div class="panel p15 inner pb50">
+        <h4 class="mTitle">自助服务
+            <small class="text-blue"><span class="pl5 pr5 text-grey">|</span>意见反馈</small>
+        </h4>
+        <form id="feedbackForm" action="/service/feedback" method="post">
+        <input type="hidden" value="{{token}}" name="csrf_token" />
+        <div class="pl20 pr20">
+            <table class="table mb30">
+                <tbody>
+                <tr>
+                    <td>
+                        <label class="radio-inline">
+                            <input type="radio" name="feedtype" id="" value="0" checked> 游戏bug
+                        </label>
+                    </td>
+                    <td>
+                        <label class="radio-inline">
+                            <input type="radio" name="feedtype" id="" value="1"> 商城兑换错误
+                        </label>
+                    </td>
+                    <td>
+                        <label class="radio-inline">
+                            <input type="radio" name="feedtype" id="" value="2"> 充值失败
+                        </label>
+                    </td>
+                    <td>
+                        <label class="radio-inline">
+                            <input type="radio" name="feedtype" id="" value="3"> 游戏记录错误
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="radio-inline">
+                            <input type="radio" name="feedtype" id="" value="4"> 处罚申述
+                        </label>
+                    </td>
+                    <td>
+                        <label class="radio-inline">
+                            <input type="radio" name="feedtype" id="" value="5"> 其他问题
+                        </label>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <label>请详细描述您遇到的问题(您还能输入<span id="fonts" class="text-org">500</span>字,最少输入5个字)：</label>
+            <textarea name="content" id="content" class="form-control mb10" rows="5"></textarea>
+            <a href="javascript:fs()" class="btn btn-info">提交</a>
+        </div>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
+{% block script %}
+<script src="{{ constant('STATIC_HOST') }}/js/user.feedback.js"></script>
+{% endblock %}

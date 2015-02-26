@@ -10,8 +10,11 @@ namespace api\libs\exchange;
 
 use api\libs\Error;
 use utils\Tools;
+use web\libs\DataUtil;
 use web\libs\UserResource;
+use web\libs\UserUtil;
 use web\model\StoreProductsModel;
+use web\model\UserModel;
 use web\model\UserResourceLogModel;
 
 class RealExchange extends BaseExchange implements IExchange{
@@ -45,6 +48,9 @@ class RealExchange extends BaseExchange implements IExchange{
             $this->response(null,Error::FORM_STRING_FORMAT);
 
         $product = StoreProductsModel::instance()->read($product_id);
+        $user = UserModel::instance()->getUserByLoginName($login_name);
+        $product['price'] = UserUtil::instance()->vipResourceDiscount($product['price'],$user['vip_level']);
+        unset($user);
         $this->checkProductAndResource($profile,$product);
 
         try{
@@ -55,7 +61,7 @@ class RealExchange extends BaseExchange implements IExchange{
             $indexResultHandler = array(
                 'handler_type' => 3,
                 'reporter_name'=>$login_name,
-                'result' => 4,
+                'result' => 0,
                 'note' => ''
             );
 
@@ -66,22 +72,17 @@ class RealExchange extends BaseExchange implements IExchange{
                 'ip' => Tools::getip(),
                 'name' => $name,
                 'address' => $address,
-                'mobile' => $mobile
+                'mobile' => $mobile,
+                'product_name' => $product['name'],
+                'cost_info' =>$product['price'].$this->config->web['price_type'][$product['price_type']],
+                'get_info' => empty($product['tool']) ? '/' : $product['tool'].$this->config->web['tool_type'][$product['tool_type']]
             );
 
             //处理商品记录
             $this->saveUserProductInfo($indexResultHandler,$productOrder);
             $this-> db -> commit();
-            $data = array(
-                'action_type' => UserResource::ACTION_EXCHANGE,//资源变动类型:玩家兑换
-                'tool_type' => $product['tool_type'],
-                'price_type' => $product['price_type'],
-                'price' => intval( $product['price'] ),
-                'tool' => intval( $product['tool'] ),
-                'uid' => $profile['uid']
-            );
-            UserResourceLogModel::instance()->save($data);
-            $this->resourceChangeNotify($profile['user_id']);
+
+            DataUtil::instance()->doAfterExchange($product,$profile);
             $this->response(null);
 
         }catch (\Exception $e){

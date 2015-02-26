@@ -19,9 +19,7 @@ use web\libs\Helper;
  */
 class Introduce extends Controller{
     function index(){
-            $output_data = array(
-                'navigator' => Helper::getControllerName(__NAMESPACE__,__CLASS__)
-            );
-            $this -> tpl -> display('introduce.html',$output_data);
+            $this -> output_data['xszn'] = 'active';
+            $this -> tpl -> display('userGuide.html',$this->output_data);
     }
 } 

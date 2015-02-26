@@ -17,15 +17,17 @@ return array(
     'cookie' => array(
            'secret' => 'web_newbee',
            'timeout' => 3600*3,
-           'path'  => '/'
+           'path'  => '/',
+           'domain' => DOMAIN
     ),
 
     /**
      * golang 统计队列ip,端口
      */
     'go_das_server'=>array(
-        'host' => 'tcp://127.0.0.1',
-        'port' => 5000
+        'host' => 'tcp://192.168.1.24',
+        'port' => 5000,
+        'enable'=>false//是否开启数据统计
     ),
 
     /**

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{constant('STATIC_HOST')}}/assets/css/select2.min.css">
+<link rel="stylesheet" href="{{constant('STATIC_HOST')}}/assets/css/bootstrap-datetimepicker-master.min.css">
+<link rel="stylesheet" href="{{constant('STATIC_HOST')}}/assets/css/bootstrap-datetimepicker.min.css">
+{% endblock %}
+{% block content %}
+<div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">概览</strong>  <small></small></div>
+</div>
+
+<ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
+    <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-money"></span><br/>新蜂币<br/>{{total.newcoins}}</a><br/>可兑换￥{{total.cny}}</li>
+    <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-cny"></span><br/>累计提现<br/>￥{{total.deposit|default('0')}}</a></li>
+    <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-group"></span><br/>下线人数<br/>{{total.children}}</a></li>
+    <li></li>
+</ul>
+
+<div class="am-cf am-padding">
+    <label>我的邀请码:&nbsp;&nbsp;&nbsp;</label>
+    <code class="am-margin-right-sm">{{invite_code}}</code>
+</div>
+
+<div class="am-g am-padding">
+    <div class="am-u-md-12 am-cf">
+        <div class="am-fl am-cf">
+            <a class="am-badge am-badge-primary am-round">查询我的新蜂币变化:</a><br/><br/>
+            <form class="am-form-inline">
+                <div class="am-form-group am-form-icon am-margin-right-sm">
+                    <label>开始时间</label>
+                    <input type="text" name="search_change_time_start" id="search_change_time_start" value="{{search_change_time_start}}" class="am-form-field form_datetime" placeholder="申请日期">
+                </div>
+
+                <div class="am-form-group am-form-icon am-margin-right-sm">
+                    <label>结束时间</label>
+                    <input type="text" name="search_change_time_end" id="search_change_time_end" value="{{search_change_time_end}}" class="am-form-field form_datetime" placeholder="申请日期">
+                </div>
+
+                <button type="button" id="search_btn"  class="am-btn am-btn-default"><i class="am-icon-search"></i>&nbsp;搜索</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="am-g am-padding">
+    <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+            <tr>
+                <th>新蜂币</th>
+                <th>时间</th>
+                <th>描述</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in list %}
+            <tr>
+                <td>{{item.coins_change}}</td>
+                <td>{{item.change_time}}</td>
+                <td>{{item.action}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="am-cf">
+            共 {{num_rows}} 条记录
+            <div class="am-fr">
+                <ul class="am-pagination">
+                    {{pagiation|raw}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="{{constant('STATIC_HOST')}}/assets/lib/bootstrap-datetimepicker.min.js"></script>
+<script src="{{constant('STATIC_HOST')}}/assets/lib/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="{{constant('STATIC_HOST')}}/assets/standalone/index.js"></script>
+<script src="{{constant('STATIC_HOST')}}/assets/lib/common-list.js"></script>
+{% endblock %}

@@ -40,6 +40,38 @@ class UserModel extends Model{
         return $this->db->fetch();
     }
 
+
+    function getUserByInviteCode($inviteCode){
+        $sql = "SELECT * FROM users WHERE invite_code = ?";
+        $this->db->execute($sql,array($inviteCode));
+        return $this->db->fetch();
+    }
+
+
+    function getUserByMail($mail){
+        $sql = "SELECT * FROM users WHERE email = ?";
+        $this->db->execute($sql,array($mail));
+        return $this->db->fetch();
+    }
+
+    function getUserByIDCard($idCard){
+        $sql = "SELECT * FROM users WHERE id_card = ?";
+        $this->db->execute($sql,array($idCard));
+        return $this->db->fetch();
+    }
+
+    function getUserByMobile($mobile){
+        $sql = "SELECT * FROM users WHERE mobile = ?";
+        $this->db->execute($sql,array($mobile));
+        return $this->db->fetch();
+    }
+
+    function getVipLevel($uid){
+        $sql = "SELECT vip_level FROM users WHERE uid = ?";
+        $this->db->execute($sql,array($uid));
+        return $this->db->fetch()['vip_level'];
+    }
+
     /**
      * 通过uid获取用户表[users]信息
      * @param $uid
@@ -58,7 +90,7 @@ class UserModel extends Model{
      */
     function getUserProfile($uid){
             $sql = "SELECT a.uid,a.login_name,a.user_number,a.nickname,a.regist_time,a.mobile,a.email,
-                    b.gender,b.avatar,b.area,b.coins,b.diamond FROM users a LEFT JOIN profile b
+                    b.gender,b.avatar,b.area,b.coins,b.diamond,b.coupon,b.ticket FROM users a LEFT JOIN profile b
                     ON a.uid = b.user_id WHERE a.uid = ?";
             $this->db->execute($sql,array($uid));
             return $this->db->fetch();
@@ -96,6 +128,25 @@ class UserModel extends Model{
     function isEmailExsit($email){
         $sql = "SELECT COUNT(*) as num FROM users WHERE email = ?";
         $this->db->execute($sql,array($email));
+        $r = $this->db->fetch();
+        if($r['num'] > 0)
+            return true;
+        return false;
+    }
+
+
+    function isMobileExsit($mobile){
+        $sql = "SELECT COUNT(*) as num FROM users WHERE mobile = ?";
+        $this->db->execute($sql,array($mobile));
+        $r = $this->db->fetch();
+        if($r['num'] > 0)
+            return true;
+        return false;
+    }
+
+    function isIDCardExsit($idCard){
+        $sql = "SELECT COUNT(*) as num FROM users WHERE id_card = ?";
+        $this->db->execute($sql,array($idCard));
         $r = $this->db->fetch();
         if($r['num'] > 0)
             return true;

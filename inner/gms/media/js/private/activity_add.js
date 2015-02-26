@@ -28,9 +28,6 @@ var FormValidation = function () {
                     },
                     game_image: {
                        required: true
-                    },
-                    content: {
-                        required: true
                     }
                 },
 
@@ -40,9 +37,6 @@ var FormValidation = function () {
                         required: "这是必填项"
                     },
                     in_game_show: {
-                        required: "这是必填项"
-                    },
-                    content: {
                         required: "这是必填项"
                     },
                     web_image: {
@@ -96,6 +90,12 @@ var FormValidation = function () {
                 },
 
                 submitHandler: function (form) {
+                    var content = CKEDITOR.instances["content"].getData();
+                    if(content == ''){
+                        alert('请填写活动内容');
+                        return;
+                    }
+
                     success2.show();
                     error2.hide();
                     form.submit();
@@ -122,6 +122,14 @@ var FormValidation = function () {
 }();
 
 var handleDatetimePicker = function () {
+    $(".form_date").datepicker({
+        format: "yyyy-mm-dd",
+        pickerPosition: (App.isRTL() ? "bottom-right" : "bottom-left"),
+        language:'zh-CN',
+        autoclose: true,
+        todayBtn: true,
+        todayHighlight:true
+    });
 
     $(".form_datetime").datetimepicker({
         format: "yyyy-mm-dd hh:ii",

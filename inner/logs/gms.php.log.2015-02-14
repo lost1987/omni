@@ -1,0 +1,91 @@
+[14-Feb-2015 13:04:10 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:10 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:12 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:12 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:13 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:13 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:14 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:15 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:16 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:22 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:22 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:24 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113
+[14-Feb-2015 13:04:24 Asia/Shanghai] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'game'@'localhost' (using password: YES)' in /Users/shameless/php_workspace/website_php/inner/core/db.class.php:113
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/inner/core/db.class.php(113): PDO->__construct('mysql:host=loca...', 'game', 'no.1@China!game')
+#1 /Users/shameless/php_workspace/website_php/inner/omni.class.php(104): core\DB->init_db_from_config('gms')
+#2 /Users/shameless/php_workspace/website_php/inner/gms/index.php(54): Omni->run('gms')
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 113

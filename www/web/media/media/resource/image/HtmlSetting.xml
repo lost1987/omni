@@ -1,0 +1,5 @@
+<!--从网页获取json数据的配置文件-->
+<Setting>
+    <HtmlServerName>api.16youxi.com</HtmlServerName>
+	<!--<HtmlServerName>192.168.1.24</HtmlServerName>-->
+</Setting>

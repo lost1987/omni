@@ -11,7 +11,6 @@ namespace web\controller;
 use core\Configure;
 use core\Controller;
 use core\Redirect;
-use core\Redis;
 use libs\weibo\sina\SaeTClientV2;
 use libs\weibo\sina\SaeTOAuthV2;
 use web\libs\Error;
@@ -102,6 +101,6 @@ class Weibo extends Controller{
             UserUtil::instance()->checkLogin('/error/index/'.Error::ERROR_NO_LOGIN);
             $lottery = new Lottery();
             $lottery->shared();
-            Redirect::instance()->forward('http://v.t.sina.com.cn/share/share.php?url='.BASE_HOST.'&title=我刚刚在@新蜂武汉麻将 抽到了' .$this->args[1] . ' 体验正宗武汉麻将，立刻登陆游戏网站');
+            Redirect::instance()->forward('http://v.t.sina.com.cn/share/share.php?url='.BASE_HOST.'&title=我刚刚在@新蜂武汉麻将 抽到了' .$this->args[1] . ' 任性领大奖，不许不开心，快来和我一起吧！');
     }
 }

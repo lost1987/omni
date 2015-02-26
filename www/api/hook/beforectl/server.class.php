@@ -21,10 +21,24 @@ class Server extends Baseapi{
         //检测版本
         $v = $this->input->get_post('v');
         if(!empty($v)){
-            if($v != $server['mobile_version']){
-                if($server['mobile_force_update'])
-                    $this->response(null,Error::CLIENT_FORCE_UPDATE);
+            list($gp1,$gp2,$gp3) = explode('.',$v);
+            list($sv1,$sv2,$sv3) = explode('.',$server['mobile_version']);
+
+            $is_right_ver = true;
+            if(intval($gp1) < intval($sv1)){
+                $is_right_ver = false;
+            }else{
+                if(intval($gp2) < intval($sv2)){
+                    $is_right_ver = false;
+                }else{
+                    if(intval($gp3) < intval($sv3)){
+                        $is_right_ver = false;
+                    }
+                }
             }
+
+            if($server['mobile_force_update'] && !$is_right_ver)
+                $this->response(null,Error::CLIENT_FORCE_UPDATE);
         }
     }
 

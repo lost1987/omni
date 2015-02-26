@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:c6b2cf1d91823cf43995f107de4d87a3$ -->
+<TextureAtlas imagePath="Sprite.png">
+    <SubTexture name="Sprite_Hall" x="2" y="2" width="231" height="455" frameX="0" frameY="0" frameWidth="237" frameHeight="455"/>
+</TextureAtlas>

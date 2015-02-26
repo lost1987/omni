@@ -304,7 +304,7 @@ class __TwigTemplate_1c56ec5cb4413284ed5fbab8f176153e88436e4dad4c47009284f8a9556
 
 <!-- END PAGE -->
 <!-- 模态框（Modal） -->
-<div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\"
+<div class=\"modal fade\" id=\"myModal\" tabindex=\"-1\" role=\"dialog\"  style=\"display:none\"
      aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
     <div class=\"modal-dialog\">
         <div class=\"modal-content\">
@@ -313,43 +313,106 @@ class __TwigTemplate_1c56ec5cb4413284ed5fbab8f176153e88436e4dad4c47009284f8a9556
                         aria-hidden=\"true\">×
                 </button>
                 <h4 class=\"modal-title\" id=\"myModalLabel\">
-                    请确认
+                    请选择要回复的内容
                 </h4>
             </div>
-            <div class=\"modal-body\">
-                确认要删除该项目吗?
-            </div>
-            <div class=\"modal-footer\">
-                <button type=\"button\" class=\"btn btn-default\" onclick=\"del()\"
-                        data-dismiss=\"modal\">确认
-                </button>
-                <button type=\"button\" class=\"btn btn-primary\" onclick=\"cancel_del()\">
-                    取消
-                </button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+            <form action=\"\" id=\"\" class=\"form-inline\" >
+                <div class=\"modal-body\" style=\"max-height:800px;\">
+                    <div class=\"control-group\">
+                        ";
+        // line 204
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["service_reply"]) ? $context["service_reply"] : null));
+        $context['loop'] = array(
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        );
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
+        foreach ($context['_seq'] as $context["_key"] => $context["reply"]) {
+            // line 205
+            echo "                        <div class=\"controls\">
+                            ";
+            // line 206
+            if (($this->getAttribute((isset($context["loop"]) ? $context["loop"] : null), "index", array()) == 1)) {
+                // line 207
+                echo "                            <label><input type=\"radio\" name=\"reply_radio\" value=\"";
+                echo twig_escape_filter($this->env, (isset($context["reply"]) ? $context["reply"] : null), "html", null, true);
+                echo "\" checked=\"checked\"/>";
+                echo twig_escape_filter($this->env, (isset($context["reply"]) ? $context["reply"] : null), "html", null, true);
+                echo "</label>
+                            ";
+            } else {
+                // line 209
+                echo "                            <label><input type=\"radio\" name=\"reply_radio\" value=\"";
+                echo twig_escape_filter($this->env, (isset($context["reply"]) ? $context["reply"] : null), "html", null, true);
+                echo "\" />";
+                echo twig_escape_filter($this->env, (isset($context["reply"]) ? $context["reply"] : null), "html", null, true);
+                echo "</label>
+                            ";
+            }
+            // line 211
+            echo "                        </div>
+                        ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['reply'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 213
+        echo "                    </div>
+                    <div class=\"control-group\">
+                        <label class=\"control-label\"><b class=\"midnight\">自定义</b>&nbsp;&nbsp;</label>
+                        <div class=\"controls\">
+                            <textarea rows=\"3\" cols=\"5\"  class=\"span4\" name=\"custom_reply\" id=\"custom_reply\" disabled=\"true\"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class=\"modal-footer\">
+                    <div class=\"form-actions\">
+                        <button type=\"button\" class=\"btn red\" onclick=\"handle_reply(3)\">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 ";
     }
 
-    // line 218
+    // line 234
     public function block_javascript_plugins($context, array $blocks = array())
     {
-        // line 219
+        // line 235
         echo "<script type=\"text/javascript\" src=\"/media/js/select2.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/jquery.dataTables.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/DT_bootstrap.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/bootstrap-datetimepicker.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/bootstrap-datetimepicker.zh-CN.js\"></script>
+<script type=\"text/javascript\" src=\"/media/js/common/service_reply.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/private/tipoff.js\"></script>
 ";
     }
 
-    // line 227
+    // line 244
     public function block_javascript_custom($context, array $blocks = array())
     {
-        // line 228
+        // line 245
         echo "<script>
     jQuery(document).ready(function() {
         TableAdvanced.init();
@@ -370,6 +433,6 @@ class __TwigTemplate_1c56ec5cb4413284ed5fbab8f176153e88436e4dad4c47009284f8a9556
 
     public function getDebugInfo()
     {
-        return array (  353 => 228,  350 => 227,  340 => 219,  337 => 218,  290 => 173,  269 => 155,  261 => 149,  251 => 145,  245 => 142,  239 => 139,  233 => 136,  227 => 133,  221 => 130,  215 => 127,  209 => 124,  202 => 122,  197 => 121,  193 => 120,  154 => 84,  142 => 75,  128 => 63,  122 => 62,  114 => 60,  106 => 58,  103 => 57,  99 => 56,  88 => 48,  55 => 17,  52 => 16,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
+        return array (  416 => 245,  413 => 244,  402 => 235,  399 => 234,  377 => 213,  362 => 211,  354 => 209,  346 => 207,  344 => 206,  341 => 205,  324 => 204,  290 => 173,  269 => 155,  261 => 149,  251 => 145,  245 => 142,  239 => 139,  233 => 136,  227 => 133,  221 => 130,  215 => 127,  209 => 124,  202 => 122,  197 => 121,  193 => 120,  154 => 84,  142 => 75,  128 => 63,  122 => 62,  114 => 60,  106 => 58,  103 => 57,  99 => 56,  88 => 48,  55 => 17,  52 => 16,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
     }
 }

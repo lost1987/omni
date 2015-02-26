@@ -104,7 +104,8 @@ class __TwigTemplate_c21042c75033f554a49cc4a89cbcecd50e70bb0fc8d0123cc81e8e60d21
             </ul>
         </div>
         <div class=\"fsb_m_rt\">
-            <div class=\"pm_menu\"><a href=\"javascript:;\" rel=\"global\" class=\"on\">总排名</a><a href=\"javascript:;\" rel=\"week\">周排名</a></div>
+            <div class=\"pm_menu\"><a href=\"javascript:;\" rel=\"global\" class=\"on\">总排名</a>
+                <!--<a href=\"javascript:;\" rel=\"week\">周排名</a>--></div>
             <table width=\"577\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">
                 <tr>
                     <th width=\"98\">排名</th>
@@ -114,7 +115,7 @@ class __TwigTemplate_c21042c75033f554a49cc4a89cbcecd50e70bb0fc8d0123cc81e8e60d21
                     <th width=\"108\" id=\"sp\">胜率</th>
                 </tr>
                 ";
-        // line 54
+        // line 55
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["orderlist"]) ? $context["orderlist"] : null));
         $context['loop'] = array(
@@ -131,78 +132,78 @@ class __TwigTemplate_c21042c75033f554a49cc4a89cbcecd50e70bb0fc8d0123cc81e8e60d21
             $context['loop']['last'] = 1 === $length;
         }
         foreach ($context['_seq'] as $context["idx"] => $context["item"]) {
-            // line 55
+            // line 56
             echo "                <tr rel=\"render\">
                     ";
-            // line 56
+            // line 57
             if ((($this->getAttribute((isset($context["loop"]) ? $context["loop"] : null), "index0", array()) % 2) == 0)) {
-                // line 57
+                // line 58
                 echo "                            <td class=\"dark_bg\">";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "order", array()), "html", null, true);
                 echo "</td>
                             ";
-                // line 58
+                // line 59
                 if (($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "isme", array()) == 1)) {
-                    // line 59
+                    // line 60
                     echo "                                <td class=\"dark_bg\"><font color=\"red\">";
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "nickname", array()), "html", null, true);
                     echo "</font></td>
                             ";
                 } else {
-                    // line 61
+                    // line 62
                     echo "                                 <td class=\"dark_bg\">";
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "nickname", array()), "html", null, true);
                     echo "</td>
                             ";
                 }
-                // line 63
+                // line 64
                 echo "                            <td class=\"dark_bg\">";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "area", array()), "html", null, true);
                 echo "</td>
                             <td class=\"dark_bg\">";
-                // line 64
+                // line 65
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "coins", array()), "html", null, true);
                 echo "</td>
                             <td class=\"dark_bg\">";
-                // line 65
+                // line 66
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "win_rate", array()), "html", null, true);
                 echo "</td>
                     ";
             } else {
-                // line 67
+                // line 68
                 echo "                            <td>";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "order", array()), "html", null, true);
                 echo "</td>
                             ";
-                // line 68
+                // line 69
                 if (($this->getAttribute((isset($context["item"]) ? $context["item"] : null), "isme", array()) == 1)) {
-                    // line 69
+                    // line 70
                     echo "                                <td><font color=\"red\">";
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "nickname", array()), "html", null, true);
                     echo "</font></td>
                             ";
                 } else {
-                    // line 71
+                    // line 72
                     echo "                                <td>";
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "nickname", array()), "html", null, true);
                     echo "</td>
                             ";
                 }
-                // line 73
+                // line 74
                 echo "                            <td>";
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "area", array()), "html", null, true);
                 echo "</td>
                             <td>";
-                // line 74
+                // line 75
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "coins", array()), "html", null, true);
                 echo "</td>
                             <td>";
-                // line 75
+                // line 76
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "win_rate", array()), "html", null, true);
                 echo "</td>
                     ";
             }
-            // line 77
+            // line 78
             echo "                </tr>
                 ";
             ++$context['loop']['index0'];
@@ -217,7 +218,7 @@ class __TwigTemplate_c21042c75033f554a49cc4a89cbcecd50e70bb0fc8d0123cc81e8e60d21
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['idx'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 79
+        // line 80
         echo "            </table>
             <p style=\"margin-bottom:30px\">*此排名每日更新</p>
         </div>
@@ -239,6 +240,6 @@ class __TwigTemplate_c21042c75033f554a49cc4a89cbcecd50e70bb0fc8d0123cc81e8e60d21
 
     public function getDebugInfo()
     {
-        return array (  221 => 79,  206 => 77,  201 => 75,  197 => 74,  192 => 73,  186 => 71,  180 => 69,  178 => 68,  173 => 67,  168 => 65,  164 => 64,  159 => 63,  153 => 61,  147 => 59,  145 => 58,  140 => 57,  138 => 56,  135 => 55,  118 => 54,  85 => 23,  82 => 22,  76 => 18,  72 => 17,  68 => 16,  65 => 15,  54 => 13,  50 => 12,  46 => 11,  43 => 10,  40 => 9,  33 => 4,  30 => 3,);
+        return array (  222 => 80,  207 => 78,  202 => 76,  198 => 75,  193 => 74,  187 => 72,  181 => 70,  179 => 69,  174 => 68,  169 => 66,  165 => 65,  160 => 64,  154 => 62,  148 => 60,  146 => 59,  141 => 58,  139 => 57,  136 => 56,  119 => 55,  85 => 23,  82 => 22,  76 => 18,  72 => 17,  68 => 16,  65 => 15,  54 => 13,  50 => 12,  46 => 11,  43 => 10,  40 => 9,  33 => 4,  30 => 3,);
     }
 }

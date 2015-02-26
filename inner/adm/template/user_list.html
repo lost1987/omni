@@ -1,0 +1,78 @@
+<div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户</strong> / <small>列表</small></div>
+</div>
+
+<div class="am-g">
+<div class="am-u-md-12 am-cf">
+<div class="am-fl am-cf">
+    <form class="am-form-inline">
+        <div class="am-form-group am-form-icon">
+            <i class="am-icon-user"></i>
+            <input style="display:none" mce_style="display:none"><!--防止默认回车提交表单 简直脑残-->
+            <input type="text" name="search_user" id="search_user" value="{{search_user}}" class="am-form-field" placeholder="账号或昵称">
+        </div>
+
+        <button type="button" id="search_btn" class="am-btn am-btn-default"><i class="am-icon-search"></i>&nbsp;搜索</button>
+    </form>
+    </div>
+    </div>
+</div>
+<div class="am-g">
+<div class="am-u-sm-12">
+<table class="am-table am-table-striped am-table-hover table-main">
+<thead>
+<tr>
+    <th class="table-check"><input type="checkbox" /></th>
+    <th>UID</th>
+    <th>账号</th>
+    <th>昵称</th>
+    <th>新蜂币</th>
+    <th>可提现</th>
+    <th>状态</th>
+    <th>上级(uid 账号 昵称)</th>
+    <th>操作</th>
+</tr>
+</thead>
+<tbody>
+{% for item in list %}
+<tr>
+    <td><input type="checkbox" /></td>
+    <td>{{item.uid}}</td>
+    <td><a href="javascript:;">{{item.login_name}}</a></td>
+    <td>{{item.nickname}}</td>
+    <td>{{item.newcoins}}</td>
+    <td><i class="am-icon-cny">&nbsp;</i>{{item.money}}</td>
+    <td rel="ajax_state">{{item.state}}</td>
+    <td>{{item.parent|raw}}</td>
+    <td>
+        <div class="am-dropdown  common-btn-drop" >
+            <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-list-ol"></span> <span class="am-icon-caret-down"></span></button>
+            <ul class="am-dropdown-content">
+                <li><a href="javascript:;" onclick="detail({{item.uid}})"><i class="am-icon-table">&nbsp;</i>新蜂币变化</a></li>
+                <li><a href="javascript:;" onclick="findChildren({{item.uid}})"><i class="am-icon-users">&nbsp;</i>下线</a></li>
+                <li><a href="javascript:;" onclick="setReward({{item.uid}})"><i class="am-icon-gift">&nbsp;</i>奖励</a></li>
+                <li><a href="javascript:;" onclick="depositApply({{item.uid}})"><i class="am-icon-eye">&nbsp;</i>提现申请</a></li>
+                <li><a href="javascript:;" onclick="forbidden({{item.uid}},this)"><i class="am-icon-ban">&nbsp;</i>禁止提现</a></li>
+                <li><a href="javascript:;" onclick="unForbidden({{item.uid}},this)"><i class="am-icon-check">&nbsp;</i>解禁提现</a></li>
+                <li><a href="javascript:;"><i class="am-icon-bookmark">&nbsp;</i>兑换历史</a></li>
+            </ul>
+        </div>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<div class="am-cf">
+    共 {{total}} 条记录
+    <div class="am-fr">
+        <ul class="am-pagination">
+            {{pagiation|raw}}
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+{% block script %}
+<script src="{{constant('STATIC_HOST')}}/assets/standalone/user_list.js"></script>
+<script src="{{constant('STATIC_HOST')}}/assets/lib/common-list.js"></script>
+{% endblock %}

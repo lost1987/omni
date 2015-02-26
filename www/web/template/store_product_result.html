@@ -1,0 +1,68 @@
+{% extends 'baseBlank.html' %}
+
+{% block title %}
+武汉麻将-商城
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-商城
+{% endblock %}
+
+{% block description %}
+武汉麻将-商城
+{% endblock %}
+
+{% block content %}
+<div class="">
+    <div class="row">
+        <div class="col-xs-2">
+            <div class="bg-blueD inner">
+                <div class="mainTitle">
+                    <h3 class="sTitle">
+                        <a href="/store">
+                        <span class="icon icon-house"></span>
+                    <span class="bl1">
+                      <span class="uppercase">SHOP</span><br>商城
+                    </span>
+                            </a>
+                    </h3>
+                </div>
+                <div class="leftSide pt30 pb30 pl10">
+                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                        {% for item in categories %}
+                        {% if item.id == category_id %}
+                        <li class="active"><a href="/store/category/{{item.id}}"><span class="icon icon-arrowR-org"></span>{{item.name}}</a></li>
+                        {% else %}
+                        <li><a href="/store/category/{{item.id}}"><span class="icon icon-arrowR-org"></span>{{item.name}}</a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-7">
+            <div class="panel p15 pb50 inner">
+                <ul class="nav nav-tabs nav02" role="tablist">
+                    <li><a>商品兑换</a></li>
+                </ul>
+                <div class="alert alert-info">
+                    <div class="p10">
+                       <p><span class="text-orgD">{{product.name}}</span> &nbsp;兑换成功</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'faq_right_bar.html' %}
+    </div>
+</div>
+<input type="hidden" id="referer" value="{{referer}}" />
+<script>
+    window.onload=function(){
+        var referer = document.getElementById('referer').value;
+        setTimeout(function(){
+            window.location.href = referer;
+        },800);
+    }
+</script>
+{% endblock %}

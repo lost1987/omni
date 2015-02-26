@@ -11,6 +11,7 @@
 
     use api\libs\Error;
     use core\Baseapi;
+    use utils\Das;
     use web\libs\UserResource;
     use web\model\IndexHandleResultModel;
     use web\model\ProductOrderModel;
@@ -48,20 +49,23 @@
             $cost_amount = intval( $product['price'] );
             $add_amount = intval( $product['tool'] );
 
-            $price_types_columns = $this->config->web['price_type_columns'];
-            $cost_name = $price_types_columns[ $product['price_type'] ];
             $user_resource = UserResource::instance( $profile );
-            $user_resource->cost( '_' . $cost_name , $cost_amount );
 
-            if ( intval( $product['tool_type'] ) == 0 ) {//只有是资源兑换时才会增加用户的资源 否则只有扣除资源
+            if($cost_amount > 0) {
+                $price_types_columns = $this->config->web['price_type_columns'];
+                $cost_name = $price_types_columns[ $product['price_type'] ];
+                $user_resource->cost( '_' . $cost_name , $cost_amount );
+            }
+
+            if ($add_amount > 0){
                 $tool_types_columns = $this->config->web['tool_type_columns'];
                 $add_name = $tool_types_columns[ $product['tool_type'] ];
                 $user_resource->add( '_' . $add_name , $add_amount );
             }
 
+
             if ( !$user_resource->updateResource() )
                 throw new \Exception( Error::DATA_WRITE_ERROR );
-
         }
 
         /**
@@ -82,16 +86,6 @@
 
             if ( !$productOrderModel->save( $productOrder ) )
                 throw new \Exception( Error::DATA_WRITE_ERROR );
-        }
-
-        /**
-         * 给服务器发送资源变更通知
-         */
-        protected function resourceChangeNotify( $uid )
-        {
-            $http_monitor = $this->config->common['http_monitor'];
-            @file_get_contents( "$http_monitor/diamonds-changed?uid=$uid" );
-            @file_get_contents( "$http_monitor/coins-changed?uid=$uid" );
         }
 
     }

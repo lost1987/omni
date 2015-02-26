@@ -11,13 +11,18 @@ namespace web\libs;
 
 use core\Configure;
 use core\Cookie;
+use core\Encoder;
 use core\Redirect;
+use utils\Date;
 use utils\Tools;
 use web\controller\User;
 use web\model\GameSummaryModel;
 use web\model\ProfileModel;
 use web\model\SessionModel;
+use web\model\UserAuthModel;
 use web\model\UserModel;
+use web\model\VipLevelModel;
+use web\model\VisitHistoryModel;
 
 class UserUtil
 {
@@ -27,6 +32,12 @@ class UserUtil
     const THIRD_PARTY_LOGIN = 1;//第三方登录
 
     const THIRD_PARTY_REGISTER = 2;//第三方注册
+
+    const USER_AUTH_IDCARD = 1; //身份证验证
+
+    const USER_AUTH_MAIL = 2; //邮箱认证
+
+    const USER_AUTH_SMS = 3; //短信认证
 
     static function instance()
     {
@@ -44,8 +55,12 @@ class UserUtil
     {
         $cookie = Cookie::instance();
         $uid = $cookie->userdata('uid');
-        if (empty($uid))
-            Redirect::instance()->forward($url);
+        if (empty($uid)){
+            if(Tools::is_ajax_req())
+                die('loginTimeExpired');
+            else
+                Redirect::instance()->forward($url);
+        }
     }
 
     /*
@@ -73,6 +88,7 @@ class UserUtil
         $cookie->set_userdata('nickname', $data['nickname']);
         $cookie->set_userdata('wins', $data['wins']);
         $cookie->set_userdata('total', $data['total']);
+        $cookie->set_userdata('vip_level',$data['vip_level']);
     }
 
     /**
@@ -230,7 +246,10 @@ class UserUtil
      * @param $user 用户表数组
      * @return session_key
      */
-    function createSessionId($expire_time,$user){
+    function createSessionId($expire_time,$user,$gameDb=null){
+        if(count(Configure::instance()->web) == 0){
+            Configure::instance()->load('web');
+        }
         //取得加密密匙
         $entry_key = Configure::instance()->web['entry_key'];
         $session_key = md5(uniqid());
@@ -248,11 +267,135 @@ class UserUtil
             'expire_date' => $datetime
         );
 
-        if(!SessionModel::instance()->save($fields))
-            Redirect::instance()->forward('/error/index/'.Error::ERROR_DATA_WRITE);
-
+        if($gameDb !== null){
+            if(!$gameDb->save($fields,'django_session'))
+                die(Encoder::instance()->encode(array('error'=>Error::ERROR_DATA_WRITE,'data'=>null)));
+        }else{
+            if(!SessionModel::instance()->save($fields))
+                Redirect::instance()->forward('/error/index/'.Error::ERROR_DATA_WRITE);
+        }
         Cookie::instance()->set_userdata_no_entry('sessionid',$session_key);
         return $session_key;
     }
 
-} 
+
+    /**
+     * 是否是今天注册的新用户
+     * @param $register_time
+     * @return int
+     */
+    function isNewUser($register_time){
+        $register_date = Date::instance()->format_Ymd($register_time);
+        $today = date('Y-m-d');
+        if($register_date == $today)
+            return 1;
+        return 0;
+    }
+
+    /**
+     * 用户今天是否登录过
+     * @param $uid
+     * @return int
+     */
+    function hasLoginToday($uid){
+        $haslogin = UserModel::instance()->hasLoginToday($uid);
+        return $haslogin ? 1 : 0;
+    }
+
+    /**
+     * 创建访问记录
+     * @param $uid
+     * @param $login_type
+     */
+    function createVisitHistory($uid,$login_type){
+        $fields = array(
+            'user_id' => $uid,
+            'login_time' => date('Y-m-d H:i:s'),
+            'ip_address' => Tools::getip(),
+            'login_type' => $login_type
+        );
+        VisitHistoryModel::instance()->save($fields);
+    }
+
+    /**
+     * 创建登出记录
+     * @param $uid
+     */
+    function createLogoutHistory($uid){
+        $id = VisitHistoryModel::instance()->currentUserMaxId($uid);
+        $fields = array(
+            'logout_time' => date('Y-m-d H:i:s')
+        );
+        VisitHistoryModel::instance()->update($fields,$id);
+    }
+
+    /**
+     * 用户认证
+     * @param $uid
+     * @param $auth_type
+     * @return bool
+     */
+    function auth($uid,$auth_type){
+        if (UserAuthModel::instance()->save($uid,$auth_type))
+            return true;
+        return false;
+    }
+
+
+    /**
+     * 检查用户的认证状态
+     * @param $uid
+     * @return array 以auth_type为下标的数组 值1为已认证 0为未认证
+     */
+    function get_auth($uid){
+        $auths = UserAuthModel::instance()->read($uid);
+        $user_auth = array();
+        $user_auth[self::USER_AUTH_IDCARD] = 0;
+        $user_auth[self::USER_AUTH_MAIL] = 0;
+        $user_auth[self::USER_AUTH_SMS] = 0;
+
+        $auth_types = array_keys($user_auth);
+        foreach($auths as $auth){
+            if(in_array($auth['auth_type'],$auth_types)){
+                $user_auth[ $auth['auth_type'] ] = 1;
+            }
+        }
+        unset($auth_types,$auths);
+        return $user_auth;
+    }
+
+
+    /**
+     * 生成用户签名 - 用于用户自己的私密操作(例如:找回密码)
+     * @param int $userNumber
+     * @param string $loginName
+     * @param int $time
+     * @return string
+     */
+    function createSecretSign($userNumber,$loginName,$time){
+         $configure = Configure::instance()->load('web');
+         $appSecret = $configure->web['entry_key'];
+         $sign = array(
+             intval($userNumber),
+             $loginName,
+             intval($time),
+             $appSecret
+         );
+         asort($sign);
+         return md5(implode('|',$sign));
+    }
+
+    /**
+     * 获取用户折扣后的资源数
+     * @param number $sourceResource
+     * @param int $vipLevel
+     * @return int
+     */
+    function vipResourceDiscount($sourceResource,$vipLevel){
+        $discount = VipLevelModel::instance()->read($vipLevel);
+        $discountResource =  $sourceResource*$discount;
+        if($discountResource <= 0)
+            return $sourceResource;
+        return ceil($discountResource);
+    }
+}

@@ -137,7 +137,7 @@ class __TwigTemplate_ae6a847e3c1ca2dc080ef790721783e8c14fec46107313f790a3d5584ba
                     <th>管理员</th>
                     <th>ip</th>
                     <th>时间</th>
-                    <th>内容</th>
+                    <th width=\"500\">内容</th>
                     <th style=\"text-align: center\">操作</th>
                 </tr>
                 </thead>

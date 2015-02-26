@@ -74,7 +74,7 @@ class Player_M extends AdminModel{
         $this->_condition = array();
 
         if(!empty($params['login_name']))
-            $this->_condition[] = " login_name like '{$params['login_name']}%' ";
+            $this->_condition[] = " login_name like '{$params['login_name']}%' or nickname like '{$params['login_name']}%' ";
 
         $this->_condition[] = ' is_robot = 0 ';
 

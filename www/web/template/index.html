@@ -1,247 +1,182 @@
-{% extends 'base.html' %}
+{% extends 'baseMain.html' %}
 
-{% block seo %}
-<title>武汉麻将-首页</title>
-<meta name="keywords" content="武汉麻将-首页" />
-<meta name="description" content="武汉麻将-首页" />
- {% endblock %}
-
-{% block head %}
-<script>
-    var errCode = {{ code }},lottery_times = {{ lottery_times }} ,token = "{{csrf_token}}",is_login={{is_login}};
-</script>
-<link href="{{ constant('STATIC_HOST') }}/img/index_Style.css" rel="stylesheet" type="text/css" />
-<link href="{{ constant('STATIC_HOST') }}/img/choujiang.css" rel="stylesheet" type="text/css" />
-<link href="{{ constant('STATIC_HOST') }}/img/jieri.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="{{ constant('STATIC_HOST')}}/js/common/jquery.ext.js" ></script>
-<script type="text/javascript" src="{{ constant('STATIC_HOST')}}/js/common/md5.min.js" ></script>
-<script type="text/javascript" src="{{ constant('STATIC_HOST')}}/js/index.js" ></script>
-<script type="text/javascript" src="{{ constant('STATIC_HOST')}}/js/common/mydialog.js" ></script>
-<script type="text/javascript" src="{{ constant('STATIC_HOST')}}/js/lottery.js" ></script>
+{% block title %}
+武汉麻将
 {% endblock %}
 
-{% block two_dimension_code %}
-<!--二维码-->
-<div class="code_download"><h5 class="dl">武汉麻将二维码客户端下载</h5><img src="{{ constant('STATIC_HOST') }}/img/code_download.jpg" /><h5 class="wx">武汉麻将二维码微信扫一扫</h5><img src="{{ constant('STATIC_HOST') }}/img/code_weixin.png" /></div>
-
+{% block keywords %}
+武汉麻将
 {% endblock %}
+
+{% block description %}
+武汉麻将
+{% endblock %}
+
+{% block banner %}
+<div class="banner01">
+    <div class="container">
+        <div class="loginPanel">
+            <div class="panel-heading">
+                武汉麻将
+            </div>
+            <div class="panel-body">
+                {% if is_login != 1 %}
+                <form role="form" id="loginForm" class="p35 in" method="post" action="/user/login">
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="icon icon-userW"></span></span>
+                                <input type="text" class="form-control" id="login_name" name="login_name" placeholder="用户名/邮箱/手机号">
+                                <input type="hidden" value="{{csrf_token}}" name="csrf_token" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="icon icon-lockW"></span></span>
+                                <input type="password" class="form-control" name="source_password" id="source_password">
+                                <input type="hidden" class="form-control" name="password" id="password">
+                            </div>
+                        </div>
+                        <p class="text-right font12">
+                            <span style="float:left;color:RGB(255,183,60)" id="errorAlert">用户名或密码错误</span>
+                            <a href="/user/password/1">忘记密码？</a>
+                        </p>
+                        <button type="button" onclick="login()" class="btn btn-warning btn-block mb10" >登陆</button>
+                        <div>更多登陆方式<a href="/weibo/sina/login"> <span class="icon icon-sina"></span></a><a href="/user/signup" class="pull-right text-org">立即注册</a></div>
+                    </fieldset>
+                </form>
+                {% else %}
+                <form>
+                    <div class="form-group" style="display:none">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="icon icon-lockW"></span></span>
+                            <input type="password" class="form-control" name="" id="">
+                        </div>
+                    </div>
+                </form>
+                <div id="afterLogin" class="afterLogin">
+                    <div class="p35 clearfix">
+                        <span class="info"><span class="uName">{{nickname}}</span> 您好！<a href="/user/logout" class="text-blue" id="exitBtn">退出</a></span><a href="/game/enter" class="btn btn-sm btn-success pull-right">进入游戏</a>
+                    </div>
+                    <div class="p35 bg-black">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <p>金币：{{coins}}</p>
+                                <p>胜率：{{ratio}}</p>
+                            </div>
+                            <div class="col-xs-6">
+                                <p>钻石：{{diamond}}</p>
+                                <p>等级：<span class="text-blue" >{{vip_level}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p10 mt5">
+                        <ul class="nav nav-tabs nav-justified">
+                            <li><a href="/userinfo"><span class="icon icon-user-org"></span>账号中心</a></li>
+                            <li><a href="/payment/prepare/0"><span class="icon icon-charge-org"></span>立即充值</a></li>
+                            <li><a href="/service"><span class="icon icon-chat-org"></span>客服中心</a></li>
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
 
 {% block content %}
-<div style="z-index: 99;display:none" class="tck" id="get_lottery">
-    <div class="tck_top"><h3 class="congratulation">恭喜您中奖！</h3><span class="close" onclick="closeDialog('tck')">关闭</span></div>
-    <div class="tck_mid">
-        <p class="jp">500金币</p>
-        <p>立即<a href="/game/">进入游戏</a>爽一下吧</p>
-        <div class="modify_head_btn"><input type="button" onclick="closeDialog('tck')" class="y_btn2" value="继续抽奖" id=""><input type="button" class="y_btn3" value="分享微博" id="" onclick="wb_shared()"><p class="note2">每天首次分享微博可以获得3次抽奖机会</p></div>
-    </div>
-    <div class="tck_btm"></div>
-</div>
+<div class="col-xs-8">
+    {% include 'article_tablist.html' %}
+    <div class="mt10">
+        <div class="panel nobd inner">
+            <div id="demo1" class="picBtnTop">
+                <div class="hd">
+                    <ul class="list-unstyled">
+                        {% for item in activity %}
+                        {% if loop.index0 == 0%}
+                        <li class="on"><a href="/activity/detail/{{item.id}}">{{item.name}}</a></li>
+                        {% else %}
+                        <li><a href="/activity/detail/{{item.id}}">{{item.name}}</a></li>
+                        {% endif %}
 
-<div style="z-index: 99;display:none" class="tck" id="get_nothing">
-    <div class="tck_top"><h3 class="xztx">您的帐号抽奖次数不足</h3><span class="close" onclick="closeDialog('tck')">关闭</span></div>
-    <div class="tck_mid">
-        <p>您可以<a href="/game/">进入游戏</a>赢取更多抽奖机会！</p>
-        <div class="modify_head_btn"><input type="button" onclick="closeDialog('tck')" class="y_btn2" value="确定" id=""></div>
-    </div>
-    <div class="tck_btm"></div>
-</div>
-
-<div style="display:none; z-index:99" class="tck" id="get_real">
-    <div class="tck_top"><h3 class="congratulation">恭喜您中奖!</h3><span class="close" onclick="closeDialog('tck')">关闭</span></div>
-    <div class="tck_mid">
-        <div id="jp_info" style="display:">
-            <p class="jp">您抽中了iPad mini2</p>
-            <p>请填写联系方式，以便我们及时将奖励发给您</p>
-            <form action="/lottery/fillinfo" method="post" id="fill_info">
-                <table cellpadding="0" cellspacing="0" border="0" width="250">
-                    <tr>
-                        <td height="40" width="50" valign="top" align="center">姓名</td>
-                        <td width="200" valign="top"><input type="text" name="name" id="_name" class="ipt" /></td>
-                    </tr>
-                    <tr>
-                        <td height="50" valign="top" align="center">电话</td>
-                        <td valign="top" class="error"><input type="text" name="mobile" id="_mobile" class="ipt" />
-                        </td>
-                    </tr>
-                    <tr id="fill_address">
-                        <td height="50" valign="top" align="center">地址</td>
-                        <td valign="top" class="error">
-                            <textarea cols="25" rows="7" name="address" id="_address"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td valign="top" class="error">
-                        <span id="tip_name" style="display:none">请填写您的姓名</span>
-                        <span id="tip_mobile" style="display:none">请填写正确的电话号码</span>
-                        <span id="tip_address" style="display:none">请填写正确的地址</span>
-                        </td>
-                    </tr>
-                </table>
-            </form>
-            <div class="modify_head_btn"><input type="button" onclick="sendinfo()" class="y_btn2" id="fill_btn"  value="确定" id=""><input type="button" onclick="wb_shared()" class="y_btn3" value="分享微博" id=""><p class="note2">每天首次分享微博可以获得3次抽奖机会</p></div>
-        </div>
-        <p style="display:none; padding:50px 0" id="tishi">信息已成功提交，请等待客服与您联系</p><!--信息提交成功后，隐藏上面的div，显示本行文字提示-->
-    </div>
-    <div class="tck_btm"></div>
-</div>
-
-<div class="pop-up-box" style="display:none"></div>
-<div id="m_content">
-    <div class="notice" style="left:185px;width: 605px;">
-        <marquee onMouseOver="this.stop()" onMouseOut="this.start()" scrolldelay="100" scrollamount="3">
-            {% for item in sysmessage %}
-            <a style = "margin-left : 150px;" href = "javascript:;" target="_blank">{{item.title}}</a>
-            {% endfor %}
-        </marquee>
-    </div>
-    <div class="map" style="display:none"></div>
-    <div class="bg1">
-        <img src="{{ constant('STATIC_HOST') }}/img/cj/lfbg.png" class="lf_bg" />
-        <div class="cj">
-            <div class="jp_list">
-                <table border="0" cellspacing="4" cellpadding="0">
-                    <tr>
-                        <td width="154"><div class="jp_1">500金币</div></td>
-                        <td width="242"><div class="jp_2">iPad mini 2</div></td>
-                        <td width="154"><div class="jp_3">20元充值卡</div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="jp_8">10钻石</div></td>
-                        <td style="position:relative"><a href="javascript:;" id="lottery_btn" class="btn_cj" style="text-indent:0"><p class="sycs">剩余{{lottery_times}}次</p></a></td>
-                        <td><div class="jp_4">100钻石</div></td>
-                    </tr>
-                    <tr>
-                        <td><div class="jp_7">10元充值卡</div></td>
-                        <td><div class="jp_6">5kg 有机大米</div></td>
-                        <td><div class="jp_5">2000金币</div></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="btmbox">
-                <div class="lf"><p>立即<a href="/game">进入游戏</a>打满5局即可再获得一次赢取 iPad mini 2 的机会</p></div>
-                <div class="rt">
-                    <ul>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul class="list-unstyled" id="centerActivityPicList">
+                        <input type="hidden" id="activityImages" value="{{activityImages}}" />
+                        {% for item in activity %}
+                        <li style="width:450px;height:199px;">
+                            <div class="pic"><a href="/activity/detail/{{item.id}}"></a></div>
+                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
+            <div class="p15">
+                <div class="row" id="newsImageDiv">
+                    <input type="hidden" id="newsImages" value="{{newsImages}}" />
+                    {% for item in news_with_image %}
+                    <div class="col-xs-6" >
+                        <div class="media">
+                            <a href="/articles/detail/{{item.id}}" class="pull-left" rel="image" style="width:99px;height:86px; ">
+                            </a>
+                            <div class="media-body">
+                                <p class="media-heading nowrap"><a href="/articles/detail/{{item.id}}" class="pull-left"><strong>{{item.title}}</strong></a></p>
+                                <div class="font14">{{item.description}}</div>
+                                <span class="time">{{item.publish_time}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="row nopd">
+                    {% for item in news_withOut_image %}
+                            {% if loop.first %}
+                            <div class="col-xs-6">
+                                <ul class="mt30 list nowrap list01 pl mbn">
+                            {% endif %}
+                            {% if loop.index % 5 == 0  %}
+                                </ul>
+                            </div>
+                            <div class="col-xs-6">
+                                <ul class="mt30 list nowrap list01 pl mbn">
+                            {% endif %}
+                                    <li><span class="time">{{item.publish_time}}</span><a href="/articles/detail/{{item.id}}" title="{{item.title}}"><span class="text-grey">[{{item.category_name}}]</span> {{item.title}}</a></li>
+                            {% if loop.last %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                </div>
+            </div>
         </div>
-        <img src="{{ constant('STATIC_HOST') }}/img/cj/rtbg.png" class="rt_bg" />
     </div>
-    <div class="index_rt">
-
-        <!--未登录 begin-->
-        {% if is_login == 0%}
-        <form action="user/login" method="post" id="loginform" >
-            <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
-            <table width="100%" border="0" cellspacing="9" cellpadding="0" class="login_box">
-                <tr>
-                    <td width="72" class="bold" align="right">用户名</td>
-                    <td width="183"><input type="text" name="username" id="username" class="input_box" /></td>
-                </tr>
-                <tr>
-                    <td class="bold" align="right">密码</td>
-                    <td><input type="password" name="valid_password" id="valid_password" class="input_box" /></td>
-                   <input type="hidden" name="password" id="password" class="input_box" />
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td class="f12"><input name="auto_login" type="checkbox" value="1" class="checkbox" /> <a href="javascript:;">自动登录</a> <a href="/user/password">忘记密码</a></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><div class="pd_lf_1"><a href="/user/signup" class="register_btn" >立即注册</a><input name="" type="button" value="登录" class="login_btn" onclick="login()"/></div></td>
-                </tr>
-            </table>
-            <div id="errorAlert">* 用户名或密码错误</div>
-        </form>
-        <div class="login_2">使用合作网站帐号直接登录<a href="/weibo/sina/login"><img src="{{ constant('STATIC_HOST') }}/img/weibo.png" width="19" height="16" /></a></div>
-        <a href="/game" class="playgame">进入试玩</a>
-        <a href="http://wuhanmj-apk.qiniudn.com/MjMobile_newbee.apk" class="download">下载手机客户端</a>
-        <!--未登录 end-->
-        {% endif %}
-
-        {% if is_login == 1 %}
-        <!--已登录 begin-->
-        <div class="user_info_index">
-            <h4>您好，{{nickname}}！</h4>
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td width="19%">金币：</td>
-                    <td colspan="3"><i>{{coins}}</i><a href="/payment/entrance" class="ljcz">立即充值</a></td>
-                </tr>
-                <tr>
-                    <td>钻石：</td>
-                    <td width="32%" id="my_diamond">{{diamond}}</td>
-                    <td width="19%" align="center">&nbsp;</td>
-                    <td width="30%">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>门票：</td>
-                    <td>{{ticket}}</td>
-                    <td align="center">奖券：</td>
-                    <td>{{coupon}}</td>
-                </tr>
-                <tr>
-                    <td>胜率：</td>
-                    <td>{{ratio}}</td>
-                    <td align="center">等级：</td>
-                    <td>普通用户</td>
-                </tr>
-            </table>
-        <!--    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td width="19%">金币：</td>
-                    <td cospan="3"><i>{{coins}}</i><a href="/payment/entrance" class="ljcz">立即充值</a></td>
-                </tr>
-                <tr>
-                    <td>钻石：</td>
-                    <td width="32%">123</td>
-                    <td width="19%" align="center">&nbsp;</td>
-                    <td width="30%">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>门票：</td>
-                    <td>123</td>
-                    <td align="center">奖券：</td>
-                    <td>123</td>
-                </tr>
-                <tr>
-                    <td>胜率：</td>
-                    <td>{{ratio}}</td>
-                    <td align="center">等级：</td>
-                    <td>普通用户</td>
-                </tr>
-            </table>-->
-            <a href="/userinfo" style="float:left">个人中心</a><a href="/user/logout" class="fl_rt">退出登录</a>
-
-                    {% if unread_messages > 0 %}
-                          <span class="message"> <b>{{unread_messages}}</b> </span>
-                    {% else %}
-                         <span class="message empty"> <b></b> </span>
-                    {% endif %}
-
-        </div>
-        <div class="start_btn_box" style="display:none">
-            <a href="#" class="y_btn">开始红中发财杠</a><a href="#" class="y_btn2">开始癞子皮杠</a><a href="#" class="g_btn">包房</a>
-        </div>
-        <a href="/game" class="playgame">进入试玩</a>
-        <a href="http://wuhanmj-apk.qiniudn.com/MjMobile_newbee.apk" target="_blank" class="download">下载手机客户端</a>
-        <!--已登录 end-->
-        {% endif %}
-
-        <div class="news_box">
-            <h3>最新公告</h3><a href="/activity/lists" class="more">查看更多>></a>
-            <table width="200" border="0" cellspacing="0" cellpadding="0">
-                {% for item in activity %}
-                <tr>
-                    <td width="165"><a href="/activity/detail/{{item.id}}" target="_blank">{{item.name}}</a></td>
-                    <td width="35">{{item.publish_time}}</td>
-                </tr>
+</div>
+<div class="col-xs-12">
+    <h4 class="mTitle">活动专区</h4>
+    <div class="picScroll-left mb20" id="activity-list">
+        <div class="bd">
+            <input type="hidden" id="activityFooterImages" value="{{activityFooterImages}}" />
+            <ul class="picList">
+                {% for item in footer_activity %}
+                <li style="width: 188px;height:113px;">
+                    <div class="pic"><a href="/activity/detail/{{item.id}}" target="_blank">
+                        </a></div>
+                </li>
                 {% endfor %}
-            </table>
+            </ul>
         </div>
     </div>
 </div>
 {% endblock %}
-
-
+{% block script %}
+<script>
+    var errCode = {{code}};
+</script>
+<script src="{{ constant('STATIC_HOST') }}/js/common/md5.min.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/common/imageLoaded.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/index.js"></script>
+{% endblock %}

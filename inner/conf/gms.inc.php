@@ -76,28 +76,43 @@ return array(
         2 => '门票',
         3 => '奖券',
         4 => '鲜花',
-        5 => '鸡蛋'
+        5 => '鸡蛋',
+        6 => '喇叭',
+        7 => '包房卡'
     ),
+
 
     'tool_type_columns' => array(
         0 => 'coins',
         1 => 'diamond',
         2 => 'ticket',
-        3 => 'coupon'
+        3 => 'coupon',
+        4 => 'flower',
+        5 => 'egg',
+        6 => 'horn',
+        7 => 'private_room_card'
     ),
 
     'price_type' => array(
         0 => '金币',
         1 => '钻石',
         2 => '门票',
-        3 => '奖券'
+        3 => '奖券',
+//        4 => '鲜花',
+//        5 => '鸡蛋',
+//        6 => '喇叭',
+//        7 => '包房卡'
     ),
 
     'price_type_columns' => array(
         0 => 'coins',
         1 => 'diamond',
         2 => 'ticket',
-        3 => 'coupon'
+        3 => 'coupon',
+//        4 => 'flower',
+//        5 => 'egg',
+//        6 => 'horn',
+//        7 => 'privateRoomCard'
     ),
 
     /**
@@ -248,6 +263,26 @@ return array(
     //玩家资源消耗日志里的动作类型
     'user_resource_log_action_type' => array(
         1 => '玩家兑换',
-        2 => '玩家抽奖'
+        2 => '玩家抽奖',
+        3 => '玩家充值',
+        4 => '玩家注册',
+        5 => '设定手机号',
+        6 => '创建包房',
+        7 => '牌局结算',
+        8 => '给予金币',
+        9 => '领取奖励',
+        10 => '淘汰赛报名',
+        11 =>'淘汰赛竞拍',
+        12 => '包房续时',
+        13 => '接受金币'
+    ),
+
+    //通知游戏服务器更新比赛时间的地址
+//    'notify_server_match_update_address' => 'http://127.0.0.1:6626/reload-matches',
+    'notify_server_match_update_address' => 'http://10.144.181.190:6626/reload-matches',
+
+    'article_flags' => array(
+        'j' => '焦点资讯',
+        'i' => '首页资讯带图片'
     )
 );

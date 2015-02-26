@@ -8,6 +8,31 @@
  */
 
 return array(
+//    'gms' => array(
+//          'host' => 'localhost',
+//         'user' => 'game',
+//         'password' => 'no.1@China!game',
+//         'port'  => 3306,
+//         'charset'=>'utf8'
+//    ),
+//
+//    'adm' => array(
+//        'host' => '10.144.181.190',
+//        'user' => 'game',
+//        'password' => 'no.1@China!game',
+//        'port'  => 3306,
+//        'charset'=>'utf8'
+//    ),
+//
+//    'game' => array(
+//        'host' => '10.144.181.190',
+//        'user' => 'game',
+//        'password'=>'no.1@China!game',
+//        'port' => 3306,
+//        'charset'=>'utf8'
+//    )
+
+
    'gms' => array(
         'host' => '127.0.0.1',
         'user' => 'root',
@@ -15,11 +40,21 @@ return array(
         'port' => 3306,
         'charset' => 'utf8'
     ),
-//    'gms' => array(
-//          'host' => 'localhost',
-//         'user' => 'game',
-//         'password' => 'no.1@China!game',
-//         'port'  => 3306,
-//         'charset'=>'utf8'
-//    )
+
+
+    'adm' => array(
+        'host' => '127.0.0.1',
+        'user' => 'root',
+        'password' => 'root',
+        'port'  => 3306,
+        'charset'=>'utf8'
+    ),
+
+    'game' => array(
+        'host' => '127.0.0.1',
+        'user' => 'root',
+        'password'=>'root',
+        'port' => 3306,
+        'charset'=>'utf8'
+    )
 );

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:9f8e17b46c26b60470ac1ab958077f2d$ -->
+<TextureAtlas imagePath="MjBg.png">
+    <SubTexture name="Up_Stand_0" x="271" y="152" width="39" height="57" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Up_Stand_1" x="230" y="152" width="39" height="57" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Up_Stand_2" x="189" y="152" width="39" height="57" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Up_Stand_3" x="148" y="152" width="39" height="57" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Up_Stand_4" x="107" y="152" width="39" height="57" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Up_Stand_5" x="66" y="156" width="39" height="57" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="mj0Glint" x="904" y="74" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="mj13Glint" x="478" y="211" width="41" height="38" frameX="-1" frameY="0" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="mj2Glint" x="792" y="146" width="37" height="55" frameX="0" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="mjBg_laiZi_0" x="509" y="2" width="99" height="148" frameX="0" frameY="0" frameWidth="101" frameHeight="152"/>
+    <SubTexture name="mjBg_laiZi_1" x="103" y="2" width="101" height="148" frameX="0" frameY="0" frameWidth="101" frameHeight="152"/>
+    <SubTexture name="mjBg_laiZi_2" x="307" y="2" width="99" height="148" frameX="0" frameY="0" frameWidth="101" frameHeight="152"/>
+    <SubTexture name="mjBg_laiZi_3" x="2" y="2" width="99" height="152" frameX="0" frameY="0" frameWidth="101" frameHeight="152"/>
+    <SubTexture name="mjBg_laiZi_4" x="408" y="2" width="99" height="150" frameX="0" frameY="0" frameWidth="101" frameHeight="152"/>
+    <SubTexture name="mjBg_laiZi_5" x="206" y="2" width="99" height="148" frameX="0" frameY="0" frameWidth="101" frameHeight="152"/>
+    <SubTexture name="mjLai" x="2" y="156" width="62" height="82"/>
+    <SubTexture name="mjLaiZiSymbol" x="1149" y="74" width="47" height="55"/>
+    <SubTexture name="mjLaiZiSymbol_0" x="1051" y="74" width="47" height="56" frameX="-1" frameY="-13" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="mjLaiZiSymbol_13" x="1059" y="218" width="41" height="26" frameX="-1" frameY="-1" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="mjLaiZiSymbol_2" x="146" y="211" width="37" height="43" frameX="-1" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="mjLaiZiSymbol_4" x="350" y="209" width="36" height="45" frameX="0" frameY="-11" frameWidth="36" frameHeight="57"/>
+    <SubTexture name="mjLaiZiSymbol_5" x="66" y="215" width="32" height="37" frameX="0" frameY="0" frameWidth="32" frameHeight="49"/>
+    <SubTexture name="mjMeGray" x="953" y="74" width="47" height="69"/>
+    <SubTexture name="mjOutGlint" x="948" y="204" width="30" height="45" frameX="-1" frameY="-1" frameWidth="32" frameHeight="49"/>
+    <SubTexture name="mjOutGray" x="657" y="207" width="30" height="45" frameX="-1" frameY="-1" frameWidth="32" frameHeight="49"/>
+    <SubTexture name="mjPiSymbol" x="1100" y="74" width="47" height="55"/>
+    <SubTexture name="mjPiSymbol_0" x="1002" y="74" width="47" height="56" frameX="-1" frameY="-13" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="mjPiSymbol_13" x="1065" y="190" width="41" height="26" frameX="0" frameY="-1" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="mjPiSymbol_2" x="107" y="211" width="37" height="43" frameX="-1" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="mjPiSymbol_4" x="312" y="209" width="36" height="45" frameX="0" frameY="-11" frameWidth="36" frameHeight="57"/>
+    <SubTexture name="mjPiSymbol_5" x="275" y="211" width="32" height="37" frameX="0" frameY="0" frameWidth="32" frameHeight="49"/>
+    <SubTexture name="tileBack_leftRight_0" x="1014" y="208" width="43" height="36" frameX="0" frameY="0" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBack_leftRight_1" x="1020" y="170" width="43" height="36" frameX="0" frameY="0" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBack_leftRight_2" x="1020" y="132" width="43" height="36" frameX="0" frameY="0" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBack_leftRight_3" x="779" y="203" width="43" height="36" frameX="0" frameY="0" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBack_leftRight_4" x="734" y="203" width="43" height="36" frameX="0" frameY="0" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBack_leftRight_5" x="689" y="203" width="43" height="36" frameX="0" frameY="-1" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBack_left_0" x="1132" y="189" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_left_1" x="1108" y="190" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_left_2" x="1219" y="154" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_left_3" x="1161" y="131" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_left_4" x="1137" y="131" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_left_5" x="1113" y="131" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_right_0" x="1089" y="132" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_right_1" x="1065" y="132" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_right_2" x="996" y="145" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_right_3" x="972" y="145" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_right_4" x="948" y="146" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_right_5" x="1210" y="2" width="22" height="56" frameX="-1" frameY="0" frameWidth="24" frameHeight="60"/>
+    <SubTexture name="tileBack_up_0" x="556" y="152" width="39" height="55" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBack_up_1" x="515" y="152" width="39" height="55" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBack_up_2" x="435" y="154" width="39" height="55" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBack_up_3" x="394" y="154" width="39" height="55" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBack_up_4" x="353" y="152" width="39" height="55" frameX="0" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBack_up_5" x="312" y="152" width="39" height="55" frameX="0" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBaseFinish_me_0" x="1161" y="2" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBaseFinish_me_1" x="855" y="74" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBaseFinish_me_2" x="1112" y="2" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBaseFinish_me_3" x="610" y="2" width="47" height="72" frameX="-1" frameY="0" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBaseFinish_me_4" x="806" y="74" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBaseFinish_me_5" x="1063" y="2" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBase_leftRight_0" x="433" y="211" width="43" height="38" frameX="0" frameY="-1" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBase_leftRight_1" x="388" y="211" width="43" height="38" frameX="0" frameY="-1" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBase_leftRight_2" x="230" y="211" width="43" height="38" frameX="0" frameY="-1" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBase_leftRight_3" x="185" y="211" width="43" height="38" frameX="0" frameY="-1" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBase_leftRight_4" x="1198" y="114" width="43" height="38" frameX="0" frameY="-1" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBase_leftRight_5" x="1198" y="74" width="43" height="38" frameX="0" frameY="-1" frameWidth="43" frameHeight="40"/>
+    <SubTexture name="tileBase_me_0" x="914" y="2" width="49" height="70" frameX="0" frameY="0" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBase_me_1" x="863" y="2" width="49" height="70" frameX="0" frameY="0" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBase_me_2" x="812" y="2" width="49" height="70" frameX="0" frameY="0" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBase_me_3" x="761" y="2" width="49" height="70" frameX="0" frameY="0" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBase_me_4" x="710" y="2" width="49" height="70" frameX="0" frameY="0" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBase_me_5" x="659" y="2" width="49" height="70" frameX="0" frameY="0" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileBase_out_0" x="1185" y="154" width="32" height="45" frameX="0" frameY="-1" frameWidth="32" frameHeight="49"/>
+    <SubTexture name="tileBase_out_1" x="980" y="203" width="32" height="45" frameX="0" frameY="-1" frameWidth="32" frameHeight="49"/>
+    <SubTexture name="tileBase_out_2" x="623" y="209" width="32" height="45" frameX="0" frameY="-1" frameWidth="32" frameHeight="49"/>
+    <SubTexture name="tileBase_out_3" x="589" y="209" width="32" height="45" frameX="0" frameY="-1" frameWidth="32" frameHeight="49"/>
+    <SubTexture name="tileBase_out_4" x="555" y="209" width="32" height="45" frameX="0" frameY="-1" frameWidth="32" frameHeight="49"/>
+    <SubTexture name="tileBase_out_5" x="521" y="209" width="32" height="45" frameX="0" frameY="-1" frameWidth="32" frameHeight="49"/>
+    <SubTexture name="tileBase_up_0" x="753" y="146" width="37" height="55" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBase_up_1" x="714" y="146" width="37" height="55" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBase_up_2" x="675" y="146" width="37" height="55" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBase_up_3" x="636" y="148" width="37" height="57" frameX="-1" frameY="0" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBase_up_4" x="597" y="152" width="37" height="55" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileBase_up_5" x="476" y="154" width="37" height="55" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileUpset_me_0" x="757" y="74" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileUpset_me_1" x="1014" y="2" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileUpset_me_2" x="708" y="74" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileUpset_me_3" x="965" y="2" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileUpset_me_4" x="659" y="74" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileUpset_me_5" x="610" y="76" width="47" height="70" frameX="-1" frameY="-1" frameWidth="49" frameHeight="72"/>
+    <SubTexture name="tileUpset_up_0" x="909" y="201" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileUpset_up_1" x="870" y="201" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileUpset_up_2" x="831" y="201" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileUpset_up_3" x="909" y="146" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileUpset_up_4" x="870" y="146" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="tileUpset_up_5" x="831" y="146" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+</TextureAtlas>

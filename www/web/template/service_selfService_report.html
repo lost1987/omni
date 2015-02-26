@@ -1,0 +1,72 @@
+{% extends 'baseService.html' %}
+
+{% block title %}
+武汉麻将-客户服务
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-客户服务
+{% endblock %}
+
+{% block description %}
+武汉麻将-客户服务
+{% endblock %}
+
+{% block css %}
+<link href="{{ constant('STATIC_HOST') }}/css/formError.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<div class="col-xs-7">
+    <div class="panel p15 inner pb50">
+        <h4 class="mTitle">自助服务
+            <small class="text-blue"><span class="pl5 pr5 text-grey">|</span>作弊举报</small>
+        </h4>
+        <div class="pl10 pr30 pt30">
+            <form class="form-horizontal" role="form" id="tipOffForm" action="/service/tipoff" method="post" enctype="multipart/form-data">
+                <input type="hidden" value="{{token}}" name="csrf_token" />
+                <div class="form-group">
+                    <label for="" class="col-xs-3 control-label">被举报人昵称：</label>
+
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" id="tipoff_name" name="tipoff_name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-xs-3 control-label">详细描述：</label>
+
+                    <div class="col-xs-6">
+                        <textarea id="" rows="3" class="form-control" name="tipoff_content"
+                                  value="请尽可能恩地提供详细明确的信息，以便我们查证处理。最多500字"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-xs-3 control-label">上传截图：</label>
+
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" id="fileName"  disabled>
+                    </div>
+                    <div class="col-xs-3">
+                        <span class="btn btn-org btn-upload"><span>点击上传</span><input type="file" name="file" accept="image/jpg, image/png" onchange="showChange()"></span>
+
+                    </div>
+                    <div class="col-xs-offset-3 col-xs-6">
+                        <p class="help-block">请尽可能的提供详细明确的信息，以便我们查证处理，最多500字。</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-6">
+                        <button type="submit"  class="btn btn-info">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="{{ constant('STATIC_HOST') }}/js/common/jquery.validate.min.js"></script>
+<script src="{{ constant('STATIC_HOST')}}/js/My97DatePicker/WdatePicker.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/user.tipoff.js"></script>
+{% endblock %}

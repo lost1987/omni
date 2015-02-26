@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:5a63cd46fa0cdfe12d9d0a1414139a12$ -->
+<TextureAtlas imagePath="Hall.png">
+    <SubTexture name="HallMessage_AttachmentBg" x="1806" y="931" width="52" height="50"/>
+    <SubTexture name="HallMessage_Diamond" x="1873" y="882" width="37" height="36"/>
+    <SubTexture name="HallMessage_Lottery" x="1973" y="892" width="46" height="46"/>
+    <SubTexture name="HallMessage_Ticket" x="1658" y="408" width="43" height="49"/>
+    <SubTexture name="Hall_102Button_0" x="1655" y="597" width="102" height="44"/>
+    <SubTexture name="Hall_102Button_1" x="1863" y="559" width="102" height="44"/>
+    <SubTexture name="Hall_102Button_2" x="1759" y="553" width="102" height="44"/>
+    <SubTexture name="Hall_102OrangeButton_0" x="1655" y="551" width="102" height="44"/>
+    <SubTexture name="Hall_102OrangeButton_1" x="1479" y="904" width="102" height="44"/>
+    <SubTexture name="Hall_102OrangeButton_2" x="1479" y="858" width="102" height="44"/>
+    <SubTexture name="Hall_102OrangeButton_3" x="1376" y="636" width="102" height="44"/>
+    <SubTexture name="Hall_130Button_0" x="1311" y="926" width="130" height="51"/>
+    <SubTexture name="Hall_130Button_1" x="1311" y="873" width="130" height="51"/>
+    <SubTexture name="Hall_130Button_2" x="1311" y="820" width="130" height="51"/>
+    <SubTexture name="Hall_Account" x="1862" y="636" width="111" height="29"/>
+    <SubTexture name="Hall_Base_0" x="1720" y="674" width="24" height="69"/>
+    <SubTexture name="Hall_Base_1" x="2041" y="484" width="1" height="69"/>
+    <SubTexture name="Hall_Base_2" x="915" y="807" width="24" height="69"/>
+    <SubTexture name="Hall_Base_CloseButton_0" x="1950" y="357" width="90" height="69"/>
+    <SubTexture name="Hall_Base_CloseButton_1" x="1234" y="686" width="90" height="69"/>
+    <SubTexture name="Hall_Base_CloseButton_2" x="1950" y="357" width="90" height="69"/>
+    <SubTexture name="Hall_Bg_0" x="1651" y="459" width="50" height="38"/>
+    <SubTexture name="Hall_Bg_1" x="968" y="72" width="50" height="38"/>
+    <SubTexture name="Hall_Bg_2" x="1743" y="1098" width="50" height="33"/>
+    <SubTexture name="Hall_Bg_3" x="1691" y="1098" width="50" height="33"/>
+    <SubTexture name="Hall_Bg_4" x="1602" y="55" width="1" height="32" frameX="0" frameY="-6" frameWidth="1" frameHeight="38"/>
+    <SubTexture name="Hall_Bg_5" x="477" y="867" width="1" height="33"/>
+    <SubTexture name="Hall_Bg_6" x="1651" y="499" width="50" height="1"/>
+    <SubTexture name="Hall_Bg_7" x="1795" y="1130" width="50" height="1"/>
+    <SubTexture name="Hall_Bg_8" x="1489" y="323" width="1" height="1"/>
+    <SubTexture name="Hall_ButtonText_Dui" x="671" y="1061" width="21" height="22"/>
+    <SubTexture name="Hall_ButtonText_Jia" x="915" y="878" width="24" height="24"/>
+    <SubTexture name="Hall_ButtonText_SheZhi" x="1854" y="1088" width="52" height="21"/>
+    <SubTexture name="Hall_ButtonText_ShiMing_0" x="1443" y="950" width="107" height="23" frameX="-16" frameY="-8" frameWidth="143" frameHeight="43"/>
+    <SubTexture name="Hall_ButtonText_ShiMing_1" x="1182" y="416" width="97" height="23" frameX="-17" frameY="-8" frameWidth="143" frameHeight="43"/>
+    <SubTexture name="Hall_ButtonText_ShouJi_0" x="1931" y="172" width="111" height="37" frameX="-12" frameY="-6" frameWidth="143" frameHeight="43"/>
+    <SubTexture name="Hall_ButtonText_ShouJi_1" x="1617" y="674" width="101" height="37" frameX="-12" frameY="-6" frameWidth="143" frameHeight="43"/>
+    <SubTexture name="Hall_ButtonText_SmallDui" x="1020" y="72" width="20" height="21"/>
+    <SubTexture name="Hall_ButtonText_SmallJia" x="455" y="1036" width="20" height="21"/>
+    <SubTexture name="Hall_ButtonText_XiuGai" x="1971" y="1040" width="52" height="21"/>
+    <SubTexture name="Hall_ButtonText_YouXiang_0" x="1456" y="1014" width="107" height="21" frameX="-15" frameY="-9" frameWidth="143" frameHeight="43"/>
+    <SubTexture name="Hall_ButtonText_YouXiang_1" x="1615" y="782" width="95" height="19" frameX="-16" frameY="-11" frameWidth="143" frameHeight="43"/>
+    <SubTexture name="Hall_ButtonText_ZhaoHuiMiMa" x="1969" y="1063" width="51" height="21"/>
+    <SubTexture name="Hall_Button_Add_0" x="1876" y="1001" width="32" height="29"/>
+    <SubTexture name="Hall_Button_Add_1" x="1876" y="970" width="32" height="29"/>
+    <SubTexture name="Hall_Button_Add_2" x="1250" y="1102" width="32" height="29"/>
+    <SubTexture name="Hall_Button_Friends_0" x="1818" y="773" width="49" height="76" frameX="-12" frameY="-16" frameWidth="71" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Friends_1" x="1386" y="448" width="71" height="92"/>
+    <SubTexture name="Hall_Button_Friends_2" x="1183" y="535" width="49" height="76" frameX="-12" frameY="-16" frameWidth="71" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Mall_0" x="1696" y="849" width="54" height="78" frameX="-13" frameY="-14" frameWidth="80" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Mall_1" x="1162" y="441" width="80" height="92"/>
+    <SubTexture name="Hall_Button_Mall_2" x="1583" y="855" width="54" height="78" frameX="-13" frameY="-14" frameWidth="80" frameHeight="92"/>
+    <SubTexture name="Hall_Button_News_0" x="1806" y="851" width="51" height="78" frameX="-14" frameY="-14" frameWidth="77" frameHeight="92"/>
+    <SubTexture name="Hall_Button_News_1" x="1376" y="542" width="77" height="92"/>
+    <SubTexture name="Hall_Button_News_2" x="1100" y="1018" width="51" height="78" frameX="-14" frameY="-14" frameWidth="77" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Ranking_0" x="1639" y="849" width="55" height="78" frameX="-13" frameY="-14" frameWidth="81" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Ranking_1" x="372" y="1036" width="81" height="92"/>
+    <SubTexture name="Hall_Button_Ranking_2" x="1319" y="540" width="55" height="78" frameX="-13" frameY="-14" frameWidth="81" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Recharg_0" x="1752" y="851" width="52" height="76" frameX="-13" frameY="-16" frameWidth="78" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Recharg_1" x="292" y="1041" width="78" height="90" frameX="0" frameY="-2" frameWidth="78" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Recharg_2" x="1764" y="773" width="52" height="76" frameX="-13" frameY="-16" frameWidth="78" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Setting_0" x="1869" y="767" width="49" height="74" frameX="-13" frameY="-18" frameWidth="75" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Setting_1" x="1459" y="446" width="75" height="88" frameX="0" frameY="-4" frameWidth="75" frameHeight="92"/>
+    <SubTexture name="Hall_Button_Setting_2" x="1713" y="773" width="49" height="74" frameX="-13" frameY="-18" frameWidth="75" frameHeight="92"/>
+    <SubTexture name="Hall_Button_SmallAdd_0" x="2011" y="48" width="26" height="23"/>
+    <SubTexture name="Hall_Button_SmallAdd_1" x="1834" y="725" width="26" height="23"/>
+    <SubTexture name="Hall_Button_SmallAdd_2" x="1204" y="781" width="26" height="23"/>
+    <SubTexture name="Hall_Button_View_0" x="1455" y="542" width="34" height="89"/>
+    <SubTexture name="Hall_Button_View_1" x="1443" y="820" width="34" height="89"/>
+    <SubTexture name="Hall_Button_View_2" x="1466" y="682" width="34" height="89"/>
+    <SubTexture name="Hall_CoinBg" x="1584" y="206" width="183" height="33"/>
+    <SubTexture name="Hall_Coin_0" x="1083" y="984" width="32" height="32"/>
+    <SubTexture name="Hall_Coin_1" x="1713" y="745" width="26" height="26"/>
+    <SubTexture name="Hall_Coupon_0" x="1985" y="89" width="36" height="34"/>
+    <SubTexture name="Hall_Coupon_1" x="2007" y="814" width="30" height="30"/>
+    <SubTexture name="Hall_CreateRoomBg_0" x="1581" y="803" width="52" height="50"/>
+    <SubTexture name="Hall_CreateRoomBg_1" x="1286" y="56" width="52" height="50"/>
+    <SubTexture name="Hall_CreateRoomBg_2" x="1854" y="1056" width="52" height="30"/>
+    <SubTexture name="Hall_CreateRoomBg_3" x="1795" y="1098" width="52" height="30"/>
+    <SubTexture name="Hall_CreateRoomBg_4" x="1228" y="1057" width="1" height="44" frameX="0" frameY="-6" frameWidth="1" frameHeight="50"/>
+    <SubTexture name="Hall_CreateRoomBg_5" x="480" y="593" width="1" height="30"/>
+    <SubTexture name="Hall_CreateRoomBg_6" x="372" y="1130" width="52" height="1"/>
+    <SubTexture name="Hall_CreateRoomBg_7" x="1286" y="108" width="52" height="1"/>
+    <SubTexture name="Hall_CreateRoomBg_8" x="1489" y="323" width="1" height="1"/>
+    <SubTexture name="Hall_CreateRoomBg_Title" x="1311" y="774" width="138" height="44"/>
+    <SubTexture name="Hall_CreateRoomBg_TitleBg" x="2" y="969" width="329" height="70"/>
+    <SubTexture name="Hall_CreateRoom_ButtonText_Cancle" x="1950" y="428" width="90" height="54"/>
+    <SubTexture name="Hall_CreateRoom_ButtonText_Ok" x="1446" y="390" width="90" height="54"/>
+    <SubTexture name="Hall_CreateRoom_TipBg_0" x="2023" y="73" width="15" height="52"/>
+    <SubTexture name="Hall_CreateRoom_TipBg_1" x="1185" y="349" width="1" height="52"/>
+    <SubTexture name="Hall_CreateRoom_TipBg_2" x="1489" y="269" width="15" height="52"/>
+    <SubTexture name="Hall_Diamond_0" x="1908" y="1106" width="32" height="25"/>
+    <SubTexture name="Hall_Diamond_1" x="1832" y="677" width="28" height="23"/>
+    <SubTexture name="Hall_Feedback_Tip" x="719" y="886" width="194" height="20"/>
+    <SubTexture name="Hall_Feedback_Title" x="1326" y="728" width="138" height="44"/>
+    <SubTexture name="Hall_FindByMail" x="1862" y="605" width="109" height="29"/>
+    <SubTexture name="Hall_FindByPhone" x="1639" y="643" width="108" height="29"/>
+    <SubTexture name="Hall_Friend_ButtonText_QuanBuTongYi" x="1154" y="953" width="79" height="19"/>
+    <SubTexture name="Hall_Friend_ButtonText_TianJiaHaoYou" x="1540" y="1047" width="82" height="20"/>
+    <SubTexture name="Hall_Friend_ContentBg_0" x="1859" y="851" width="12" height="57"/>
+    <SubTexture name="Hall_Friend_ContentBg_1" x="1182" y="349" width="1" height="57"/>
+    <SubTexture name="Hall_Friend_ContentBg_2" x="894" y="607" width="12" height="57"/>
+    <SubTexture name="Hall_Friend_Label_0" x="993" y="561" width="188" height="60"/>
+    <SubTexture name="Hall_Friend_Label_1" x="725" y="822" width="188" height="62"/>
+    <SubTexture name="Hall_Friend_Label_Coin_0" x="1536" y="504" width="117" height="42"/>
+    <SubTexture name="Hall_Friend_Label_Coin_1" x="1491" y="603" width="115" height="40"/>
+    <SubTexture name="Hall_Friend_Label_Friend_0" x="1831" y="393" width="117" height="42"/>
+    <SubTexture name="Hall_Friend_Label_Friend_1" x="1927" y="130" width="115" height="40"/>
+    <SubTexture name="Hall_Friend_Line" x="1854" y="1052" width="2" height="2"/>
+    <SubTexture name="Hall_Friend_NiCheng" x="1974" y="668" width="61" height="37"/>
+    <SubTexture name="Hall_Friend_NoFriend" x="1281" y="395" width="163" height="51"/>
+    <SubTexture name="Hall_Friend_NoJiaoHu" x="1340" y="2" width="263" height="51"/>
+    <SubTexture name="Hall_Friend_ShengLv" x="1744" y="929" width="60" height="37"/>
+    <SubTexture name="Hall_Friend_SuoZaiDi" x="1746" y="677" width="84" height="37"/>
+    <SubTexture name="Hall_Friend_Tip" x="1605" y="2" width="279" height="29"/>
+    <SubTexture name="Hall_LoginPasswordChange" x="956" y="807" width="163" height="29"/>
+    <SubTexture name="Hall_Mail" x="1502" y="772" width="111" height="29"/>
+    <SubTexture name="Hall_MailChange" x="455" y="1061" width="164" height="29"/>
+    <SubTexture name="Hall_MatchDetailBg_Bottom" x="1703" y="363" width="1" height="20"/>
+    <SubTexture name="Hall_MatchDetailBg_BottomLeft" x="1849" y="1111" width="18" height="20"/>
+    <SubTexture name="Hall_MatchDetailBg_BottomRight" x="1134" y="975" width="18" height="20"/>
+    <SubTexture name="Hall_MatchDetailBg_Center" x="1732" y="1041" width="1" height="1"/>
+    <SubTexture name="Hall_MatchDetailBg_Left" x="1455" y="633" width="18" height="1"/>
+    <SubTexture name="Hall_MatchDetailBg_Right" x="426" y="1130" width="18" height="1"/>
+    <SubTexture name="Hall_MatchDetailBg_Top" x="1232" y="781" width="1" height="18"/>
+    <SubTexture name="Hall_MatchDetailBg_TopLeft" x="1552" y="950" width="18" height="18"/>
+    <SubTexture name="Hall_MatchDetailBg_TopRight" x="1162" y="535" width="18" height="18"/>
+    <SubTexture name="Hall_MatchDetailPointer_0" x="1491" y="536" width="16" height="10"/>
+    <SubTexture name="Hall_MatchDetailPointer_1" x="1117" y="1006" width="16" height="10"/>
+    <SubTexture name="Hall_MatchDetail_GuanJunJiangLi" x="1908" y="1090" width="59" height="14"/>
+    <SubTexture name="Hall_MatchDetail_LeiJiYingDe" x="1908" y="1074" width="59" height="14"/>
+    <SubTexture name="Hall_MatchDetail_ZuiXinZhanJi" x="1910" y="1030" width="59" height="14"/>
+    <SubTexture name="Hall_Match_1_0" x="2" y="465" width="492" height="126"/>
+    <SubTexture name="Hall_Match_1_1" x="2" y="337" width="492" height="126"/>
+    <SubTexture name="Hall_Match_2" x="2" y="209" width="492" height="126"/>
+    <SubTexture name="Hall_Match_3" x="2" y="81" width="492" height="126"/>
+    <SubTexture name="Hall_Match_ButtonText_0" x="1869" y="698" width="86" height="33"/>
+    <SubTexture name="Hall_Match_ButtonText_1" x="1920" y="821" width="85" height="32"/>
+    <SubTexture name="Hall_Match_ButtonText_2" x="1957" y="741" width="85" height="32"/>
+    <SubTexture name="Hall_Match_ButtonText_3" x="1746" y="716" width="86" height="33"/>
+    <SubTexture name="Hall_Match_ButtonText_4" x="1869" y="733" width="86" height="32"/>
+    <SubTexture name="Hall_Match_ButtonText_5" x="1957" y="707" width="85" height="32"/>
+    <SubTexture name="Hall_Match_ButtonText_6" x="1975" y="605" width="67" height="32"/>
+    <SubTexture name="Hall_Match_MaoHao" x="1630" y="637" width="7" height="13" frameX="0" frameY="-4" frameWidth="7" frameHeight="17"/>
+    <SubTexture name="Hall_Match_Number_0" x="2025" y="951" width="17" height="17"/>
+    <SubTexture name="Hall_Match_Number_1" x="2007" y="846" width="12" height="17"/>
+    <SubTexture name="Hall_Match_Number_2" x="2025" y="932" width="17" height="17"/>
+    <SubTexture name="Hall_Match_Number_3" x="2025" y="865" width="17" height="17"/>
+    <SubTexture name="Hall_Match_Number_4" x="2005" y="1086" width="17" height="17"/>
+    <SubTexture name="Hall_Match_Number_5" x="1888" y="1111" width="17" height="17"/>
+    <SubTexture name="Hall_Match_Number_6" x="1869" y="1111" width="17" height="17"/>
+    <SubTexture name="Hall_Match_Number_7" x="1942" y="1106" width="17" height="17"/>
+    <SubTexture name="Hall_Match_Number_8" x="1706" y="1064" width="17" height="17"/>
+    <SubTexture name="Hall_Match_Number_9" x="2021" y="846" width="16" height="17"/>
+    <SubTexture name="Hall_Match_Tian" x="1836" y="750" width="22" height="21"/>
+    <SubTexture name="Hall_MessageDetail_FaJianRen" x="1975" y="639" width="67" height="27"/>
+    <SubTexture name="Hall_MessageDetail_FuJian" x="1706" y="241" width="50" height="28"/>
+    <SubTexture name="Hall_MessageDetail_ZhengWen" x="1451" y="774" width="49" height="27"/>
+    <SubTexture name="Hall_MessageDetail_ZhuTi" x="621" y="1061" width="48" height="29"/>
+    <SubTexture name="Hall_Message_ButtonDelete_0" x="1919" y="855" width="78" height="35"/>
+    <SubTexture name="Hall_Message_ButtonDelete_1" x="1611" y="1092" width="78" height="35"/>
+    <SubTexture name="Hall_Message_ButtonDelete_2" x="1531" y="1092" width="78" height="35"/>
+    <SubTexture name="Hall_Message_ButtonDelete_3" x="1231" y="1053" width="78" height="35"/>
+    <SubTexture name="Hall_Message_ButtonOk_0" x="1231" y="1016" width="78" height="35"/>
+    <SubTexture name="Hall_Message_ButtonOk_1" x="1154" y="974" width="78" height="35"/>
+    <SubTexture name="Hall_Message_ButtonOk_2" x="1559" y="971" width="78" height="35"/>
+    <SubTexture name="Hall_Message_ButtonOk_3" x="1504" y="325" width="78" height="35"/>
+    <SubTexture name="Hall_Message_ButtonText_LingQu" x="1969" y="1086" width="34" height="21"/>
+    <SubTexture name="Hall_Message_ButtonText_TongYi" x="1834" y="702" width="33" height="21"/>
+    <SubTexture name="Hall_Message_ContentBg_0" x="1134" y="807" width="15" height="166"/>
+    <SubTexture name="Hall_Message_ContentBg_1" x="1151" y="807" width="1" height="166"/>
+    <SubTexture name="Hall_Message_ContentBg_2" x="1117" y="838" width="15" height="166"/>
+    <SubTexture name="Hall_Message_FaJianRen" x="1235" y="947" width="74" height="33"/>
+    <SubTexture name="Hall_Message_Select" x="1281" y="270" width="1" height="49"/>
+    <SubTexture name="Hall_Message_TitleBg_0" x="2021" y="884" width="9" height="42"/>
+    <SubTexture name="Hall_Message_TitleBg_1" x="2035" y="2" width="1" height="42"/>
+    <SubTexture name="Hall_Message_TitleBg_2" x="1703" y="736" width="8" height="42"/>
+    <SubTexture name="Hall_Message_UnreadSymbol" x="941" y="807" width="12" height="12"/>
+    <SubTexture name="Hall_Message_ZhuTi" x="1583" y="935" width="54" height="34"/>
+    <SubTexture name="Hall_PayForPasswordChange" x="990" y="776" width="163" height="29"/>
+    <SubTexture name="Hall_PayForPasswordFind" x="711" y="1074" width="163" height="29"/>
+    <SubTexture name="Hall_PayForPasswordSet" x="1769" y="240" width="163" height="29"/>
+    <SubTexture name="Hall_Phone" x="1862" y="667" width="110" height="29"/>
+    <SubTexture name="Hall_PhoneChange" x="990" y="745" width="164" height="29"/>
+    <SubTexture name="Hall_PlayerInfoBg_Bottom" x="2021" y="928" width="1" height="48"/>
+    <SubTexture name="Hall_PlayerInfoBg_Center" x="1489" y="323" width="1" height="1"/>
+    <SubTexture name="Hall_PlayerInfoBg_Left" x="1893" y="517" width="48" height="1"/>
+    <SubTexture name="Hall_PlayerInfoBg_LeftBottom" x="1971" y="990" width="48" height="48"/>
+    <SubTexture name="Hall_PlayerInfoBg_LeftTop" x="1971" y="940" width="48" height="48"/>
+    <SubTexture name="Hall_PlayerInfoBg_Right" x="1774" y="513" width="47" height="1"/>
+    <SubTexture name="Hall_PlayerInfoBg_RightBottom" x="1606" y="548" width="47" height="48"/>
+    <SubTexture name="Hall_PlayerInfoBg_RightTop" x="1860" y="920" width="48" height="48"/>
+    <SubTexture name="Hall_PlayerInfoBg_Top" x="1943" y="437" width="1" height="42" frameX="0" frameY="-6" frameWidth="1" frameHeight="48"/>
+    <SubTexture name="Hall_PlayerLvBg" x="1231" y="1090" width="71" height="10"/>
+    <SubTexture name="Hall_PlayerLvBorder_0" x="1828" y="271" width="120" height="120"/>
+    <SubTexture name="Hall_PlayerLvLine_0" x="1907" y="1032" width="1" height="8"/>
+    <SubTexture name="Hall_PlayerLvLine_1" x="1537" y="1058" width="1" height="8"/>
+    <SubTexture name="Hall_PlayerTitleBg" x="697" y="1030" width="185" height="42"/>
+    <SubTexture name="Hall_Player_ButtonText_WoDeZhanJi" x="1455" y="1037" width="83" height="19"/>
+    <SubTexture name="Hall_Player_Button_Change_0" x="1456" y="975" width="101" height="37"/>
+    <SubTexture name="Hall_Player_Button_Change_1" x="1759" y="638" width="101" height="37"/>
+    <SubTexture name="Hall_Player_Button_Change_2" x="1759" y="599" width="101" height="37"/>
+    <SubTexture name="Hall_Player_Button_RenZheng_0" x="1311" y="979" width="143" height="37"/>
+    <SubTexture name="Hall_Player_Button_RenZheng_1" x="147" y="1094" width="143" height="37"/>
+    <SubTexture name="Hall_Player_Button_RenZheng_2" x="2" y="1094" width="143" height="37"/>
+    <SubTexture name="Hall_Player_ChongXinFaSong" x="1798" y="983" width="76" height="21"/>
+    <SubTexture name="Hall_Player_FindByMail_0" x="1235" y="852" width="74" height="93" frameX="-1" frameY="-12" frameWidth="76" frameHeight="107"/>
+    <SubTexture name="Hall_Player_FindByMail_1" x="1235" y="757" width="74" height="93" frameX="-1" frameY="-12" frameWidth="76" frameHeight="107"/>
+    <SubTexture name="Hall_Player_FindByPhone_0" x="1506" y="218" width="76" height="105" frameX="0" frameY="0" frameWidth="76" frameHeight="107"/>
+    <SubTexture name="Hall_Player_FindByPhone_1" x="1506" y="111" width="76" height="105" frameX="0" frameY="0" frameWidth="76" frameHeight="107"/>
+    <SubTexture name="Hall_Player_GengHuanShouJiHao" x="1617" y="713" width="101" height="21"/>
+    <SubTexture name="Hall_Player_GengHuanYouXiang" x="1537" y="1069" width="81" height="21"/>
+    <SubTexture name="Hall_Player_GreenButton_0" x="1823" y="437" width="118" height="39"/>
+    <SubTexture name="Hall_Player_GreenButton_1" x="1703" y="434" width="118" height="39"/>
+    <SubTexture name="Hall_Player_GreenButton_2" x="1538" y="408" width="118" height="39"/>
+    <SubTexture name="Hall_Player_Head_0_0" x="1706" y="271" width="120" height="120"/>
+    <SubTexture name="Hall_Player_Head_0_1" x="1584" y="241" width="120" height="120"/>
+    <SubTexture name="Hall_Player_Head_0_2" x="1112" y="623" width="120" height="120"/>
+    <SubTexture name="Hall_Player_Head_1_0" x="990" y="623" width="120" height="120"/>
+    <SubTexture name="Hall_Player_Head_1_1" x="819" y="908" width="120" height="120"/>
+    <SubTexture name="Hall_Player_Head_1_2" x="697" y="908" width="120" height="120"/>
+    <SubTexture name="Hall_Player_HuoQuYanZhengMa" x="1637" y="1041" width="93" height="21"/>
+    <SubTexture name="Hall_Player_JiuMiMa" x="1311" y="1080" width="82" height="26"/>
+    <SubTexture name="Hall_Player_JiuShouJiHao" x="1639" y="929" width="103" height="26"/>
+    <SubTexture name="Hall_Player_JiuYouXiang" x="909" y="753" width="79" height="26"/>
+    <SubTexture name="Hall_Player_LiJiRenZheng" x="1311" y="1018" width="84" height="32"/>
+    <SubTexture name="Hall_Player_Lv" x="1849" y="33" width="18" height="13"/>
+    <SubTexture name="Hall_Player_LvNumber_0" x="1311" y="757" width="11" height="13"/>
+    <SubTexture name="Hall_Player_LvNumber_1" x="1860" y="750" width="7" height="13" frameX="-2" frameY="0" frameWidth="11" frameHeight="13"/>
+    <SubTexture name="Hall_Player_LvNumber_2" x="1719" y="1083" width="11" height="13"/>
+    <SubTexture name="Hall_Player_LvNumber_3" x="1706" y="1083" width="11" height="13"/>
+    <SubTexture name="Hall_Player_LvNumber_4" x="483" y="608" width="11" height="13"/>
+    <SubTexture name="Hall_Player_LvNumber_5" x="483" y="593" width="11" height="13"/>
+    <SubTexture name="Hall_Player_LvNumber_6" x="1869" y="33" width="11" height="13"/>
+    <SubTexture name="Hall_Player_LvNumber_7" x="1121" y="822" width="11" height="13"/>
+    <SubTexture name="Hall_Player_LvNumber_8" x="1624" y="1047" width="11" height="13"/>
+    <SubTexture name="Hall_Player_LvNumber_9" x="1121" y="807" width="11" height="13"/>
+    <SubTexture name="Hall_Player_OrangeButton_0" x="1769" y="199" width="160" height="39"/>
+    <SubTexture name="Hall_Player_OrangeButton_1" x="1823" y="89" width="160" height="39"/>
+    <SubTexture name="Hall_Player_OrangeButton_2" x="1849" y="48" width="160" height="39"/>
+    <SubTexture name="Hall_Player_PayForButton_0" x="1127" y="112" width="157" height="156"/>
+    <SubTexture name="Hall_Player_PayForButton_1" x="968" y="112" width="157" height="156"/>
+    <SubTexture name="Hall_Player_PayForButton_2" x="735" y="441" width="157" height="156"/>
+    <SubTexture name="Hall_Player_QuXiao" x="1397" y="1018" width="56" height="33"/>
+    <SubTexture name="Hall_Player_QueDing" x="1396" y="1053" width="56" height="32"/>
+    <SubTexture name="Hall_Player_ShenFenZheng" x="1168" y="1103" width="80" height="27"/>
+    <SubTexture name="Hall_Player_ShouJiHao" x="1624" y="1064" width="80" height="26"/>
+    <SubTexture name="Hall_Player_TipBg_0" x="267" y="1041" width="21" height="48"/>
+    <SubTexture name="Hall_Player_TipBg_1" x="2039" y="814" width="1" height="48"/>
+    <SubTexture name="Hall_Player_TipBg_2" x="2028" y="555" width="12" height="48"/>
+    <SubTexture name="Hall_Player_Title" x="1326" y="682" width="138" height="44"/>
+    <SubTexture name="Hall_Player_Warning" x="1440" y="326" width="62" height="62"/>
+    <SubTexture name="Hall_Player_XiaoFeiMiMa" x="953" y="1105" width="107" height="26"/>
+    <SubTexture name="Hall_Player_XinMiMa" x="1311" y="1052" width="83" height="26"/>
+    <SubTexture name="Hall_Player_XinShouJiHao" x="1062" y="1105" width="104" height="26"/>
+    <SubTexture name="Hall_Player_XinXiaoFeiMiMa" x="711" y="1105" width="131" height="26"/>
+    <SubTexture name="Hall_Player_XingMing" x="1908" y="1046" width="56" height="26"/>
+    <SubTexture name="Hall_Player_YanZhengButton_0" x="1703" y="393" width="126" height="39"/>
+    <SubTexture name="Hall_Player_YanZhengButton_1" x="583" y="1092" width="126" height="39"/>
+    <SubTexture name="Hall_Player_YanZhengButton_2" x="455" y="1092" width="126" height="39"/>
+    <SubTexture name="Hall_Player_YanZhengMa" x="1454" y="1058" width="81" height="26"/>
+    <SubTexture name="Hall_Player_YouXiang" x="1504" y="362" width="59" height="26"/>
+    <SubTexture name="Hall_Player_ZaiCiShuRu" x="844" y="1105" width="107" height="26"/>
+    <SubTexture name="Hall_RoomBg_Bottom" x="1392" y="1108" width="1" height="23"/>
+    <SubTexture name="Hall_RoomBg_BottomLeft" x="1584" y="55" width="16" height="23"/>
+    <SubTexture name="Hall_RoomBg_BottomRight" x="1858" y="1006" width="16" height="23"/>
+    <SubTexture name="Hall_RoomBg_Center" x="990" y="620" width="1" height="1"/>
+    <SubTexture name="Hall_RoomBg_Left" x="267" y="1091" width="16" height="1"/>
+    <SubTexture name="Hall_RoomBg_Right" x="1480" y="679" width="16" height="1"/>
+    <SubTexture name="Hall_RoomBg_Top" x="990" y="607" width="1" height="11"/>
+    <SubTexture name="Hall_RoomBg_TopLeft" x="962" y="428" width="14" height="11" frameX="-2" frameY="0" frameWidth="16" frameHeight="11"/>
+    <SubTexture name="Hall_RoomBg_TopRight" x="1860" y="970" width="14" height="11" frameX="0" frameY="0" frameWidth="16" frameHeight="11"/>
+    <SubTexture name="Hall_Room_BaoFangShiJian" x="1703" y="475" width="118" height="36"/>
+    <SubTexture name="Hall_Room_BuFengDing_0" x="1156" y="745" width="76" height="34"/>
+    <SubTexture name="Hall_Room_BuFengDing_1" x="1234" y="982" width="74" height="32"/>
+    <SubTexture name="Hall_Room_ButtonText_Recharge" x="1858" y="1032" width="47" height="22"/>
+    <SubTexture name="Hall_Room_Button_FengDing_0" x="1153" y="1011" width="76" height="44"/>
+    <SubTexture name="Hall_Room_Button_FengDing_1" x="1920" y="775" width="76" height="44"/>
+    <SubTexture name="Hall_Room_Button_FengDing_2" x="1635" y="803" width="76" height="44"/>
+    <SubTexture name="Hall_Room_Button_GangPai_0" x="1244" y="494" width="140" height="44"/>
+    <SubTexture name="Hall_Room_Button_GangPai_1" x="1244" y="448" width="140" height="44"/>
+    <SubTexture name="Hall_Room_Button_GangPai_2" x="941" y="984" width="140" height="44"/>
+    <SubTexture name="Hall_Room_Button_Green_0" x="1768" y="130" width="157" height="67"/>
+    <SubTexture name="Hall_Room_Button_Green_1" x="1281" y="326" width="157" height="67"/>
+    <SubTexture name="Hall_Room_Button_Green_2" x="735" y="599" width="157" height="67"/>
+    <SubTexture name="Hall_Room_Button_Jia_0" x="1910" y="984" width="59" height="44"/>
+    <SubTexture name="Hall_Room_Button_Jia_1" x="1910" y="938" width="59" height="44"/>
+    <SubTexture name="Hall_Room_Button_Jia_2" x="1912" y="892" width="59" height="44"/>
+    <SubTexture name="Hall_Room_Button_Jia_3" x="1793" y="1052" width="59" height="44"/>
+    <SubTexture name="Hall_Room_Button_Jian_0" x="1732" y="1044" width="59" height="44"/>
+    <SubTexture name="Hall_Room_Button_Jian_1" x="1797" y="1006" width="59" height="44"/>
+    <SubTexture name="Hall_Room_Button_Jian_2" x="1470" y="1086" width="59" height="44"/>
+    <SubTexture name="Hall_Room_Button_Jian_3" x="1967" y="559" width="59" height="44"/>
+    <SubTexture name="Hall_Room_Button_Spread_0" x="1873" y="843" width="44" height="37"/>
+    <SubTexture name="Hall_Room_Button_Spread_1" x="1608" y="598" width="44" height="37"/>
+    <SubTexture name="Hall_Room_Button_Spread_2" x="1998" y="775" width="44" height="37"/>
+    <SubTexture name="Hall_Room_CheckBox" x="993" y="428" width="159" height="131"/>
+    <SubTexture name="Hall_Room_ContentBg" x="682" y="2" width="358" height="68"/>
+    <SubTexture name="Hall_Room_CreatRoomButton_0" x="1340" y="55" width="242" height="54"/>
+    <SubTexture name="Hall_Room_CreatRoomButton_1" x="1042" y="56" width="242" height="54"/>
+    <SubTexture name="Hall_Room_CreatRoomButton_2" x="1605" y="33" width="242" height="54"/>
+    <SubTexture name="Hall_Room_DiShu" x="1565" y="1008" width="70" height="37"/>
+    <SubTexture name="Hall_Room_EnterRoomButton_0" x="1502" y="679" width="113" height="53"/>
+    <SubTexture name="Hall_Room_EnterRoomButton_1" x="1491" y="548" width="113" height="53"/>
+    <SubTexture name="Hall_Room_EnterRoomButton_2" x="1536" y="449" width="113" height="53"/>
+    <SubTexture name="Hall_Room_FengDingDaXiao" x="1655" y="513" width="117" height="36"/>
+    <SubTexture name="Hall_Room_HongZhongFaCaiGang_0" x="1774" y="517" width="117" height="34"/>
+    <SubTexture name="Hall_Room_HongZhongFaCaiGang_1" x="1480" y="645" width="115" height="32"/>
+    <SubTexture name="Hall_Room_InputBg" x="1584" y="89" width="237" height="38"/>
+    <SubTexture name="Hall_Room_Kuang" x="1886" y="2" width="147" height="44"/>
+    <SubTexture name="Hall_Room_LaiZiPiGang_0" x="1943" y="484" width="96" height="34"/>
+    <SubTexture name="Hall_Room_LaiZiPiGang_1" x="1639" y="982" width="94" height="32"/>
+    <SubTexture name="Hall_Room_Number_Select_0" x="1619" y="637" width="9" height="14"/>
+    <SubTexture name="Hall_Room_Number_Select_1" x="2037" y="668" width="5" height="14" frameX="-2" frameY="0" frameWidth="9" frameHeight="14"/>
+    <SubTexture name="Hall_Room_Number_Select_2" x="1463" y="803" width="10" height="14"/>
+    <SubTexture name="Hall_Room_Number_Select_3" x="1550" y="390" width="10" height="14"/>
+    <SubTexture name="Hall_Room_Number_Select_4" x="941" y="821" width="10" height="14"/>
+    <SubTexture name="Hall_Room_Number_Select_5" x="1608" y="653" width="9" height="14"/>
+    <SubTexture name="Hall_Room_Number_Select_6" x="1597" y="661" width="9" height="14"/>
+    <SubTexture name="Hall_Room_Number_Select_7" x="1020" y="95" width="10" height="14"/>
+    <SubTexture name="Hall_Room_Number_Select_8" x="1451" y="803" width="10" height="14"/>
+    <SubTexture name="Hall_Room_Number_Select_9" x="1608" y="637" width="9" height="14"/>
+    <SubTexture name="Hall_Room_Number_Unselect_0" x="1597" y="645" width="9" height="14"/>
+    <SubTexture name="Hall_Room_Number_Unselect_1" x="333" y="969" width="5" height="14" frameX="-2" frameY="0" frameWidth="9" frameHeight="14"/>
+    <SubTexture name="Hall_Room_Number_Unselect_2" x="1538" y="390" width="10" height="14"/>
+    <SubTexture name="Hall_Room_Number_Unselect_3" x="2032" y="916" width="10" height="14"/>
+    <SubTexture name="Hall_Room_Number_Unselect_4" x="2032" y="900" width="10" height="14"/>
+    <SubTexture name="Hall_Room_Number_Unselect_5" x="1741" y="751" width="9" height="14"/>
+    <SubTexture name="Hall_Room_Number_Unselect_6" x="1572" y="950" width="9" height="14"/>
+    <SubTexture name="Hall_Room_Number_Unselect_7" x="2032" y="884" width="10" height="14"/>
+    <SubTexture name="Hall_Room_Number_Unselect_8" x="2011" y="73" width="10" height="14"/>
+    <SubTexture name="Hall_Room_Number_Unselect_9" x="1758" y="241" width="9" height="14"/>
+    <SubTexture name="Hall_Room_QiHuFanShu" x="1823" y="478" width="118" height="37"/>
+    <SubTexture name="Hall_Room_ScrollRect" x="1154" y="428" width="6" height="129"/>
+    <SubTexture name="Hall_Room_ScrollRectBg" x="719" y="629" width="4" height="254"/>
+    <SubTexture name="Hall_Room_VerticalLine" x="1498" y="679" width="2" height="1"/>
+    <SubTexture name="Hall_Room_XuanZeGangPai" x="1893" y="520" width="117" height="37"/>
+    <SubTexture name="Hall_Set_Button_KeFu_0" x="477" y="982" width="218" height="77"/>
+    <SubTexture name="Hall_Set_Button_KeFu_1" x="477" y="903" width="218" height="77"/>
+    <SubTexture name="Hall_Set_Button_KeFu_2" x="1286" y="190" width="218" height="77"/>
+    <SubTexture name="Hall_Set_Button_Voice" x="1479" y="803" width="100" height="53"/>
+    <SubTexture name="Hall_Set_Button_ZhangHao_0" x="1286" y="111" width="218" height="77"/>
+    <SubTexture name="Hall_Set_Button_ZhangHao_1" x="962" y="349" width="218" height="77"/>
+    <SubTexture name="Hall_Set_Button_ZhangHao_2" x="968" y="270" width="218" height="77"/>
+    <SubTexture name="Hall_Set_Title" x="1615" y="736" width="86" height="44"/>
+    <SubTexture name="Hall_Set_VoiceBg" x="1286" y="269" width="201" height="55"/>
+    <SubTexture name="Hall_Sign" x="1155" y="781" width="47" height="24"/>
+    <SubTexture name="Hall_SignSymbol" x="1319" y="620" width="55" height="56"/>
+    <SubTexture name="Hall_Sign_Bg" x="894" y="441" width="97" height="164"/>
+    <SubTexture name="Hall_Sign_Button_0" x="1028" y="1030" width="70" height="73"/>
+    <SubTexture name="Hall_Sign_Button_1" x="956" y="1030" width="70" height="73"/>
+    <SubTexture name="Hall_Sign_Button_2" x="884" y="1030" width="70" height="73"/>
+    <SubTexture name="Hall_Sign_Content_1" x="1950" y="211" width="91" height="144" frameX="0" frameY="0" frameWidth="97" frameHeight="164"/>
+    <SubTexture name="Hall_Sign_Content_2" x="1188" y="270" width="91" height="144" frameX="0" frameY="0" frameWidth="97" frameHeight="164"/>
+    <SubTexture name="Hall_Sign_Content_3" x="1030" y="838" width="85" height="144" frameX="0" frameY="0" frameWidth="97" frameHeight="164"/>
+    <SubTexture name="Hall_Sign_Content_4" x="1154" y="807" width="79" height="144" frameX="0" frameY="0" frameWidth="97" frameHeight="164"/>
+    <SubTexture name="Hall_Sign_Content_5" x="909" y="607" width="79" height="144" frameX="0" frameY="0" frameWidth="97" frameHeight="164"/>
+    <SubTexture name="Hall_Sign_Content_6" x="1234" y="540" width="83" height="144" frameX="0" frameY="0" frameWidth="97" frameHeight="164"/>
+    <SubTexture name="Hall_Sign_Content_7" x="941" y="838" width="87" height="144" frameX="0" frameY="0" frameWidth="97" frameHeight="164"/>
+    <SubTexture name="Hall_SmallCoinBg" x="333" y="1008" width="142" height="26"/>
+    <SubTexture name="Hall_Start_FaButton_0" x="480" y="629" width="237" height="272"/>
+    <SubTexture name="Hall_Start_FaButton_1" x="496" y="355" width="237" height="272"/>
+    <SubTexture name="Hall_Start_FaButton_2" x="496" y="81" width="237" height="272"/>
+    <SubTexture name="Hall_Start_PiButton_0" x="735" y="72" width="231" height="270" frameX="-3" frameY="-2" frameWidth="237" frameHeight="272"/>
+    <SubTexture name="Hall_Start_PiButton_1" x="241" y="593" width="237" height="272"/>
+    <SubTexture name="Hall_Start_PiButton_2" x="2" y="593" width="237" height="272"/>
+    <SubTexture name="Hall_Text_DengLuMiMa" x="1639" y="957" width="95" height="23"/>
+    <SubTexture name="Hall_Text_NiCheng" x="1338" y="1108" width="52" height="23"/>
+    <SubTexture name="Hall_Text_SuoZaiDi" x="909" y="781" width="74" height="24"/>
+    <SubTexture name="Hall_Text_XiaoFeiMiMa" x="1637" y="1016" width="94" height="23"/>
+    <SubTexture name="Hall_Text_ZhangHao" x="1284" y="1108" width="52" height="23"/>
+    <SubTexture name="Hall_Text_ZhangHaoXinXi" x="1752" y="751" width="82" height="20"/>
+    <SubTexture name="Hall_ThreeButtonText_GameStart_0" x="1565" y="363" width="136" height="43"/>
+    <SubTexture name="Hall_ThreeButtonText_GameStart_1" x="1502" y="734" width="111" height="36"/>
+    <SubTexture name="Hall_ThreeButtonText_Match_0" x="1395" y="1087" width="73" height="44"/>
+    <SubTexture name="Hall_ThreeButtonText_Match_1" x="1735" y="1006" width="60" height="36"/>
+    <SubTexture name="Hall_ThreeButtonText_PrivateRoom_0" x="1153" y="1057" width="73" height="44"/>
+    <SubTexture name="Hall_ThreeButtonText_PrivateRoom_1" x="1736" y="968" width="60" height="36"/>
+    <SubTexture name="Hall_ThreeButton_Big_0" x="735" y="344" width="225" height="95"/>
+    <SubTexture name="Hall_ThreeButton_Small_0" x="725" y="745" width="182" height="75"/>
+    <SubTexture name="Hall_ThreeButton_Small_1" x="725" y="668" width="182" height="75"/>
+    <SubTexture name="Hall_ThreeButton_Small_2" x="1584" y="129" width="182" height="75"/>
+    <SubTexture name="Hall_Ticket_0" x="1443" y="911" width="32" height="37"/>
+    <SubTexture name="Hall_Ticket_1" x="2012" y="520" width="27" height="30"/>
+    <SubTexture name="Hall_TipBox" x="2" y="867" width="336" height="100"/>
+    <SubTexture name="Hall_TipGirl" x="340" y="867" width="135" height="139"/>
+    <SubTexture name="Hall_TipText_NoMessage" x="2" y="1041" width="263" height="51"/>
+    <SubTexture name="Hall_TipText_NoRoomInvite" x="1042" y="2" width="296" height="52"/>
+    <SubTexture name="Hall_UnreadSymbol" x="1931" y="211" width="17" height="17"/>
+    <SubTexture name="SmallTipBg" x="2" y="2" width="678" height="77"/>
+</TextureAtlas>

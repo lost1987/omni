@@ -17,7 +17,13 @@ return array(
     'cookie' => array(
            'secret' => 'web_newbee',
            'timeout' => 3600 * 24,
-           'path'  => '/'
+           'path'  => '/',
+           'domain' => DOMAIN
+    ),
+
+    //数据统计开关
+    'das' => array(
+        'enable' => false
     ),
 
     /**
@@ -118,5 +124,9 @@ return array(
     /**
      * 兑换,充值,购买 消耗了金币和金钻 通知服务器更新资源数的地址
      */
-    'http_monitor' => 'http://127.0.0.1:6626'
+//    'http_monitor' => 'http://127.0.0.1:6626',
+    'http_monitor' => 'http://10.144.181.190:6626',
+
+    /**新蜂币提现比例*/
+    'deposit_ratio' => 10000
 );

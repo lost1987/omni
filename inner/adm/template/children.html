@@ -1,0 +1,43 @@
+<div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg"><span class="am-badge am-badge-primary am-radius">{{user.nickname}}</span></strong> / <small>下线列表</small></div>
+</div>
+
+<div class="am-g">
+<div class="am-u-md-12 am-cf">
+<div class="am-g">
+<div class="am-u-sm-12">
+<table class="am-table am-table-striped am-table-hover table-main">
+<thead>
+<tr>
+    <th class="table-check"><input type="checkbox" /></th>
+    <th>UID</th>
+    <th>账号</th>
+    <th>昵称</th>
+    <th>级</th>
+</tr>
+</thead>
+<tbody>
+{% for item in list %}
+<tr>
+    <td><input type="checkbox" /></td>
+    <td>{{item.uid}}</td>
+    <td><a href="javascript:;">{{item.login_name}}</a></td>
+    <td>{{item.nickname}}</td>
+    <td>{{item.leaf}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<div class="am-cf">
+    共 {{total}} 条记录
+    <div class="am-fr">
+        <ul class="am-pagination">
+            {{pagiation|raw}}
+        </ul>
+    </div>
+</div>
+</div>
+</div>
+{% block script %}
+<script src="{{constant('STATIC_HOST')}}/assets/lib/common-list.js"></script>
+{% endblock %}

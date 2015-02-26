@@ -13,10 +13,12 @@ switch(PROJECT_MODE){
     case 'develop' :
          /***本地配置****/
         define('BASE_HOST','http://dev.gms.com');
-        define('WWW_HOST','http://dev.newbee.com');
+        define('WWW_HOST','http://newbee.16yx.com');
+        define('DOMAIN','gms.com');
          /***局域网配置***/
 //        define('BASE_HOST','http://test.gms.com');
 //        define('WWW_HOST','http://test.newbee.com');
+//        define('DOMAIN','gms.com');
          /****sndu服务器配置****/
 //        define('BASE_HOST','http://gms.sndu.cn');
 //        define('WWW_HOST','http://www2.sndu.cn');
@@ -25,8 +27,9 @@ switch(PROJECT_MODE){
         ini_set('display_errors','on');
         break;
     case  'product':
-        define('BASE_HOST','http://gms.sndu.cn');
+        define('BASE_HOST','http://gms.16youxi.cc');
         define('WWW_HOST','http://www.16youxi.com');
+        define('DOMAIN','16youxi.cc');
         define('XHPROF_ENABLE',0);
         error_reporting(E_ERROR | E_WARNING | E_PARSE );
         ini_set('display_errors','off');

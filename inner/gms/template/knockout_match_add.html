@@ -54,6 +54,12 @@
 </div>
 
 
+<div class="control-group">
+    <label class="control-label"><b class="">比赛名称</b><span class="required">*</span></label>
+    <div class="controls">
+        <input  type="text" class="span3"  name="name" value="{{item.name}}"/>
+    </div>
+</div>
 
 <div class="control-group">
     <label class="control-label"><b class="">比赛类型</b><span class="required">*</span></label>
@@ -89,6 +95,35 @@
             {% endif %}
             {% endfor %}
         </select>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label"><b class="">底价</b><span class="required">*</span></label>
+    <div class="controls">
+        <input  type="text" class="span2"  name="base_price" value="{{item.base_price}}"/>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label"><b class="">底价类型</b><span class="required">*</span></label>
+    <div class="controls">
+        <select name="base_price_type"  class="span2">
+            {% for prize in prize_types%}
+            {% if prize.type == item.base_price_type %}
+            <option value="{{prize.type}}" selected="selected">{{prize.name}}</option>
+            {% else %}
+            <option value="{{prize.type}}">{{prize.name}}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label"><b class="">竞拍时长(秒)</b><span class="required">*</span></label>
+    <div class="controls">
+        <input  type="text" class="span2"  name="auction_time" value="{{item.auction_time}}"/>
     </div>
 </div>
 

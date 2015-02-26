@@ -6,6 +6,9 @@
  * Time: 下午2:54
  */
 namespace libs\payment;
+use core\Cookie;
+use web\libs\Error;
+use core\Redirect;
 
 /**
  * 阿里-支付宝
@@ -38,7 +41,7 @@ class PayAliPay extends BasePay
      * @return mixed
      */
     function create_orderid(){
-        $orderid = 'web'.date('Ymd').uniqid();
+        $orderid = 'web_'.date('Ymd').uniqid();
         return $orderid;
     }
 

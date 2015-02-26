@@ -1,0 +1,37 @@
+{% extends 'baseArticle.html' %}
+
+{% block title %}
+武汉麻将-公告资讯
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-公告资讯
+{% endblock %}
+
+{% block description %}
+武汉麻将-公告资讯
+{% endblock %}
+
+{% block content %}
+<div class="col-xs-8">
+            {% include 'article_tablist.html' %}
+            <div class="panel p30" style="min-height: 510px;">
+              <h2 class="sTitle">
+                <span class="icon icon-globe-b"></span>
+                <span class="bl1">
+                  <span class="uppercase">NEWS</span><br>公告资讯
+                </span>
+              </h2>
+              <ul class="mt20 list list01 pr mbn">
+                  {% for item in list %}
+                  <li><span class="time">{{item.publish_time}}</span><a href="/articles/detail/{{item.id}}"><span class="text-grey">[{{item.category_name}}]</span> {{item.title}}</a></li>
+                  {% endfor %}
+              </ul>
+              <div class="text-right">
+                <ul class="pagination mbn">
+                    {{pagiation|raw}}
+                </ul>
+              </div>
+            </div>
+          </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+<div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">提现记录</strong>  <small></small></div>
+</div>
+
+<div class="am-cf am-padding">
+    <label>我的邀请码:&nbsp;&nbsp;&nbsp;</label>
+    <code>{{invite_code}}</code>
+</div>
+
+<div class="am-g am-padding">
+    <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+            <tr>
+                <th>提现单号</th>
+                <th>收款账号</th>
+                <th>收款人</th>
+                <th>手续费</th>
+                <th>提现金额</th>
+                <th>处理状态</th>
+                <th>实付</th>
+                <th>处理时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in list %}
+            <tr>
+                <td>{{item.order_no}}</td>
+                <td>{{ item.deposit_account }}</td>
+                <td>{{ item.deposit_name }}</td>
+                <td>￥{{item.handing_cost|default('0.00')}}</td>
+                <td>￥{{ item.money }}</td>
+                <td>{{item.state}}</td>
+                <td>￥{{ item.real_cost|default('0.00') }}</td>
+                <td>{{ item.done_time|default('/') }}</td>
+            </tr>
+            <tr>
+                <td>备注/原因:</td><td colspan="7">{{item.remark}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

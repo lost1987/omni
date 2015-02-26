@@ -13,6 +13,7 @@ use core\AdminController;
 use core\Cookie;
 use core\Encoder;
 use core\Permission;
+use core\Pusher;
 use core\Redirect;
 use gms\libs\AdminUtil;
 use gms\libs\Error;
@@ -23,6 +24,7 @@ use gms\libs\SystemLog;
 use gms\model\GameSummary_M;
 use gms\model\Player_M;
 use gms\model\Profile_M;
+use utils\Das;
 use utils\Page;
 use utils\Tools;
 
@@ -111,8 +113,149 @@ class Player extends AdminController{
         $uid = $fields['id'];
         unset($fields['id']);
 
+        $oldProfile = Profile_M::instance()->read($uid);
         if(!Profile_M::instance()->update($fields,$uid))
              $this->set_error(Error::DATA_WRITE);
+
+        //分析资源变化 并且发给数据统计服务
+        $coins = intval($oldProfile['coins']) - intval($fields['coins']);
+        $ticket = intval($oldProfile['ticket']) - intval($fields['ticket']);
+        $diamond = intval($oldProfile['diamond']) - intval($fields['diamond']);
+        $coupon = intval($oldProfile['oldCoupon']) - intval($fields['coupon']);
+
+        $config = $this->config->common['go_das_server'];
+        if ($config['enable']){
+            $pusher = new Pusher($config);
+            $version = '1.001.22';
+            if ($coins >0){
+                $data = array(
+                    's'=>10001,
+                    'pt'=>Das::PLATFORM_WEB,
+                    'v'=>$version,
+                    'w'=>Das::RESOURCE,
+                    'd' => array(
+                        't' => 0,
+                        't_t'=>0,
+                        'p'=> $coins,
+                        'p_t'=>0
+                    )
+                );
+                $data = Encoder::instance()->encode(Tools::array_val_toString($data),Encoder::MSGPACK);
+                $pusher->push($data);
+            }else if($coins < 0){
+                $data = array(
+                    's'=>10001,
+                    'pt'=>Das::PLATFORM_WEB,
+                    'v'=>$version,
+                    'w'=>Das::RESOURCE,
+                    'd' => array(
+                        't' => $coins * -1,
+                        't_t'=>0,
+                        'p' => 0,
+                        'p_t'=>0
+                    )
+                );
+                $data = Encoder::instance()->encode(Tools::array_val_toString($data),Encoder::MSGPACK);
+                $pusher->push($data);
+            }
+
+            if ($ticket >0){
+                $data = array(
+                    's'=>10001,
+                    'pt'=>Das::PLATFORM_WEB,
+                    'v'=>$version,
+                    'w'=>Das::RESOURCE,
+                    'd' => array(
+                        't' => 0,
+                        't_t'=>0,
+                        'p'=> $ticket,
+                        'p_t'=>2
+                    )
+                );
+                $data = Encoder::instance()->encode(Tools::array_val_toString($data),Encoder::MSGPACK);
+                $pusher->push($data);
+            }else if($ticket < 0){
+                $data = array(
+                    's'=>10001,
+                    'pt'=>Das::PLATFORM_WEB,
+                    'v'=>$version,
+                    'w'=>Das::RESOURCE,
+                    'd' => array(
+                        't' => $ticket * -1,
+                        't_t'=>2,
+                        'p' => 0,
+                        'p_t'=>0
+                    )
+                );
+                $data = Encoder::instance()->encode(Tools::array_val_toString($data),Encoder::MSGPACK);
+                $pusher->push($data);
+            }
+
+            if ($diamond >0){
+                $data = array(
+                    's'=>10001,
+                    'pt'=>Das::PLATFORM_WEB,
+                    'v'=>$version,
+                    'w'=>Das::RESOURCE,
+                    'd' => array(
+                        't' => 0,
+                        't_t'=>0,
+                        'p'=> $diamond,
+                        'p_t'=>1
+                    )
+                );
+                $data = Encoder::instance()->encode(Tools::array_val_toString($data),Encoder::MSGPACK);
+                $pusher->push($data);
+            }else if($diamond < 0){
+                $data = array(
+                    's'=>10001,
+                    'pt'=>Das::PLATFORM_WEB,
+                    'v'=>$version,
+                    'w'=>Das::RESOURCE,
+                    'd' => array(
+                        't' => $diamond * -1,
+                        't_t'=>1,
+                        'p' => 0,
+                        'p_t'=>0
+                    )
+                );
+                $data = Encoder::instance()->encode(Tools::array_val_toString($data),Encoder::MSGPACK);
+                $pusher->push($data);
+            }
+
+            if ($coupon >0){
+                $data = array(
+                    's'=>10001,
+                    'pt'=>Das::PLATFORM_WEB,
+                    'v'=>$version,
+                    'w'=>Das::RESOURCE,
+                    'd' => array(
+                        't' => 0,
+                        't_t'=>0,
+                        'p'=> $coupon,
+                        'p_t'=>3
+                    )
+                );
+                $data = Encoder::instance()->encode(Tools::array_val_toString($data),Encoder::MSGPACK);
+                $pusher->push($data);
+            }else if ($coupon < 0){
+                $data = array(
+                    's'=>10001,
+                    'pt'=>Das::PLATFORM_WEB,
+                    'v'=>$version,
+                    'w'=>Das::RESOURCE,
+                    'd' => array(
+                        't' => $coupon * -1,
+                        't_t'=>3,
+                        'p' => 0,
+                        'p_t'=>0
+                    )
+                );
+                $data = Encoder::instance()->encode(Tools::array_val_toString($data),Encoder::MSGPACK);
+                $pusher->push($data);
+            }
+        }
+
         SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_PLAYERS_ADD,'编辑玩家#uid:'.$uid.'的资源属性');
         Redirect::instance()->forward('/player/lists/19');
     }

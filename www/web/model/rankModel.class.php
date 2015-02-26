@@ -63,7 +63,7 @@ class RankModel extends Model{
      */
     function getUserRank($user_number,$key,$type='global'){
         $orderlist = $list =  $this->_redis->lRange($type.':rank_info:'.$key,0,-1);
-        $order = 999;
+        $order = '100+';
         for($i = 0 ; $i < count($orderlist) ; $i++){
                 if($user_number == $orderlist[$i]) {
                     $order = $i;

@@ -37,4 +37,8 @@ class Download extends Controller{
         $this->tpl->display("download.html",$output);
     }
 
+    function mobile(){
+        $this->tpl->display('download-mobile.html');
+    }
+
 } 

@@ -23,10 +23,8 @@ class Error extends Controller{
         $code = $this->args[0];
         $error =   \web\libs\Error::error_info($code);
 
-        $output_data = array(
-            'error' => $error
-        );
-        $this->tpl->display('error.html',$output_data);
+        $this->output_data['error'] = $error;
+        $this->tpl->display('errors.html',$this->output_data);
 
     }
 

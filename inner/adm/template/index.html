@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">概览</strong> <small></small></div>
+</div>
+
+<ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
+    <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-user"></span><br/>今日新增用户<br/>{{userNumNewToday|default(0)}}</a></li>
+    <li><a href="" class="am-text-warning"><span class="am-icon-btn am-icon-users"></span><br/>总用户<br/>{{userNumTotal|default(0)}}</a></li>
+    <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-cny"></span><br/>总支出金额<br/>{{moneyTotal|default('0.00')}}</a></li>
+    <li><a href="" class="am-text-secondary"><span class="am-icon-btn am-icon-file-text"></span><br/>待处理提现<br/>{{unDoneDepositNum|default(0)}}</a></li>
+</ul>
+
+{% endblock %}

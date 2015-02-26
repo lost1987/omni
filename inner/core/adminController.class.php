@@ -165,7 +165,7 @@ class AdminController extends Base{
 
     /**
      * 将错误代码显示 并跳入错误页面
-     * @param int $error_code  Error::XXXX
+     * @param $error_code  Error::XXXX
      */
     protected  function set_error($error_code){
           Redirect::instance()->forward('/error/code/'.$error_code);

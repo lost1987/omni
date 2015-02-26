@@ -51,16 +51,19 @@
 
             //发送数据
             $pusher = new Pusher( $config->common['go_das_server']);
+
             if ( empty( $_POST ) )
                 die( Error::ARGUMENTS );
 
-            $json_data = Encoder::instance()->decode( $_POST['d'] );
+            if(!empty($_POST['d']))
+                $json_data = Tools::array_val_toString(Encoder::instance()->decode( $_POST['d'] ));
+            else
+                $json_data = null;
             unset( $_POST['d'] );
-            $data = Tools::std_array_format( $_POST );
-            $data['d'] = Tools::std_array_format( $json_data );
+            $data = Tools::array_val_toString( $_POST );
+            $data['d'] =  $json_data ;
             $data['v'] = "1.001.22";
             $data = Encoder::instance()->encode( $data , Encoder::MSGPACK );
             $pusher->push( $data )->kill();
         }
-
     }

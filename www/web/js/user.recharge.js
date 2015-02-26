@@ -1,0 +1,1 @@
+$(function(){$("#searchBtn").click(function(){var d=$("#start_time").val();var b=$("#end_time").val();d=d.replace(/-/g,"/");b=b.replace(/-/g,"/");var c=new Date(d).getTime();var e=new Date(b).getTime();if(d==""||b==""){$.alert("请选择要查询的时间段");return}if(c>=e){$.alert("起始时间必须小于结束时间");return}var a=30*24*3600*1000;if(e-c>a){$.alert("时间间隔不能大于30天");return}$("#rlForm").submit()})});

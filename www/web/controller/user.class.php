@@ -13,25 +13,28 @@ namespace web\controller;
 use core\Configure;
 use core\Controller;
 use core\Cookie;
+use core\DB;
 use core\Encoder;
 use core\Redirect;
-use utils\Das;
+use core\Redis;
+use libs\badwords\BadWords;
+use utils\Curl;
 use utils\Email;
-use utils\Page;
 use utils\StreamImage;
+use web\libs\DataUtil;
 use web\libs\Error;
 use web\libs\Helper;
+use common\Platform;
+use web\libs\LoginSync;
 use web\libs\UserUtil;
+use web\model\ArticlesModel;
 use web\model\FeedBackModel;
 use web\model\IndexHandleResultModel;
-use web\model\ProductOrderModel;
 use web\model\ProfileModel;
 use web\model\PurchaseProfileModel;
 use web\model\SessionModel;
-use web\model\StoreProductsModel;
-use web\model\UserMessageModel;
+use web\model\UserAuthModel;
 use web\model\UserModel;
-use web\model\GameSummaryModel;
 use utils\Tools;
 
 /**
@@ -50,65 +53,116 @@ class User extends Controller
         /*验证csrf**/
         $this->csrf_token_validation();
 
-        $username = $this->input->post('username');
+        $username = $this->input->post('login_name');
         $password = $this->input->post('password');
-        $auto_login = $this->input->post('auto_login');
-        $game_login = $this->input->post('game_login');
+        $gamelogin = !isset($_POST['game_login']) ? 0 : $this->input->post('game_login');
         $redirect = Redirect::instance();
 
         $errcode = 0;
 
         if (!empty($username)
             && !empty($password)
-            && strlen($username) >= 4
-            && strlen($username) <= 18
             && strlen($password) == 32
         ) {
             $user = UserModel::instance()->getUserByLoginName($username);
-            if (false == $user) {
-                $errcode = Error::ERROR_NO_USER;
-                //用户名不存在
-                if(!$game_login)
-                    $redirect->addGetParam('code', $errcode)->forward();
-                else
-                    $redirect->forward('/game/index/'.$errcode);
+            if(false == $user){//如果用户名不存在 则尝试用手机号登录
+                $user = UserModel::instance()->getUserByMobile($username);
+                if(false == $user){//如果手机号登录失败 则尝试用邮箱登录
+                    $user = UserModel::instance()->getUserByMail($username);
+                    if(false == $user)
+                            $this->loginFailed(0);
+                    else{
+                        //判断邮箱是否认证过
+                        $auth = UserUtil::instance()->get_auth($user['uid']);
+                        if (!$auth[UserUtil::USER_AUTH_MAIL])
+                            $this->loginFailed(0);
+                    }
+                }else{
+                    //判断手机号是否认证过
+                    $auth = UserUtil::instance()->get_auth($user['uid']);
+                    if (!$auth[UserUtil::USER_AUTH_SMS])
+                        $this->loginFailed(0);
+                }
             }
 
             if (UserUtil::instance()->is_password_valid($password, $user['password'], $user['user_number'])) {
-                Das::instance(Das::PLATFORM_WEB,10001,$user['uid'])->send(array('login'=>1),Das::LOGIN_COUNT | Das::LOGIN_NUM);
-                /*处理COOKIE**/
-                $cookie = Cookie::instance();
-                if ($auto_login == 1)
-                    $expire_time = 30 * 24 * 3600;
+                LoginSync::instance()->loginSuccess($user,$this->db);
+                $admDB = new DB();
+                $admDB->init_db_from_config('adm');
+                $this->loginSync($user,$this->db,$admDB);
+                if($gamelogin)
+                    $redirect->addGetParam('code', $errcode)->forward('/game/enter');
                 else
-                    $expire_time = $this->config->common['cookie']['timeout'];
-
-                $cookie->set_timeout($expire_time);
-                UserUtil::instance()->createSessionId($expire_time,$user);
-                $profile = ProfileModel::instance()->read($user['uid']);
-                $gamesummary = GameSummaryModel::instance()->read($user['uid']);
-                $cookie_data = array_merge($user, $profile);
-                if (false != $gamesummary)
-                    $cookie_data = array_merge($cookie_data, $gamesummary);
-                UserUtil::instance()->setUserCookie($cookie_data);
-                if(!$game_login)
                     $redirect->addGetParam('code', $errcode)->forward();
-                else
-                    $redirect->forward('/game/enter');
             }
             //密码错误
             $errcode = Error::ERROR_LOGIN_PWD;
-            if(!$game_login)
-                $redirect->addGetParam('code', $errcode)->forward();
+            if($gamelogin)
+                $redirect->addGetParam('code', $errcode)->forward('/game/enter');
             else
-                $redirect->forward('/game/index/'.$errcode);
+                $redirect->addGetParam('code', $errcode)->forward();
         }
         //用户名或密码为空
         $errcode = Error::ERROR_STRING_FORMAT;
+        $redirect->addGetParam('code', $errcode)->forward();
+    }
+
+    function loginWithAjax(){
+        /*验证csrf**/
+        $username = $this->input->post('login_name');
+        $password = $this->input->post('password');
+        $redirect = Redirect::instance();
+
+        if (!empty($username)
+            && !empty($password)
+            && strlen($password) == 32
+        ) {
+            $user = UserModel::instance()->getUserByLoginName($username);
+            if(false == $user){//如果用户名不存在 则尝试用手机号登录
+                $user = UserModel::instance()->getUserByMobile($username);
+                if(false == $user){//如果手机号登录失败 则尝试用邮箱登录
+                    $user = UserModel::instance()->getUserByMail($username);
+                    if(false == $user)
+                        $this->response(null,Error::ERROR_NO_USER);
+                    else{
+                        //判断邮箱是否认证过
+                        $auth = UserUtil::instance()->get_auth($user['uid']);
+                        if (!$auth[UserUtil::USER_AUTH_MAIL])
+                            $this->response(null,Error::ERROR_NO_USER);
+                    }
+                }else{
+                    //判断手机号是否认证过
+                    $auth = UserUtil::instance()->get_auth($user['uid']);
+                    if (!$auth[UserUtil::USER_AUTH_SMS])
+                        $this->response(null,Error::ERROR_NO_USER);
+                }
+            }
+
+            if (UserUtil::instance()->is_password_valid($password, $user['password'], $user['user_number'])) {
+                LoginSync::instance()->loginSuccess($user,$this->db);
+                $admDB = new DB();
+                $admDB->init_db_from_config('adm');
+                $this->loginSync($user,$this->db,$admDB);
+                $this->response();
+            }
+           $this->response(null,Error::ERROR_LOGIN_PWD);
+        }
+        //用户名或密码为空
+        $this->response(null,Error::ERROR_LOGIN_PWD);
+    }
+
+    private function loginSync($user,$gameDB,$admDB){
+        \uad\libs\LoginSync::instance()->loginSuccess($user,$gameDB,$admDB);
+    }
+
+    private function loginFailed($game_login){
+        $errcode = Error::ERROR_NO_USER;
+        //用户名不存在
         if(!$game_login)
-            $redirect->addGetParam('code', $errcode)->forward();
+            Redirect::instance()->addGetParam('code', $errcode)->forward();
         else
-            $redirect->forward('/game/index/'.$errcode);
+            Redirect::instance()->forward('/game/index/'.$errcode);
+        exit;
     }
 
 
@@ -124,7 +178,7 @@ class User extends Controller
             'areas' => $areas,
             'navigator' => Helper::getControllerName(__NAMESPACE__, __CLASS__)
         );
-        $this->tpl->display('signup.html', $output_data);
+        $this->tpl->display('signin.html', $output_data);
     }
 
 
@@ -136,7 +190,7 @@ class User extends Controller
     {
         $this->csrf_token_validation(false);
         $result['name'] = UserUtil::instance()->randomName();
-        echo Encoder::instance()->encode($result);
+        $this->response($result);
     }
 
     /**
@@ -147,11 +201,14 @@ class User extends Controller
         $this->csrf_token_validation(false);
         $login_name = $this->input->post('login_name');
         $userModel = UserModel::instance();
-        $output['exsit'] = false;
-        if ($userModel->isLoginNameExsit($login_name))
-            $output['exsit'] = true;
+        $noExsit = true;
+        if ($userModel->isLoginNameExsit($login_name) || !BadWords::instance()->checkBadUserName($login_name))
+            $noExsit = false;
 
-        echo Encoder::instance()->encode($output);
+        if($noExsit)
+            echo 'true';
+        else
+            echo 'false';
     }
 
     /**
@@ -162,11 +219,14 @@ class User extends Controller
         $this->csrf_token_validation(false);
         $nickname = $this->input->post('nickname');
         $userModel = UserModel::instance();
-        $output['exsit'] = false;
-        if ($userModel->isNickNameExsit($nickname))
-            $output['exsit'] = true;
+        $noExsit = true;
+        if ($userModel->isNickNameExsit($nickname) || !BadWords::instance()->checkBadWords($nickname) || !BadWords::instance()->checkBadUserName($nickname))
+            $noExsit = false;
 
-        echo Encoder::instance()->encode($output);
+        if($noExsit)
+            echo 'true';
+        else
+            echo 'false';
     }
 
     /**
@@ -187,24 +247,19 @@ class User extends Controller
      * 找回密码流程 检测用户名和邮件是否匹配
      */
     function checkForgetPassword(){
-        $response['error'] = 0;
         $this->csrf_token_validation(false);
         $login_name = $this->input->post('login_name');
         $email = $this->input->post('email');
 
         $userModel = UserModel::instance();
         $user = $userModel->getUserByLoginName($login_name);
-        if(empty($user['uid'])){
-            $response['error'] = Error::ERROR_NO_USER;
-            die(Encoder::instance()->encode($response));
-        }
+        if(empty($user['uid']))
+            die('false');
 
-        if($user['email'] != $email){
-            $response['error'] = Error::ERROR_VALIDATION_COLUMN;
-            die(Encoder::instance()->encode($response));
-        }
+        if($user['email'] != $email)
+            die('false');
 
-        die(Encoder::instance()->encode($response));
+        die('true');
     }
 
 
@@ -222,25 +277,20 @@ class User extends Controller
         if($post_fields === null) {
             $login_name = $this->input->post('login_name');
             $nickname = $this->input->post('nickname');
-            $password = $this->input->post('password');
-            $email = $this->input->post('email');
-            $mobile = empty($_POST['mobile']) ? 0 : $this->input->post('mobile');
+            $password = $this->input->post('hid_password');
             $isrobot = 0;
             $register_time = intval(date('YmdHis'));
             $gender = $this->input->post('gender');
             $area = $this->input->post('area');
 
             $error = 0;
-            if (strlen($login_name) < 4 || strlen($login_name) > 16)
+            if (strlen($login_name) < 4 || strlen($login_name) > 16 || preg_match('/^test(.*)/i',$login_name))
                 $error = Error::ERROR_STRING_FORMAT;
 
-            if (Tools::strlen_ex($nickname) < 3 || Tools::strlen_ex($nickname) > 8)
+            if (Tools::strlen_ex($nickname) < 3 || Tools::strlen_ex($nickname) > 8 || preg_match('/^test(.*)/i',$nickname))
                 $error = Error::ERROR_STRING_FORMAT;
 
             if (strlen($password) != 32)//已转为MD5
-                $error = Error::ERROR_STRING_FORMAT;
-
-            if (!Tools::isValidEmail($email))
                 $error = Error::ERROR_STRING_FORMAT;
 
             if ($error == Error::ERROR_STRING_FORMAT)
@@ -250,8 +300,6 @@ class User extends Controller
             $login_name = $post_fields['login_name'];
             $nickname = $post_fields['nickname'];
             $password = $post_fields['password'];
-            $email = $post_fields['email'];
-            $mobile = $post_fields['mobile'];
             $isrobot = $post_fields['is_robot'];
             $register_time = $post_fields['regist_time'];
             $gender =  0;
@@ -267,12 +315,11 @@ class User extends Controller
             'login_name' => $login_name,
             'nickname' => $nickname,
             'password' => UserUtil::instance()->makePassword($password, $user_number),
-            'email' => $email,
-            'mobile' => $mobile,
             'user_number' => $user_number,
             'regist_time' => $register_time,
             'is_robot' => $isrobot,
-            'forbidden' => 0
+            'forbidden' => 0,
+            'register_type'=>Platform::CLIENT_ORIGIN_WEB,
         );
 
         /*profile**/
@@ -309,20 +356,18 @@ class User extends Controller
             if (!ProfileModel::instance()->saveProfile($fields2))
                 throw new \Exception(Error::ERROR_DATA_WRITE);
 
-
             /*写入purchase_profile**/
             $fields3['user_id'] = $uid;
             if(!PurchaseProfileModel::instance()->saveProfile($fields3))
                 throw new \Exception(Error::ERROR_DATA_WRITE);
-
             $this->db->commit();
-            Das::instance(Das::PLATFORM_WEB,10001,$uid)->send(array('register'=>1),Das::REGISTER_NUM);
 
+            DataUtil::instance()->doAfterRegister(Platform::CLIENT_ORIGIN_WEB,$uid);
             $gamesummary['wins'] = 0;
             $gamesummary['total'] = 0;
             $expire_time = $this->config->common['cookie']['timeout'];
             UserUtil::instance()->setUserCookie(array_merge($fields1, $fields2, $gamesummary));
-            $user = array('login_name'=>$login_name,'user_number'=>$user_number);
+            $user = array('login_name'=>$login_name,'user_number'=>$user_number,'uid'=>$uid);
             UserUtil::instance()->createSessionId($expire_time,$user);
 
             if(isset($game_login) && $game_login)
@@ -332,6 +377,7 @@ class User extends Controller
 
         } catch (\Exception $e) {
             $this->db->rollback();
+            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'注册出错',$e);
             Redirect::instance()->forward('/error/index/'.$e->getMessage());
         }
 
@@ -342,6 +388,7 @@ class User extends Controller
      */
     function logout()
     {
+        UserUtil::instance()->createLogoutHistory(Cookie::instance()->userdata('uid'));
         Cookie::instance()->sess_destroy();
         unset($_SESSION);
         if(isset($this->args[0])){//如果是传入args[0]则跳到args[0]指定的页面
@@ -357,6 +404,7 @@ class User extends Controller
     {
         $this->tpl->display('agreement.html');
     }
+
 
 
     /**
@@ -387,10 +435,9 @@ class User extends Controller
      */
     private function password_1()
     {
-          $output_data = array(
-              'token' => Cookie::instance()->get_csrf_cookie()
-          );
-          $this->tpl->display('forget_password_1.html',$output_data);
+          $this->output_data['token'] = Cookie::instance()->get_csrf_cookie();
+          $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+          $this->tpl->display('service_selfService_findPw1.html',$this->output_data);
     }
 
     /**
@@ -410,30 +457,40 @@ class User extends Controller
         if($user['email'] != $email)
             Redirect::instance()->forward('/error/index/'.Error::ERROR_VALIDATION_COLUMN);
 
-        //生成下一步用户的验证key
-        $key = md5($user['uid'].'#'.time());
-        $user_number = $user['user_number'];
-
-        $purchaseModel = PurchaseProfileModel::instance();
-        $params  = array(
-            'confirmation_key' => $key,
-            'confirmation_key_created' => date('Y-m-d H:i:s')
+        //生成签名
+        $time = time();
+        $sign = UserUtil::instance()->createSecretSign($user['user_number'],$login_name,$time);
+        $params = array(
+            'n'=>$login_name,
+            't'=>$time
         );
+        $request_uri = http_build_query($params);
 
-        //写入user_purchaseprofile
-        if(!$purchaseModel->updateProfile($params,$user['uid']))
-            Redirect::instance()->forward('/error/index/'.Error::ERROR_DATA_WRITE);
+        //写入签名到redis
+        $r = new Redis($this->config->web['redis']['host'],$this->config->web['redis']['port']);
+        $redis = $r->getResource();
+        if(!$redis){
+            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'找回密码第二步无法连接redis数据库');
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_COMMON);
+        }
+        $redis->select(2);
+        $key = 'findPwd:mail:sign'.$login_name;
+        $redis -> set($key,$sign);
+        $redis->setTimeout($key,60*30);
+        $redis->close();
 
         //发送邮件
         $config = Configure::instance()->web['email'];
         $_Email = new Email($config);
-        $_Email->from($config['smtp_user'],'NewBee');
+        $_Email->from($config['smtp_user'],'[新蜂武汉麻将]');
         $_Email->to($email);
-        $_Email->subject('重置密码-NEWBEE');
-        $_Email->message('点击重设密码<a href="'.BASE_HOST.'/user/password/3/'.$key.'/'.$user_number.'"  target="_blank">'.BASE_HOST.'/user/password/3/'.$key.'/'.$user_number.'</a>');
+        $_Email->subject('重置登录密码-[新蜂武汉麻将]');
+        $_Email->message('点击重设登录密码<a href="'.BASE_HOST.'/user/password/3?'.$request_uri.'"  target="_blank">'.BASE_HOST.'/user/password/3?'.$request_uri.'</a>');
         $_Email->send();
 
-        $this->tpl->display('forget_password_2.html');
+        $this->output_data['email'] = $email;
+        $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+        $this->tpl->display('service_selfService_findPw2.html',$this->output_data);
     }
 
     /**
@@ -441,147 +498,314 @@ class User extends Controller
      */
     private function password_3()
     {
-            //验证加密链接
-            $confirm_key = $this->args[1];
-            $user_number = $this->args[2];
+            $login_name = $this->input->get('n');
+            $time = $this->input->get('t');
 
-            if(strlen($confirm_key) != 32 || empty($user_number))
-                Redirect::instance()->forward('/error/index/'.Error::ERROR_STRING_FORMAT);
+            //校验用户是否存在
+            $user = UserModel::instance()->getUserByLoginName($login_name);
+            if(empty($user))
+                Redirect::instance()->forward('/error/index/'.Error::ERROR_NO_USER);
+
+            //验证签名
+            $r = new Redis($this->config->web['redis']['host'],$this->config->web['redis']['port']);
+            $redis = $r->getResource();
+            if(!$redis){
+                Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'找回密码第三步无法连接redis数据库');
+                Redirect::instance()->forward('/error/index/'.Error::ERROR_COMMON);
+            }
+            $redis->select(2);
+            $key = 'findPwd:mail:sign'.$login_name;
+            $sign = $redis -> get($key);
+            $redis->close();
+
+            if($sign == false)
+                Redirect::instance()->forward('/error/index/'.Error::ERROR_EXPIRE_TIME);
+
+            $mySign = UserUtil::instance()->createSecretSign($user['user_number'],$login_name,$time);
+            if(strcmp($sign,$mySign) !== 0)
+                Redirect::instance()->forward('/error/index/'.Error::ERROR_SIGN);
+
 
              $output_data = array(
                  'token' => Cookie::instance()->get_csrf_cookie(),
-                 'confirm_key' => $confirm_key,
-                 'unum' => $user_number
+                 'n' => $login_name,
+                 't' => $time,
+                 'faq'=> ArticlesModel::instance()->lists(0,10,3)
              );
 
-            $this->tpl->display('forget_password_3.html',$output_data);
+            $this->tpl->display('service_selfService_findPw3.html',$output_data);
     }
 
     private function password_4()
     {
             $this->csrf_token_validation();
 
-            $confirm_key = $this->input->post('confirm_key');
-            $user_number = $this->input->post('unum');
-            if(empty($confirm_key) || empty($user_number))
-                Redirect::instance()->forward('/error/index/'.Error::ERROR_STRING_FORMAT);
+            $login_name = $this->input->post('n');
+            $time = $this->input->post('t');
+            if(empty($login_name))
+                Redirect::instance()->forward('/error/index/'.Error::ERROR_NO_USER);
 
-            $password = $this->input->post('password');
+            $password = $this->input->post('hid_password');
             if(strlen($password) != 32)
                 Redirect::instance()->forward('/error/index/'.Error::ERROR_STRING_FORMAT);
 
-            //校验用户是否存在
-            $user = UserModel::instance()->getUserByUserNumber($user_number);
-            if(empty($user))
-                Redirect::instance()->forward('/error/index/'.Error::ERROR_NO_USER);
+            //验证签名
+            $user = UserModel::instance()->getUserByLoginName($login_name);
+            $r = new Redis($this->config->web['redis']['host'],$this->config->web['redis']['port']);
+            $redis = $r->getResource();
+            if(!$redis){
+                Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'找回密码第四步无法连接redis数据库');
+                Redirect::instance()->forward('/error/index/'.Error::ERROR_COMMON);
+            }
+            $redis->select(2);
+            $key = 'findPwd:mail:sign'.$login_name;
+            $sign = $redis -> get($key);
 
-            //读取purchaseProfile
-            $purchase_profile_model  = PurchaseProfileModel::instance();
-            $profile = $purchase_profile_model->read($user['uid']);
-
-            //验证时效
-            $timediff = time() - strtotime($profile['confirmation_key_created']);
-            $expire_time = Configure::instance()->web['email']['expire_time'];
-            if($timediff > $expire_time)
+            if($sign == false)
                 Redirect::instance()->forward('/error/index/'.Error::ERROR_EXPIRE_TIME);
 
-            //验证key
-            if($profile['confirmation_key'] != $confirm_key)
-                Redirect::instance()->forward('/error/index/'.Error::ERROR_COMMON);
+            $mySign = UserUtil::instance()->createSecretSign($user['user_number'],$login_name,$time);
+            if(strcmp($sign,$mySign) !== 0)
+                Redirect::instance()->forward('/error/index/'.Error::ERROR_SIGN);
 
-            $fields1 = array(
-                'password' => UserUtil::instance()->makePassword($password,$user_number)
+            $fields = array(
+                'password' => UserUtil::instance()->makePassword($password,$user['user_number'])
             );
 
-            $fields2 = array(
-                'confirmation_key' => '',
-                'confirmation_key_created' => null
-            );
+            if(! UserModel::instance()->updateUser($fields,$user['uid']))
+                Redirect::instance()->forward('/error/index/'.Error::ERROR_DATA_WRITE);
 
-            try{
-                $this->db->begin();
-                if(! UserModel::instance()->updateUser($fields1,$user['uid']))
-                    throw new \Exception(Error::ERROR_DATA_WRITE);
-
-                if(! PurchaseProfileModel::instance()->updateProfile($fields2,$user['uid']))
-                    throw new \Exception(Error::ERROR_DATA_WRITE);
-
-                $this->db->commit();
-                $this->tpl->display('forget_password_4.html');
-            }catch (\Exception $e){
-                $this->db->rollback();
-                Redirect::instance()->forward('/error/index/'.$e->getMessage());
-            }
+            $redis->del($key);
+            $redis->close();
+            $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+            $this->tpl->display('service_selfService_findPw4.html',$this->output_data);
     }
 
-    /**
-     * 最新的获奖名单
-     */
-    function newlottery(){
-        $this->csrf_token_validation(false);
-        $productOrders = ProductOrderModel::instance()->lists_lottery(0,4);
-        $userModel = UserModel::instance();
-        $productModel = StoreProductsModel::instance();
-        foreach($productOrders as &$order){
-            $user = $userModel->getUserByUid($order['user_id']);
-            $order['login_name'] = $user['nickname'].' ';
-            $product = $productModel->read($order['product_id']);
-            $order['product_name'] = $product['name'];
-            unset($order['user_id'],$order['id'],$order['product_id']);
+
+    function mailAuth(){
+        $sessionid = $this->input->get('sessionid');
+        $sign = $this->input->get('sign');
+        $email = $this->input->get('email');
+
+        //验证签名
+        $mysign = md5( $sessionid.$email.$this->config->web['entry_key'] );
+        if($sign != $mysign)
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_SIGN);
+
+        $session = $this->check_session($sessionid);
+        if(false == $session)
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_EXPIRE_TIME);
+
+        $uid = $session['uid'];
+        $user = UserModel::instance()->getUserByMail($email);
+        if($user) {
+            $auth = UserUtil::instance()->get_auth($uid);
+            if($auth[UserUtil::USER_AUTH_MAIL])
+                Redirect::instance()->forward( '/error/index/' . Error::ERROR_EMAIL_AUTH_ALREALLY );
         }
+        unset($user,$auth);
 
-        $this->response(0,$productOrders);
+        try{
+            $this->db->begin();
+
+            $fields = array(
+                'email' => $email,
+            );
+
+            if (!UserModel::instance()->updateUser($fields,$uid))
+                throw new \Exception(Error::ERROR_COMMON);
+
+            $userAuth = UserAuthModel::instance()->read($uid,UserUtil::USER_AUTH_MAIL);
+            if(false == $userAuth){
+                if (!UserAuthModel::instance()->save($uid,UserUtil::USER_AUTH_MAIL))
+                    throw new \Exception(Error::ERROR_COMMON);
+            }
+
+            $this->db->commit();
+            $c = new Curl();
+            $c -> setOpt(CURLOPT_CONNECTTIMEOUT,2);
+            $c ->get($this->config->common['http_monitor'].'/identitiy-changed?type=email&opt=bind&uid='.$uid);
+            $c -> close();
+            if($c -> error)
+                Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'CURL通知游戏服务器绑定邮箱失败');
+            Redirect::instance()->forward('/userAuth/authDone/e');
+        }catch (\Exception $e){
+            $this->db->rollback();
+            Redirect::instance()->forward('/error/index/'.$e->getMessage());
+        }
     }
 
     /**
-     * 获取个人的私信列表
+     * 忘记支付密码
      */
-    function messages(){
-        UserUtil::instance()->checkLogin('/error/index/'.Error::ERROR_NO_LOGIN);
-        $uid = Cookie::instance()->userdata('uid');
-        $pagecount = 10;
-        $page = empty($this->args[0]) ? 1 : $this->args[0];
-        $start  =  ($page - 1) * $pagecount ;
+    function payPassword()
+    {
+        $step = empty($this->args[0]) ? 1 : $this->args[0];
+        switch ($step) {
+            case 1:
+                $this->payPassword_1();
+                break;
+            case 2:
+                $this->payPassword_2();
+                break;
+            case 3:
+                $this->payPassword_3();
+                break;
+            case 4:
+                $this->payPassword_4();
+                break;
+        }
+    }
 
-        $total = UserMessageModel::instance()->num_rows($uid);
-        $list = UserMessageModel::instance()->lists($uid,$start,$pagecount);
+    /**
+     * 跳转到表单页面
+     */
+    private function payPassword_1()
+    {
+        $this->output_data['token'] = Cookie::instance()->get_csrf_cookie();
+        $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+        $this->tpl->display('service_selfService_findPayPw1.html',$this->output_data);
+    }
+
+    /**
+     *验证并发送给邮箱
+     */
+    private function payPassword_2()
+    {
+        $this->csrf_token_validation();
+        $login_name = $this->input->post('login_name');
+        $email = $this->input->post('email');
+
+        $userModel = UserModel::instance();
+        $user = $userModel->getUserByLoginName($login_name);
+        if(empty($user['uid']))
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_NO_USER);
+
+        if($user['email'] != $email)
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_VALIDATION_COLUMN);
+
+        //生成签名
+        $time = time();
+        $sign = UserUtil::instance()->createSecretSign($user['user_number'],$login_name,$time);
+        $params = array(
+            'n'=>$login_name,
+            't'=>$time
+        );
+        $request_uri = http_build_query($params);
+
+        //写入签名到redis
+        $r = new Redis($this->config->web['redis']['host'],$this->config->web['redis']['port']);
+        $redis = $r->getResource();
+        if(!$redis){
+            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'找回密码第二步无法连接redis数据库');
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_COMMON);
+        }
+        $redis->select(2);
+        $key = 'findPayPwd:mail:sign'.$login_name;
+        $redis -> set($key,$sign);
+        $redis->setTimeout($key,60*30);
+        $redis->close();
+
+        //发送邮件
+        $config = Configure::instance()->web['email'];
+        $_Email = new Email($config);
+        $_Email->from($config['smtp_user'],'[新蜂武汉麻将]');
+        $_Email->to($email);
+        $_Email->subject('重置消费密码-[新蜂武汉麻将]');
+        $_Email->message('点击重设消费密码<a href="'.BASE_HOST.'/user/payPassword/3?'.$request_uri.'"  target="_blank">'.BASE_HOST.'/user/payPassword/3?'.$request_uri.'</a>');
+        $_Email->send();
+
+        $this->output_data['email'] = $email;
+        $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+        $this->tpl->display('service_selfService_findPayPw2.html',$this->output_data);
+    }
+
+    /**
+     * 重设密码
+     */
+    private function payPassword_3()
+    {
+        $login_name = $this->input->get('n');
+        $time = $this->input->get('t');
+
+        //校验用户是否存在
+        $user = UserModel::instance()->getUserByLoginName($login_name);
+        if(empty($user))
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_NO_USER);
+
+        //验证签名
+        $r = new Redis($this->config->web['redis']['host'],$this->config->web['redis']['port']);
+        $redis = $r->getResource();
+        if(!$redis){
+            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'找回密码第三步无法连接redis数据库');
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_COMMON);
+        }
+        $redis->select(2);
+        $key = 'findPayPwd:mail:sign'.$login_name;
+        $sign = $redis -> get($key);
+        $redis->close();
+
+        if($sign == false)
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_EXPIRE_TIME);
+
+        $mySign = UserUtil::instance()->createSecretSign($user['user_number'],$login_name,$time);
+        if(strcmp($sign,$mySign) !== 0)
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_SIGN);
+
 
         $output_data = array(
-            'list' => $list,
+            'token' => Cookie::instance()->get_csrf_cookie(),
+            'n' => $login_name,
+            't' => $time,
+            'faq'=> ArticlesModel::instance()->lists(0,10,3)
         );
 
-        //分页代码初始化
-        $page_params = array(
-            'total_rows'=> $total, #(必须)
-            'method'    =>'html', #(必须)
-            'parameter' =>'/user/messages/?',  #(必须)
-            'now_page'  => $page,  #(必须)
-            'list_rows' => $pagecount, #(可选) 默认为15
-            'li_classname'=>'active',
-            'use_tag_li' => true
-        );
-        $pagination  = new Page($page_params);
-        if($pagination->getTotalPage() > 1)
-            $output_data['pagination'] =  $pagination->show(1);
-
-        $this->tpl->display('user_message.html',$output_data);
+        $this->tpl->display('service_selfService_findPayPw3.html',$output_data);
     }
 
-    /**
-     * 将个人消息设置为只读状态[ajax]
-     */
-    function readMessage(){
-         if(!UserUtil::instance()->isLogin())
-             $this->response(Error::ERROR_NO_LOGIN);
+    private function payPassword_4()
+    {
+        $this->csrf_token_validation();
 
-         $msg_id = intval($this->args[0]);
-         $fields = array(
-             'has_read' => 1
-         );
+        $login_name = $this->input->post('n');
+        $time = $this->input->post('t');
+        if(empty($login_name))
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_NO_USER);
 
-         if(!UserMessageModel::instance()->update($fields,$msg_id))
-             $this->response(Error::ERROR_DATA_WRITE);
-         $this->response(0);
+        $password = $this->input->post('hid_password');
+        if(strlen($password) != 32)
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_STRING_FORMAT);
+
+        //验证签名
+        $user = UserModel::instance()->getUserByLoginName($login_name);
+        $r = new Redis($this->config->web['redis']['host'],$this->config->web['redis']['port']);
+        $redis = $r->getResource();
+        if(!$redis){
+            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'找回密码第四步无法连接redis数据库');
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_COMMON);
+        }
+        $redis->select(2);
+        $key = 'findPayPwd:mail:sign'.$login_name;
+        $sign = $redis -> get($key);
+
+        if($sign == false)
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_EXPIRE_TIME);
+
+        $mySign = UserUtil::instance()->createSecretSign($user['user_number'],$login_name,$time);
+        if(strcmp($sign,$mySign) !== 0)
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_SIGN);
+
+        $fields = array(
+            'purchase_password' => UserUtil::instance()->makePassword($password,$user['user_number'])
+        );
+
+        if(! PurchaseProfileModel::instance()->updateProfile($fields,$user['uid']))
+            Redirect::instance()->forward('/error/index/'.Error::ERROR_DATA_WRITE);
+
+        $redis->del($key);
+        $redis->close();
+        $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+        $this->tpl->display('service_selfService_findPayPw4.html',$this->output_data);
     }
 
 
@@ -630,7 +854,7 @@ class User extends Controller
                 throw new \Exception(Error::ERROR_DATA_WRITE);
 
             $this->db->commit();
-            $this->response(0);
+            $this->response(null);
         }catch (\Exception $e){
             $this->db->rollback();
             $this->response($e->getMessage());
@@ -652,7 +876,18 @@ class User extends Controller
 
         $s = StreamImage::instance(BASE_PATH.'/web/upload/peacock');
         $image_name = $s->stream2Image();
-        $url = 'http://v.t.sina.com.cn/share/share.php?url='.BASE_HOST.'&title=新蜂武汉麻将&pic='.STATIC_HOST.'/upload/peacock/'.$image_name;
-        $this->response(0,array('url'=>$url));
+        $url = 'http://v.t.sina.com.cn/share/share.php?url='.BASE_HOST.'&title=我正在玩新蜂武汉麻将，随时约，随地搓，喜欢武汉麻将的伙伴们有福了，快来和我一起吧!&pic='.STATIC_HOST.'/upload/peacock/'.$image_name;
+        $this->response(array('url'=>$url));
     }
+
+    /**
+     * 邀请码分享
+     */
+    function iShared(){
+        $code = $this->input->get('code');
+        $words = '致我亲爱的麻油们，给你送上一个开心大红包，小小现金，只为开心。我在新蜂武汉麻将等你，快来和我一起吧！（我的专属邀请码：'.$code.'）';
+        $url = 'http://v.t.sina.com.cn/share/share.php?url='.BASE_HOST.'&title='.$words;
+        $this->response(array('url'=>$url));
+    }
+
 }

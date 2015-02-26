@@ -8,9 +8,6 @@
 
 namespace web\libs;
 
-
-use core\ReflectClass;
-
 class Error {
 
     //登录信息过期或未登录
@@ -60,6 +57,16 @@ class Error {
 
     const ERROR_FILE_NOT_EXIST = 19;//文件不存在
 
+    const ERROR_EMAIL_AUTH_ALREALLY = 20;//邮箱已认证 不能重复认证
+
+    const ERROR_MOBILE_UNMATCHED = 21; //解绑手机时 输入的手机号和原认证手机号不匹配
+
+    const ERROR_EMAIL_UNMATCHED = 22; //解绑邮箱时 输入的邮箱和原认证邮箱不匹配
+
+    const ERROR_VIP_LEVEL_NOT_ENOUGH = 23;//vip等级不足
+
+    const ERROR_PAGE_NOT_FOUND = 404;
+
     /**
      * 返回所有的错误的key,value
      */
@@ -103,7 +110,15 @@ class Error {
                 case 18: $info = '签名错误'; //数字签名验证错误
                     break;
                 case 19 : $info='资源不存在';
-
+                    break;
+                case 20:$info='邮箱已认证';
+                    break;
+                case 21:$info='输入的手机号和原认证手机号不匹配';
+                    break;
+                case 22:$info='输入的邮箱和原认证邮箱不匹配';
+                    break;
+                case 404:$info = '页面不存在';
+                    break;
             }
             return $info;
     }

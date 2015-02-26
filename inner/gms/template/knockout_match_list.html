@@ -49,6 +49,7 @@
                 <tr>
                     <th> MATCH_ID</th>
                     <th class="hidden-phone">状态</th>
+                    <th>比赛名称</th>
                     <th>比赛类型</th>
                     <th>起始小时</th>
                     <th>起始分钟</th>
@@ -72,6 +73,9 @@
                         {% else %}
                         停用
                         {% endif %}
+                    </td>
+                    <td>
+                        {{item.name}}
                     </td>
                     <td class="hidden-phone">
                         <a href="javascript:;">{{item.match_type_name}}</a>

@@ -20,6 +20,8 @@ class Cookie {
 
     private $_path;
 
+    private $_domain;
+
     public function __construct(){
         $config = Configure::instance();
         $c = $config->common['cookie'];
@@ -27,6 +29,7 @@ class Cookie {
         $this -> _secret = $c['secret'];
         $this -> _timeout = $c['timeout'];
         $this -> _path = $c['path'];
+        $this -> _domain = $c['domain'];
     }
 
     static function instance(){
@@ -47,13 +50,13 @@ class Cookie {
         if(is_string($key)){
             if(!empty($val)) $val = Tools::authcode($val,'ENCODE',$this->_secret);
             $_COOKIE[$key] = $val;
-            setcookie($key,$val,time()+$this -> _timeout,$this ->_path);
+            setcookie($key,$val,time()+$this -> _timeout,$this ->_path,$this->_domain);
         }
         else if(is_array($key)){
             foreach($key as $k => $v){
                 if(!empty($v)) $v = Tools::authcode($v,'ENCODE',$this->_secret);
                 $_COOKIE[$k] = $v;
-                setcookie($k,$v,time()+$this -> _timeout,$this ->_path);
+                setcookie($k,$v,time()+$this -> _timeout,$this ->_path,$this->_domain);
             }
         }
         else{
@@ -69,12 +72,12 @@ class Cookie {
 
         if(is_string($key)){
             $_COOKIE[$key] = $val;
-            setcookie($key,$val,time()+$this -> _timeout,$this ->_path);
+            setcookie($key,$val,time()+$this -> _timeout,$this ->_path,$this->_domain);
         }
         else if(is_array($key)){
             foreach($key as $k => $v){
                 $_COOKIE[$k] = $v;
-                setcookie($k,$v,time()+$this -> _timeout,$this ->_path);
+                setcookie($k,$v,time()+$this -> _timeout,$this ->_path,$this->_domain);
             }
         }
         else{
@@ -103,11 +106,11 @@ class Cookie {
         if(empty($key))return;
 
         if(is_string($key)){
-            setcookie($key,'',time()-$this -> _timeout,$this ->_path);
+            setcookie($key,'',time()-$this -> _timeout,$this ->_path,$this->_domain);
         }
         else if(is_array($key)){
             foreach($key as $k => $v){
-                setcookie($k,'',time()-$this -> _timeout,$this ->_path);
+                setcookie($k,'',time()-$this -> _timeout,$this ->_path,$this->_domain);
             }
         }
         else{
@@ -130,7 +133,7 @@ class Cookie {
     public function sess_destroy(){
         if(count($_COOKIE) > 0){
             foreach($_COOKIE as $k => $v){
-                setcookie($k,'',time()-$this -> _timeout,$this ->_path);
+                setcookie($k,'',time()-$this -> _timeout,$this ->_path,$this->_domain);
             }
         }
     }
@@ -145,7 +148,7 @@ class Cookie {
         if(empty($_COOKIE[$token_name])){
             $hash = md5(uniqid(rand(), TRUE));
             $_COOKIE[$token_name] = $hash;//设置2次无需刷新cookie
-            setcookie($token_name,$hash,time()+$csrf['expire_time'],$this->_path);
+            setcookie($token_name,$hash,time()+$csrf['expire_time'],$this->_path,$this->_domain);
         }
     }
 
@@ -158,7 +161,7 @@ class Cookie {
         $token_name = $csrf['cookie_name'];
         $hash = md5(uniqid(rand(), TRUE));
         $_COOKIE[$token_name] = $hash;//设置2次无需刷新cookie
-        setcookie($token_name,$hash,time()+$csrf['expire_time'],$this->_path);
+        setcookie($token_name,$hash,time()+$csrf['expire_time'],$this->_path,$this->_domain);
     }
 
     /**

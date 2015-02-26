@@ -47,13 +47,13 @@ class PaymentOrder extends Model{
             $limit = " LIMIT  $start,$count";
         }
 
-        $sql = "SELECT money as m,create_at as time FROM payment_order WHERE user_id = ? and UNIX_TIMESTAMP(create_at) > ? and UNIX_TIMESTAMP(create_at) < ? ORDER BY create_at ASC $limit";
+        $sql = "SELECT money as m,create_at as time FROM payment_order WHERE user_id = ? and UNIX_TIMESTAMP(create_at) > ? and UNIX_TIMESTAMP(create_at) < ? and status = 1 ORDER BY create_at ASC $limit";
         $this->db->execute($sql,array($uid,$start_time,$end_time));
         return $this->db->fetch_all();
     }
 
     function searchByDateNums($uid,$start_time,$end_time){
-        $sql = "SELECT count(*) as num FROM payment_order WHERE user_id = ? and UNIX_TIMESTAMP(create_at) > ? and UNIX_TIMESTAMP(create_at) < ?";
+        $sql = "SELECT count(*) as num FROM payment_order WHERE user_id = ? and UNIX_TIMESTAMP(create_at) > ? and UNIX_TIMESTAMP(create_at) < ? and status = 1";
         $this->db->execute($sql,array($uid,$start_time,$end_time));
         return $this->db->fetch()['num'];
     }
@@ -67,5 +67,15 @@ class PaymentOrder extends Model{
         $sql = "SELECT * FROM payment_order WHERE order_no = ?";
         $this->db->execute($sql,array($order_no));
         return $this->db->fetch();
+    }
+
+    /**
+     * 根据uid获取他的充值记录数
+     * @param $uid
+     */
+    function getNumsByUid($uid){
+        $sql = "SELECT COUNT(*) as num FROM payment_order WHERE user_id = ?";
+        $this->db->execute($sql,array($uid));
+        return $this->db->fetch()['num'];
     }
 } 

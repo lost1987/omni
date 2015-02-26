@@ -1,0 +1,1 @@
+var fonts=500;$(function(){$("#content").keyup(function(){var a=$(this).val().length;var b=fonts-a<0?0:fonts-a;$("#fonts").html(b)})});function fs(){if($("input:checked").length==0){$.alert("请选择要反馈的问题类型");return}var a=$("#content").val();if(a.length>500||a.replace(/\s+/g,"").length<5){$.alert("请按要求输入详细描述");return}$("#feedbackForm").submit()};

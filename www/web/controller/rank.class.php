@@ -58,12 +58,8 @@ class Rank extends Controller{
             $order++;
         }
 
-        $output_data = array(
-            'orderlist' => array_values($data),
-            'token' => $token,
-            'rank_keys' => Configure::instance()->web['rank_keys'],
-            'navigator' => Helper::getControllerName(__NAMESPACE__,__CLASS__)
-        );
+        $this->output_data['orderlist'] = array_values($data);
+        $this->output_data['token'] = $token;
 
         if(UserUtil::instance()->isLogin()) {
 
@@ -72,41 +68,46 @@ class Rank extends Controller{
                 $myrank = $this->_rankModel->getUserRank($my_user_number,$key);
                 $myrank['isme'] = 1;
                 $myrank['area'] = $areas[$myrank['area']];
-            }
 
+                /**
+                 * 缓存中没有排名数据
+                 */
+                if (false == $myrank['nickname']) {
+                    $uid = Cookie::instance()->userdata('uid');
+                    $gamesummary = GameSummaryModel::instance()->read($uid);
+                    $user = UserModel::instance()->getUserByUid($uid);
+                    $profile = ProfileModel::instance()->read($uid);
 
-            /**
-             * 缓存中没有排名数据
-             */
-            if (false == $myrank['nickname']) {
-                $uid = Cookie::instance()->userdata('uid');
-                $gamesummary = GameSummaryModel::instance()->read($uid);
-                $user = UserModel::instance()->getUserByUid($uid);
-                $profile = ProfileModel::instance()->read($uid);
-
-                $myrank['nickname'] = $user['nickname'];
-                $myrank['area'] = $areas[$profile['area']];
-                $myrank['coins'] = $profile['coins'];
-                if (false != $gamesummary) {
-                    foreach ($myrank as $k => $v) {
-                        if (array_key_exists($k, $gamesummary)) {
+                    $myrank['nickname'] = $user['nickname'];
+                    $myrank['area'] = $areas[$profile['area']];
+                    $myrank['coins'] = $profile['coins'];
+                    if (false != $gamesummary) {
+                        foreach ($myrank as $k => $v) {
+                            if (array_key_exists($k, $gamesummary)) {
                                 $myrank[$k] = $gamesummary[$k];
+                            }
+                        }
+                    } else {
+                        foreach ($myrank as $k => $v) {
+                            if (false == $myrank[$k])
+                                $myrank[$k] = 0;
                         }
                     }
-                } else {
-                    foreach ($myrank as $k => $v) {
-                        if (false == $myrank[$k])
-                            $myrank[$k] = 0;
-                    }
+                    $myrank['order'] = '未取得名次';
                 }
-                $myrank['order'] = '未取得名次';
+                if(empty($myrank['win_rate']))
+                    $myrank['win_rate'] = 0;
+                $this->output_data['orderlist'][$myrank['order']] = $myrank;
             }
-            if(empty($myrank['win_rate']))
-                $myrank['win_rate'] = 0;
-            $output_data['orderlist'][$myrank['order']] = $myrank;
+
         }
 
-        $this->tpl->display('rank.html',$output_data);
+        foreach($this->output_data['orderlist'] as $k => $v){
+            if(intval($v[$key]) == 0)
+                unset($this->output_data['orderlist'][$k]);
+        }
+        $this->output_data['phb'] = 'active';
+        $this->tpl->display('rankList.html',$this->output_data);
     }
 
 
@@ -118,10 +119,6 @@ class Rank extends Controller{
             $this->csrf_token_validation(false);
             $type = $this->args[0];
             $key = $this->args[1];
-            $response = array(
-                'error_code' => 1,
-                'data' => ''
-            );
 
             if(!empty($type) && !empty($key)) {
                 $data = $this->_rankModel->getOrderList($type, $key);
@@ -142,8 +139,7 @@ class Rank extends Controller{
                     $order++;
                 }
 
-                $response['error_code'] = 0;
-                $response['data'] = array_values($data);
+                $response = array_values($data);
                 if (UserUtil::instance()->isLogin()) {
                     if (!$in_orders) {
                         //取自己的排名
@@ -179,10 +175,14 @@ class Rank extends Controller{
                         }
                         if(empty($myrank['win_rate']))
                             $myrank['win_rate'] = 0;
-                        $response['data'][$myrank['order']] = $myrank;
+                        $response[$myrank['order']] = $myrank;
                     }
                 }
+                foreach($response as $k => $v){
+                    if(intval($v[$key]) == 0)
+                        unset($response[$k]);
+                }
             }
-                die(Encoder::instance()->encode($response));
+                $this->response($response);
     }
 } 

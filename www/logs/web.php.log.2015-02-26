@@ -1,0 +1,29 @@
+[26-Feb-2015 10:00:59 Asia/Shanghai]  PHP WARNING : warning  with message 'PDOStatement::execute(): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and '2015-02-26' = LEFT(login_time,10)' at line 1' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:100
+Stack trace:
+#0 (): error_transfer_exception(integer, string, string, integer, array)
+#1 /Users/shameless/php_workspace/website_php/www/core/db.class.php(156): execute(NULL)
+#2 /Users/shameless/php_workspace/website_php/www/web/model/userModel.class.php(215): execute(string)
+#3 /Users/shameless/php_workspace/website_php/www/web/libs/userUtil.class.php(301): hasLoginToday(NULL)
+#4 /Users/shameless/php_workspace/website_php/www/web/libs/dataUtil.class.php(48): hasLoginToday(NULL)
+#5 /Users/shameless/php_workspace/website_php/www/web/controller/game.class.php(41): doAfterLogin(integer, NULL)
+#6 (): enter()
+#7 /Users/shameless/php_workspace/website_php/www/core/fpm.class.php(78): call_user_func(array)
+#8 /Users/shameless/php_workspace/website_php/www/omni.class.php(136): run(string, object)
+#9 /Users/shameless/php_workspace/website_php/www/web/index.php(65): run(string)
+#10 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 100
+[26-Feb-2015 10:00:59 Asia/Shanghai]  PHP WARNING : warning  with message 'PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:100
+Stack trace:
+#0 (): error_transfer_exception(integer, string, string, integer, array)
+#1 /Users/shameless/php_workspace/website_php/www/core/db.class.php(156): execute(array)
+#2 /Users/shameless/php_workspace/website_php/www/core/db.class.php(204): execute(string, array)
+#3 /Users/shameless/php_workspace/website_php/www/web/model/visitHistoryModel.class.php(31): save(array, string)
+#4 /Users/shameless/php_workspace/website_php/www/web/libs/userUtil.class.php(317): save(array)
+#5 /Users/shameless/php_workspace/website_php/www/web/libs/dataUtil.class.php(52): createVisitHistory(NULL, integer)
+#6 /Users/shameless/php_workspace/website_php/www/web/controller/game.class.php(41): doAfterLogin(integer, NULL)
+#7 (): enter()
+#8 /Users/shameless/php_workspace/website_php/www/core/fpm.class.php(78): call_user_func(array)
+#9 /Users/shameless/php_workspace/website_php/www/omni.class.php(136): run(string, object)
+#10 /Users/shameless/php_workspace/website_php/www/web/index.php(65): run(string)
+#11 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 100

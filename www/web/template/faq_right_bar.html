@@ -1,0 +1,30 @@
+<div class="col-xs-3">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">常见问题</h2>
+        </div>
+        <div class="panel-body">
+            <div class="p15">
+                <ul class="list list05">
+                    {% for item in faq %}
+                    <li><a href="/articles/detail/{{item.id}}" title="{{item.title}}">{{item.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title">客服专区</h2>
+        </div>
+        <div class="panel-body">
+            <div class="p15 pb50">
+                <h4 class="phoneNumb text-blue" style="text-align: center">027-59817413</h4>
+                <h4 class="phoneNumb text-blue" style="text-align: center"><a href="/service/fb" >我要提意见</a></h4>
+                <div class="text-center"><span class="icon icon-qq-org"></span>
+                    <h4 class="bubble"><span class="arrowL-b"></span><a href="http://shang.qq.com/wpa/qunwpa?idkey=cccb0ff5e146f7ad2f26d700d1b1fa3a24bc82bdb115c6833bcb47bba52de14f" target="_blank">点击加入</a></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

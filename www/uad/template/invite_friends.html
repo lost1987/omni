@@ -1,0 +1,124 @@
+<div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">邀请好友</strong>  <small></small></div>
+</div>
+
+<div class="am-cf am-padding">
+    <label>我的邀请码:&nbsp;&nbsp;&nbsp;</label>
+    <code>{{invite_code}}</code>
+</div>
+
+<div class="am-g am-padding">
+    <div class="am-u-sm-12">
+        <a class="am-badge am-badge-primary am-round">新蜂币奖励:</a><br/><br/>
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <caption class="am-text-left"><b style="font-size: 1.4rem">1.充值返利</b></caption>
+            <thead>
+            <tr>
+                <th></th>
+                <th>一级下线</th>
+                <th>二级下线</th>
+                <th>三级下线</th>
+                <th>四级下线</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>返现比例</td>
+                <td>{{rechargeReward.ratio1}}</td>
+                <td>{{rechargeReward.ratio2}}</td>
+                <td>{{rechargeReward.ratio3}}</td>
+                <td>{{rechargeReward.ratio4}}</td>
+            </tr>
+            <tr>
+                <td>公式</td>
+                <td>下线充值金额*10000*{{rechargeReward.ratio1}}</td>
+                <td>下线充值金额*10000*{{rechargeReward.ratio2}}</td>
+                <td>下线充值金额*10000*{{rechargeReward.ratio3}}</td>
+                <td>下线充值金额*10000*{{rechargeReward.ratio4}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="am-g am-padding">
+    <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <caption class="am-text-left"><b style="font-size: 1.4rem">2.提现奖励</b></caption>
+            <thead>
+            <tr>
+                <th></th>
+                <th>一级下线</th>
+                <th>二级下线</th>
+                <th>三级下线</th>
+                <th>四级下线</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for j in 1..4 %}
+                    <tr>
+                        <td> 提现达到{{depositReward['ratio'~j][j-1].money}}元 </td>
+                        {% for i in 1..4 %}
+                            <td>{{depositReward['ratio'~i][j-1].newcoins}}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="am-g am-padding">
+    <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <caption class="am-text-left"><b style="font-size: 1.4rem">3.成长奖励</b></caption>
+            <thead>
+            <tr>
+                <th>游戏等级</th>
+                <th>一级下线</th>
+                <th>二级下线</th>
+                <th>三级下线</th>
+                <th>四级下线</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for j in 1..3 %}
+            <tr>
+                <td> {{levelUpReward['ratio'~j][j-1].lv}}级 </td>
+                {% for i in 1..4 %}
+                <td>{{levelUpReward['ratio'~i][j-1].newcoins}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="am-g am-padding">
+    <div class="am-u-sm-12">
+        <table class="am-table am-table-striped am-table-hover table-main">
+            <caption class="am-text-left"><b style="font-size: 1.4rem">4.登录奖励</b></caption>
+            <thead>
+            <tr>
+                <th>累计签到</th>
+                <th>一级下线</th>
+                <th>二级下线</th>
+                <th>三级下线</th>
+                <th>四级下线</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for j in 1..3 %}
+            <tr>
+                <td> {{loginReward['ratio'~j][j-1].days}}天 </td>
+                {% for i in 1..4 %}
+                <td>{{loginReward['ratio'~i][j-1].newcoins}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+input.error{
+    border:1px red solid;
+}
+
+label.error{
+    font-size:12px;
+    line-height:2.5;
+    color:orangered;
+    font-weight: normal;
+}
+
+label i{
+    display:inline-block;
+}
+

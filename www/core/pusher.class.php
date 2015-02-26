@@ -26,7 +26,7 @@ class Pusher {
             $this->init($config,$persisted);
     }
 
-    function __distruct(){
+    function __destruct(){
         $this->_host = null;
         $this->_port = null;
         $this->_queue = null;
@@ -56,7 +56,7 @@ class Pusher {
      * 关闭连接
      */
     function kill(){
-            $this->_queue->disconnect("$this->_host:$this->_port");
+            @$this->_queue->disconnect("$this->_host:$this->_port");
     }
 
 } 

@@ -9,5 +9,5 @@ namespace web\libs\exchange;
 
 interface IExchange
 {
-    function doExchange($product, $user, $response);
+    function doExchange($product, $user);
 } 

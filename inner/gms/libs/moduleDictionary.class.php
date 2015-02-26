@@ -231,4 +231,33 @@ class ModuleDictionary {
      */
     const MODULE_SYSTEM_SERVER = 45;
 
+    /**
+     * 系统公告列表
+     */
+    const MODULE_SYSTEM_MESSAGE_LIST = 46;
+
+    /**
+     * 系统公告添加
+     */
+    const MODULE_SYSTEM_MESSAGE_ADD = 47;
+
+    /**
+     * 文章管理
+     */
+    const ROOT_MODULE_ARTICLES = 49;
+
+    /**
+     * 文章添加
+     */
+    const MODULE_ARTICLE_ADD = 50;
+
+    /**
+     * 文章列表
+     */
+    const MODULE_ARTICLE_LIST = 51;
+
+    /**
+     * 文章删除
+     */
+    const MODULE_ARTICLE_DEL = 52;
 } 

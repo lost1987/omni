@@ -46,7 +46,7 @@ class ScaleImage {
         $im=$this->create($src);
         imagecopyresampled($temp_img,$im,0,0,0,0,$w,$h,$width,$height);
 
-        imagejpeg($temp_img,$savepath, 100);
+        imagepng($temp_img,$savepath,2);
         imagedestroy($im);
 
         return $savepath;
@@ -59,7 +59,6 @@ class ScaleImage {
      * **/
     function create($src) {
         $info=getimagesize($src);
-        echo $src;
         switch ($info[2]) {
             case 1:
                 $im=imagecreatefromgif($src);

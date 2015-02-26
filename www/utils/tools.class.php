@@ -7,7 +7,6 @@
      * 工具类
      */
     namespace utils;
-    if ( !defined( 'BASE_PATH' ) ) exit( 'No direct script access allowed' );
 
     class Tools
     {
@@ -28,52 +27,114 @@
         static function authcode( $string , $operation = 'DECODE' , $key = '' , $expiry = 0 )
         {
 
-            $ckey_length = 4;
+//            $ckey_length = 4;
+//
+//            $key = md5( $key ? $key : "kalvin.cn" );
+//            $keya = md5( substr( $key , 0 , 16 ) );
+//            $keyb = md5( substr( $key , 16 , 16 ) );
+//            $keyc = $ckey_length ? ( $operation == 'DECODE' ? substr( $string , 0 , $ckey_length ) : substr( md5( microtime() ) , - $ckey_length ) ) : '';
+//
+//            $cryptkey = $keya . md5( $keya . $keyc );
+//            $key_length = strlen( $cryptkey );
+//
+//            $string = $operation == 'DECODE' ? base64_decode( substr( $string , $ckey_length ) ) : sprintf( '%010d' , $expiry ? $expiry + time() : 0 ) . substr( md5( $string . $keyb ) , 0 , 16 ) . $string;
+//            $string_length = strlen( $string );
+//
+//            $result = '';
+//            $box = range( 0 , 255 );
+//
+//            $rndkey = array();
+//            for ( $i = 0 ; $i <= 255 ; $i ++ ) {
+//                $rndkey[ $i ] = ord( $cryptkey[ $i % $key_length ] );
+//            }
+//
+//            for ( $j = $i = 0 ; $i < 256 ; $i ++ ) {
+//                $j = ( $j + $box[ $i ] + $rndkey[ $i ] ) % 256;
+//                $tmp = $box[ $i ];
+//                $box[ $i ] = $box[ $j ];
+//                $box[ $j ] = $tmp;
+//            }
+//
+//            for ( $a = $j = $i = 0 ; $i < $string_length ; $i ++ ) {
+//                $a = ( $a + 1 ) % 256;
+//                $j = ( $j + $box[ $a ] ) % 256;
+//                $tmp = $box[ $a ];
+//                $box[ $a ] = $box[ $j ];
+//                $box[ $j ] = $tmp;
+//                $result .= chr( ord( $string[ $i ] ) ^ ( $box[ ( $box[ $a ] + $box[ $j ] ) % 256 ] ) );
+//            }
+//
+//            if ( $operation == 'DECODE' ) {
+//                if ( ( substr( $result , 0 , 10 ) == 0 || substr( $result , 0 , 10 ) - time() > 0 ) && substr( $result , 10 , 16 ) == substr( md5( substr( $result , 26 ) . $keyb ) , 0 , 16 ) ) {
+//                    return substr( $result , 26 );
+//                } else {
+//                    return '';
+//                }
+//            } else {
+//                return $keyc . str_replace( '=' , '' , base64_encode( $result ) );
+//            }
 
-            $key = md5( $key ? $key : "kalvin.cn" );
-            $keya = md5( substr( $key , 0 , 16 ) );
-            $keyb = md5( substr( $key , 16 , 16 ) );
-            $keyc = $ckey_length ? ( $operation == 'DECODE' ? substr( $string , 0 , $ckey_length ) : substr( md5( microtime() ) , - $ckey_length ) ) : '';
+            switch($operation){
+                case 'ENCODE' :$content = self::encrypt($string,$key);
+                    break;
 
-            $cryptkey = $keya . md5( $keya . $keyc );
-            $key_length = strlen( $cryptkey );
-
-            $string = $operation == 'DECODE' ? base64_decode( substr( $string , $ckey_length ) ) : sprintf( '%010d' , $expiry ? $expiry + time() : 0 ) . substr( md5( $string . $keyb ) , 0 , 16 ) . $string;
-            $string_length = strlen( $string );
-
-            $result = '';
-            $box = range( 0 , 255 );
-
-            $rndkey = array();
-            for ( $i = 0 ; $i <= 255 ; $i ++ ) {
-                $rndkey[ $i ] = ord( $cryptkey[ $i % $key_length ] );
+                case 'DECODE' :$content = self::decrypt($string,$key);
+                    break;
             }
+            return $content;
+        }
 
-            for ( $j = $i = 0 ; $i < 256 ; $i ++ ) {
-                $j = ( $j + $box[ $i ] + $rndkey[ $i ] ) % 256;
-                $tmp = $box[ $i ];
-                $box[ $i ] = $box[ $j ];
-                $box[ $j ] = $tmp;
-            }
 
-            for ( $a = $j = $i = 0 ; $i < $string_length ; $i ++ ) {
-                $a = ( $a + 1 ) % 256;
-                $j = ( $j + $box[ $a ] ) % 256;
-                $tmp = $box[ $a ];
-                $box[ $a ] = $box[ $j ];
-                $box[ $j ] = $tmp;
-                $result .= chr( ord( $string[ $i ] ) ^ ( $box[ ( $box[ $a ] + $box[ $j ] ) % 256 ] ) );
-            }
+        /**
+         * 对称加密算法 - (加密)。
+         *
+         * @param string $s
+         * @param string $secure_key
+         * @return string
+         */
+        static function encrypt($s, $secure_key) {
+            if (!extension_loaded('mcrypt'))
+                throw new \Exception('Mcrypt extension not installed.');
 
-            if ( $operation == 'DECODE' ) {
-                if ( ( substr( $result , 0 , 10 ) == 0 || substr( $result , 0 , 10 ) - time() > 0 ) && substr( $result , 10 , 16 ) == substr( md5( substr( $result , 26 ) . $keyb ) , 0 , 16 ) ) {
-                    return substr( $result , 26 );
-                } else {
-                    return '';
-                }
-            } else {
-                return $keyc . str_replace( '=' , '' , base64_encode( $result ) );
-            }
+            if (null == $s || !is_string($s))
+                return false;
+
+            $td      = mcrypt_module_open('tripledes', '', 'ecb', '');
+            $td_size = mcrypt_enc_get_iv_size($td);
+            $iv      = mcrypt_create_iv($td_size, MCRYPT_RAND);
+            $key     = substr($secure_key, 0, $td_size);
+            mcrypt_generic_init($td, $key, $iv);
+            $ret     = base64_encode(mcrypt_generic($td, $s));
+            mcrypt_generic_deinit($td);
+            mcrypt_module_close($td);
+
+            return $ret;
+        }
+
+        /**
+         * 对称加密算法 - (解密)。
+         *
+         * @param string $s
+         * @param string $secure_key
+         * @return string
+         */
+        static function decrypt($s, $secure_key) {
+            if (!extension_loaded('mcrypt'))
+                throw new \Exception('Mcrypt extension not installed.');
+
+            if (null == $s)
+                return false;
+
+            $td      = mcrypt_module_open('tripledes', '', 'ecb', '');
+            $td_size = mcrypt_enc_get_iv_size($td);
+            $iv      = mcrypt_create_iv($td_size, MCRYPT_RAND);
+            $key     = substr($secure_key, 0, $td_size);
+            mcrypt_generic_init($td, $key, $iv);
+            $ret     = trim(mdecrypt_generic($td, base64_decode($s)));
+            mcrypt_generic_deinit($td);
+            mcrypt_module_close($td);
+
+            return $ret;
         }
 
 
@@ -175,6 +236,46 @@
         }
 
         /**
+         * 对二维数组进行排序
+         * 例如:
+         * array(4) {
+        [200] => array(2) {
+        ["money"] => string(3) "200"
+        ["newcoins"] => string(5) "60000"
+        }
+        [50] => array(2) {
+        ["money"] => string(2) "50"
+        ["newcoins"] => string(5) "50000"
+        }
+        [10] => array(2) {
+        ["money"] => string(2) "10"
+        ["newcoins"] => string(5) "10000"
+        }
+        [2] => array(2) {
+        ["money"] => string(1) "2"
+        ["newcoins"] => string(4) "5000"
+        }
+        }
+         * array_multi_ksort('money',$multiArray,false);
+         * @param      $keyName 二维数组中子元素的key
+         * @param      $multiArray 二维数组
+         * @param bool $asc 是否降序排列 默认降序
+         * @return array
+         */
+        static function array_multi_ksort($keyName,$multiArray,$asc=true){
+            $temp = array();
+            foreach($multiArray as $k => $v){
+                $temp[$v[$keyName]] = $v;
+            }
+            unset($multiArray);
+            if($asc)
+                ksort($temp);
+            else
+                krsort($temp);
+            return $temp;
+        }
+
+        /**
          * 通过数组的值取得key(只能用于一维数组)
          * @param $value
          * @param $array
@@ -256,6 +357,26 @@
             }
 
             return implode( $symbol , $value_array );
+        }
+
+        /**
+         * 将数组的所有值转化为string
+         * 仅支持非对象数组 , 且数组将不会被转换
+         * 支持1维和2维数组
+         * @param $array
+         * @return array
+         */
+        static function array_val_toString($array){
+            foreach($array as $k1 => &$v1){
+                if (is_array($v1)){
+                    foreach($v1 as $k2 => &$v2){
+                        $v2 = strval($v2);
+                    }
+                }else{
+                    $v1 = strval($v1);
+                }
+            }
+            return $array;
         }
 
         /**
@@ -364,15 +485,19 @@
             return $string;
         }
 
-        static function make_rand_str( $length = 18 )
+        static function make_rand_str( $length = 18 ,$onlyNumber = false)
         {
             // 密码字符集，可任意添加你需要的字符
-            $chars = array( 'a' , 'b' , 'c' , 'd' , 'e' , 'f' , 'g' , 'h' ,
-                'i' , 'j' , 'k' , 'l' , 'm' , 'n' , 'o' , 'p' , 'q' , 'r' , 's' ,
-                't' , 'u' , 'v' , 'w' , 'x' , 'y' , 'z' , 'A' , 'B' , 'C' , 'D' ,
-                'E' , 'F' , 'G' , 'H' , 'I' , 'J' , 'K' , 'L' , 'M' , 'N' , 'O' ,
-                'P' , 'Q' , 'R' , 'S' , 'T' , 'U' , 'V' , 'W' , 'X' , 'Y' , 'Z' ,
-                '0' , '1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' );
+            if($onlyNumber){
+                $chars = array('0' , '1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' );
+            }else{
+                $chars = array( 'a' , 'b' , 'c' , 'd' , 'e' , 'f' , 'g' , 'h' ,
+                    'i' , 'j' , 'k' , 'l' , 'm' , 'n' , 'o' , 'p' , 'q' , 'r' , 's' ,
+                    't' , 'u' , 'v' , 'w' , 'x' , 'y' , 'z' , 'A' , 'B' , 'C' , 'D' ,
+                    'E' , 'F' , 'G' , 'H' , 'I' , 'J' , 'K' , 'L' , 'M' , 'N' , 'O' ,
+                    'P' , 'Q' , 'R' , 'S' , 'T' , 'U' , 'V' , 'W' , 'X' , 'Y' , 'Z' ,
+                    '0' , '1' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' );
+            }
 
             // 在 $chars 中随机取 $length 个数组元素键名
             $keys = array_rand( $chars , $length );
@@ -504,14 +629,21 @@
          * @param $func    string 方法名
          * @param $file    string 文件
          * @param $message string 信息
+         * @param $e EXCEPTION 异常对象 默认为null
          */
-        static function debug_log( $class , $func , $file , $message )
+        static function debug_log( $class , $func , $file , $message ,\Exception $e = null)
         {
             $str = chr( 10 );
             $str .= "class  :   $class" . chr( 10 );
             $str .= "func   :   $func" . chr( 10 );
             $str .= "file   :   $file" . chr( 10 );
             $str .= "message:   $message" . chr( 10 );
+            if($e !== null){
+                $str .= "exception code:  " .$e->getCode(). chr( 10 );
+                $str .= "exception line:  " .$e->getLine(). chr( 10 );
+                $str .= "exception message:  " .$e->getMessage(). chr( 10 );
+                $str .= "exception trace:  " .$e->getTraceAsString(). chr( 10 );
+            }
             error_log( $str );
         }
 
@@ -555,6 +687,95 @@
                 return $output;
         }
 
+
+        /**
+         * 身份证号码验证
+         * site http://www.jbxue.com
+         */
+        static function is_valid_idCard($idcard){
+            try{
+                if(empty($idcard)){
+                    return false;
+                }
+                $City = array(11=>"北京",12=>"天津",13=>"河北",14=>"山西",15=>"内蒙古",21=>"辽宁",22=>"吉林",23=>"黑龙江",31=>"上海",
+                              32=>"江苏",33=>"浙江",34=>"安徽",35=>"福建",36=>"江西",37=>"山东",41=>"河南",42=>"湖北",43=>"湖南",44=>"广东",45=>"广西",
+                              46=>"海南",50=>"重庆",51=>"四川",52=>"贵州",53=>"云南",54=>"西藏",61=>"陕西",62=>"甘肃",63=>"青海",64=>"宁夏",65=>"新疆",
+                              71=>"台湾",81=>"香港",82=>"澳门",91=>"国外");
+                $iSum = 0;
+                $idCardLength = strlen($idcard);
+                //长度验证
+                if(!preg_match('/^\d{17}(\d|x)$/i',$idcard) and!preg_match('/^\d{15}$/i',$idcard))
+                {
+                    return false;
+                }
+                //地区验证
+                if(!array_key_exists(intval(substr($idcard,0,2)),$City))
+                {
+                    return false;
+                }
+                // 15位身份证验证生日，转换为18位
+                if ($idCardLength == 15)
+                {
+                    $sBirthday = '19'.substr($idcard,6,2).'-'.substr($idcard,8,2).'-'.substr($idcard,10,2);
+                    $d = new \DateTime($sBirthday);
+                    $dd = $d->format('Y-m-d');
+                    if($sBirthday != $dd)
+                    {
+                        return false;
+                    }
+                    $idcard = substr($idcard,0,6)."19".substr($idcard,6,9);//15to18
+                    $Bit18 = self::getVerifyBit($idcard);//算出第18位校验码
+                    $idcard = $idcard.$Bit18;
+                }
+                // 判断是否大于2078年，小于1900年
+                $year = substr($idcard,6,4);
+                if ($year<1900 || $year>2078 )
+                {
+                    return false;
+                }
+
+                //18位身份证处理
+                $sBirthday = substr($idcard,6,4).'-'.substr($idcard,10,2).'-'.substr($idcard,12,2);
+                $d = new \DateTime($sBirthday);
+                $dd = $d->format('Y-m-d');
+                if($sBirthday != $dd)
+                {
+                    return false;
+                }
+                //身份证编码规范验证
+                $idcard_base = substr($idcard,0,17);
+                if(strtoupper(substr($idcard,17,1)) != self::getVerifyBit($idcard_base))
+                {
+                    return false;
+                }else{
+                    return true;
+                }
+            }catch (\Exception $e){
+                return false;
+            }
+        }
+
+        // 计算身份证校验码，根据国家标准GB 11643-1999
+        static function getVerifyBit($idcard_base)
+        {
+            if(strlen($idcard_base) != 17)
+            {
+                return false;
+            }
+            //加权因子
+            $factor = array(7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2);
+            //校验码对应值
+            $verify_number_list = array('1', '0', 'X', '9', '8', '7', '6', '5', '4','3', '2');
+            $checksum = 0;
+            for ($i = 0; $i < strlen($idcard_base); $i++)
+            {
+                $checksum += substr($idcard_base, $i, 1) * $factor[$i];
+            }
+            $mod = $checksum % 11;
+            $verify_number = $verify_number_list[$mod];
+            return $verify_number;
+        }
+
         /**
          * 验证email 地址格式
          * @param $email
@@ -578,6 +799,10 @@
             return substr( $phone , 0 , 3 ) . '*****' . substr( $phone , 8 , strlen( $phone ) );
         }
 
+        static function entry_email($email){
+            return preg_replace('/(.{3})(.*)/i','***$2',$email);
+        }
+
         /**
          * 验证手机格式是否正确
          * @param $mobile
@@ -585,13 +810,44 @@
          */
         static function is_mobile( $mobile )
         {
-            if ( preg_match( "/^13[0-9]{1}[0-9]{8}$|15[0189]{1}[0-9]{8}$|189[0-9]{8}$/" , $mobile ) ) {
+            if ( preg_match( "/^(13[0-9]{9})|(15[0|1|2|3|5|6|7|8|9]\d{8})|(18[0|5|6|7|8|9]\d{8})$/" , $mobile ) ) {
                 //验证通过
                 return true;
             } else {
                 //手机号码格式不对
                 return false;
             }
+        }
+
+        /**
+         * 验证是否是全中文汉子
+         * @param $str
+         * @return bool
+         */
+        static function is_chinese($str){
+            if (preg_match("/^[\x{4e00}-\x{9fa5}]+$/u",$str))
+                return true;
+            else
+                return false;
+        }
+
+        /**
+         * 替换字符串中某些字符为$replaceTo
+         * @param $sourceString
+         * @param $replaceTo
+         */
+        static function entry_string($sourceString,$replaceTo){
+            if(strlen($sourceString) < 6)
+                return $sourceString;
+
+            $idx = strlen($sourceString)/3;
+            $a =str_split($sourceString);
+            for($i = 0 ; $i < count($a);$i++){
+                if($i > $idx && $i< count($a)-$idx ){
+                    $a[$i] = $replaceTo;
+                }
+            }
+            return implode('',$a) ;
         }
 
 
@@ -703,6 +959,107 @@
             $str = str_replace( "cast" , "ca&#115;" , $str );
 
             return $str;
+        }
+
+        static function objectToArray($obj){
+            $_arr = is_object($obj) ? get_object_vars($obj) :$obj;
+            foreach ($_arr as $key=>$val){
+                $val = (is_array($val) || is_object($val)) ? self::objectToArray($val):$val;
+                $_arr[$key] = $val;
+            }
+            return $_arr;
+        }
+
+
+        static function xml_to_array($xml){
+            $reg = "/<(\w+)[^>]*>([\\x00-\\xFF]*)<\\/\\1>/";
+            if(preg_match_all($reg, $xml, $matches)){
+                $count = count($matches[0]);
+                for($i = 0; $i < $count; $i++){
+                    $subxml= $matches[2][$i];
+                    $key = $matches[1][$i];
+                    if(preg_match( $reg, $subxml )){
+                        $arr[$key] = self::xml_to_array( $subxml );
+                    }else{
+                        $arr[$key] = $subxml;
+                    }
+                }
+            }
+            return $arr;
+        }
+
+
+        /**
+         * Luhn算法验证银行卡的有效性
+         * @param $cardNo
+         * @return bool
+         */
+        static function bankCardLuhn($cardNo){
+            $cardChars = str_split(strrev($cardNo));
+            $odd_sum = 0;
+            $even_sum = 0;
+            for($i = 0 ; $i <count($cardChars) ; $i++){
+                if(($i+1) % 2 != 0){
+                    //从卡号最后一位数字开始，逆向将奇数位(1、3、5等等)相加。
+                    $odd_sum += $cardChars[$i];
+                }else{
+                    //从卡号最后一位数字开始，逆向将偶数位数字，先乘以2（如果乘积为两位数，则将其减去9），再求和
+                    $temp = $cardChars[$i] * 2;
+                    if($temp > 10)
+                        $temp = $temp-9;
+                    $even_sum += $temp;
+                }
+            }
+
+            //将奇数位总和加上偶数位总和，结果应该可以被10整除。
+            if( ($odd_sum + $even_sum) % 10 == 0)
+                return true;
+            else
+                return false;
+        }
+
+        /**
+         * 是否是手机端的请求
+         * @return bool
+         */
+        static function is_mobile_request()
+        {
+            $_SERVER['ALL_HTTP'] = isset( $_SERVER['ALL_HTTP'] ) ? $_SERVER['ALL_HTTP'] : '';
+            $mobile_browser = '0';
+            if ( preg_match( '/(up.browser|up.link|mmp|symbian|smartphone|midp|wap|phone|iphone|ipad|ipod|android|xoom)/i' , strtolower( $_SERVER['HTTP_USER_AGENT'] ) ) )
+                $mobile_browser ++;
+            if ( ( isset( $_SERVER['HTTP_ACCEPT'] ) ) and ( strpos( strtolower( $_SERVER['HTTP_ACCEPT'] ) , 'application/vnd.wap.xhtml+xml' ) !== false ) )
+                $mobile_browser ++;
+            if ( isset( $_SERVER['HTTP_X_WAP_PROFILE'] ) )
+                $mobile_browser ++;
+            if ( isset( $_SERVER['HTTP_PROFILE'] ) )
+                $mobile_browser ++;
+            $mobile_ua = strtolower( substr( $_SERVER['HTTP_USER_AGENT'] , 0 , 4 ) );
+            $mobile_agents = array(
+                'w3c ' , 'acs-' , 'alav' , 'alca' , 'amoi' , 'audi' , 'avan' , 'benq' , 'bird' , 'blac' ,
+                'blaz' , 'brew' , 'cell' , 'cldc' , 'cmd-' , 'dang' , 'doco' , 'eric' , 'hipt' , 'inno' ,
+                'ipaq' , 'java' , 'jigs' , 'kddi' , 'keji' , 'leno' , 'lg-c' , 'lg-d' , 'lg-g' , 'lge-' ,
+                'maui' , 'maxo' , 'midp' , 'mits' , 'mmef' , 'mobi' , 'mot-' , 'moto' , 'mwbp' , 'nec-' ,
+                'newt' , 'noki' , 'oper' , 'palm' , 'pana' , 'pant' , 'phil' , 'play' , 'port' , 'prox' ,
+                'qwap' , 'sage' , 'sams' , 'sany' , 'sch-' , 'sec-' , 'send' , 'seri' , 'sgh-' , 'shar' ,
+                'sie-' , 'siem' , 'smal' , 'smar' , 'sony' , 'sph-' , 'symb' , 't-mo' , 'teli' , 'tim-' ,
+                'tosh' , 'tsm-' , 'upg1' , 'upsi' , 'vk-v' , 'voda' , 'wap-' , 'wapa' , 'wapi' , 'wapp' ,
+                'wapr' , 'webc' , 'winw' , 'winw' , 'xda' , 'xda-'
+            );
+            if ( in_array( $mobile_ua , $mobile_agents ) )
+                $mobile_browser ++;
+            if ( strpos( strtolower( $_SERVER['ALL_HTTP'] ) , 'operamini' ) !== false )
+                $mobile_browser ++;
+            // Pre-final check to reset everything if the user is on Windows
+            if ( strpos( strtolower( $_SERVER['HTTP_USER_AGENT'] ) , 'windows' ) !== false )
+                $mobile_browser = 0;
+            // But WP7 is also Windows, with a slightly different characteristic
+            if ( strpos( strtolower( $_SERVER['HTTP_USER_AGENT'] ) , 'windows phone' ) !== false )
+                $mobile_browser ++;
+            if ( $mobile_browser > 0 )
+                return true;
+            else
+                return false;
         }
     }
 

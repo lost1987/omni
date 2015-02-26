@@ -1,0 +1,1 @@
+[12-Feb-2015 14:30:41 Asia/Shanghai] PHP Warning:  PDOStatement::execute(): SQLSTATE[HY000]: General error: 1366 Incorrect integer value: '' for column 'calendar_date' at row 1 in /Users/shameless/php_workspace/website_php/inner/core/db.class.php on line 156

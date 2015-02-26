@@ -106,25 +106,24 @@ class StreamImage {
         //数据流不为空，则进行保存操作
         if (! empty ( $data )) {
             //创建并写入数据流，然后保存文件
-            $temp_path  = '/dev/shm/'.$this->save_name;
+            $temp_path  = $this->save_dir.'/'.$this->save_name;
             if ($fp = fopen ($temp_path, 'w+' )) {
                 fwrite ( $fp, $data );
                 fclose ( $fp );
-                //$baseurl = "http://" . $_SERVER ["SERVER_NAME"] . ":" . $_SERVER ["SERVER_PORT"] . dirname ( $_SERVER ["SCRIPT_NAME"] ) . '/' . $this->save_name;
-
                 //压缩处理图片
                 $image_path = ScaleImage::instance()->resize($temp_path);
 
                 $image = $this->getimageInfo ($image_path);
                 if ($image) {
-                    rename($this->save_fullpath,$this->save_fullpath.'.'.$image['type']);
-                    return $this->save_fullpath.'.'.$image['type'];
+                    rename($image_path,str_replace('temp_','',$image_path).'.'.$image['type']);
+                    return $this->save_name.'.'.$image['type'];
                 } else {
                     return  self::NOT_CORRECT_TYPE  ;
                 }
             } else {
 
             }
+            if(file_exists($temp_path))@unlink($temp_path);
         } else {
             //没有接收到数据流
             return  self::NO_STREAM_DATA ;

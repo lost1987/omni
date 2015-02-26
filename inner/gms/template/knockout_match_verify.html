@@ -64,6 +64,7 @@
         <tr>
             <th> MATCH_ID</th>
             <th class="hidden-phone">状态</th>
+            <th>比赛名称</th>
             <th>比赛类型</th>
             <th>起始小时</th>
             <th>起始分钟</th>
@@ -73,6 +74,7 @@
             <th><a href="javascript:;" class="popovers" data-trigger="hover" data-content="比赛前N分钟开始报名" data-original-title="说明" >报名开始时间</a></th>
             <th><a href="javascript:;" class="popovers" data-trigger="hover" data-content="比赛前N分钟停止报名" data-original-title="说明" >报名结束时间</a></th>
             <th>消耗资源</th>
+            <th>竞拍设置</th>
         </tr>
         </thead>
         <tbody>
@@ -86,6 +88,9 @@
                 {% else %}
                 停用
                 {% endif %}
+            </td>
+            <td>
+                {{item.match.name}}
             </td>
             <td class="hidden-phone">
                 <a href="javascript:;">{{item.match.match_type_name}}</a>
@@ -113,6 +118,9 @@
             </td>
             <td>
                 {{item.match.price_amount}}{{item.match.price_type}}
+            </td>
+            <td>
+                {{item.match.base_price}}{{item.match.base_price_type}}/时长{{item.match.auction_time}}秒
             </td>
         </tr>
         </tbody>

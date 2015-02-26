@@ -26,9 +26,20 @@ class UserResource {
     //礼券
     const COUPON = '_coupon';
 
+    const EGG = '_egg';
+
+    const FLOWER = '_flower';
+
+    const HORN = '_horn';
+
+    const PRIVATE_ROOM_CARD = '_private_room_card';
+
     //action_type
     const ACTION_EXCHANGE = 1;
     const ACTION_LOTTERY = 2;
+    const ACTION_PAYMENT = 3;
+    const ACTION_REGISTER = 4;
+    const ACTION_SETMOBILE = 5;
 
     private $_coins = null;
 
@@ -37,6 +48,14 @@ class UserResource {
     private $_ticket = null;
 
     private $_coupon = null;
+
+    private $_egg = null;
+
+    private $_flower = null;
+
+    private $_horn = null;
+
+    private $_private_room_card = null;
 
     private $_uid = null;
 
@@ -55,6 +74,10 @@ class UserResource {
             $this->_coupon = $userProfile['coupon'];
             $this->_ticket = $userProfile['ticket'];
             $this->_uid = $userProfile['user_id'];
+            $this->_flower = $userProfile['flower'];
+            $this->_egg = $userProfile['egg'];
+            $this->_horn = $userProfile['horn'];
+            $this->_private_room_card = $userProfile['private_room_card'];
     }
 
     static function instance(Array $userProfile){
@@ -84,7 +107,11 @@ class UserResource {
                 'coins' => $this->_coins,
                 'diamond'=>$this->_diamond,
                 'coupon' => $this->_coupon,
-                'ticket' => $this->_ticket
+                'ticket' => $this->_ticket,
+                'flower' => $this->_flower,
+                'egg'=>$this->_egg,
+                'horn'=>$this->_horn,
+                'private_room_card'=>$this->_private_room_card
             );
 
             return $this->userProfileModel->updateProfile($params,$this->_uid);
@@ -137,5 +164,37 @@ class UserResource {
     public function getUid()
     {
         return $this->_uid;
+    }
+
+    /**
+     * @return null
+     */
+    public function getEgg()
+    {
+        return $this->_egg;
+    }
+
+    /**
+     * @return null
+     */
+    public function getFlower()
+    {
+        return $this->_flower;
+    }
+
+    /**
+     * @return null
+     */
+    public function getHorn()
+    {
+        return $this->_horn;
+    }
+
+    /**
+     * @return null
+     */
+    public function getPrivateRoomCard()
+    {
+        return $this->_private_room_card;
     }
 } 

@@ -1,0 +1,138 @@
+{% extends 'baseBlank.html' %}
+
+{% block title %}
+武汉麻将-充值中心
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-充值中心
+{% endblock %}
+
+{% block description %}
+武汉麻将-充值中心
+{% endblock %}
+
+{% block css %}
+<link href="{{ constant('STATIC_HOST') }}/css/formError.css" rel="stylesheet">
+<style>
+    .btn-org.active{
+        background-color:  #24cdb8;
+        border-color:  #24cdb8;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="col-xs-9">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel p15">
+                <ul class="steps">
+                    <div class="line" style="left: 16.6667%; right: 16.6667%;"></div>
+                    <li class="active">
+                        <span class="spec">选择充值方式</span>
+                        <span class="circle"></span>
+                    </li>
+                    <li>
+                        <span class="spec">确认信息</span>
+                        <span class="circle"></span>
+                    </li>
+                    <li>
+                        <span class="spec">充值完成</span>
+                        <span class="circle"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3" style="width:22.2%;">
+            <div class="bg-blueD inner">
+                <div class="leftSide pt30 pb30 pl10">
+                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                        <li class="{% if pay_type == 0 %}active{% endif %}"><a href="/payment/prepare/0"><span class="icon icon-arrowR-org"></span>网银充值</a></li>
+                        <li class="{% if pay_type == 1 %}active{% endif %}"><a href="/payment/prepare/1" ><span class="icon icon-arrowR-org"></span>支付宝</a></li>
+                        <li class="{% if pay_type == 2 %}active{% endif %}"><a href="/payment/prepare/2" ><span class="icon icon-arrowR-org"></span>电话卡</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9" style="width:77.8%;">
+            <form action="/payment/go" method="get" id="payForm">
+                <input type="hidden" name="token" value="{{token}}" id="token" />
+                <input type="hidden" name="pay_type" value="{{pay_type}}" id="pay_type" />
+            <div class="panel p15 inner pb50">
+                <h4 class="mTitle">网银充值</h4>
+                <div class="pl20 pr20 mb30" style="height:80px">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <label>充入账号（即游戏登陆账号）：</label>
+                            <div class="wrap"><input type="text" id="login_name"  name="login_name" class="form-control" value="{{login_name}}"><span class="btn-close" style="top:7px;color:darkred;cursor:pointer" onclick="$('#login_name').val('')">X</span></div>
+                        </div>
+                        <div class="col-xs-6">
+                            <label>请再次确认充值账号：</label>
+                            <div class="wrap"><input type="text" id="re_login_name" name="re_login_name" class="form-control" value="{{login_name}}"><span class="btn-close" style="top:7px;color:darkred;cursor:pointer" onclick="$('#re_login_name').val('')">X</span></div>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="mTitle"><span class="icon icon-house-b"></span> 需要充值的金额：</h5>
+                <div class="pl20 pr20">
+                    <div class="row chargingBtns" data-toggle="buttons">
+                        {% for money,diamond in amount_types %}
+                        <div class="col-xs-4 mb15" >
+                            <label class="btn btn-block btn-org">
+                                <input type="radio" name="amount_type" id="" autocomplete="off" value="{{money}}" ><span class="icon icon-diamond-w"></span>{{diamond}} <span class="pull-right numb">￥{{money}}元</span>
+                            </label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 mt50">
+                            <a class="btn btn-info" id="okBtn" onclick="doSubmit()">提交充值</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'faq_right_bar.html' %}
+</div>
+</div>
+<!-- 确认充值 -->
+<div class="modal fade" id="toPay" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="">确认充值</h4>
+            </div>
+            <div class="modal-body">
+                <div class="p10">
+                    <table class="table table-border table-hover">
+                        <tbody>
+                        <tr width="30%">
+                            <td>您的充值用户名为：</td>
+                            <td id="confirm_login_name">2434ere</td>
+                        </tr>
+                        <tr>
+                            <td>您充值的金额为：</td>
+                            <td><span class="text-org" id="confirm_amount">3242.00</span>&nbsp;元</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center mt20">
+                        <a class="btn btn-info" onclick="pay()">确定</a>
+                        <a class="btn btn-info" data-dismiss="modal">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- /modal -->
+{% endblock %}
+
+{% block script %}
+<script src="{{ constant('STATIC_HOST') }}/js/user.charging.js"></script>
+{% endblock %}

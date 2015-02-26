@@ -1,0 +1,64 @@
+.icon { background: url('../images/sprite.png') no-repeat top left; width: 31px; height: 31px; display: inline-block; vertical-align: middle; margin-right: 5px; } 
+
+.android { background-position: 0 0; width: 92px; height: 30px; } 
+.apple { background-position: -93px 0; width: 91px; height: 30px; } 
+.arrowL-w { background-position: -185px 0; width: 8px; height: 14px; } 
+.arrowR-w { background-position: -194px 0; width: 8px; height: 14px; } 
+.circle-card { background-position: -203px 0; } 
+.circle-chat { background-position: -235px 0; } 
+.circle-dollar { background-position: -267px 0; } 
+.circle-edit { background-position: -299px 0; } 
+.circle-email { background-position: -331px 0; } 
+.circle-lock { background-position: -363px 0; } 
+.circle-note { background-position: -395px 0; } 
+.circle-phone { background-position: -427px 0; } 
+.circle-umb { background-position: -459px 0; } 
+.email { background-position: -491px 0; width: 37px; } 
+.eye { background-position: -529px 0; } 
+.icon-android { background-position: -561px 0; width: 25px; height: 28px; } 
+.icon-apple { background-position: -587px 0; width: 23px; height: 28px; } 
+.icon-arrowR-org { background-position: -611px 0; width: 20px; height: 20px; } 
+.icon-boolom { background-position: -632px 0; width: 13px; height: 17px; } 
+.icon-charge-org { background-position: -646px 0; width: 41px; height: 40px; } 
+.icon-chat-org { background-position: -688px 0; width: 41px; height: 40px; } 
+.icon-check { background-position: -730px 0; } 
+.icon-diamond { background-position: -762px 0; width: 22px; height: 18px; } 
+.icon-dir { background-position: -785px 0; width: 14px; height: 17px; } 
+.icon-dollar { background-position: -800px 0; width: 25px; height: 25px; } 
+.icon-edit { background-position: -826px 0; width: 19px; height: 19px; } 
+.icon-fortune01 { background-position: -846px 0; width: 26px; height: 26px; } 
+.icon-fortune02 { background-position: -873px 0; width: 28px; height: 23px; } 
+.icon-fortune03 { background-position: -902px 0; width: 26px; height: 30px; } 
+.icon-fortune04 { background-position: -929px 0; width: 26px; height: 25px; } 
+.icon-globe { background-position: -956px 0; width: 17px; height: 17px; } 
+.icon-globe-b { background-position: -974px 0; } 
+.icon-heart { background-position: -1006px 0; width: 32px; height: 28px; } 
+.icon-home { background-position: -1039px 0; width: 14px; height: 16px; } 
+.icon-house { background-position: -1054px 0; width: 32px; height: 32px; } 
+.icon-house-b { background-position: -1087px 0; width: 32px; height: 30px; } 
+.iconL-cellphone { background-position: -1120px 0; width: 46px; height: 70px; } 
+.iconL-chat { background-position: -1167px 0; width: 68px; height: 61px; } 
+.iconL-email { background-position: -1236px 0; width: 68px; height: 50px; } 
+.iconL-man { background-position: -1305px 0; width: 68px; height: 66px; } 
+.icon-lock { background-position: -1374px 0; width: 16px; height: 18px; } 
+.icon-lockW { background-position: -1391px 0; width: 16px; height: 18px; } 
+.iconL-phone { background-position: -1408px 0; width: 90px; height: 70px; } 
+.iconL-qq { background-position: -1499px 0; width: 82px; height: 86px; } 
+.icon-note { background-position: -1582px 0; width: 16px; height: 16px; } 
+.icon-qq { background-position: -1599px 0; width: 12px; height: 13px; } 
+.icon-qq-org { background-position: -1612px 0; width: 26px; height: 27px; } 
+.icon-rank { background-position: -1639px 0; width: 18px; height: 13px; } 
+.icon-rank-b { background-position: -1658px 0; height: 26px; } 
+.icon-search { background-position: -1690px 0; width: 19px; height: 18px; } 
+.icon-sina { background-position: -1710px 0; width: 16px; height: 16px; } 
+.icon-user { background-position: -1727px 0; width: 16px; height: 17px; } 
+.icon-user-org { background-position: -1744px 0; width: 40px; height: 40px; } 
+.icon-userW { background-position: -1785px 0; width: 16px; height: 17px; } 
+.icon-user-w { background-position: -1802px 0; width: 32px; height: 32px; } 
+.icon-wen { background-position: -1835px 0; width: 37px; height: 37px; } 
+.phone { background-position: -1873px 0; } 
+.icon-diamond-w { background-position: -1905px 0; width: 22px; height: 18px; } 
+
+/*============================================*/
+
+.android, .apple{margin-right: 0px;}

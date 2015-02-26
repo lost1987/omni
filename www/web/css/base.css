@@ -1,0 +1,64 @@
+html,body{font-family: 'Microsoft Yahei', 微软雅黑; font-size: 16px; color: #444;}
+body{position: relative;}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{line-height: 1.4em;}
+.f12{font-size:12px}.f13{font-size:13px}.f14{font-size:14px}.f16{font-size:16px}.f20{font-size:20px}.fb{font-weight:bold}.tl{text-align:left}.tc{text-alihn:center}.tr{text-align:right}.mt5{margin-top:5px}.mt10{margin-top:10px}.mt15{margin-top:15px}.mt20{margin-top:20px}.mt30{margin-top:30px}.mt50{margin-top:50px}.mb5{margin-bottom:5px}.mb10{margin-bottom:10px}.mb15{margin-bottom:15px}.mb20{margin-bottom:20px}.mb30{margin-bottom:30px}.mb50{margin-bottom:50px}.ml5{margin-left:5px}.ml10{margin-left:10px}.ml15{margin-left:15px}.ml20{margin-left:20px}.ml30{margin-left:30px}.ml40{margin-left:40px}.ml50{margin-left:50px}.mr5{margin-right:5px}.mr10{margin-right:10px}.mr15{margin-right:15px}.mr20{margin-right:20px}.mr30{margin-right:30px}.mr50{margin-right:50px}.p10{padding:10px}.p15{padding:15px}.p30{padding:30px}.pt5{padding-top:5px}.pt10{padding-top:10px}.pt15{padding-top:15px}.pt20{padding-top:20px}.pt30{padding-top:30px}.pt50{padding-top:50px}.pb5{padding-bottom:5px}.pb10{padding-bottom:10px}.pb15{padding-bottom:15px}.pb20{padding-bottom:20px}.pb30{padding-bottom:30px}.pb50{padding-bottom:50px}.pl5{padding-left:5px}.pl10{padding-left:10px}.pl15{padding-left:15px}.pl20{padding-left:20px}.pl30{padding-left:30px}.pl50{padding-left:50px}.pr5{padding-right:5px}.pr10{padding-right:10px}.pr15{padding-right:15px}.pr20{padding-right:20px}.pr30{padding-right:30px}.pr50{padding-right:50px}.mbn{margin-bottom: 0!important;}.mtn{margin-top: 0!important;}
+a{-webkit-transition: all .25s ease-in-out;
+   -moz-transition: all .25s ease-in-out;
+    -ms-transition: all .25s ease-in-out;
+     -o-transition: all .25s ease-in-out;
+        transition: all .25s ease-in-out;
+        text-decoration: none; color: inherit;}
+a:hover, a:focus{color: inherit; text-decoration: none;}
+button:focus, .btn:focus{box-shadow: none; -webkit-box-shadow: none; outline: none;}
+/*input[type="radio"], input[type="checkbox"]{padding: 0px; margin: 0px; vertical-align: middle;}*/
+.bl1{border-left: 1px solid #ddd;}
+.bb1{border-bottom: 1px solid #ddd;}
+.nobd{border: 0px;}
+
+.bg-grey{background: #f7f7f7;}
+.bg-white{background: #fff;}
+
+.font14{font-size: 14px;}
+.font12{font-size: 12px;}
+.nowrap{overflow: hidden; white-space: nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis;}
+
+.border{border: 1px solid #eee;}
+
+.container{ position: relative;}
+.navbar-brand{height: auto;}
+.navbar-brand img{max-width: 100%;}
+.navbar{margin-bottom: 0px; border-bottom: 1px solid #ddd; -webkit-transition: height .5s ease-in-out, background .5s;
+   -moz-transition: height .5s ease-in-out, background .5s;
+    -ms-transition: height .5s ease-in-out, background .5s;
+     -o-transition: height .5s ease-in-out, background .5s;
+        transition: height .5s ease-in-out, background .5s;}
+.navbar .navbar-nav>li.active>a, .navbar .navbar-nav>li>a:hover,.navbar .navbar-nav>li>a:focus, .navbar .navbar-nav>li.active:hover>a,.navbar .navbar-nav>li.active>a:focus{background-color: transparent;}
+
+.navbar-toggle .icon-bar{background: #ccc;}
+.navbar-collapse.in{background: #fff; border-bottom: 1px solid #eee;}
+
+.bottom{background: #666; color: #fff; padding: 10px 0px; font-size: 14px; line-height: 40px;}
+.bottom a{color: #fff;}
+.bottom a:hover{text-decoration: none; color: #F15656;}
+.links{margin-left: -8px;}
+.links a,.links span{padding: 0px 8px;}
+.links label{margin-bottom: 0px;}
+
+.img-responsive, .thumbnail>img, .thumbnail a>img, .carousel-inner>.item>img, .carousel-inner>.item>a>img{margin: 0px auto;}
+.pagination>li:first-child>a, .pagination>li:first-child>span, .pagination>li:last-child>a, .pagination>li:last-child>span{border-radius: 4px;}
+.pagination>li>a, .pagination>li>span{margin: 0px 2px;padding: 3px 10px; color: #888; background: #eee; border: 0px; border-radius: 4px; font-size: 12px;}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{background-color: #f8a030; border-color: #f8a030;}
+
+.textCon p{text-indent: 2em;}
+
+@media screen and (min-width: 1200px){
+	.container{width: 980px;}
+}
+@media screen and (min-width: 768px){
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+}
+@media screen and (max-width: 767px){
+	.carousel-inner>.item>img, .carousel-inner>.item>a>img{max-width: 170%; margin-left: -50%;}
+	.footer{padding: 30px 0px;}
+}

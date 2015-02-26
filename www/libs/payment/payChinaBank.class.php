@@ -7,6 +7,7 @@
  */
 namespace libs\payment;
 use core\Redirect;
+use utils\Tools;
 use web\libs\Error;
 
 /**
@@ -41,7 +42,7 @@ class PayChinaBank extends BasePay{
             $v_amount = $amount;
             $v_moneytype = 'CNY';
 
-            if(false == $this->save_order($remark['uid'],$v_oid,$amount,$remark['pay_type'],$remark['uid']))
+            if(false == $this->save_order($remark['uid'],$v_oid,$v_amount,$remark['pay_type'],$remark['uid']))
                 Redirect::instance()->forward('/error/index/'.Error::ERROR_DATA_WRITE);
 
             $v_md5info = strtoupper(md5($v_amount.$v_moneytype.$v_oid.$v_mid.$v_url.$key));
@@ -60,7 +61,7 @@ class PayChinaBank extends BasePay{
     }
 
      function create_orderid(){
-            $orderid = 'web'.date('Ymd').uniqid();
+            $orderid = 'web_'.date('Ymd').uniqid();
             return $orderid;
     }
 

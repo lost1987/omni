@@ -19,19 +19,4 @@ class Aboutus extends Controller{
            );
            $this->tpl->display("join_us.html",$output_data);
     }
-
-    function infous(){
-            $output_data = array(
-                'navigator' => Helper::getControllerName(__NAMESPACE__,__CLASS__)
-            );
-           $this->tpl->display('info_us.html',$output_data);
-    }
-
-
-    function infous_1(){
-        $output_data = array(
-            'navigator' => Helper::getControllerName(__NAMESPACE__,__CLASS__)
-        );
-        $this->tpl->display('info_us_1.html',$output_data);
-    }
-} 
+}

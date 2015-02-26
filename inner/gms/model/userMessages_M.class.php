@@ -32,7 +32,7 @@ class UserMessages_M extends AdminModel{
             $params['msg_time'] = date('YmdHis');
             $params['sender'] = '系统';
             $params['has_read'] = 0;
-            $params['msg_type'] = 5;
+            $params['msg_type'] = 1;
 
             return $this->_game_server->save($params,'user_messages');
     }

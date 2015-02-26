@@ -10,11 +10,14 @@ namespace web\controller;
 
 
 use utils\Das;
+use web\libs\DataUtil;
 use web\libs\Error;
 use core\Controller;
 use core\Cookie;
 use core\Redirect;
+use common\Platform;
 use web\libs\UserUtil;
+use web\model\KnockOutMatchModel;
 use web\model\UserModel;
 
 class Game extends Controller{
@@ -33,13 +36,10 @@ class Game extends Controller{
      * 加载游戏页面
      */
     function enter(){
-        //写入统计数据
-//        $uid = Cookie::instance()->userdata('uid');
-//        //判断玩家今日是否登录过
-//        if(UserModel::instance()->hasLoginToday($uid))
-//            Das::instance()->send(array('uid'=>$uid),Das::LOGIN_COUNT)->close();
-//        else
-//            Das::instance()->send(array('uid'=>$uid),Das::LOGIN_COUNT | Das::LOGIN_NUM)->close();
+        $uid = Cookie::instance()->userdata('uid');
+        $user = UserModel::instance()->getUserByUid($uid);
+        DataUtil::instance()->doAfterLogin(Platform::CLIENT_ORIGIN_WEB,$user);
+        unset($user,$uid);
 
         $file_path = BASE_PATH.'/'.BASE_PROJECT.'/media/bin/Portal.swf';
         if(!file_exists($file_path))
@@ -51,4 +51,4 @@ class Game extends Controller{
         $this->tpl->display('game.html',$output_data);
     }
 
-} 
+}

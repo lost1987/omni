@@ -32,7 +32,7 @@ class UserMessageModel extends Model{
             $limit = " LIMIT $start,$count";
         }
 
-        $sql = "SELECT * FROM user_messages WHERE receiver_uid = ? and msg_type = 5 and msg_jsoned_params like '%content%' ORDER BY msg_time DESC $limit";
+        $sql = "SELECT * FROM user_messages WHERE receiver_uid = ? and msg_type = 1 and msg_jsoned_params like '%content%' ORDER BY msg_time DESC $limit";
         $this->db->execute($sql,array($uid));
         $list =  $this->db->fetch_all();
         foreach($list as $k => &$v){

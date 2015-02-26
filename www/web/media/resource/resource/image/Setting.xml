@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:14da5e48e6855359e5472e47c917b809$ -->
+<TextureAtlas imagePath="Setting.png">
+    <SubTexture name="HallSetting_Bg" x="418" y="2" width="354" height="258"/>
+    <SubTexture name="HallSetting_Button_KeFu_0" x="373" y="303" width="122" height="39"/>
+    <SubTexture name="HallSetting_Button_KeFu_1" x="195" y="329" width="122" height="39"/>
+    <SubTexture name="HallSetting_Button_KeFu_2" x="542" y="262" width="122" height="39"/>
+    <SubTexture name="HallSetting_Button_ZhangHao_0" x="418" y="262" width="122" height="39"/>
+    <SubTexture name="HallSetting_Button_ZhangHao_1" x="195" y="288" width="122" height="39"/>
+    <SubTexture name="HallSetting_Button_ZhangHao_2" x="2" y="386" width="122" height="39"/>
+    <SubTexture name="HallSetting_KeFu" x="606" y="413" width="31" height="39"/>
+    <SubTexture name="HallSetting_Voice" x="126" y="418" width="28" height="41"/>
+    <SubTexture name="HallSetting_ZhangHao" x="732" y="380" width="34" height="33"/>
+    <SubTexture name="Setting_Bg" x="2" y="2" width="414" height="280"/>
+    <SubTexture name="Setting_ButtonBg" x="2" y="288" width="191" height="52"/>
+    <SubTexture name="Setting_Button_0" x="562" y="303" width="63" height="52"/>
+    <SubTexture name="Setting_Button_1" x="497" y="303" width="63" height="52"/>
+    <SubTexture name="Setting_Button_Voice" x="666" y="262" width="81" height="40"/>
+    <SubTexture name="Setting_ChatButton_0" x="519" y="405" width="46" height="46"/>
+    <SubTexture name="Setting_ChatButton_1" x="471" y="405" width="46" height="46"/>
+    <SubTexture name="Setting_ChatButton_2" x="32" y="427" width="28" height="28" frameX="-10" frameY="-10" frameWidth="46" frameHeight="46"/>
+    <SubTexture name="Setting_CloseButton_0" x="62" y="427" width="25" height="26"/>
+    <SubTexture name="Setting_CloseButton_1" x="288" y="425" width="25" height="25"/>
+    <SubTexture name="Setting_CloseButton_2" x="89" y="427" width="25" height="25"/>
+    <SubTexture name="Setting_CloseSoundButton_0" x="567" y="357" width="46" height="46"/>
+    <SubTexture name="Setting_CloseSoundButton_1" x="519" y="357" width="46" height="46"/>
+    <SubTexture name="Setting_CloseSoundButton_2" x="671" y="435" width="30" height="24" frameX="-7" frameY="-10" frameWidth="46" frameHeight="46"/>
+    <SubTexture name="Setting_Font_BeiJing" x="375" y="440" width="40" height="19"/>
+    <SubTexture name="Setting_Font_PaiMian" x="417" y="440" width="39" height="19"/>
+    <SubTexture name="Setting_MjBg_0" x="693" y="380" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Setting_MjBg_1" x="654" y="380" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Setting_MjBg_2" x="615" y="358" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Setting_MjBg_3" x="567" y="405" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Setting_MjBg_4" x="288" y="370" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Setting_MjBg_5" x="627" y="303" width="37" height="53" frameX="-1" frameY="-1" frameWidth="39" frameHeight="59"/>
+    <SubTexture name="Setting_SettingButton_0" x="471" y="357" width="46" height="46"/>
+    <SubTexture name="Setting_SettingButton_1" x="423" y="392" width="46" height="46"/>
+    <SubTexture name="Setting_SettingButton_2" x="375" y="392" width="46" height="46"/>
+    <SubTexture name="Setting_SkinButton_0" x="327" y="408" width="46" height="46"/>
+    <SubTexture name="Setting_SkinButton_1" x="423" y="344" width="46" height="46"/>
+    <SubTexture name="Setting_SkinButton_2" x="2" y="427" width="28" height="28" frameX="-9" frameY="-9" frameWidth="46" frameHeight="46"/>
+    <SubTexture name="Setting_SoundButton_0" x="375" y="344" width="46" height="46"/>
+    <SubTexture name="Setting_SoundButton_1" x="327" y="360" width="46" height="46"/>
+    <SubTexture name="Setting_SoundButton_2" x="639" y="435" width="30" height="24" frameX="-8" frameY="-10" frameWidth="46" frameHeight="46"/>
+    <SubTexture name="Setting_TableBg_1" x="234" y="370" width="52" height="74"/>
+    <SubTexture name="Setting_TableBg_2" x="180" y="370" width="52" height="74"/>
+    <SubTexture name="Setting_TableBg_3" x="126" y="342" width="52" height="74"/>
+    <SubTexture name="Setting_TableBg_4" x="720" y="304" width="52" height="74"/>
+    <SubTexture name="Setting_TableBg_5" x="666" y="304" width="52" height="74"/>
+    <SubTexture name="Setting_TableBg_6" x="319" y="284" width="52" height="74"/>
+    <SubTexture name="Setting_TalkLine" x="2" y="284" width="297" height="2"/>
+    <SubTexture name="Setting_Voice_Bg" x="2" y="342" width="120" height="42"/>
+</TextureAtlas>

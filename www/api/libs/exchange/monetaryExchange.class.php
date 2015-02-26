@@ -8,8 +8,11 @@
 
 namespace api\libs\exchange;
 use utils\Tools;
+use web\libs\DataUtil;
 use web\libs\UserResource;
+use web\libs\UserUtil;
 use web\model\StoreProductsModel;
+use web\model\UserModel;
 use web\model\UserResourceLogModel;
 
 /**
@@ -36,6 +39,9 @@ class MonetaryExchange extends BaseExchange implements IExchange{
     function doExchange($profile, $product_id,$login_name)
     {
         $product = StoreProductsModel::instance()->read($product_id);
+        $user = UserModel::instance()->getUserByLoginName($login_name);
+        $product['price'] = UserUtil::instance()->vipResourceDiscount($product['price'],$user['vip_level']);
+        unset($user);
         $this->checkProductAndResource($profile,$product);
 
         try{
@@ -57,22 +63,17 @@ class MonetaryExchange extends BaseExchange implements IExchange{
                     'ip' => Tools::getip(),
                     'name' => '',
                     'address' => '',
-                    'mobile' => 0
+                    'mobile' => 0,
+                    'product_name' => $product['name'],
+                    'cost_info' =>$product['price'].$this->config->web['price_type'][$product['price_type']],
+                    'get_info' => empty($product['tool']) ? '/' : $product['tool'].$this->config->web['tool_type'][$product['tool_type']]
                 );
 
                 //处理商品记录
                 $this->saveUserProductInfo($indexResultHandler,$productOrder);
                 $this-> db -> commit();
-                $data = array(
-                    'action_type' => UserResource::ACTION_EXCHANGE,//资源变动类型:玩家兑换
-                    'tool_type' => $product['tool_type'],
-                    'price_type' => $product['price_type'],
-                    'price' => intval( $product['price'] ),
-                    'tool' => intval( $product['tool'] ),
-                    'uid' => $profile['uid']
-                );
-                UserResourceLogModel::instance()->save($data);
-                $this->resourceChangeNotify($profile['user_id']);
+
+                DataUtil::instance()->doAfterExchange($product,$profile);
                 $this->response(null);
 
         }catch (\Exception $e){

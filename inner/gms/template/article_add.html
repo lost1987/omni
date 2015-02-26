@@ -1,0 +1,190 @@
+{% extends 'base.html'%}
+
+{% block title%}
+{{action_name}}文章
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/media/css/select2_metro.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/chosen.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/addtional.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/bootstrap-fileupload.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/datetimepicker.css" />
+{% endblock %}
+
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            文章管理
+            <small></small>
+        </h3>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+</div>
+
+<div class="row-fluid">
+<div class="span12">
+<!-- BEGIN VALIDATION STATES-->
+<div class="portlet box">
+
+<div class="portlet-title">
+    <div class="caption"><i class="icon-reorder">{{action_name}}文章</i></div>
+    <div class="tools">
+        <a href="javascript:;" class="collapse"></a>
+        <a href="#portlet-config" data-toggle="modal" class="config"></a>
+        <a href="javascript:;" class="reload"></a>
+        <a href="javascript:;" class="remove"></a>
+    </div>
+</div>
+
+
+<div class="portlet-body form">
+<!-- BEGIN FORM-->
+<form action="{{action}}" id="form_sample_2" class="form-horizontal" method="post" enctype="multipart/form-data">
+<input type="hidden" name="csrf_token" value="{{token}}" />
+<div class="alert alert-error hide">
+    <button class="close" data-dismiss="alert"></button>
+    您提交的信息有错误请更正后再保存
+</div>
+
+<div class="alert alert-success hide">
+    <button class="close" data-dismiss="alert"></button>
+    保存成功!
+</div>
+
+
+<div class="control-group">
+    <label class="control-label"><b class="midnight">标题</b><span class="required">*</span></label>
+    <div class="controls">
+        <input type="text" name="title" data-required="1" class="span3 m-wrap" value="{{article.title}}"/>
+    </div>
+</div>
+
+
+<div class="control-group">
+    <label class="control-label"><b class="midnight">作者</b><span class="required">&nbsp;&nbsp;</span></label>
+    <div class="controls">
+        <input type="text" name="author" data-required="1" class="span3 m-wrap" value="{{article.author}}"/>
+    </div>
+</div>
+
+
+<div class="control-group">
+    <label class="control-label"><b class="midnight">简述</b><span class="required">&nbsp;&nbsp;</span></label>
+    <div class="controls">
+        <textarea type="text" rows=5 cols=20 name="description" data-required="1" class="span5 m-wrap" value="">{{article.description}}</textarea>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label"><b class="midnight">栏目</b><span class="required">*</span></label>
+    <div class="controls">
+       <select class="span2" name="category_id" >
+           {% for item in categories %}
+               {% if item.id == article.category_id %}
+                    <option selected="selected" value="{{item.id}}">{{item.category_name}}</option>
+               {% else %}
+                    <option value="{{item.id}}">{{item.category_name}}</option>
+               {% endif %}
+           {% endfor %}
+       </select>
+    </div>
+</div>
+
+    <div class="control-group">
+        <label class="control-label"><b class="midnight">标记</b><span class="required">&nbsp;&nbsp;</span></label>
+        <div class="controls">
+            {% for key,val in flags %}
+                {% set chk = '' %}
+                {% for fl in article.flag %}
+                    {% if fl == key %}
+                       {% set chk = 'checked' %}
+                    {% endif %}
+                {% endfor %}
+                {% if chk == 'checked' %}
+                    <input type="checkbox" name="flag[]" value="{{key}}" checked="checked"/>{{val}}
+                {% else %}
+                    <input type="checkbox" name="flag[]" value="{{key}}" />{{val}}
+                {% endif %}
+            {% endfor%}
+        </div>
+    </div>
+
+<div class="row-fluid">
+    <div class="span6">
+        <div class="control-group">
+            <label class="control-label"><b class="midnight">图片</b><span class="required">&nbsp;&nbsp;</span></label>
+            &nbsp;&nbsp;&nbsp; &nbsp;
+            <b class="midnight">(99px * 86px)并且文件大小小于500KB</b>
+            <div class="controls">
+                <div class="fileupload fileupload-new" data-provides="fileupload">
+                    <div class="fileupload-new thumbnail" style="width: 200px;">
+                        <img src="{{article.image}}" rel="web_image-upload" />
+                    </div>
+                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px;  line-height: 20px;"></div>
+                    <div>
+                                                <span class="btn btn-file"><span class="fileupload-new">浏览</span>
+                                                <span class="fileupload-exists">重选</span>
+                                                <input type="file" class="default" name="image" id="image" accept="image/gif,image/jpeg,image/png"  />
+                                                </span>
+                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">删除</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label"><b class="midnight">内容</b><span class="required">*</span></label>
+    <div class="controls">
+        <textarea class="ckeditor"  name="content" id="content" height="1000">{{article.content}}</textarea>
+    </div>
+</div>
+
+
+<div class="form-actions">
+    <button type="submit" class="btn red">保存</button>
+    <button type="reset" class="btn">重置</button>
+</div>
+</form>
+<!-- END FORM-->
+</div>
+</div>
+<!-- END VALIDATION STATES-->
+</div>
+</div>
+
+{% endblock %}
+
+{% block javascript_plugins%}
+<script type="text/javascript" src="/media/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/media/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="/media/js/select2.min.js"></script>
+<script type="text/javascript" src="/media/js/chosen.jquery.min.js"></script>
+<script type="text/javascript" src="/media/js/bootstrap-fileupload.js"></script>
+<script type="text/javascript" src="/editor/ckeditor.js"></script>
+<script type="text/javascript" src="/media/js/common/ckeditor-upload.js"></script>
+{% endblock  %}
+
+{% block javascript_custom %}
+<script src="/media/js/private/article_add.js"></script>
+<script>
+    var success = {{success}};
+   $(function(){
+       FormValidation.init();
+        if(success == 1)
+            $('.alert-success').show();
+
+       {% if action_name == '编辑'%}
+           //编辑时 删除图片验证规则
+           $("#image").rules('remove');
+       {% endif %}
+   })
+
+</script>
+{% endblock %}
+

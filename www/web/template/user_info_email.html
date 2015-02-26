@@ -1,0 +1,50 @@
+{% extends 'basePersonnal.html' %}
+
+{% block title %}
+武汉麻将-个人中心
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-个人中心
+{% endblock %}
+
+{% block description %}
+武汉麻将-个人中心
+{% endblock %}
+{% block content %}
+<div class="col-xs-7">
+    <div class="panel p15 inner pb50">
+        <h4 class="mTitle">账号信息
+            <small class="text-blue"><span class="pl5 pr5 text-grey">|</span>邮箱认证</small>
+        </h4>
+        <div>
+            <form class="form-horizontal" role="form">
+                <div class="form-group" id="inputArea">
+                    <div class="alert alert-info">
+                        <div class="p10">
+                            服务说明：绑定邮箱可用于找回密码，请您认证填写自己的常用邮箱，以防遗忘。
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" id="email">
+
+                        <p class="help-block"></p>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="button" class="btn btn-info" onclick="auth()" id="authBtn">立即认证</button>
+                    </div>
+                </div>
+                <div class="alert alert-info" id="showArea" style="display:none">
+                    <div class="p10">
+                        我们已向您的邮箱发送了认证邮件看，请登陆邮箱并点击邮件中的链接来完成认证。<button type="button" id="loginBtn" class="btn btn-info">登录邮箱</button>
+                    </div>
+                    <a href="" id="gotoEmailLink" target="_blank" style="display: none"></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script src="{{ constant('STATIC_HOST') }}/js/user.auth.email.js"></script>
+{% endblock %}

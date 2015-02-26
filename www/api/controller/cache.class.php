@@ -13,8 +13,7 @@ namespace api\controller;
 use core\Baseapi;
 use core\Redis;
 use utils\Tools;
-use web\model\RankModel;
-use web\model\SessionModel;
+use web\model\UserModel;
 
 /**
  * 处理缓存数据的接口类
@@ -34,20 +33,26 @@ class Cache extends Baseapi{
      * 获取用户的总排名
      */
     function global_rank(){
-            $sessionid = $_COOKIE['sessionid'];
+            $sessionid = $this->input->post('sessionid');
             $user = null;
             if(!empty($sessionid)){
                  $session = $this->check_session($sessionid);
                  if(false != $session) {
-                     $user_number = $session['user_number'];
-                     $info = $this->redis->hMGet('global:rank_info:user:'.$user_number,array('nickname','area','coins','win_rate','coins_rank'));
-                     $info = Tools::std_array_format($info);
-                     $user_rank = intval($info['coins_rank']);
-                     unset($info['coins_rank']);
-                     $user = array(
-                         'info' => $info,
-                         'rank' => $user_rank
-                     );
+                     $userObject = UserModel::instance()->getUserByUid($session['uid']);
+                     $today = date('YmdHis');
+                     if(!strcmp($userObject['regist_time'],$today)){
+                         $user = null;
+                     }else{
+                         $user_number = $session['user_number'];
+                         $info = $this->redis->hMGet('global:rank_info:user:'.$user_number,array('nickname','area','coins','win_rate','coins_rank'));
+                         $info = Tools::std_array_format($info);
+                         $user_rank = intval($info['coins_rank']);
+                         unset($info['coins_rank']);
+                         $user = array(
+                             'info' => $info,
+                             'rank' => $user_rank
+                         );
+                     }
                  }
             }
 

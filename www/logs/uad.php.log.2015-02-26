@@ -1,0 +1,214 @@
+[26-Feb-2015 10:20:21 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:21 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined offset: 1' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/uad/libs/userRelationShip.class.php(77): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/controller/index.class.php(32): getChildren(string, array)
+#3 (): index()
+#4 /Users/shameless/php_workspace/website_php/www/core/fpm.class.php(78): call_user_func(array)
+#5 /Users/shameless/php_workspace/website_php/www/omni.class.php(136): run(string, object)
+#6 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#7 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:22 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:22 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:28 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:29 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:29 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined offset: 1' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/uad/libs/userRelationShip.class.php(77): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/controller/children.class.php(30): getChildren(string, array)
+#3 (): index()
+#4 /Users/shameless/php_workspace/website_php/www/core/fpm.class.php(78): call_user_func(array)
+#5 /Users/shameless/php_workspace/website_php/www/omni.class.php(136): run(string, object)
+#6 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#7 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:30 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:30 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:31 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:32 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:33 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:33 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined offset: 1' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/uad/libs/userRelationShip.class.php(77): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/controller/children.class.php(30): getChildren(string, array)
+#3 (): index()
+#4 /Users/shameless/php_workspace/website_php/www/core/fpm.class.php(78): call_user_func(array)
+#5 /Users/shameless/php_workspace/website_php/www/omni.class.php(136): run(string, object)
+#6 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#7 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:35 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:35 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined offset: 1' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/uad/libs/userRelationShip.class.php(77): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/controller/index.class.php(32): getChildren(string, array)
+#3 (): index()
+#4 /Users/shameless/php_workspace/website_php/www/core/fpm.class.php(78): call_user_func(array)
+#5 /Users/shameless/php_workspace/website_php/www/omni.class.php(136): run(string, object)
+#6 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#7 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:36 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:36 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined offset: 1' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/uad/libs/userRelationShip.class.php(77): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/controller/children.class.php(30): getChildren(string, array)
+#3 (): index()
+#4 /Users/shameless/php_workspace/website_php/www/core/fpm.class.php(78): call_user_func(array)
+#5 /Users/shameless/php_workspace/website_php/www/omni.class.php(136): run(string, object)
+#6 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#7 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:39 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:39 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined offset: 1' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/uad/libs/userRelationShip.class.php(77): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/controller/children.class.php(30): getChildren(string, array)
+#3 (): index()
+#4 /Users/shameless/php_workspace/website_php/www/core/fpm.class.php(78): call_user_func(array)
+#5 /Users/shameless/php_workspace/website_php/www/omni.class.php(136): run(string, object)
+#6 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#7 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:40 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:40 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:41 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:41 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined offset: 1' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/uad/libs/userRelationShip.class.php(77): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/controller/children.class.php(30): getChildren(string, array)
+#3 (): index()
+#4 /Users/shameless/php_workspace/website_php/www/core/fpm.class.php(78): call_user_func(array)
+#5 /Users/shameless/php_workspace/website_php/www/omni.class.php(136): run(string, object)
+#6 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#7 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:43 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:49 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined index: memcache' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/omni.class.php(122): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#3 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126
+[26-Feb-2015 10:20:49 Asia/Shanghai]  PHP NOTICE : notice  with message 'Undefined offset: 1' in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php:126
+Stack trace:
+#0 /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php(105): trace_notice(string)
+#1 /Users/shameless/php_workspace/website_php/www/uad/libs/userRelationShip.class.php(77): error_transfer_exception(integer, string, string, integer, array)
+#2 /Users/shameless/php_workspace/website_php/www/uad/controller/index.class.php(32): getChildren(string, array)
+#3 (): index()
+#4 /Users/shameless/php_workspace/website_php/www/core/fpm.class.php(78): call_user_func(array)
+#5 /Users/shameless/php_workspace/website_php/www/omni.class.php(136): run(string, object)
+#6 /Users/shameless/php_workspace/website_php/www/uad/index.php(53): run(string)
+#7 {main}
+  thrown in /Users/shameless/php_workspace/website_php/www/core/exceptionHandler.class.php on line 126

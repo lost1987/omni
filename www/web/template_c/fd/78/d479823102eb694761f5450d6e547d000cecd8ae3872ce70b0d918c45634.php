@@ -22,21 +22,22 @@ class __TwigTemplate_fd78d479823102eb694761f5450d6e547d000cecd8ae3872ce70b0d918c
 \t<meta charset=\"UTF-8\">
 \t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" >
 \t<meta name=\"description\" content=\"\" />
-\t<title>武汉麻将</title>
+\t<title id=\"_title\">武汉麻将</title>
+    <link rel=\"shortcut icon\" href=\"/img/logo.ico\" id=\"mj_ico\" />
     <script src=\"";
-        // line 8
+        // line 9
         echo twig_escape_filter($this->env, twig_constant("STATIC_HOST"), "html", null, true);
         echo "/js/common/jquery.min.js?";
         echo twig_escape_filter($this->env, (isset($context["version"]) ? $context["version"] : null), "html", null, true);
         echo "\"></script>
     <script src=\"";
-        // line 9
+        // line 10
         echo twig_escape_filter($this->env, twig_constant("STATIC_HOST"), "html", null, true);
         echo "/js/common/swfobject.js?";
         echo twig_escape_filter($this->env, (isset($context["version"]) ? $context["version"] : null), "html", null, true);
         echo "\"></script>
 \t<!--<script src=\"";
-        // line 10
+        // line 11
         echo twig_escape_filter($this->env, (isset($context["STATIC_URL"]) ? $context["STATIC_URL"] : null), "html", null, true);
         echo "js/check_browser_close.js\"></script>-->
     <style type=\"text/css\" media=\"screen\">
@@ -81,7 +82,7 @@ class __TwigTemplate_fd78d479823102eb694761f5450d6e547d000cecd8ae3872ce70b0d918c
 \t\t};
 \t\tswfobject.embedSWF(
         \"/media/bin/Portal.swf?version=";
-        // line 52
+        // line 53
         echo twig_escape_filter($this->env, (isset($context["version"]) ? $context["version"] : null), "html", null, true);
         echo "\",
 \t\t\t\"altContent\", \"1280\", \"650\", \"10.0.0\", 
@@ -95,7 +96,7 @@ class __TwigTemplate_fd78d479823102eb694761f5450d6e547d000cecd8ae3872ce70b0d918c
         change = function() {
             swfobject.embedSWF(
             \"/media/bin/Portal.swf?version=";
-        // line 63
+        // line 64
         echo twig_escape_filter($this->env, (isset($context["version"]) ? $context["version"] : null), "html", null, true);
         echo "\",
                 \"altContent\", \"1280\", \"650\", \"10.0.0\", 
@@ -120,16 +121,29 @@ class __TwigTemplate_fd78d479823102eb694761f5450d6e547d000cecd8ae3872ce70b0d918c
     <!--<div class=\"rt_ad\"><img src=\"/static/img/mj_ad.jpg\" /></div>-->
     <div id=\"gamepage_foot\">
         <p><span>武汉麻将班子群：129166897</span><a target=\"_blank\" href=\"http://shang.qq.com/wpa/qunwpa?idkey=cccb0ff5e146f7ad2f26d700d1b1fa3a24bc82bdb115c6833bcb47bba52de14f\" class=\"addqq\"><img src=\"";
-        // line 85
+        // line 86
         echo twig_escape_filter($this->env, twig_constant("STATIC_HOST"), "html", null, true);
         echo "/img/addqq.png\" border=\"0\" alt=\"武汉麻将班子\" title=\"武汉麻将班子\" /></a>|<a href=\"/payment/entrance/\" target=\"_blank\">充值</a>|<a href=\"/introduce/\" target=\"_blank\">游戏规则</a>|<a href=\"/match\" target=\"_blank\">比赛规则</a>|<a href=\"/userinfo/\" target=\"_blank\">帐户信息</a>|<a href=\"http://weibo.com/u/5076807387\" target=\"_blank\">微博</a></p>
         <p>版权所有 武汉新蜂乐众网络技术有限公司<img align=\"absmiddle\" style=\"vertical-align: -1px; margin-left: 5px\" src=\"";
-        // line 86
+        // line 87
         echo twig_escape_filter($this->env, twig_constant("STATIC_HOST"), "html", null, true);
         echo "/img/newbee.png\"><a target=\"_blank\" href=\"http://www.miitbeian.gov.cn/\">ICP：鄂ICP备14001438号</a><img width=\"30\" style=\"vertical-align: -7px; margin-right:-5px\" src=\"";
         echo twig_escape_filter($this->env, twig_constant("STATIC_HOST"), "html", null, true);
         echo "/img/gameRFID.png\"><a target=\"_blank\" href=\"http://182.131.21.137/ccnt-apply/admin/business/preview/business-preview!lookUrlRFID.action?main_id=36415BBF7D7B4CBB9D6DEE27E3152CA5\">鄂网文【2014】1195-014</a></p>
     </div>
+<script>
+    \$(function(){
+        \$(window).on(\"blur\",function(){
+            \$(\"#_title\").html(\"别忘了回来哦\");
+            \$(\"#mj_ico\").attr(\"href\",\"/img/leave.ico\")
+        })
+
+        \$(window).on(\"focus\",function(){
+            \$(\"#_title\").html(\"武汉麻将\");
+            \$(\"#mj_ico\").attr(\"href\",\"/img/logo.ico\")
+        })
+    })
+</script>
 </body>
 </html>
 ";
@@ -147,6 +161,6 @@ class __TwigTemplate_fd78d479823102eb694761f5450d6e547d000cecd8ae3872ce70b0d918c
 
     public function getDebugInfo()
     {
-        return array (  128 => 86,  124 => 85,  99 => 63,  85 => 52,  40 => 10,  34 => 9,  28 => 8,  19 => 1,);
+        return array (  129 => 87,  125 => 86,  100 => 64,  86 => 53,  41 => 11,  35 => 10,  29 => 9,  19 => 1,);
     }
 }

@@ -8,6 +8,9 @@
 
 namespace web\libs\exchange;
 
+use core\Base;
+use core\Controller;
+use web\libs\DataUtil;
 use  web\model\ProfileModel;
 use  web\libs\Error;
 use  web\libs\UserResource;
@@ -16,9 +19,8 @@ use  web\model\ProductOrderModel;
 use core\Configure;
 use core\Encoder;
 use utils\Tools;
-use web\model\UserResourceLogModel;
 
-class MonetaryExchange extends BaseExchange implements IExchange{
+class MonetaryExchange extends Controller implements IExchange{
 
     private static $_instance = null;
 
@@ -36,7 +38,7 @@ class MonetaryExchange extends BaseExchange implements IExchange{
      * @throws \Exception
      * error : 4 对应资源不足
      */
-    function doExchange($product, $user, $response)
+    function doExchange($product, $user)
     {
         $cost_amount = intval($product['price']);
         $add_amount = intval($product['tool']);
@@ -50,10 +52,7 @@ class MonetaryExchange extends BaseExchange implements IExchange{
         $uid = $user['uid'];
         $userProfile = ProfileModel::instance()->read($uid);
         if($cost_amount > $userProfile[ $cost_name ])
-        {
-            $response['error'] = Error::ERROR_RESOURCE_LESS;
-            die(Encoder::instance()->encode($response));
-        }
+            $this->response(null,Error::ERROR_RESOURCE_LESS);
 
         try{
             $this->db->begin();
@@ -86,31 +85,26 @@ class MonetaryExchange extends BaseExchange implements IExchange{
                 'handler_id' => $handler_id,
                 'name' => '',
                 'address' => '',
-                'mobile' => 0
+                'mobile' => 0,
+                'product_name' => $product['name'],
+                'cost_info' =>$product['price'].$this->config->web['price_type'][$product['price_type']],
+                'get_info' => empty($product['tool']) ? '/' : $product['tool'].$this->config->web['tool_type'][$product['tool_type']]
             );
 
             if(!$productOrderModel->save($params))
                 throw new \Exception(Error::ERROR_DATA_WRITE);
 
             $this->db->commit();
-            $data = array(
-                'action_type' => UserResource::ACTION_EXCHANGE,//资源变动类型:玩家兑换
-                'tool_type' => $product['tool_type'],
-                'price_type' => $product['price_type'],
-                'price' => intval( $product['price'] ),
-                'tool' => intval( $product['tool'] ),
-                'uid' => $uid
-            );
-            UserResourceLogModel::instance()->save($data);
-            $this->resourceChangeNotify($uid);
+
+            DataUtil::instance()->doAfterExchange($product,$userProfile);
             //成功
-            die(Encoder::instance()->encode($response));
+            $this->response();
 
         }catch (\Exception $e){
             $this->db->rollback();
+            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'兑换物品出错',$e);
             //失败
-            $response['error'] = $e->getMessage();
-            die(Encoder::instance()->encode($response));
+            $this->response(null,$e->getMessage());
         }
     }
 } 

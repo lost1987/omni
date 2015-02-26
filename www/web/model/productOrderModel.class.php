@@ -29,17 +29,24 @@ class ProductOrderModel extends Model{
             if($start !== null && $count !== null){
                 $limit = " LIMIT $start,$count";
             }
-            $sql = "SELECT  a.id,a.create_at, b.name,b.tool,b.tool_type,b.price,b.price_type,c.result FROM store_productorder a LEFT JOIN store_products b ON a.product_id = b.id LEFT JOIN index_handleresult c  ON a.handler_id = c.id WHERE user_id = ? $limit ";
+            $sql = "SELECT  a.id,a.create_at,a.product_name,a.cost_info,a.get_info, b.name,c.result FROM store_productorder a LEFT JOIN store_products b ON a.product_id = b.id LEFT JOIN index_handleresult c  ON a.handler_id = c.id WHERE user_id = ? and b.category_id <> 4 order by a.id DESC $limit ";
             $this->db->execute($sql,array($uid));
             return $this->db->fetch_all();
     }
+
+    function read_num_rows($uid){
+            $sql = "SELECT count(*) as num FROM store_productorder a LEFT JOIN store_products b ON a.product_id = b.id WHERE a.user_id = ? AND b.category_id <> 4 ";
+            $this->db->execute($sql,array($uid));
+            return $this->db->fetch()['num'];
+    }
+
 
     /**
      * 联表查询 store_product_order 和 store_products
      * @param $uid
      */
     function readByOrderId($orderid){
-        $sql = "SELECT  a.id,a.create_at,b.name,b.tool,b.tool_type,b.price,b.price_type,c.result,c.handler_type FROM store_productorder a LEFT JOIN store_products b ON a.product_id = b.id LEFT JOIN  index_handleresult c ON a.handler_id = c.id  WHERE a.id = ?";
+        $sql = "SELECT  a.id,a.product_id,a.create_at,a.name as realname,a.mobile,a.address,a.handler_id,a.product_name,a.cost_info,a.get_info,b.name,b.tool,b.tool_type,b.price,b.price_type,c.result,c.handler_type FROM store_productorder a LEFT JOIN store_products b ON a.product_id = b.id LEFT JOIN  index_handleresult c ON a.handler_id = c.id  WHERE a.id = ?";
         $this->db->execute($sql,array($orderid));
         return $this->db->fetch();
     }
@@ -73,7 +80,6 @@ class ProductOrderModel extends Model{
         $this->db->execute($sql);
         return $this->db->fetch_all();
     }
-
 
     function update(Array $fields,$id){
         return $this->db->update($fields,'store_productorder','WHERE id = '.$id);

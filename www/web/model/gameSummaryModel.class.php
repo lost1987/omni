@@ -22,7 +22,7 @@ class GameSummaryModel extends Model{
     }
 
     function read($uid){
-        $sql = "SELECT * FROM gauth_gamesummary WHERE player_id = ?";
+        $sql = "SELECT * FROM gamesummary WHERE player_id = ?";
         $this->db->execute($sql,array($uid));
         return $this->db->fetch();
     }

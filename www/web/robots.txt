@@ -1,0 +1,4 @@
+﻿User-agent:*
+Disallow:
+
+Sitemap: http://16youxi.com/sitemap.xml

@@ -223,14 +223,19 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
                         ";
             }
             // line 115
-            echo "                    </td>
+            echo "                        <a href=\"/userResourceLog/lists/19/";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "login_name", array()), "html", null, true);
+            echo "/";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "uid", array()), "html", null, true);
+            echo "\" class=\"btn mini grey\" style=\"width:80px;text-align:left\"><i class=\"icon-jpy\"></i>资源日志</a><br/>
+                    </td>
                 </tr>
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 118
+        // line 119
         echo "                </tbody>
             </table>
         </div>
@@ -238,7 +243,7 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
     <div class=\"row-fluid\">
         <div class=\"span6\">
             <div class=\"dataTables_info\" id=\"sample_2_info\" style=\"padding-top:0\">共";
-        // line 124
+        // line 125
         echo twig_escape_filter($this->env, ((array_key_exists("total", $context)) ? (_twig_default_filter((isset($context["total"]) ? $context["total"] : null), 0)) : (0)), "html", null, true);
         echo "条数据</div>
         </div>
@@ -246,7 +251,7 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
             <div class=\"dataTables_paginate paging_bootstrap pagination\">
                 <ul>
                  ";
-        // line 129
+        // line 130
         echo (isset($context["pagiation"]) ? $context["pagiation"] : null);
         echo "
                 </ul>
@@ -293,10 +298,10 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
 ";
     }
 
-    // line 174
+    // line 175
     public function block_javascript_plugins($context, array $blocks = array())
     {
-        // line 175
+        // line 176
         echo "<script type=\"text/javascript\" src=\"/media/js/select2.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/jquery.dataTables.min.js\"></script>
 <script type=\"text/javascript\" src=\"/media/js/DT_bootstrap.js\"></script>
@@ -304,10 +309,10 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
 ";
     }
 
-    // line 181
+    // line 182
     public function block_javascript_custom($context, array $blocks = array())
     {
-        // line 182
+        // line 183
         echo "<script>
     jQuery(document).ready(function() {
         TableAdvanced.init();
@@ -328,6 +333,6 @@ class __TwigTemplate_280be8a20a0593b665dd5ab49074abd3fe91a4144b08f6a1445714f740e
 
     public function getDebugInfo()
     {
-        return array (  311 => 182,  308 => 181,  300 => 175,  297 => 174,  250 => 129,  242 => 124,  234 => 118,  226 => 115,  217 => 113,  208 => 112,  201 => 110,  198 => 109,  189 => 106,  187 => 105,  180 => 104,  178 => 103,  172 => 100,  166 => 97,  162 => 95,  158 => 93,  154 => 91,  152 => 90,  146 => 87,  140 => 84,  134 => 81,  128 => 78,  122 => 76,  118 => 75,  87 => 47,  54 => 16,  51 => 15,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
+        return array (  316 => 183,  313 => 182,  305 => 176,  302 => 175,  255 => 130,  247 => 125,  239 => 119,  226 => 115,  217 => 113,  208 => 112,  201 => 110,  198 => 109,  189 => 106,  187 => 105,  180 => 104,  178 => 103,  172 => 100,  166 => 97,  162 => 95,  158 => 93,  154 => 91,  152 => 90,  146 => 87,  140 => 84,  134 => 81,  128 => 78,  122 => 76,  118 => 75,  87 => 47,  54 => 16,  51 => 15,  43 => 9,  40 => 8,  35 => 5,  32 => 4,);
     }
 }

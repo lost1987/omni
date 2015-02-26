@@ -1,0 +1,91 @@
+{% extends 'baseBlank.html' %}
+
+{% block title %}
+武汉麻将-商城
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-商城
+{% endblock %}
+
+{% block description %}
+武汉麻将-商城
+{% endblock %}
+
+{% block css %}
+<link href="{{ constant('STATIC_HOST') }}/css/formError.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="">
+    <div class="row">
+        <div class="col-xs-2">
+            <div class="bg-blueD inner">
+                <div class="mainTitle">
+                    <h3 class="sTitle">
+                        <a href="/store">
+                        <span class="icon icon-house"></span>
+                    <span class="bl1">
+                      <span class="uppercase">SHOP</span><br>商城
+                    </span>
+                            </a>
+                    </h3>
+                </div>
+                <div class="leftSide pt30 pb30 pl10">
+                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                        {% for item in categories %}
+                            {% if item.id == category_id %}
+                                <li class="active"><a href="/store/category/{{item.id}}"><span class="icon icon-arrowR-org"></span>{{item.name}}</a></li>
+                            {% else %}
+                                <li><a href="/store/category/{{item.id}}"><span class="icon icon-arrowR-org"></span>{{item.name}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-7">
+            <div class="panel p15 pb50 inner">
+                <ul class="nav nav-tabs nav02" role="tablist">
+                    <li><a>商品兑换</a></li>
+                </ul>
+                <div class="p15">
+                    <table class="table table-border">
+                        <thead>
+                       <tr><th style="text-align: left">您正在兑换&nbsp;&nbsp;{{product.name}}</th></tr>
+                        </thead>
+                        <tr><td>兑换将扣除<span class="text-orgD">{{product.price_name}}</span></td></tr>
+                    </table>
+                </div>
+
+                <form class="form-horizontal" role="form" id="exchangeForm">
+                    <input type="hidden" id="product_id" value="{{product.id}}" />
+                    <input type="hidden" id="category_id" value="{{category_id}}" />
+                    <input type="hidden" id="token" value="{{token}}" />
+                    <div class="form-group">
+                        <code style="margin-left:53px;">为了保证能正确为您充值，请您仔细填写以下信息</code><br/></br>
+                        <label for="" class="col-xs-3 control-label">消费密码：</label>
+                        <div class="col-xs-4">
+                            <input type="password" class="form-control" id="password" name="password" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-2">
+                            <button type="submit"  id="exBtn" class="btn btn-block btn-info">兑换</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% include 'faq_right_bar.html' %}
+    </div>
+</div>
+
+
+{% endblock %}
+{% block script %}
+<script src="{{ constant('STATIC_HOST') }}/js/common/md5.min.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/common/jquery.validate.min.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/store.product.item.js"></script>
+{% endblock %}

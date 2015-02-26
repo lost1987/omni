@@ -1,0 +1,14 @@
+<div class="col-xs-4">
+    <div class="bl1 ml15 inner">
+        <div class="p15 bb1 pt30">
+            <h4 class="mbn"><strong>焦点资讯</strong></h4>
+        </div>
+        <div class="pt15 pr15">
+            <ul class="list list03 nowrap">
+                {% for item in right_bar_news %}
+                <li><a href="/articles/detail/{{item.id}}" title="{{item.title}}">{{item.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

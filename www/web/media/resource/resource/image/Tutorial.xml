@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:923ce44312a96284719ad3a347b41117$ -->
+<TextureAtlas imagePath="Tutorial.png">
+    <SubTexture name="Tutorial_ButtonText_HaoDe" x="598" y="78" width="54" height="32"/>
+    <SubTexture name="Tutorial_ButtonText_TiaoGuo" x="598" y="112" width="53" height="32"/>
+    <SubTexture name="Tutorial_ContentBg" x="2" y="2" width="479" height="143"/>
+    <SubTexture name="Tutorial_Girl" x="483" y="2" width="113" height="134"/>
+    <SubTexture name="Tutorial_Pointer" x="598" y="2" width="67" height="74"/>
+</TextureAtlas>

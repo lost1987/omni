@@ -1,0 +1,138 @@
+{% extends 'baseBlank.html' %}
+
+{% block title %}
+武汉麻将-用户注册
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-用户注册
+{% endblock %}
+
+{% block description %}
+武汉麻将-用户注册
+{% endblock %}
+
+{% block css %}
+<link href="{{ constant('STATIC_HOST') }}/css/formError.css" rel="stylesheet">
+<style>
+    .form-group{
+        height:36px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="panel signinPanel" style="height:600px;">
+    <div class="row">
+        <div class="col-xs-8">
+            <h3>注册账号</h3>
+            <form class="form-horizontal mt50" role="form" id="signForm" action="/user/register" method="post">
+                <input type="hidden" name="csrf_token" value="{{csrf_token}}"/>
+                <input type="hidden" name="hid_password" id="hid_password" value="" />
+                <div class="form-group">
+                    <label for="" class="col-xs-2 control-label">用户名<font color="red">&nbsp;*</font>：</label>
+                    <div class="col-xs-6">
+                        <input type="text" class="form-control" id="rlogin_name" name="login_name" value="" placeholder="4-16位字母、下划线或数字" />
+                    </div>
+                    <div class="col-xs-4">
+                        <!-- <div class="alert alert-danger mbn font12">两次密码输入不一致</div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-xs-2 control-label">昵称<font color="red">&nbsp;*</font>：</label>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="nickname" name="nickname" value="" placeholder="3-6位字母、下划线、数字、中文" >
+                    </div>
+                    <div class="col-xs-2">
+                        <a href="javascript:;" id="rdname" class="btn btn-block btn-org">随机</a>
+                    </div>
+                    <div class="col-xs-4">
+                        <!-- <div class="alert alert-danger mbn font12">两次密码输入不一致</div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-xs-2 control-label">密码<font color="red">&nbsp;*</font>：</label>
+                    <div class="col-xs-6">
+                        <input type="password" class="form-control" id="password" name="password"  placeholder="6-16位字母、数字" >
+                    </div>
+                    <div class="col-xs-4">
+                        <!-- <div class="alert alert-danger mbn font12">两次密码输入不一致</div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-xs-2 control-label">确认密码<font color="red">&nbsp;*</font>：</label>
+                    <div class="col-xs-6">
+                        <input type="password" class="form-control" id="re_password" name="re_password" placeholder="6-16位字母、数字" >
+                    </div>
+                    <div class="col-xs-4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-xs-2 control-label">性别<font color="red">&nbsp;*</font>：</label>
+                    <div class="col-xs-6">
+                        <label class="radio-inline">
+                            <input type="radio" name="gender"  value="0" checked="checked"> 男
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender"  value="1"> 女
+                        </label>
+                    </div>
+                    <div class="col-xs-4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="col-xs-2 control-label">我在<font color="red">&nbsp;*</font>：</label>
+                    <div class="col-xs-6">
+                        <select name="area" id="area" class="form-control">
+                            {% for item in areas %}
+                            <option value="{{loop.index0}}">{{item}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-xs-4">
+                        <!-- <div class="alert alert-danger mbn font12">两次密码输入不一致</div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-6">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="agree" id="agree"> 我已看过并同意<a href="/user/agreement" target="_blank">《用户服务协议》</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-2 col-xs-6">
+                        <button type="submit" class="btn btn-block btn-info">立即注册</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-4">
+            <ul class="list list02 mt30">
+                <li>已经拥有武汉麻将账号？<a href="/" class="text-blue">直接登录</a></li>
+                <li>用其它账号登录 <a href="/weibo/sina/login"><span class="icon icon-sina"></span><strong>新浪微博登录</strong></a></li>
+                <li>点击下载武汉麻将移动应用
+                    <div class="row mt30">
+                        <div class="col-xs-7">
+                            <a href="http://wuhanmj-apk.qiniudn.com/MjMobile_newbee.apk" target="_blank" class="btn btn-sm btn-block btn-success mb10"><span class="icon android"></span></a>
+                            <a href="javascript:alert('敬请期待')" class="btn btn-sm btn-block btn-info"><span class="icon apple"></span></a>
+                        </div>
+                        <div class="col-xs-5">
+                            <img src="{{ constant('STATIC_HOST') }}/images/code.png" alt="" style="width:95px;">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script> var token = '{{csrf_token}}';</script>
+<script src="{{ constant('STATIC_HOST') }}/js/common/md5.min.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/common/jquery.validate.min.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/signIn.js"></script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'baseBlank.html' %}
+
+{% block title %}
+武汉麻将
+{% endblock %}
+
+{% block keywords %}
+武汉麻将
+{% endblock %}
+
+{% block description %}
+武汉麻将
+{% endblock %}
+
+{% block content %}
+        <div class="">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="panel p15 pb50">
+                <div class="pageError">
+                  <div class="alert alert-info">
+                    <div class="p10 text-center">
+                      <div class="text-error">错误</div>
+                      <p class="text-blue" style="font-size: 24px;">{{error}}</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-6"><a href="/" class="btn btn-lg btn-block btn-info">首页</a></div>
+                      <div class="col-xs-6">
+                      {% if is_login == 0%}
+                          <a href="#tops" class="btn btn-lg btn-block btn-org" onclick="$('#loginPannel').trigger('mouseover')">反馈问题</a>
+                          {% else %}
+                          <a href="/service/fb" class="btn btn-lg btn-block btn-org">反馈问题</a>
+                          {% endif %}
+                      </div>
+                  </div>
+                </div> <!-- /error -->
+              </div>
+            </div>
+          </div>
+        </div>
+{%endblock%}

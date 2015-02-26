@@ -20,6 +20,7 @@ use utils\Upload;
 use web\libs\Error;
 use web\libs\Helper;
 use web\libs\UserUtil;
+use web\model\ArticlesModel;
 use web\model\FeedBackModel;
 use web\model\IndexHandleResultModel;
 use web\model\PaymentOrder;
@@ -40,58 +41,100 @@ class Service extends Controller {
 
 
     function index(){
-            $is_login = UserUtil::instance()->isLogin();
-            $pay_failed = empty($_GET['pay_failed']) ? 0 : 1;
+            $this->output_data['fwzn']='active';
+            $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+            $this->tpl->display('service.html',$this->output_data);
+    }
 
-            $output = array(
-                'is_login' => $is_login==true ? 1 : 0,
-                'token' => Cookie::instance()->get_csrf_cookie(),
-                'navigator' => Helper::getControllerName(__NAMESPACE__,__CLASS__),
-                'pay_failed' => $pay_failed
-            );
+    function selfService(){
+            $this->output_data['zzfw'] = 'active';
+            $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+            if($this->output_data['is_login'])
+                $this->output_data['userAuth'] = UserUtil::instance()->get_auth(Cookie::instance()->userdata('uid'));
+            $this->tpl->display('service_selfService.html',$this->output_data);
+    }
 
-            $this->tpl->display('service.html',$output);
+    function helpCenter(){
+        $this->output_data['bzzx'] = 'active';
+        $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+        $this->tpl->display('service_helpCenter.html',$this->output_data);
+    }
+
+    /**
+     * 用户申述
+     */
+    function sus(){
+        $this->output_data['zzfw']='active';
+        $this->output_data['token'] = Cookie::instance()->get_csrf_cookie();
+        $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+        $this->tpl->display('service_selfService_account.html',$this->output_data);
+    }
+
+    /**
+     * 意见反馈
+     */
+    function fb(){
+        UserUtil::instance()->checkLogin('/error/index/'.Error::ERROR_NO_LOGIN);
+        $this->output_data['zzfw']='active';
+        $this->output_data['token'] = Cookie::instance()->get_csrf_cookie();
+        $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+        $this->tpl->display('service_selfService_comments.html',$this->output_data);
+    }
+
+    /**
+     * 举报作弊
+     */
+    function tf(){
+        UserUtil::instance()->checkLogin('/error/index/'.Error::ERROR_NO_LOGIN);
+        $this->output_data['zzfw']='active';
+        $this->output_data['token'] = Cookie::instance()->get_csrf_cookie();
+        $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+        $this->tpl->display('service_selfService_report.html',$this->output_data);
     }
 
 
     /**
-     * 充值记录查询
+     * 充值记录
      */
-    function rechargelist(){
-          $this->csrf_token_validation(false);
-          $response['error'] = 0;
+    function rl(){
+        UserUtil::instance()->checkLogin('/error/index/'.Error::ERROR_NO_LOGIN);
+        $this->output_data['zzfw']='active';
 
-           if(!UserUtil::instance()->isLogin()){
-               $response['error'] = Error::ERROR_NO_LOGIN;
-               die(Encoder::instance()->encode($response));
-           }
-           $uid = Cookie::instance()->userdata('uid');
-          $page = empty($this->args[0]) ? 1 : $this->args[0];
-          $count = 10;
-          $start = ($page - 1) * $count;
+        $uid = Cookie::instance()->userdata('uid');
+        $page = empty($this->args[0]) ? 1 : $this->args[0];
+        $count = 10;
+        $start = ($page - 1) * $count;
 
-          $start_time = strtotime($this->input->post('start_time'));
-          $end_time = strtotime($this->input->post('end_time'));
+        $s = $this->input->get('start_time');
+        $e = $this->input->get('end_time');
+        $start_time = strtotime($s);
+        $end_time = strtotime($e);
 
-         $response['data'] = PaymentOrder::instance()->searchByDate($uid,$start_time,$end_time,$start,$count);
-         $total = PaymentOrder::instance()->searchByDateNums($uid,$start_time,$end_time);
-         //处理分页
-        $params = array(
-            'total_rows'=>$total, #(必须)
-            'method'    =>'ajax', #(必须)
-            'parameter' =>'',  #(必须)
-            'now_page'  =>$page,  #(必须)
-            'list_rows' =>$count, #(可选) 默认为15
-            'ajax_func_name' => 'recharge_page',
-            'a_classname' =>'active'
-        );
+        if(!empty($s) && !empty($e)){
+            $this->output_data['start_time'] = date('Y-m-d H:i:s',$start_time);
+            $this->output_data['end_time'] =  date('Y-m-d H:i:s',$end_time);
+            $this->output_data['list'] = PaymentOrder::instance()->searchByDate($uid,$start_time,$end_time,$start,$count);
+            $total = PaymentOrder::instance()->searchByDateNums($uid,$start_time,$end_time);
+            //处理分页
+            $params = array(
+                'total_rows'=>$total, #(必须)
+                'method'    =>'html', #(必须)
+                'parameter' =>'/service/rl/?',  #(必须)
+                'now_page'  =>$page,  #(必须)
+                'list_rows' =>$count, #(可选) 默认为15
+                'li_classname' =>'active',
+                'use_tag_li' => true,
+                'query_string'=>'start_time='.$start_time.'&end_time='.$end_time
+            );
 
-        $page = new Page($params);
-        if($page->getTotalPage() > 1)
-            $response['pagiation'] = $page->show(1);
-
-        die(Encoder::instance()->encode($response));
+            $page = new Page($params);
+            if($page->getTotalPage() > 1)
+                $this->output_data['pagiation'] = $page->show(1);
+        }
+        $this->output_data['faq'] = ArticlesModel::instance()->lists(0,10,3);
+        $this->tpl->display('service_selfService_history.html',$this->output_data);
     }
+
 
     /**
      * 反馈问题
@@ -136,11 +179,13 @@ class Service extends Controller {
                 throw new \Exception(Error::ERROR_DATA_WRITE);
 
             $this->db->commit();
-            $output = array('result'=>'你的反馈已提交成功',  'navigator' => Helper::getControllerName(__NAMESPACE__,__CLASS__));
-            $this->tpl->display('service_handle.html',$output);
+            $this->output_data['func_title'] = '意见反馈';
+            $this->output_data['result_content'] = '您的问题已经提交成功!我们会及时处理';
+            $this->tpl->display('service_handle.html',$this->output_data);
 
         }catch (\Exception $e){
             $this->db->rollback();
+            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'用户反馈出错',$e);
             Redirect::instance()->forward('/error/index/'.$e->getMessage());
         }
     }
@@ -157,7 +202,7 @@ class Service extends Controller {
 
         $file = $_FILES['file'];
         $name = $this->input->post('tipoff_name');
-        $time = $this->input->post('tipoff_time');
+        $time = date('Y-m-d H:i:s');
         $content = $this->input->post('tipoff_content');
 
         if(empty($_FILES['file']))
@@ -208,11 +253,13 @@ class Service extends Controller {
                 throw new \Exception(Error::ERROR_DATA_WRITE);
 
             $this->db->commit();
-            $output = array('result'=>'您的举报已提交成功',  'navigator' => Helper::getControllerName(__NAMESPACE__,__CLASS__));
-            $this->tpl->display('service_handle.html',$output);
+            $this->output_data['func_title'] = '作弊举报';
+            $this->output_data['result_content'] = '您的问题已经提交成功!我们会及时处理';
+            $this->tpl->display('service_handle.html',$this->output_data);
 
         }catch (\Exception $e){
             $this->db->rollback();
+            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'用户举报出错',$e);
             Redirect::instance()->forward('/error/index/'.$e->getMessage());
         }
 
@@ -268,11 +315,13 @@ class Service extends Controller {
                 throw new \Exception(Error::ERROR_DATA_WRITE);
 
             $this->db->commit();
-            $output = array('result'=>'您的申诉已提交成功',  'navigator' => Helper::getControllerName(__NAMESPACE__,__CLASS__));
-            $this->tpl->display('service_handle.html',$output);
+            $this->output_data['func_title'] = '账号申述';
+            $this->output_data['result_content'] = '您的问题已经提交成功!我们会及时处理';
+            $this->tpl->display('service_handle.html',$this->output_data);
 
         }catch (\Exception $e){
             $this->db->rollback();
+            Tools::debug_log(__CLASS__,__FUNCTION__,__FILE__,'账号申述出错',$e);
             Redirect::instance()->forward('/error/index/'.$e->getMessage());
         }
     }

@@ -136,6 +136,7 @@ class KnockoutMatch extends AdminController{
             $item['type_name'] = $this->config->gms['verify_types'][$item['type']];
             $item['match'] = Encoder::instance()->decode($item['json_content']);
             $item['match']['price_type'] = $this->config->gms['prize_types'][$item['match']['price_type']]['name'];
+            $item['match']['base_price_type'] =  $this->config->gms['prize_types'][$item['match']['base_price_type']]['name'];
             $item['match']['match_type_name'] = $this->config->gms['match_types'][$item['match']['match_type']];
         }
         $this->render('knockout_match_verify.html');
@@ -176,6 +177,7 @@ class KnockoutMatch extends AdminController{
 
                 $gamedb->commit();
                 $this->db->commit();
+                @file_get_contents($this->config->gms['notify_server_match_update_address']);
                 SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_MATCH_VERIFY,"审核淘汰赛id#$match_id 审核id#$verify_id 为通过");
             }catch (\Exception $e){
                 $gamedb->rollback();
@@ -305,6 +307,7 @@ class KnockoutMatch extends AdminController{
                 $this->db->commit();
                 //将结构 写入redis缓存
                 MatchPrize_M::instance()->save_prize_struct($key,$prize_data);
+                @file_get_contents($this->config->gms['notify_server_match_update_address']);
                 SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_MATCH_VERIFY,"审核比赛奖励 比赛id#$match_id 审核id#$verify_id 为通过");
             }catch (\Exception $e){
                 $gamedb->rollback();

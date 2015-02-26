@@ -1,0 +1,145 @@
+{% extends 'baseBlank.html' %}
+
+{% block title %}
+武汉麻将-商城
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-商城
+{% endblock %}
+
+{% block description %}
+武汉麻将-商城
+{% endblock %}
+
+{% block css %}
+<link href="{{ constant('STATIC_HOST') }}/css/formError.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="">
+    <div class="row">
+        <div class="col-xs-2">
+            <div class="bg-blueD inner">
+                <div class="mainTitle">
+                    <h3 class="sTitle">
+                        <a href="/store">
+                        <span class="icon icon-house"></span>
+                    <span class="bl1">
+                      <span class="uppercase">SHOP</span><br>商城
+                    </span>
+                            </a>
+                    </h3>
+                </div>
+                <div class="leftSide pt30 pb30 pl10">
+                    <ul class="nav nav-pills nav-stacked" role="tablist">
+                        {% for item in categories %}
+                            {% if item.id == category_id %}
+                                <li class="active"><a href="/store/category/{{item.id}}"><span class="icon icon-arrowR-org"></span>{{item.name}}</a></li>
+                            {% else %}
+                                <li><a href="/store/category/{{item.id}}"><span class="icon icon-arrowR-org"></span>{{item.name}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-7">
+            <div class="panel p15 pb50 inner">
+                <ul class="nav nav-tabs nav02" role="tablist">
+                    <li><a>商品兑换</a></li>
+                </ul>
+                <div class="p15">
+                    <table class="table table-border">
+                        <thead>
+                       <tr><th style="text-align: left">您正在兑换&nbsp;&nbsp;{{product.name}}</th></tr>
+                        </thead>
+                        <tr><td>兑换将扣除<span class="text-orgD">{{product.price_name}}</span></td></tr>
+                    </table>
+                </div>
+                <form class="form-horizontal" role="form" id="exchangeForm">
+                    <input type="hidden" id="product_id" value="{{product.id}}" />
+                    <input type="hidden" id="category_id" value="{{category_id}}" />
+                    <input type="hidden" id="token" value="{{token}}" />
+                    <div class="form-group">
+                        <code style="margin-left:53px;">为了保证能正确为您充值，请您仔细填写以下信息</code><br/></br>
+                        <label for="" class="col-xs-3 control-label">姓名：</label>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" name="realName" id="realName" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">手机号：</label>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" id="mobile" name="mobile" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">确认手机号：</label>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" id="reMobile" name="reMobile" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">消费密码：</label>
+                        <div class="col-xs-4">
+                            <input type="password" class="form-control" id="password" name="password" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-3 control-label">地址：</label>
+                        <div class="col-xs-6">
+                            <textarea type="text" class="form-control" id="address" rows="5" cols="10" name="address"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-2">
+                            <button type="submit" class="btn btn-block btn-info">兑换</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% include 'faq_right_bar.html' %}
+    </div>
+</div>
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="">您正在兑换&nbsp;&nbsp;{{product.name}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="p10">
+                    <p class="text-blue">请确认您的收货信息</p>
+                    <table class="table table-border table-hover">
+                        <tbody>
+                        <tr width="30%">
+                            <td>姓名：<span id="confirm-name"></span></td>
+                        </tr>
+                        <tr>
+                            <td>电话：<span id="confirm-mobile"></span></td>
+                        </tr>
+                        <tr>
+                            <td>地址：<span id="confirm-address"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="text-center mt20">
+                        <a class="btn btn-info" onclick="exchange()" id="exBtn">确认兑换</a>
+                        <a class="btn btn-info" data-dismiss="modal">取消</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- /modal -->
+
+{% endblock %}
+{% block script %}
+<script src="{{ constant('STATIC_HOST') }}/js/common/md5.min.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/common/jquery.validate.min.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/store.product.real.js"></script>
+{% endblock %}

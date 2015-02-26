@@ -13,11 +13,11 @@ namespace api\controller;
 use api\libs\Error;
 use api\libs\exchange\FactoryExchange;
 use core\Baseapi;
-use core\Configure;
 use utils\Tools;
 use web\libs\UserUtil;
 use web\model\ProfileModel;
 use web\model\PurchaseProfileModel;
+use web\model\UserModel;
 
 /**
  * 商品,资源兑换类
@@ -30,6 +30,13 @@ class Store extends Baseapi{
      * 读取所有商品
      */
     function lists(){
+        $session = $this->check_session( $this->input->post( 'sessionid' ) );
+        if ( !$session )
+            $this->response( null , Error::USER_NOT_LOGIN );
+
+        $uid = $session['uid'];
+        $vipLv = UserModel::instance()->getVipLevel($uid);
+
         $sql = " SELECT id,image,is_promote,name,price,price_type,top_timestamp,is_top,product_type FROM store_products WHERE is_visible=1";
         $this->db->execute($sql);
         $products = $this->db->fetch_all();
@@ -42,6 +49,7 @@ class Store extends Baseapi{
                 $product['is_top'] = $product['is_top'] ? true : false;
                 $product['top_timestamp'] = empty($product['top_timestamp']) ? 0 : $product['top_timestamp'];
                 $product['image'] = WWW_HOST.$product['image'];
+                $product['price'] = UserUtil::instance()->vipResourceDiscount($product['price'],$vipLv);
                 unset($product['price_type']);
         }
 
@@ -63,7 +71,7 @@ class Store extends Baseapi{
      * 兑换
      */
     function exchange(){
-        $session = $this->check_session($_COOKIE['sessionid']);
+        $session = $this->check_session($this->input->post('sessionid'));
         if(!$session)
             $this->response(null,Error::USER_NOT_LOGIN);
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="keywords" content="{%block keywords%}{% endblock %}">
+    <meta name="description" content="{%block description%}{% endblock %}">
+    <meta name="author" content="">
+
+    <!-- Note there is no responsive meta tag here -->
+
+    <title>{%block title%}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ constant('STATIC_HOST') }}/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ constant('STATIC_HOST') }}/css/main.css" rel="stylesheet">
+
+    {% block css %}
+    {% endblock %}
+</head>
+
+<body>
+
+{% include 'header.html' %}
+
+{% block banner %}
+{% endblock %}
+
+<div class="main">
+    <div class="container">
+        {% include 'floatCode.html' %}
+        <div class="row">
+            {% include 'index_left_bar.html' %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div> <!-- /container -->
+</div>
+
+<div class="">
+    <div class="container">
+        <div class="footer">
+            {% include 'footer.html' %}
+        </div>
+    </div>
+</div>
+{% include 'notice.html' %}
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ constant('STATIC_HOST') }}/js/common/jquery.min.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/jquery.SuperSlide.2.1.1.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script src="{{ constant('STATIC_HOST') }}/js/jquery.datetimepicker.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/common/common.js"></script>
+<script src="{{ constant('STATIC_HOST') }}/js/common/calendar.js"></script>
+{% block script %}
+{% endblock %}
+</body>
+</html>

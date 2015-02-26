@@ -111,6 +111,7 @@ class DB {
         $this->_charset = $config->db[$dbname]['charset'];
 
         $this->_resouce = new \PDO("mysql:host=$this->_host;dbname=$dbname;charset=$this->_charset",$this->_user,$this->_passwd);
+        $this->setOptions(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_WARNING);
         if(!$this->_resouce)
             throw new \Exception('can not connect host '.$this->_host);
     }
@@ -129,6 +130,7 @@ class DB {
         $dbname = $server['server_db'];
 
         $this->_resouce = new \PDO("mysql:host=$this->_host;dbname=$dbname;charset=$this->_charset",$this->_user,$this->_passwd);
+        $this->setOptions(\PDO::ATTR_ERRMODE,\PDO::ERRMODE_WARNING);
         if(!$this->_resouce)
             throw new \Exception('can not connect host '.$this->_host);
     }
@@ -225,6 +227,9 @@ class DB {
         return $this->execute($sql,$values);
     }
 
+    function inTransaction(){
+        return $this->_resouce->inTransaction();
+    }
 
     function insert_id(){
             return $this->_resouce->lastInsertId();

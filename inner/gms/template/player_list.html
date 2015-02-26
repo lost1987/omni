@@ -42,7 +42,7 @@
     <!--表格查询区-->
     <form class="form-actions" action="/player/lists/19" method="get" id="search_form">
         <div class="control-group search_form_wrap">
-            <label class="control-label span1"><b class="midnight">账号</b>&nbsp;&nbsp;</label>
+            <label class="control-label" style="width:100px;"><b class="midnight">账号或昵称</b></label>
             <div class="controls chzn-controls search_form">
                 <input name="login_name" type="text" class="span2 m-wrap" value="{{search_login_name}}"/>
             </div>
@@ -112,6 +112,7 @@
                                  <a href="javascript:reset_password({{item.uid}},{{item.user_number}},'{{item.login_name}}')" class="btn mini grey" style="width:80px;text-align:left"><i class="icon-lock"></i>重置登陆密码</a><br/>
                                  <a href="javascript:reset_purchase_password({{item.uid}},{{item.user_number}},'{{item.login_name}}')" class="btn mini grey" style="width:80px;text-align:left"><i class="icon-lock"></i>重置消费密码</a><br/>
                         {% endif %}
+                        <a href="/userResourceLog/lists/19/{{item.login_name}}/{{item.uid}}" class="btn mini grey" style="width:80px;text-align:left"><i class="icon-jpy"></i>资源日志</a><br/>
                     </td>
                 </tr>
                 {% endfor %}

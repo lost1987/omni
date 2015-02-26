@@ -25,7 +25,6 @@ class Check extends Baseapi{
     function session(){
         $session_key = $this->input->get('sessionid');
         $session = $this->check_session($session_key);
-
         $data = array(
             'username' => null,
             'user_number'=> 0

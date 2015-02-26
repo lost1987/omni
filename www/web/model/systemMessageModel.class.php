@@ -31,21 +31,25 @@ class SystemMessageModel extends Model {
         if($start !== null && $count !== null)
             $limit = " LIMIT  $start,$count";
 
-        $sql = "SELECT * FROM system_messages WHERE state = 1 ORDER BY publish_time DESC  $limit";
+        $sql = "SELECT * FROM system_messages ORDER BY id DESC  $limit";
         $this->db->execute($sql);
         return $this->db->fetch_all();
     }
 
     function num_rows(){
-        $sql = "SELECT COUNT(*) AS num  FROM system_messages WHERE state = 1";
+        $sql = "SELECT COUNT(*) AS num  FROM system_messages";
         $this->db->execute($sql);
         return $this->db->fetch()['num'];
     }
 
 
     function read($id){
-        $sql = "SELECT * FROM  system_messages WHERE id = ? and state = 1";
+        $sql = "SELECT * FROM  system_messages WHERE id = ?";
         $this->db->execute($sql , array($id));
         return $this->db->fetch();
+    }
+
+    function save($fields){
+        return $this->db->save($fields,'system_messages');
     }
 } 

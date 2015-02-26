@@ -21,15 +21,19 @@ class Baseapi extends Base{
     /**
      * @param $data  返回的数据
      * @param int $error 错误代码
+     * @param bool $end 是否输出后终止程序
      * @param int $encode  编码方式
      * @throws \Exception
      */
-    function response($data,$error=0,$encode=Encoder::JSON){
+    function response($data,$error=0,$end=true,$encode=Encoder::JSON){
         $response = array(
-            'error' => $error,
+            'error' => intval($error),
             'data' => $data
         );
-        die(Encoder::instance()->encode($response,$encode));
+        if($end)
+            die(Encoder::instance()->encode($response,$encode));
+        else
+            echo Encoder::instance()->encode($response,$encode);
     }
 
     /**

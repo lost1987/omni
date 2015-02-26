@@ -413,7 +413,6 @@ class Curl
                 }
             }
         }
-
         return $data;
     }
 

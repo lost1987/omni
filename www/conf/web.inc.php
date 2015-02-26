@@ -81,29 +81,42 @@ return array(
             2 => '门票',
             3 => '奖券',
             4 => '鲜花',
-            5 => '鸡蛋'
+            5 => '鸡蛋',
+            6 => '喇叭',
+            7 => '包房卡'
     ),
 
     'tool_type_columns' => array(
-         0 => 'coins',
-         1 => 'diamond',
-         2 => 'ticket',
-         3 => 'coupon'
+        0 => 'coins',
+        1 => 'diamond',
+        2 => 'ticket',
+        3 => 'coupon',
+        4 => 'flower',
+        5 => 'egg',
+        6 => 'horn',
+        7 => 'private_room_card'
     ),
 
     'price_type' => array(
-            0 => '金币',
-            1 => '钻石',
-            2 => '门票',
-            3 => '奖券',
-            4 => 'RMB'
+        0 => '金币',
+        1 => '钻石',
+        2 => '门票',
+        3 => '奖券',
+//        4 => '鲜花',
+//        5 => '鸡蛋',
+//        6 => '喇叭',
+//        7 => '包房卡'
     ),
 
     'price_type_columns' => array(
-            0 => 'coins',
-            1 => 'diamond',
-            2 => 'ticket',
-            3 => 'coupon'
+        0 => 'coins',
+        1 => 'diamond',
+        2 => 'ticket',
+        3 => 'coupon',
+//        4 => 'flower',
+//        5 => 'egg',
+//        6 => 'horn',
+//        7 => 'privateRoomCard'
     ),
 
     /**
@@ -158,7 +171,7 @@ return array(
     'pay_type' => array(
         0 => 'PayChinaBank',//'网银在线',
         1 => 'PayAliPay',//'支付宝',
-        2 => 'PayMobile',//'手机支付'
+        2 => 'PayMobile',//'手机卡支付'
     ),
 
     /**
@@ -233,6 +246,18 @@ return array(
         0=>'实物',
         1=>'充值卡',
         2=>'道具'
+    ),
+
+    //映射游戏项目的资源类型变化 索引对应price_types的索引
+    'game_resource_changetypes' => array(
+        0 => 0,
+        1 => 3,
+        2 => 1,
+        3 => 2,
+        4 => 4,
+        5 => 5,
+        6 => 6,
+        7 => 7
     )
 
 );

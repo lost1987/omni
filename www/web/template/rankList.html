@@ -1,0 +1,86 @@
+{% extends 'baseArticle.html' %}
+
+{% block title %}
+武汉麻将-游戏排行
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-游戏排行
+{% endblock %}
+
+{% block description %}
+武汉麻将-游戏排行
+{% endblock %}
+
+{% block content %}
+          <div class="col-xs-8">
+            {% include 'article_tablist.html' %}
+            <div class="panel p30">
+              <h2 class="sTitle">
+                <span class="icon icon-rank-b"></span>
+                <span class="bl1">
+                  <span class="uppercase">Raking</span><br>游戏排行
+                </span>
+                <div class="input-group pull-right input-r">
+                </div><!-- /input-group -->
+              </h2>
+              <div>
+                <div class="row nopd border bg-blueL">
+                  <div class="col-xs-2">
+                    <div class="leftSide pt30 pb30 pl10">
+                      <ul class="nav nav-pills nav-stacked" role="tablist">
+                        <li class="active"><a href="javascript:;" rel="coins">财富</a></li>
+                        <li><a href="javascript:;" rel="win_rate">胜率</a></li>
+                        <li><a href="javascript:;" rel="littlewin">小胡</a></li>
+                        <li><a href="javascript:;" rel="alltriples">碰碰胡</a></li>
+                        <li><a href="javascript:;" rel="allonesuite">清一色</a></li>
+                        <li><a href="javascript:;" rel="all258">将一色</a></li>
+                        <li><a href="javascript:;" rel="allwind">风一色</a></li>
+                        <li><a href="javascript:;" rel="allothers">全求人</a></li>
+                        <li><a href="javascript:;" rel="winquadruplecard">杠上开花</a></li>
+                        <li><a href="javascript:;" rel="lastdrawablecard">海底捞</a></li>
+                        <li><a href="javascript:;" rel="quadruplerobbery">抢杠</a></li>
+                        <li><a href="javascript:;" rel="topgold">金顶</a></li>
+                        <li><a href="javascript:;" rel="topdiamond">钻石顶</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-xs-10 bg-white">
+                    <div class="p10" style="min-height:670px;">
+                      <table class="table table-border table-hover" >
+                        <thead>
+                          <tr>
+                              <th>排名</th>
+                              <th>用户</th>
+                              <th>所在地</th>
+                              <th>金币</th>
+                              <th id="sp">胜率</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for idx,item in orderlist%}
+                        <tr>
+                            <td class="text-center">{{item.order}}</td>
+                            {% if item.isme == 1%}
+                            <td><font color="red">{{item.nickname}}</font></td>
+                            {% else %}
+                            <td>{{item.nickname}}</td>
+                            {% endif %}
+                            <td>{{item.area}}</td>
+                            <td class="text-right">{{item.coins}}</td>
+                            <td class="text-right">{{item.win_rate}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+ <input type="hidden" name="token" id="token" value="{{token}}" />
+{% endblock %}
+{% block script %}
+<script type="text/javascript" src="{{constant('STATIC_HOST')}}/js/rank.js"></script>
+{% endblock %}

@@ -28,6 +28,15 @@ var FormValidation = function () {
                     price_type: {
                         required: true
                     },
+                    base_price:{
+                        required:true
+                    },
+                    base_price_type:{
+                        required:true
+                    },
+                    auction_time:{
+                        required:true
+                    },
                     active:{
                         required:true
                     },
@@ -71,6 +80,17 @@ var FormValidation = function () {
                     },
                     price_type:{
                         required: '这是必填项'
+                    },
+                    base_price:{
+                        required:'这是必填项',
+                        number:'只能输入数字'
+                    },
+                    base_price_type:{
+                        required:'这是必填项'
+                    },
+                    auction_time:{
+                        required:'这是必填项',
+                        number:'只能输入数字'
                     },
                         active:{
                             required: '这是必填项'

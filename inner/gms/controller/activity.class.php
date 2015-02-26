@@ -111,6 +111,7 @@ class Activity extends AdminController{
         if($this->args[1] == 'edit'){
             $id = $this->args[2];
             $this->output_data['item'] =   Activity_M::instance()->read($id);
+            $this->output_data['item']['calendar_date'] = empty($this->output_data['item']['calendar_date']) ? '' : date('Y-m-d',$this->output_data['item']['calendar_date']);
             $this->output_data['item']['expire_time'] = Date::instance()->format_YmdHi($this->output_data['item']['expire_time'],Date::FORMAT_YMDHI_STANDARD);
             $this->output_data['action'] = '/activity/update/'.$id;
             $this->output_data['action_name'] = '编辑';
@@ -129,7 +130,12 @@ class Activity extends AdminController{
             $post['publish_time'] = date('YmdHi');
             $post['handler_id'] = 1;
             $post['detail_url'] = WWW_HOST.'/activity/detail/';
-            $post['content'] = $_POST['content'];
+            $post['content'] = $this->input->sPost('content');
+            if(empty($post['calendar_date']))
+                unset($post['calendar_date']);
+            else
+                $post['calendar_date'] = strtotime($post['calendar_date']);
+
             if(empty($post['expire_time']))
                 unset($post['expire_time']);
             else
@@ -151,9 +157,17 @@ class Activity extends AdminController{
             $file2 = $upload2->upload($file['game_image']);
             $post['in_game_image_url'] = $image_host.$file2['url'];
 
+            $upload3 = new Upload();
+            $upload3->set_allowed_ext($this->config->gms['upload']['image_allowed_ext']);
+            $upload3->set_max_size(504800);
+            $upload3->set_upload_folder('upload/images/game');
+            $file3 = $upload3->upload($file['index_image']);
+            $post['index_image_url'] = $file3['url'];
+
             if(!$insert_id = Activity_M::instance()->save($post)){
                     @unlink($file1['path']);
                     @unlink($file2['path']);
+                    @unlink($file3['path']);
                     $this->set_error(Error::DATA_WRITE);
             }
 
@@ -168,6 +182,13 @@ class Activity extends AdminController{
         $post = $this->input->post();
         $file = $_FILES;
         $post['detail_url'] = WWW_HOST.'/activity/detail/';
+        $post['content'] = $this->input->sPost('content');
+
+        if(empty($post['calendar_date']))
+            unset($post['calendar_date']);
+        else
+            $post['calendar_date'] = strtotime($post['calendar_date']);
+
         if(empty($post['expire_time']))
             unset($post['expire_time']);
         else
@@ -198,9 +219,21 @@ class Activity extends AdminController{
             unset($post['game_image']);
         }
 
+        if(!empty($_FILES['index_image']['name'])){
+            $upload3 = new Upload();
+            $upload3->set_allowed_ext($this->config->gms['upload']['image_allowed_ext']);
+            $upload3->set_max_size(504800);
+            $upload3->set_upload_folder('upload/images/game');
+            $file3 = $upload3->upload($file['index_image']);
+            $post['index_image_url'] = $file3['url'];
+        }else{
+            unset($post['index_image']);
+        }
+
         if(!Activity_M::instance()->update($post,$id)){
             @unlink($file1['path']);
             @unlink($file2['path']);
+            @unlink($file3['path']);
             $this->set_error(Error::DATA_WRITE);
         }
 

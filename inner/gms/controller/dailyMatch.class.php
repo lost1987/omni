@@ -171,6 +171,7 @@ class DailyMatch extends AdminController{
                 $this->db->rollback();
                 $this->set_error($e->getMessage());
             }
+            @file_get_contents($this->config->gms['notify_server_match_update_address']);
             SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_MATCH_VERIFY,"审核积分赛id#$match_id 审核id#$verify_id 为通过");
         }
         Redirect::instance()->forward('/dailyMatch/lists/19');
@@ -292,6 +293,7 @@ class DailyMatch extends AdminController{
 
                 $gamedb->commit();
                 $this->db->commit();
+                @file_get_contents($this->config->gms['notify_server_match_update_address']);
                 //将结构 写入redis缓存
                 MatchPrize_M::instance()->save_prize_struct($key,$prize_data);
                 SystemLog::instance()->save(ModuleDictionary::MODULE_GAME_MATCH_VERIFY,"审核比赛奖励 比赛id#$match_id 审核id#$verify_id 为通过");

@@ -7,6 +7,7 @@
  */
 
 namespace utils;
+use core\Configure;
 use core\Encoder;
 
 /**
@@ -15,17 +16,16 @@ use core\Encoder;
  * @package web\libs
  */
 class Das {
-    //渠道
-    const PLATFORM_MOBILE = 1;
-    const PLATFORM_WEB = 2;
 
-    //事件
+    //事件 2次幂算法
     const LOGIN_COUNT = 1;
     const LOGIN_NUM = 2;
     const REGISTER_NUM = 4;
     const PAYMENT = 8;
+    const RESOURCE = 16;
 
-
+    //是否开启数据统计
+    private $_das_enable = false;
     /**
      * 服务器id
      * @var int|null
@@ -45,12 +45,6 @@ class Das {
     private $_send_data = null;
 
     /**
-     * uid
-     * @var null
-     */
-    private $_uid = null;
-
-    /**
      * curl resource
      * @var null|resource
      */
@@ -58,36 +52,43 @@ class Das {
 
     private static $_instance = null;
 
-    static function instance($platform,$sid,$uid){
+    static function instance($platform,$sid){
         if(self::$_instance == null)
-            self::$_instance = new self($platform,$sid,$uid);
+            self::$_instance = new self($platform,$sid);
         return self::$_instance;
     }
 
-    function __construct($platform,$sid,$uid){
+    function __construct($platform,$sid){
         if(!defined("GMS_HOST"))
             throw new \Exception('undefined GMS_HOST');
 
         $this->_sid = $sid;
         $this->_platform_type = $platform;
-        $this->_uid = $uid;
 
         $this->_send_data = array(
             's' => $this->_sid,
             'pt' => $this->_platform_type,
-            'u'  => $this->_uid
         );
 
         $this->_ch = curl_init();
+        $config = Configure::instance();
+        $this->_das_enable = $config->common['das']['enable'];
     }
 
     function send($data,$workers){
-        $this->_send_data['d'] = Encoder::instance()->encode($data);//自定义数据
+        if(!$this->_das_enable){
+            return;
+        }
+
+        if(is_array($data))
+            $this->_send_data['d'] = Encoder::instance()->encode($data);//自定义数据
+        else
+            $this->_send_data['d'] = '';
         $this->_send_data['w'] = $workers;//类型
         curl_setopt($this->_ch,CURLOPT_URL,GMS_HOST.'/go');
         curl_setopt($this->_ch,CURLOPT_POST,1);
         curl_setopt($this->_ch,CURLOPT_POSTFIELDS,$this->_send_data);
-        curl_setopt($this->_ch,CURLOPT_TIMEOUT,2);
+        curl_setopt($this->_ch,CURLOPT_CONNECTTIMEOUT,2);
         @curl_exec($this->_ch);
         return $this;
     }

@@ -1,0 +1,40 @@
+{% extends 'baseBlank.html' %}
+
+{% block title %}
+武汉麻将-{{item.title|default(item.name)}}
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-{{item.title|default(item.name)}}
+{% endblock %}
+
+{% block description %}
+武汉麻将-{{item.title|default(item.name)}}
+{% endblock %}
+
+{% block content %}
+        {% include 'floatCode.html' %}
+        <div class="">
+          <div class="panel p30">
+            <div class="row">
+              <div class="col-xs-8">
+                <div class="inner">
+                  <div class="textTitle mb30">
+                    <h2>{{item.title|default(item.name)}}</h2>
+                    <div class="spes"><span class="pr20">作者：{{item.author|default('/')}}</span><span class="pr20">日期：{{item.publish_time}}</span>
+                        <div class="pull-right" style="width: 200px;">分享到：
+                          <div class="bdsharebuttonbox pull-right"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+  <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="textCon">
+                      {{item.content|raw}}
+                  </div>
+                </div>
+              </div>
+                {% include 'news_right_bar.html' %}
+            </div>
+          </div>
+        </div>
+{% endblock %}

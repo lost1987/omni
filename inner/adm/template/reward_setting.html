@@ -1,0 +1,222 @@
+
+
+    <!-- content start -->
+    <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户</strong> / <small>奖励设置&nbsp;<a class="am-badge am-badge-success am-radius">{{user.login_name}}/{{user.nickname}}</a></small></div>
+    </div>
+            <form id="reward_form" class="am-form-inline">
+            <div class="am-tabs am-margin" id="doc-my-tabs">
+                <ul class="am-tabs-nav am-nav am-nav-tabs">
+                    <li class="am-active"><a href="#tab1">充值返利</a></li>
+                    <li><a href="#tab2">提现返利</a></li>
+                    <li><a href="#tab3">成长返利</a></li>
+                    <li><a href="#tab4">签到返利</a></li>
+                </ul>
+
+                <div class="am-tabs-bd">
+                    <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">一级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                              <input type="text" value="{{reward.recharge.ratio1}}" class="am-form-field span3 am-margin-right-sm" name="recharge_ratio1" placeholder="返利比例"/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">二级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.recharge.ratio2}}" class="am-form-field span3 am-margin-right-sm" name="recharge_ratio2" placeholder="返利比例"/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">三级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.recharge.ratio3}}" class="am-form-field span3 am-margin-right-sm" name="recharge_ratio3" placeholder="返利比例"/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">四级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.recharge.ratio4}}" class="am-form-field span3 am-margin-right-sm" name="recharge_ratio4" placeholder="返利比例"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-tab-panel am-fade" id="tab2">
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">一级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.deposit.ratio1[0].money}}" class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio01" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio1[0].newcoins}}" class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio01" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio1[1].money}}" class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio11" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio1[1].newcoins}}" class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio11" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio1[2].money}}" class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio21" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio1[2].newcoins}}" class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio21" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio1[3].money}}" class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio31" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio1[3].newcoins}}" class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio31" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">二级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.deposit.ratio2[0].money}}" class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio02" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio2[0].newcoins}}" class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio02" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio2[1].money}}" class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio12" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio2[1].newcoins}}" class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio12" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio2[2].money}}" class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio22" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio2[2].newcoins}}" class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio22" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio2[3].money}}" class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio32" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio2[3].newcoins}}" class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio32" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">三级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.deposit.ratio3[0].money}}" class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio03" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio3[0].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio03" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio3[1].money}}"class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio13" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio3[1].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio13" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio3[2].money}}"class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio23" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio3[2].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio23" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio3[3].money}}"class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio33" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio3[3].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio33" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">四级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.deposit.ratio4[0].money}}" class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio04" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio4[0].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio04" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio4[1].money}}"class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio14" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio4[1].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio14" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio4[2].money}}"class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio24" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio4[2].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio24" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.deposit.ratio4[3].money}}"class="am-form-field span4 am-margin-right-sm" name="deposit_money_ratio34" placeholder="提现金额"/>
+                                <input type="text" value="{{reward.deposit.ratio4[3].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="deposit_coins_ratio34" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-tab-panel am-fade" id="tab3">
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">一级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.levelup.ratio1[0].lv}}" class="am-form-field span4 am-margin-right-sm" name="levelup_ratio01" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio1[0].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio01" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.levelup.ratio1[1].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio11" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio1[1].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio11" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.levelup.ratio1[2].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio21" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio1[2].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio21" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">二级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.levelup.ratio2[0].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio02" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio2[0].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio02" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.levelup.ratio2[1].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio12" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio2[1].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio12" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.levelup.ratio2[2].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio22" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio2[2].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio22" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">三级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.levelup.ratio3[0].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio03" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio3[0].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio03" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.levelup.ratio3[1].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio13" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio3[1].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio13" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.levelup.ratio3[2].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio23" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio3[2].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio23" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">四级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.levelup.ratio4[0].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio04" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio4[0].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio04" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.levelup.ratio4[1].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio14" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio4[1].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio14" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.levelup.ratio4[2].lv}}"class="am-form-field span4 am-margin-right-sm" name="levelup_ratio24" placeholder="奖励级别"/>
+                                <input type="text" value="{{reward.levelup.ratio4[2].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="levelup_coins_ratio24" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="am-tab-panel am-fade" id="tab4">
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">一级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.login.ratio1[0].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio01" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio1[0].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio01" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.login.ratio1[1].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio11" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio1[1].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio11" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.login.ratio1[2].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio21" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio1[2].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio21" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">二级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.login.ratio2[0].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio02" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio2[0].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio02" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.login.ratio2[1].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio12" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio2[1].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio12" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.login.ratio2[2].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio22" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio2[2].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio22" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">三级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.login.ratio3[0].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio03" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio3[0].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio03" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.login.ratio3[1].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio13" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio3[1].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio13" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.login.ratio3[2].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio23" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio3[2].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio23" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+
+                        <div class="am-g am-margin-top">
+                            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">四级下线</label></div>
+                            <div class="am-u-sm-10 am-form-group">
+                                <input type="text" value="{{reward.login.ratio4[0].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio04" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio4[0].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio04" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.login.ratio4[1].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio14" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio4[1].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio14" placeholder="新蜂币"/><br/><br/>
+                                <input type="text" value="{{reward.login.ratio4[2].days}}"class="am-form-field span4 am-margin-right-sm" name="login_ratio24" placeholder="签到次数"/>
+                                <input type="text" value="{{reward.login.ratio4[2].newcoins}}"class="am-form-field span4 am-margin-right-sm" name="login_coins_ratio24" placeholder="新蜂币"/><br/><br/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="am-margin">
+                <button type="submit" class="submit am-btn am-btn-primary am-btn-xs">提交保存</button>
+                <button type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
+            </div>
+        </div>
+        </form>
+
+    <!-- content end -->
+
+    {% block script %}
+    <script>
+        var uid = {{user.uid}};
+    </script>
+    <script src="{{constant('STATIC_HOST')}}/assets/lib/jquery.validate.min.js"></script>
+    <script src="{{constant('STATIC_HOST')}}/assets/standalone/reward_setting.js"></script>
+    {% endblock %}

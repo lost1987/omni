@@ -1,0 +1,46 @@
+/* 焦点图效果 */
+	.picBtnTop{height:199px;position:relative;  overflow:hidden;  zoom:1;   }
+	.picBtnTop .hd{ width:199px; position:absolute; right:0px; overflow:hidden; padding:8px 0px; z-index: 99;}
+	.picBtnTop .hd ul li{ text-align:center;padding-left: 6px;}
+	.picBtnTop .hd ul li img{ width:85px; height:60px; border:4px solid #ddd; cursor:pointer; vertical-align:bottom; }
+	.picBtnTop .hd ul li a{display: block; padding: 7px 8px; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; -o-text-overflow:ellipsis;}
+	.picBtnTop .hd ul li.on{ background: url("../images/arrowL-org.png") no-repeat 0 10px; }
+	.picBtnTop .hd ul li.on a{ background: #f9aa33; color: #fff;}
+	.picBtnTop .hd ul li.on img{ border-color:#f60;  }
+	.picBtnTop .bd{ width:450px;  height:199px; position:relative;  }
+	.picBtnTop .bd li{ position:relative; zoom:1; vertical-align:middle;}
+	.picBtnTop .bd li .pic{ position:relative; z-index:0;  }
+	.picBtnTop .bd li .pic img{ width:100%; height:199px; vertical-align:bottom; }
+	.picBtnTop .bd li .bg{ width:450px; height:30px; position:absolute; left:0; bottom:0; z-index:1;  background:#000; filter:alpha(opacity=60);opacity:0.6;    }
+	.picBtnTop .bd li .title{ width:400px; height:30px; line-height:30px; left:0; bottom:0;   position:absolute; z-index:2;  }
+	.picBtnTop .bd li .title a{ color:#fff; padding-left:15px;  }
+	#demo1,#demo2{}
+
+	/* tab选项切换效果 */
+/*	.slideTxtBox{ width:510px; border:1px solid #ddd; text-align:left;  }
+	.slideTxtBox .hd{ height:30px; line-height:30px; background:#f4f4f4; padding:0 20px; border-bottom:1px solid #ddd;  position:relative;  }
+	.slideTxtBox .hd ul{ float:left; position:absolute; left:20px; top:-1px; height:32px;   }
+	.slideTxtBox .hd ul li{ float:left; padding:0 15px; cursor:pointer;  }
+	.slideTxtBox .hd ul li.on{ height:30px;  background:#fff; border:1px solid #ddd; border-bottom:2px solid #fff; }
+	.slideTxtBox .bd ul{ padding:15px;  zoom:1;  }
+	.slideTxtBox .bd li{ height:24px; line-height:24px;   }
+	.slideTxtBox .bd li .date{ float:right; color:#999;  }*/
+
+
+	.picScroll-left{overflow:hidden; position:relative;}
+	/*.picScroll-left .hd{ overflow:hidden;  height:30px; background:#f4f4f4; padding:0 10px;  }
+	.picScroll-left .hd .prev,.picScroll-left .hd .next{ display:block;  width:5px; height:9px; float:right; margin-right:5px; margin-top:10px;  overflow:hidden;
+		 cursor:pointer; background:url("images/arrow.png") no-repeat;}
+	.picScroll-left .hd .next{ background-position:0 -50px;  }
+	.picScroll-left .hd .prevStop{ background-position:-60px 0; }
+	.picScroll-left .hd .nextStop{ background-position:-60px -50px; }
+	.picScroll-left .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:10px; zoom:1; }
+	.picScroll-left .hd ul li{ float:left;  width:9px; height:9px; overflow:hidden; margin-right:5px; text-indent:-999px; cursor:pointer; background:url("images/icoCircle.gif") 0 -9px no-repeat; }
+	.picScroll-left .hd ul li.on{ background-position:0 0; }
+	.picScroll-left .bd{}*/
+	.picScroll-left .bd ul{ overflow:hidden; zoom:1; list-style: none;}
+	.picScroll-left .bd ul li{ margin-right: 8px; float:left; _display:inline; overflow:hidden; text-align:center;  }
+	.picScroll-left .bd ul li .pic{ text-align:center; }
+	.picScroll-left .bd ul li .pic img{ width:100%; height:112px; display:block;}
+	.picScroll-left .bd ul li .pic a:hover img{ border-color:#999;  }
+	.picScroll-left .bd ul li .title{ line-height:24px;   }

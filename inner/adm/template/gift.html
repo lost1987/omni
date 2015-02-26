@@ -1,0 +1,108 @@
+<div class="am-cf am-padding">
+    <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">礼包</strong> / <small>设置</small></div>
+</div>
+
+<form class="am-form-inline" id="Form1">
+    <input type="hidden" id="giftID1" value="{{gifts[1].id}}"/>
+    <fieldset>
+        <legend>新手礼包</legend>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">金币</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[1].items.c}}" class="am-form-field span3 am-margin-right-sm" name="c" placeholder="输入数量"/>
+            </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">钻石</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[1].items.d}}" class="am-form-field span3 am-margin-right-sm" name="d" placeholder="输入数量"/>
+            </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">门票</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[1].items.t}}" class="am-form-field span3 am-margin-right-sm" name="t" placeholder="输入数量"/>
+            </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">奖券</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[1].items.cp}}" class="am-form-field span3 am-margin-right-sm" name="cp" placeholder="输入数量"/>
+            </div>
+        </div>
+    </fieldset>
+    <div class="am-g am-margin-top  am-margin-bottom">
+        <button type="submit" class="submit am-btn am-btn-primary am-btn-xs" style="margin-left:200px;" >提交保存</button>
+    </div>
+</form>
+
+    <form class="am-form-inline" id="Form2">
+        <input type="hidden" id="giftID2" value="{{gifts[2].id}}"/>
+    <fieldset>
+        <legend>普通礼包</legend>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">金币</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[2].items.c}}" class="am-form-field span3 am-margin-right-sm" name="c" placeholder="输入数量"/>
+            </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">钻石</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[2].items.d}}" class="am-form-field span3 am-margin-right-sm" name="d" placeholder="输入数量"/>
+            </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">门票</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[2].items.t}}" class="am-form-field span3 am-margin-right-sm" name="t" placeholder="输入数量"/>
+            </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">奖券</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[2].items.cp}}" class="am-form-field span3 am-margin-right-sm" name="cp" placeholder="输入数量"/>
+            </div>
+        </div>
+    </fieldset>
+        <div class="am-g am-margin-top  am-margin-bottom">
+            <button type="submit" class="submit am-btn am-btn-primary am-btn-xs" style="margin-left:200px;">提交保存</button>
+        </div>
+</form>
+
+<form class="am-form-inline" id="Form3">
+    <input type="hidden" id="giftID3" value="{{gifts[3].id}}"/>
+    <fieldset>
+        <legend>累计邀请礼包</legend>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">金币</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[3].items.c}}" class="am-form-field span3 am-margin-right-sm" name="c" placeholder="输入数量"/>
+            </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">钻石</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[3].items.d}}" class="am-form-field span3 am-margin-right-sm" name="d" placeholder="输入数量"/>
+            </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">门票</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[3].items.t}}" class="am-form-field span3 am-margin-right-sm" name="t" placeholder="输入数量"/>
+            </div>
+        </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right"><label class="am-form-label fix-height">奖券</label></div>
+            <div class="am-u-sm-10 am-form-group">
+                <input type="text" value="{{gifts[1].items.cp}}" class="am-form-field span3 am-margin-right-sm" name="cp" placeholder="输入数量"/>
+            </div>
+        </div>
+    </fieldset>
+    <div class="am-g am-margin-top  am-margin-bottom">
+        <button type="submit" class="submit am-btn am-btn-primary am-btn-xs" style="margin-left:200px;">提交保存</button>
+    </div>
+</form>
+
+<script src="{{constant('STATIC_HOST')}}/assets/lib/jquery.validate.min.js"></script>
+<script src="{{constant('STATIC_HOST')}}/assets/standalone/gift.js"></script>

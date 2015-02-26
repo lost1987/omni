@@ -1,0 +1,58 @@
+{% extends 'baseArticle.html' %}
+
+{% block title %}
+武汉麻将-活动中心
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-活动中心
+{% endblock %}
+
+{% block description %}
+武汉麻将-活动中心
+{% endblock %}
+
+{% block content %}
+<div class="col-xs-8">
+    {% include 'article_tablist.html' %}
+    <div class="panel p30" style="min-height: 510px;">
+        <h2 class="sTitle">
+            <span class="icon icon-globe-b"></span>
+                <span class="bl1">
+                  <span class="uppercase">Activity</span><br>活动中心
+                </span>
+
+            <div class="input-group pull-right input-r">
+            </div>
+            <!-- /input-group -->
+        </h2>
+        <div>
+            <div class="row nopd">
+                <ul class="list list01">
+                    {% for item in list %}
+                    <li class="pt15 pb15">
+                        <div class="media">
+                            <a class="pull-left pr15">
+                                <img class="media-object" src="http://{{item.web_image_url}}" width=144 height=72" alt="Image">
+                            </a>
+
+                            <div class="media-body">
+                                <h4 class="media-heading pr"><a href="/activity/detail/{{item.id}}"><strong>{{item.name}}</strong></a><span class="time">{{item.publish_time}}</span>
+                                </h4>
+
+                                <p class="mbn">{{item.content}}... <a href="/activity/detail/{{item.id}}" class="text-org pull-right font12">> 更多</a></p>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="text-right">
+                    <ul class="pagination">
+                       {{pagiation|raw}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

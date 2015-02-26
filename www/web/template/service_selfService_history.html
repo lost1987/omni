@@ -1,0 +1,59 @@
+{% extends 'baseService.html' %}
+
+{% block title %}
+武汉麻将-客户服务
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-客户服务
+{% endblock %}
+
+{% block description %}
+武汉麻将-客户服务
+{% endblock %}
+
+{% block content %}
+<div class="col-xs-7">
+              <div class="panel p15 inner pb50">
+                <h4 class="mTitle">自助服务<small class="text-blue"><span class="pl5 pr5 text-grey">|</span>充值记录查询</small></h4>
+                <div class="">
+                  <form class="form-inline" role="form" id="rlForm" action="/service/rl" method="get">
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="start_time"  name="start_time" value="{{start_time}}" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  placeholder="起始时间">
+                    </div>
+                    <div class="form-group">
+                      <p class="form-control-static pl5 pr5">至</p>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="end_time" name="end_time" value="{{end_time}}" style="width:180px;" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"  placeholder="结束时间">
+                    </div>
+                    <button type="button" id="searchBtn" class="btn btn-org ml5">查询</button>
+                  </form>
+                  <div class="mt15">
+                      {% if list|length == 0 %}
+                    <p class="text-org">此时间段您没有记录</p>
+                      {% endif %}
+                    <table class="table table-border table-hover">
+                      <tbody>
+                      {% for item in list %}
+                      <tr>
+                          <td>{{item.time}}</td>
+                          <td class="text-right">{{item.m}}元</td>
+                      </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                    <div class="text-right">
+                      <ul class="pagination">
+                        {{pagiation|raw}}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+{% endblock %}
+{% block script %}
+<script src="{{ constant('STATIC_HOST')}}/js/My97DatePicker/WdatePicker.js" ></script>
+<script src="{{ constant('STATIC_HOST') }}/js/user.recharge.js"></script>
+{% endblock %}

@@ -11,7 +11,9 @@ namespace libs\payment;
 
 use core\Controller;
 use utils\Tools;
+use web\libs\UserUtil;
 use web\model\PaymentOrder;
+use web\model\UserModel;
 
 /**
  * 支付接口抽象类
@@ -65,7 +67,7 @@ abstract class BasePay extends Controller{
      */
     protected function save_order($uid,$order_no,$money,$pay_type,$pay_for_id){
 
-        if($pay_type == 3) {//手机卡支付
+        if($pay_type == 2) {//手机卡支付
             $pay_amount = $this->config->web['pay_amount_ratio_mobile'];
         }else{
             $pay_amount = $this->config->web['pay_amount_ratio'];

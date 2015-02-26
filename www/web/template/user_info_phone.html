@@ -1,0 +1,56 @@
+{% extends 'basePersonnal.html' %}
+
+{% block title %}
+武汉麻将-个人中心
+{% endblock %}
+
+{% block keywords %}
+武汉麻将-个人中心
+{% endblock %}
+
+{% block description %}
+武汉麻将-个人中心
+{% endblock %}
+
+{% block content %}
+    <div class="col-xs-7">
+      <div class="panel p15 inner pb50">
+        <h4 class="mTitle">账号信息<small class="text-blue"><span class="pl5 pr5 text-grey">|</span>手机认证</small></h4>
+        <div>
+          <div class="alert alert-info">
+            <div class="p10">
+            服务说明：绑定手机是保证账号安全最重要的途径，请您认真填写自己的手机号码，杜绝安全隐患。
+            </div>
+          </div>
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="" class="col-xs-3 control-label">手机号：</label>
+              <div class="col-xs-6">
+                <input type="text" class="form-control" id="mobile">
+                <p class="help-block">（请输入11位有效手机号码）</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="col-xs-3 control-label">短信验证码：</label>
+              <div class="col-xs-4">
+                <input type="text" class="form-control" id="smsCode" >
+              </div>
+              <div class="col-xs-3"><a href="javascript:getSms()" class="btn btn-org" id="smsBtn">发送短信验证码</a></div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-offset-3 col-xs-6">
+                <button type="button" class="btn btn-info" id="authBtn" onclick="auth()">立即认证</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    var secondsRemain = {{secondsRemain}};
+</script>
+<script src="{{ constant('STATIC_HOST') }}/js/user.auth.phone.js"></script>
+{% endblock %}

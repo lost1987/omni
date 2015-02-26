@@ -40,6 +40,15 @@ return array(
      * 类文件必须放在 BASE_PROJECT/hook/beforectl 下面
      */
     'hook_breforectl' => array(
-        array('clazz'=>'Server','method'=>array('status','version'))
+        array('clazz'=>'Server','method'=>array('status'))
     ),
+
+    /**
+     * anysdk的密匙
+     */
+    'anySdk' => array(
+        'pKey' => '7E86C8DD81E93A6E2BE07D0C942999C9',
+        'loginCheckUrl' => 'http://oauth.anysdk.com/api/User/LoginOauth/'
+    )
+
 );

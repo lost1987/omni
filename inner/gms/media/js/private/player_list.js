@@ -42,8 +42,8 @@ var TableAdvanced = function () {
                         sOut += '<tr><th>头像:</th><td>' + response.avatar + '</td><th>赢局数:</th><td>' + response.wins + '</td><th>封顶局数:</th><td>' + response.fengs + '</td></tr>';
                         sOut += '<tr><th>总局数:</th><td>' + response.total + '</td><th>小胡:</th><td>' + response.littlewin + '</td><th>风一色:</th><td>' + response.allwind + '</td></tr>';
                         sOut += '<tr><th>将一色:</th><td>' + response.all258 + '</td><th>清一色:</th><td>' + response.allonesuite + '</td><th>碰碰胡:</th><td>' + response.alltriples + '</td></tr>';
-                        sOut += '<tr><th>全求人:</th><td>' + response.allothers + '</td><th>海底捞:</th><td>' + response.allothers + '</td><th>杠上开花:</th><td>' + response.quadruplerobbery + '</td></tr>';
-                        sOut += '<tr><th>抢杠:</th><td>' + response.winquadruplecard + '</td><th>金顶:</th><td>' + response.topgold + '</td><th>钻石顶:</th><td>' + response.topdiamond + '</td></tr>';
+                        sOut += '<tr><th>全求人:</th><td>' + response.allothers + '</td><th>海底捞:</th><td>' + response.allothers + '</td><th>杠上开花:</th><td>' + response.winquadruplecard + '</td></tr>';
+                        sOut += '<tr><th>抢杠:</th><td>' + response.quadruplerobbery + '</td><th>金顶:</th><td>' + response.topgold + '</td><th>钻石顶:</th><td>' + response.topdiamond + '</td></tr>';
                         sOut += '<tr><th>放冲:</th><td>' + response.fangchong + '</td><th>自摸:</th><td>' + response.zimo + '</td><th>包胡:</th><td>' + response.baohu + '</td></tr>';
                         sOut += '</table>';
                     } else

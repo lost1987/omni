@@ -11,7 +11,6 @@ namespace core;
 
 use interfaces\IStartup;
 use utils\Http;
-use utils\Tools;
 
 class Fpm implements IStartup{
 

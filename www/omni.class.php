@@ -12,7 +12,9 @@ use core\Cache;
 use core\DB;
 use core\Fpm;
 use core\Input;
+use core\ExceptionHandler;
 use interfaces\IStartup;
+use utils\DateLog;
 
 class Omni
 {
@@ -49,11 +51,30 @@ class Omni
      */
     private function base_init()
     {
+        /*定义动态加载类*/
         spl_autoload_register(array('Autoload', 'load'));
 
         $this->config = Configure::instance();
         /*加载通用配置文件**/
         $this->config->load(array('common'));
+
+        /*设置时区***/
+        date_default_timezone_set("Asia/Shanghai");
+
+        /*启动错误日志*/
+        DateLog::instance(BASE_PATH.'/logs',BASE_PROJECT)->on();
+
+        /*定义全局异常处理*/
+        set_exception_handler(array(ExceptionHandler::instance(),'handle'));
+
+
+        /*定义需要忽略的notice*/
+        ExceptionHandler::instance()->set_ignored_notice(array(
+            'Undefined index: c','Undefined index: m'
+        ));
+
+        /*全局错误处理 将错误托管给异常处理*/
+        set_error_handler(array(ExceptionHandler::instance(),'error_transfer_exception'));
     }
 
 
@@ -69,9 +90,6 @@ class Omni
     {
         /*设置编码**/
         header("content-type:text/html;charset=utf8");
-
-        /*设置时区***/
-        date_default_timezone_set("Asia/Shanghai");
 
         /*输入类**/
         $this->input = Input::instance();

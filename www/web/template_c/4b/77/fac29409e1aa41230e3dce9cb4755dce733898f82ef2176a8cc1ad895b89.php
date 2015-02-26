@@ -93,7 +93,7 @@ var token = '";
                 <a href=\"javascript:;\" id=\"rdname\" class=\"brown_btn\">随机</a>
                 <label class=\"exsit\">昵称包含敏感词或已存在，请更换</label>
                 <label class=\"tip\">用于游戏中显示， 好友找到你时也需要哦</label>
-                <label class=\"error\">请输入3-8位的英文字母、下划线、数字、中文</label>
+                <label class=\"error\">请输入3-6位的英文字母、下划线、数字、中文</label>
                 <label class=\"valid\" style=\"display:none\">有效</label></td>
         </tr>
         <tr>
